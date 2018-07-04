@@ -43,6 +43,14 @@ if ( ! function_exists( 'dokanee_base_css' ) ) {
 		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'link_color_hover' ] ) );
 		$css->add_property( 'text-decoration', 'none' ); // Temporary until people can get their browser caches cleared
 
+		// Footer
+		$css->set_selector( '#footer-widgets' );
+		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'footer_widgets_bg_color' ] ) );
+
+		// Bottom bar
+		$css->set_selector( '.site-info' );
+		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'bottom_bar_bg_color' ] ) );
+
 		// Container width
 		$css->set_selector( 'body .grid-container' )->add_property( 'max-width', absint( $dokanee_settings['container_width'] ), false, 'px' );
 

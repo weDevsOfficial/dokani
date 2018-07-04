@@ -174,16 +174,31 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		/**
+		 * Add the Colors Panel
+		 */
+
+		if ( class_exists( 'WP_Customize_Panel' ) ) {
+			if ( ! $wp_customize->get_panel( 'dokanee_colors_panel' ) ) {
+				$wp_customize->add_panel( 'dokanee_colors_panel', array(
+					'priority' => 30,
+					'title' => __( 'Colors', 'dokanee' ),
+				) );
+			}
+		}
+
+		// add base color section
 		$wp_customize->add_section(
 			'body_section',
 			array(
-				'title' => $wp_customize->get_panel( 'dokanee_colors_panel' ) ? __( 'Body', 'dokanee' ) : __( 'Colors', 'dokanee' ),
+				'title' => __( 'Base Colors', 'dokanee' ),
 				'capability' => 'edit_theme_options',
 				'priority' => 30,
-				'panel' => $wp_customize->get_panel( 'dokanee_colors_panel' ) ? 'dokanee_colors_panel' : false,
+				'panel' => 'dokanee_colors_panel',
 			)
 		);
 
+		// add background_color settings
 		$wp_customize->add_setting(
 			'dokanee_settings[background_color]', array(
 				'default' => $defaults['background_color'],
@@ -193,6 +208,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// add background_color control
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
@@ -205,6 +221,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// add text_color settings
 		$wp_customize->add_setting(
 			'dokanee_settings[text_color]', array(
 				'default' => $defaults['text_color'],
@@ -214,6 +231,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// add text_color control
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
@@ -226,6 +244,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// add link_color settings
 		$wp_customize->add_setting(
 			'dokanee_settings[link_color]', array(
 				'default' => $defaults['link_color'],
@@ -235,6 +254,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// add link_color control
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
@@ -247,6 +267,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// add link_color_hover settings
 		$wp_customize->add_setting(
 			'dokanee_settings[link_color_hover]', array(
 				'default' => $defaults['link_color_hover'],
@@ -256,6 +277,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// add link_color_hover control
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
@@ -268,6 +290,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// add link_color_visited settings
 		$wp_customize->add_setting(
 			'dokanee_settings[link_color_visited]', array(
 				'default' => $defaults['link_color_visited'],
@@ -277,6 +300,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// add link_color_visited control
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
@@ -285,6 +309,63 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					'label' => __( 'Link Color Visited', 'dokanee' ),
 					'section' => 'body_section',
 					'settings' => 'dokanee_settings[link_color_visited]'
+				)
+			)
+		);
+
+		// Footer color section
+		$wp_customize->add_section(
+			'footer_color_section',
+			array(
+				'title' => __( 'Footer Colors', 'dokanee' ),
+				'capability' => 'edit_theme_options',
+				'priority' => 30,
+				'panel' => 'dokanee_colors_panel',
+			)
+		);
+
+		// add footer_widgets_bg_color settings
+		$wp_customize->add_setting(
+			'dokanee_settings[footer_widgets_bg_color]', array(
+				'default'     => '#ffffff',
+				'type' => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_hex_color',
+				'transport' => 'postMessage',
+			)
+		);
+
+		// add footer_widgets_bg_color control
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'dokanee_settings[footer_widgets_bg_color]',
+				array(
+					'label'      => __( 'Footer Widget Background Color', 'dokanee' ),
+					'section'    => 'footer_color_section',
+					'settings'   => 'dokanee_settings[footer_widgets_bg_color]',
+				)
+			)
+		);
+
+		// add bottom_bar_bg_color settings
+		$wp_customize->add_setting(
+			'dokanee_settings[bottom_bar_bg_color]', array(
+				'default'     => '#ffffff',
+				'type' => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_hex_color',
+				'transport' => 'postMessage',
+			)
+		);
+
+		// add bottom_bar_bg_color control
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'dokanee_settings[bottom_bar_bg_color]',
+				array(
+					'label'      => __( 'Bottom Bar Background Color', 'dokanee' ),
+					'section'    => 'footer_color_section',
+					'settings'   => 'dokanee_settings[bottom_bar_bg_color]',
 				)
 			)
 		);
@@ -316,7 +397,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			}
 		}
 
-		// Add Layout section
+		// Add Container section
 		$wp_customize->add_section(
 			'dokanee_layout_container',
 			array(
@@ -337,6 +418,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// Container control
 		$wp_customize->add_control(
 			new Generate_Range_Slider_Control(
 				$wp_customize,

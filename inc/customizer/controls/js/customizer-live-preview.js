@@ -73,6 +73,18 @@ function dokanee_classes_live_update( id, classes, selector, prefix ) {
 	 */
 	dokanee_colors_live_update( 'link_color_hover', 'a:hover', 'color', 'initial' );
 
+    /**
+     * Footer widgets background color
+     * Empty:  Black
+     */
+    dokanee_colors_live_update( 'footer_widgets_bg_color', '#footer-widgets', 'background-color', '#FFFFFF' );
+
+    /**
+     * Bottom bar background color
+     * Empty:  Black
+     */
+    dokanee_colors_live_update( 'bottom_bar_bg_color', '.site-info', 'background-color', '#FFFFFF' );
+
 	/**
 	 * Container width
 	 */
