@@ -31,17 +31,42 @@ if ( ! function_exists( 'dokanee_construct_footer' ) ) {
 				do_action( 'dokanee_before_copyright' );
 				?>
 				<div class="copyright-bar">
-					<?php
-					/**
-					 * dokanee_credits hook.
-					 *
-					 * @since 0.1
-					 *
-					 * @hooked dokanee_add_footer_info - 10
-					 */
-					do_action( 'dokanee_credits' );
+
+                    <?php
+
+                    $dokanee_footer_content = get_theme_mod('dokanee_footer_content');
+
+                    if ( $dokanee_footer_content == '' ) {
+
+	                    /**
+	                     * dokanee_credits hook.
+	                     *
+	                     * @since 0.1
+	                     *
+	                     * @hooked dokanee_add_footer_info - 10
+	                     */
+	                    do_action( 'dokanee_credits' );
+
+                    } else {?>
+
+                        <span class="copyright"> <?php _e( $dokanee_footer_content, 'dokanee' ); ?> </span>
+
+                    <?php }
+
 					?>
 				</div>
+
+                <?php
+
+                $payment_options = get_theme_mod( 'payment_options' );
+
+                if ( $payment_options !='' ) { ?>
+
+                    <div class="payment-options">
+                        <img src="<?php echo esc_url( $payment_options ); ?>" alt="<?php esc_attr_e('Payment Options', 'dokanee'); ?>">
+                    </div>
+
+                 <?php } ?>
 			</div>
 		</footer><!-- .site-info -->
 		<?php

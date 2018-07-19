@@ -49,6 +49,13 @@ function dokanee_classes_live_update( id, classes, selector, prefix ) {
 		} );
 	} );
 
+	//Update the site footer content in real time...
+	wp.customize( 'dokanee_footer_content', function( value ) {
+		value.bind( function( newval ) {
+			$( '.copyright-bar' ).html( newval );
+		} );
+	} );
+
 	/**
 	 * Body background color
 	 * Empty:  white
