@@ -1,0 +1,100 @@
+@white            : #FFFFFF;
+@black            : #000000;
+@border-color     : #ECEDEF; //e2e4e6 #e6e6e6
+@dark-gray        : #A1B2B9;
+@light-gray       : #f6f7fb;
+@green            : #329F46;
+@light-blue       : #5BC0DE;
+@red              : #D9534F;
+@yellow           : #F4C503;
+@blue             : #0000FF;
+@info             : #0CA8E1;
+@success          : #8cb932;
+@warning          : #FF991B;
+@error            : #b41919;
+
+
+@light-sky         : #00D5B1;
+@dark-purple       : #A73096;
+@orange-color       : #F2624D;
+
+
+@borderColor: #e6e6e6;
+@theme-color: #f2624d;
+
+//@darken-theme-color: #f2624d;
+@secondary-theme-color: #1abc9c;
+@title-color: #616161;
+@content-color: #8a8a8a;
+
+@lighten-green: #61bd6d;
+@purple-color: #8054a1;
+@blue-color: #3c78be;
+@darken-blue: #475577;
+@sky-color: #00baed;
+
+
+@footer-color: #9c9c9c;
+
+
+@menu-font-weight: 600;
+
+@topbar-menu-color: #a2abb2;
+
+
+@post-title-color: #000000;
+@post-content-color: #9c9c9c;
+
+
+@sidebar-content-color: #333e48;
+
+
+@font-family: 'Lato', sans-serif;
+
+/* =============================================================================
+   Screen size variables
+   ========================================================================== */
+
+@screen-xs:                        480px;
+@screen-xs-min:                    @screen-xs;
+@screen-sm:                        768px;
+@screen-sm-min:                    @screen-sm;
+@screen-md:                        992px;
+@screen-md-min:                    @screen-md;
+@screen-lg:                        1200px;
+@screen-lg-min:                    @screen-lg;
+@screen-xl:                        1600px;
+@screen-xl-min:                    @screen-xl;
+@screen-xs-max:                    ( @screen-sm-min - 1 );
+@screen-sm-max:                    ( @screen-md-min - 1 );
+@screen-md-max:                    ( @screen-lg-min - 1 );
+@screen-lg-max:                    ( @screen-xl-min - 1 );
+
+/* =============================================================================
+   Media queries for different screen sizes
+   ========================================================================== */
+
+// xs and smaller (max-width: 480px)
+@media-screen-xs-min: ~"only screen and (max-width: @{screen-xs-min})";
+// xs only (max-width: 767px)
+@media-screen-xs: ~"only screen and (max-width: @{screen-xs-max})";
+// sm and smaller (min-width: 768px)
+@media-screen-sm-min: ~"only screen and (min-width: @{screen-sm-min})";
+// sm and larger (max-width: 991px)
+@media-screen-sm-max: ~"only screen and (max-width: @{screen-sm-max})";
+// sm only (min-width: 768px to max-width: 991px)
+@media-screen-sm: ~"only screen and (min-width: @{screen-sm-min})and (max-width: @{screen-sm-max})";
+// md only (min-width: 992px to max-width: 1199px)
+@media-screen-md: ~"only screen and (min-width: @{screen-md-min})and (max-width: @{screen-md-max})";
+// sm to md (min-width: 768px to max-width: 1199px)
+@media-screen-sm-md: ~"only screen and (min-width: @{screen-sm-min})and (max-width: @{screen-md-max})";
+// md and smaller (max-width: 1199px)
+@media-screen-md-max: ~"only screen and (max-width: @{screen-md-max})";
+// lg and larger (max-width: 1200px)
+@media-screen-lg-min: ~"only screen and (min-width: @{screen-lg-min})";
+// lg only (min-width: 1200px to max-width: 1599px)
+@media-screen-lg: ~"(min-width: @{screen-lg-min}) and (max-width: @{screen-lg-max})";
+// lg and smaller (max-width: 1599px)
+@media-screen-lg-max: ~"only screen and (max-width: @{screen-lg-max})";
+// xl and larger (min-width: 1600px)
+@media-screen-xl: ~"only screen and (min-width: @{screen-xl-min})";

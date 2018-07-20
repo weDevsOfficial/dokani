@@ -1,0 +1,140 @@
+
+.footer-widgets {
+    font-size: 14px;
+    line-height: 1.5em;
+    color: @footer-color;
+    padding: 110px 0;
+    border-top: 1px solid @border-color;
+
+    .widget {
+        font-size: 14px;
+        
+        a {
+            color: @footer-color;
+
+            &:hover {
+                color: @theme-color;
+            }
+        }
+    }
+
+    .widget-title {
+        font-size: 23px;
+        line-height: 1.5em;
+        color: #333e48;
+    }
+}
+
+.inside-footer-widgets .inner-padding {
+    padding: 0 40px;
+}
+
+.footer-widgets {
+    //padding: 40px;
+}
+
+.site-footer .footer-widgets-container .inner-padding {
+    padding: 0px 0px 0px 40px;
+}
+
+.site-footer .footer-widgets-container .inside-footer-widgets {
+    margin-left: -40px;
+}
+
+// Site Info
+
+.site-info {
+    padding: 20px;
+    font-size: 15px;
+    //text-align: center;
+    text-align: left;
+    border-top: 1px solid @border-color;
+
+    .inside-site-info {
+        display: flex;
+        align-items: center;
+
+        > div {
+            flex: 1 1 auto;
+        }
+
+        .payment-options {
+            text-align: right;
+        }
+    }
+}
+
+
+
+/* Footer bar */
+.footer-bar-active .footer-bar .widget {
+    padding: 0;
+}
+
+.footer-bar .widget_nav_menu > div > ul {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.footer-bar .textwidget p:last-child {
+    margin: 0;
+}
+
+
+
+
+/* Footer bar aligned right */
+.footer-bar-align-right .copyright-bar {
+    float: left;
+}
+
+.footer-bar-align-right .footer-bar {
+    float: right;
+    text-align: right;
+}
+
+/* Footer bar aligned left */
+.footer-bar-align-left .copyright-bar {
+    float: right;
+    text-align: right;
+}
+
+.footer-bar-align-left .footer-bar {
+    float: left;
+    text-align: left;
+}
+
+/* Footer bar aligned center */
+.footer-bar-align-center .copyright-bar {
+    float: none;
+    text-align: center;
+}
+
+.footer-bar-align-center .footer-bar {
+    float: none;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.footer-bar .widget-title {
+    display: none;
+}
+
+/* Footer bar menu */
+.footer-bar .widget_nav_menu li {
+    margin: 0 10px;
+    float: left;
+    padding: 0;
+}
+
+.footer-bar .widget_nav_menu li:first-child {
+    margin-left: 0;
+}
+
+.footer-bar .widget_nav_menu li:last-child {
+    margin-right: 0;
+}
+
+.footer-bar .widget_nav_menu li ul {
+    display: none;
+}
