@@ -63,8 +63,8 @@ if ( ! function_exists( 'dokanee_content_nav' ) ) {
 				if ( function_exists( 'the_posts_pagination' ) ) {
 					the_posts_pagination( array(
 						'mid_size' => apply_filters( 'dokanee_pagination_mid_size', 1 ),
-						'prev_text' => apply_filters( 'dokanee_previous_link_text', __( '&larr; Previous', 'dokanee' ) ),
-						'next_text' => apply_filters( 'dokanee_next_link_text', __( 'Next &rarr;', 'dokanee' ) ),
+						'prev_text' => apply_filters( 'dokanee_previous_link_text', __( '&larr;', 'dokanee' ) ),
+						'next_text' => apply_filters( 'dokanee_next_link_text', __( '&rarr;', 'dokanee' ) ),
 					) );
 				}
 
