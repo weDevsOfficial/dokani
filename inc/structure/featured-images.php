@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! function_exists( 'dokanee_post_image' ) ) {
-	add_action( 'dokanee_after_entry_header', 'dokanee_post_image' );
+	add_action( 'dokanee_before_content', 'dokanee_post_image', 20 );
 	/**
 	 * Prints the Post Image to post excerpts
 	 */

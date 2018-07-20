@@ -242,7 +242,7 @@ if ( ! function_exists( 'dokanee_post_meta' ) ) {
 }
 
 if ( ! function_exists( 'dokanee_footer_meta' ) ) {
-	add_action( 'dokanee_after_entry_content', 'dokanee_footer_meta' );
+//	add_action( 'dokanee_after_entry_content', 'dokanee_footer_meta' );
 	/**
 	 * Build the footer post meta.
 	 *

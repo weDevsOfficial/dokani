@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @since 0.1
 		 *
 		 * @hooked dokanee_featured_page_header_inside_single - 10
+		 * @hooked dokanee_post_image - 20
 		 */
 		do_action( 'dokanee_before_content' );
 		?>
@@ -49,8 +50,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * dokanee_after_entry_header hook.
 		 *
 		 * @since 0.1
-		 *
-		 * @hooked dokanee_post_image - 10
 		 */
 		do_action( 'dokanee_after_entry_header' );
 
