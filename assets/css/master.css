@@ -1,3 +1,173 @@
+/* =============================================================================
+   Screen size variables
+   ========================================================================== */
+/* =============================================================================
+   Media queries for different screen sizes
+   ========================================================================== */
+.top-bar {
+  border-bottom: 1px solid #ECEDEF;
+  background-color: #FFFFFF;
+  color: #a2abb2;
+}
+.top-bar a {
+  color: #a2abb2;
+}
+.top-bar a:hover {
+  color: #f2624d;
+}
+.top-bar div:not(.entry-content) .widget ul li {
+  padding-top: 5px;
+}
+.site-header {
+  position: relative;
+}
+.site-header .inside-header {
+  display: flex;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.site-header .inside-header .category-menu-wrapper {
+  padding-right: 23px;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu {
+  position: relative;
+  width: 32px;
+  padding-bottom: 20px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu:hover #cat-drop-stack {
+  display: block;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu .title {
+  text-indent: -1000em;
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu .title:before {
+  font-family: FontAwesome;
+  content: '\f0c9';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 15px;
+  color: #f2624d;
+  text-indent: 0;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  border: 1px solid #ECEDEF;
+  border-radius: 2px;
+  width: 32px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu #cat-drop-stack {
+  display: none;
+  width: 250px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fafcfd;
+  margin: 0;
+  z-index: 999;
+  border: none;
+  color: #949eaa;
+  border-radius: 5px;
+  box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.15);
+  padding: 15px 0px;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu #cat-drop-stack ul {
+  margin: 0;
+  list-style: none;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu #cat-drop-stack ul li.has-children a {
+  border-bottom: 0 !important;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu #cat-drop-stack ul li.has-children a .caret-icon {
+  float: right;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu #cat-drop-stack ul li.has-children .children {
+  display: none;
+  margin-left: 20px;
+}
+.site-header .inside-header .category-menu-wrapper .dokanee-category-menu #cat-drop-stack ul a {
+  display: block;
+  padding: 6px 25px;
+}
+.site-header .inside-header .header-widget {
+  top: 0;
+  margin-left: 5%;
+}
+.site-header .inside-header .header-widget .widget_dokna_product_search {
+  float: none;
+  max-width: unset;
+}
+.site-header .inside-header .ajaxsearchform .input-group {
+  display: flex;
+  width: 500px;
+}
+.site-header .inside-header .ajaxsearchform .dokan-ajax-search-textfield {
+  width: 90%;
+  background-color: transparent;
+  border: 1px solid #ECEDEF;
+  border-radius: 5px 0 0 5px;
+}
+.site-header .inside-header .ajaxsearchform .input-group-addon {
+  position: relative;
+  width: 45px;
+  border-radius: 0 5px 5px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ECEDEF;
+  border-left: 0;
+}
+.site-header .inside-header .ajaxsearchform .input-group-addon:before {
+  font-family: FontAwesome;
+  content: '\f002';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 15px;
+  color: #f2624d;
+  transform: translate(-50%, -50%);
+}
+.site-header .inside-header .ajaxsearchform .input-group-addon select {
+  display: none;
+}
+.site-header .inside-header .main-navigation {
+  width: 38%;
+}
+.site-header .inside-header .main-navigation,
+.site-header .inside-header .main-navigation .main-navigation ul ul {
+  background: transparent;
+}
+.site-header .inside-header .main-navigation a,
+.site-header .inside-header .main-navigation .main-navigation ul ul a {
+  color: #000;
+}
+.site-header .inside-header .main-navigation .main-nav ul {
+  overflow: hidden;
+  float: right;
+}
+.site-header .inside-header .main-navigation .main-nav ul li[class*="current-menu-"] > a {
+  background-color: transparent;
+  color: #f2624d;
+}
+.site-header .inside-header .main-navigation .main-nav ul li:hover > a,
+.site-header .inside-header .main-navigation .main-nav ul li:focus > a,
+.site-header .inside-header .main-navigation .main-nav ul li.sfHover > a {
+  background-color: transparent;
+  color: #f2624d;
+}
+.site-header .inside-header .main-navigation .main-nav ul li a {
+  padding-left: 13px;
+  padding-right: 13px;
+  font-weight: 600;
+}
 .footer-widgets {
   font-size: 14px;
   line-height: 1.5em;

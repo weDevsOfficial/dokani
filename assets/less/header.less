@@ -1,0 +1,211 @@
+
+.top-bar {
+    border-bottom: 1px solid @border-color;
+
+    // default color
+    background-color: @white;
+    color: @topbar-menu-color;
+
+    a {
+        color: @topbar-menu-color;
+
+        &:hover {
+            color: @theme-color;
+        }
+    }
+
+    div:not(.entry-content) .widget ul li {
+        padding-top: 5px;
+    }
+}
+
+.site-header {
+    position:relative;
+
+    .inside-header {
+        display: flex;
+        align-items: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+
+        .category-menu-wrapper {
+            padding-right: 23px;
+
+            .dokanee-category-menu {
+                position: relative;
+                width: 32px;
+                padding-bottom: 20px;
+                margin-top: 12px;
+                cursor: pointer;
+
+                &:hover #cat-drop-stack {
+                    display: block;
+                }
+
+                .title {
+                    text-indent: -1000em;
+                    position: relative;
+                    left: 0;
+                    top: 0;
+                    z-index: 1;
+                    margin: 0;
+                    //padding-bottom: 20px;
+                    cursor: pointer;
+
+                    &:before {
+                        font-family: FontAwesome;
+                        content: '\f0c9';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        font-size: 15px;
+                        color: @theme-color;
+                        text-indent: 0;
+                        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+                        border: 1px solid @border-color;
+                        border-radius: 2px;
+                        width: 32px;
+                        height: 28px;
+                        text-align: center;
+                        line-height: 28px;
+                    }
+                }
+
+                #cat-drop-stack {
+                    display: none;
+                    width: 250px;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: #fafcfd;
+                    margin: 0;
+                    z-index: 999;
+                    border: none;
+                    color: #949eaa;
+                    border-radius: 5px;
+                    box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.15);
+                    padding: 15px 0px;
+
+                    ul {
+                        margin: 0;
+                        list-style: none;
+
+                        li {
+
+                            &.has-children {
+                                a {
+                                    border-bottom: 0 !important;
+
+                                    .caret-icon {
+                                        float: right;
+                                    }
+                                }
+
+                                .children {
+                                    display: none;
+                                    margin-left: 20px;
+                                }
+                            }
+                        }
+
+                        a {
+                            display: block;
+                            padding: 6px 25px;
+                        }
+
+
+                    }
+                }
+            }
+        }
+
+        .header-widget {
+            top: 0;
+            margin-left: 5%;
+
+            .widget_dokna_product_search {
+                float: none;
+                max-width: unset;
+
+            }
+        }
+
+        .ajaxsearchform{
+
+            .input-group {
+                display: flex;
+                width: 500px;
+            }
+
+            .dokan-ajax-search-textfield {
+                width: 90%;
+                background-color: transparent;
+                border: 1px solid @border-color;
+                border-radius: 5px 0 0 5px;
+            }
+
+            .input-group-addon {
+                position: relative;
+                width: 45px;
+                border-radius: 0 5px 5px 0;
+                background-color: #f9f9f9;
+                border: 1px solid @border-color;
+                border-left: 0;
+
+                &:before {
+                    font-family: FontAwesome;
+                    content: '\f002';
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    font-size: 15px;
+                    color: @theme-color;
+                    transform: translate(-50%, -50%);
+                }
+                select {
+                    display: none;
+                }
+            }
+        }
+
+
+        .main-navigation {
+            width: 38%;
+
+            & , .main-navigation ul ul {
+                background: transparent;
+
+                a {
+                    color: #000;
+
+
+                }
+            }
+
+            .main-nav ul {
+                overflow: hidden;
+                float: right;
+
+                li {
+                    &[class*="current-menu-"] > a {
+                        background-color: transparent;
+                        color: @theme-color;
+                    }
+
+                    &:hover > a, &:focus > a, &.sfHover > a {
+                        background-color: transparent;
+                        color: @theme-color;
+                    }
+
+                    a {
+                        padding-left: 13px;
+                        padding-right: 13px;
+                        font-weight: @menu-font-weight;
+                    }
+                }
+            }
+
+        }
+
+    }
+}

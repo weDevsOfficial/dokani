@@ -596,10 +596,6 @@ span.search-item.close-search a:before {
 	display: inline-block;
 }
 
-.site-header {
-	position:relative;
-}
-
 .header-aligned-left .site-header {
 	text-align: left;
 }

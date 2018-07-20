@@ -28,6 +28,9 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 				 */
 				do_action( 'dokanee_before_header_content' );
 
+				// Display dokan category
+				dokan_category_widget();
+
 				// Add our main header items.
 				dokanee_header_items();
 
@@ -46,6 +49,30 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 	}
 }
 
+if ( ! function_exists( 'dokan_category_widget' ) ) :
+
+	/**
+	 * Display the product category widget
+	 *
+	 * @return void
+	 */
+	function dokan_category_widget() {
+		if ( class_exists( 'Dokan_Category_Widget' ) ) {
+			the_widget( 'Dokan_Category_Widget', array(
+				'title' => __( 'Product Categories', 'dokan-theme' )
+			), array(
+					'before_widget' => '<div class="category-menu-wrapper"><div class="dokanee-category-menu">',
+					'after_widget'  => '</div></div>',
+					'before_title'  => '<h3 class="title">',
+					'after_title'   => '</h3>',
+				)
+			);
+		}
+	}
+
+endif;
+
+
 if ( ! function_exists( 'dokanee_header_items' ) ) {
 	/**
 	 * Build the header contents.
@@ -54,9 +81,9 @@ if ( ! function_exists( 'dokanee_header_items' ) ) {
 	 * @since 1.2.9.7
 	 */
 	function dokanee_header_items() {
-		dokanee_construct_header_widget();
 		dokanee_construct_site_title();
 		dokanee_construct_logo();
+		dokanee_construct_header_widget();
 	}
 }
 
