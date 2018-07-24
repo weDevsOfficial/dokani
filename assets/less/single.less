@@ -1,0 +1,234 @@
+
+// Single page
+
+.single-post {
+
+    &.woocommerce {
+        .page-header-image-single {
+            display: block;
+        }
+
+        #respond input#submit {
+            background-color: @theme-color;
+            color: @white;
+            font-size: 14px;
+            font-weight: 300;
+            padding: 13px 25px;
+            
+            &:hover,
+            &:focus,
+            &:active {
+                opacity: .9;
+            }
+        }
+    }
+
+
+
+}
+
+
+/* =Comments
+----------------------------------------------- */
+.comment-content a {
+    word-wrap: break-word;
+}
+
+.bypostauthor {}
+
+.comment,
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-author-info {
+    display: inline-block;
+    vertical-align:middle;
+}
+
+.comment-meta .avatar {
+    float: left;
+    margin-right: 10px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.comment-author cite {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.entry-meta.comment-metadata {
+    margin-top: 0;
+}
+
+.comment-content {
+    margin-top: 1.5em;
+}
+
+.comment-respond {
+    margin-top: 1.5em;
+}
+.comment-form > .form-submit {
+    margin-bottom: 0;
+}
+
+.comment-form input,
+.comment-form-comment {
+    margin-bottom: 20px;
+}
+
+.comment-form #author,
+.comment-form #email,
+.comment-form #url {
+    //display: block;
+}
+
+.comment-metadata .edit-link:before {
+    display: none;
+}
+
+.comment-body {
+    padding: 30px 0;
+}
+
+.comment-content {
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.depth-1.parent > .children {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.comment .children {
+    padding-left: 30px;
+    margin-top: -30px;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pingback .comment-body,
+.trackback .comment-body {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pingback .edit-link {
+    font-size: 13px;
+}
+
+.comment-content p:last-child {
+    margin-bottom: 0;
+}
+
+.comment-list > .comment:first-child {
+    padding-top:0;
+    margin-top:0;
+    border-top: 0;
+}
+
+ol.comment-list {
+    margin-bottom: 1.5em;
+}
+
+#wp-comment-cookies-consent {
+    margin-right: 7px;
+}
+
+
+
+.comments-area {
+
+    .comment-list {
+        .comment-meta {
+            .comment-author-info {
+                .comment-author {
+                    .fn {
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: @post-title-color;
+
+                        a {
+                            color: inherit;
+
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                color: @theme-color;
+                            }
+                        }
+                    }
+                }
+
+                .comment-metadata {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .comment-form {
+
+        #comment, #author, #email, #url {
+            border: 2px solid @border-color;
+            .rounded(3px);
+        }
+
+        #author {
+            width: 48.5%;
+            float: left;
+            margin-right: 1.5%;
+        }
+
+        #email {
+            width: 48.5%;
+            float: left;
+            margin-left: 1.5%;
+        }
+
+        #url {
+            clear: left;
+            width: 100%;
+        }
+    }
+
+    #comments {
+        div:first-child.comment-respond {
+            margin-top: 0;
+        }
+    }
+
+    .comment-reply-title {
+        font-size: 23px;
+        line-height: 1.5em;
+        font-weight: 600;
+        color: @post-title-color;
+
+        .cancel-comment-reply-link {
+            color: @theme-color;
+        }
+    }
+
+    .logged-in-as {
+        color: @post-content-color;
+        font-weight: 300;
+
+        a {
+            color: @post-content-color;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: @theme-color;
+            }
+        }
+    }
+
+    .submit {
+        background-color: @theme-color;
+        color: @white;
+        font-weight: 300;
+    }
+}

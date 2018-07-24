@@ -20,11 +20,12 @@
     margin: 0 0 2em 0;
 
     .entry-title {
+        font-size: 23px;
+        line-height: 1.5em;
+        font-weight: 600;
+
         a {
             color: @post-title-color;
-            font-size: 23px;
-            line-height: 1.5em;
-            font-weight: 600;
 
             &:hover {
                 color: @theme-color;
@@ -39,6 +40,10 @@
     line-height: 1.5em;
     color: @post-content-color;
 
+    a:hover {
+        color: @theme-color;
+    }
+
     .byline {
         color: #9b59b6;
         font-size: 15px;
@@ -50,6 +55,23 @@
             &:hover {
                 color: @theme-color;
             }
+        }
+    }
+}
+
+.entry-content {
+    .read-more {
+        font-size: 14px;
+        display: table;
+        background-color: @theme-color;
+        color: @white;
+        .rounded(3px);
+        padding: 9px 22px;
+        margin-top: 2em;
+        border: 1px solid transparent;
+
+        &:hover {
+            background-color: #f37a69;
         }
     }
 }
