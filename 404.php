@@ -35,10 +35,6 @@ get_header(); ?>
 				do_action( 'dokanee_before_content' );
 				?>
 
-				<header class="entry-header">
-					<h1 class="entry-title" itemprop="headline"><?php echo apply_filters( 'dokanee_404_title', __( 'Oops! That page can&rsquo;t be found.', 'dokanee' ) ); // WPCS: XSS OK. ?></h1>
-				</header><!-- .entry-header -->
-
 				<?php
 				/**
 				 * dokanee_after_entry_header hook.

@@ -21,7 +21,6 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 			return;
 		}
 		?>
-		<header class="page-header<?php if ( is_author() ) echo ' clearfix';?>">
 			<?php
 			/**
 			 * dokanee_before_archive_title hook.
@@ -31,9 +30,7 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 			do_action( 'dokanee_before_archive_title' );
 			?>
 
-			<h1 class="page-title">
-				<?php the_archive_title(); ?>
-			</h1>
+            <?php the_archive_title(); ?>
 
 			<?php
 			/**
@@ -59,7 +56,6 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 			 * @since 0.1
 			 */
 			do_action( 'dokanee_after_archive_description' ); ?>
-		</header><!-- .page-header -->
 		<?php
 	}
 }

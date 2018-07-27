@@ -291,6 +291,21 @@
 .social-follow-list li a:hover {
   color: #f2624d !important;
 }
+/* = Page Header
+----------------------------------------------- */
+.page-header-section {
+  border-top: 1px solid #ECEDEF;
+}
+.page-header-section .page-title {
+  margin: 32px 0;
+}
+.page-header-section .page-title h1 {
+  font-size: 23px;
+  line-height: 1.5em;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 0;
+}
 .widget-area .widget {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

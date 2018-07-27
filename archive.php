@@ -23,15 +23,6 @@ get_header(); ?>
 
 			if ( have_posts() ) :
 
-				/**
-				 * dokanee_archive_title hook.
-				 *
-				 * @since 0.1
-				 *
-				 * @hooked dokanee_archive_title - 10
-				 */
-				do_action( 'dokanee_archive_title' );
-
 				while ( have_posts() ) : the_post();
 
 					/*
