@@ -34,24 +34,44 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 		 */
 		do_action( 'dokanee_before_left_sidebar_content' );
 
-		if ( ! dynamic_sidebar( 'sidebar-2' ) ) :
+		if ( is_page_template( 'page-template/store-list.php' ) ) :
 
-			if ( false == $navigation_active ) : ?>
+			if ( ! dynamic_sidebar( 'store-list' ) ) :
 
-				<aside id="search" class="widget widget_search">
-					<?php get_search_form(); ?>
-				</aside>
+				if ( false == $navigation_active ) : ?>
 
-				<aside id="archives" class="widget">
-					<h2 class="widget-title"><?php esc_html_e( 'Archives', 'dokanee' ); ?></h2>
-					<ul>
-						<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-					</ul>
-				</aside>
+                    <aside id="archives" class="widget">
+                        <h2 class="widget-title"><?php esc_html_e( 'Archives', 'dokanee' ); ?></h2>
+                        <ul>
+							<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+                        </ul>
+                    </aside>
 
-			<?php endif;
+				<?php endif;
 
-		endif;
+			endif;
+
+		else :
+
+            if ( ! dynamic_sidebar( 'sidebar-2' ) ) :
+
+                if ( false == $navigation_active ) : ?>
+
+                    <aside id="search" class="widget widget_search">
+                        <?php get_search_form(); ?>
+                    </aside>
+
+                    <aside id="archives" class="widget">
+                        <h2 class="widget-title"><?php esc_html_e( 'Archives', 'dokanee' ); ?></h2>
+                        <ul>
+                            <?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+                        </ul>
+                    </aside>
+
+                <?php endif;
+
+            endif;
+        endif;
 
 		/**
 		 * dokanee_after_left_sidebar_content hook.

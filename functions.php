@@ -41,6 +41,8 @@ if ( ! function_exists( 'dokanee_setup' ) ) {
 			'flex-width' => true
 		) );
 
+		add_image_size( 'single-vendor-thumb', 270, 160, true );
+
 		// Register primary menu.
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', 'dokanee' ),
@@ -76,6 +78,7 @@ require get_template_directory() . '/inc/plugin-compat.php';
 require get_template_directory() . '/inc/migrate.php';
 require get_template_directory() . '/inc/deprecated.php';
 
+require get_template_directory() . '/inc/wc-template.php';
 if ( is_admin() ) {
 	require get_template_directory() . '/inc/meta-box.php';
 	require get_template_directory() . '/inc/dashboard.php';

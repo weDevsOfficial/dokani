@@ -44,6 +44,8 @@ if ( ! function_exists( 'dokanee_scripts' ) ) {
 		wp_enqueue_script( 'dokanee-menu', $dir_uri . "/assets/js/menu{$suffix}.js", array(), GENERATE_VERSION, true );
 		wp_enqueue_script( 'dokanee-a11y', $dir_uri . "/assets/js/a11y{$suffix}.js", array(), GENERATE_VERSION, true );
 
+		wp_enqueue_script( 'dokanee-script', $dir_uri . "/assets/js/script.js", array( 'jquery' ), GENERATE_VERSION, true );
+
 		if ( 'click' == $dokanee_settings[ 'nav_dropdown_type' ] || 'click-arrow' == $dokanee_settings[ 'nav_dropdown_type' ] ) {
 			wp_enqueue_script( 'dokanee-dropdown-click', $dir_uri . "/assets/js/dropdown-click{$suffix}.js", array( 'dokanee-menu' ), GENERATE_VERSION, true );
 		}
@@ -79,6 +81,7 @@ if ( ! function_exists( 'dokanee_widgets_init' ) ) {
 			'footer-5' => __( 'Footer Widget 5', 'dokanee' ),
 			'footer-bar' => __( 'Footer Bar','dokanee' ),
 			'top-bar' => __( 'Top Bar','dokanee' ),
+			'store-list' => __( 'Store List','dokanee' ),
 		);
 
 		foreach ( $widgets as $id => $name ) {
