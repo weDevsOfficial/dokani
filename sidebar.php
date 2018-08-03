@@ -51,6 +51,70 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 
 			endif;
 
+        elseif ( dokan_is_store_page() ) :
+
+			if ( dokan_get_option( 'enable_theme_store_sidebar', 'dokan_general', 'off' ) == 'off' ) :
+				do_action( 'dokan_sidebar_store_before', $store_user->data, $store_info );
+
+				if ( ! dynamic_sidebar( 'sidebar-store' ) ) {
+					$args = array(
+						'before_widget' => '<aside class="widget inner-padding">',
+						'after_widget'  => '</aside>',
+						'before_title'  => '<h3 class="widget-title">',
+						'after_title'   => '</h3>',
+					);
+
+					if ( class_exists( 'Dokan_Store_Location' ) ) {
+						the_widget( 'Dokan_Store_Category_Menu', array( 'title' => __( 'Store Category', 'dokan-lite' ) ), $args );
+
+						if ( dokan_get_option( 'store_map', 'dokan_general', 'on' ) == 'on'  && !empty( $map_location ) ) {
+							the_widget( 'Dokan_Store_Location', array( 'title' => __( 'Store Location', 'dokan-lite' ) ), $args );
+						}
+
+						if ( dokan_get_option( 'contact_seller', 'dokan_general', 'on' ) == 'on' ) {
+							the_widget( 'Dokan_Store_Contact_Form', array( 'title' => __( 'Contact Vendor', 'dokan-lite' ) ), $args );
+						}
+					}
+
+				}
+
+				do_action( 'dokan_sidebar_store_after', $store_user->data, $store_info );
+
+			else:
+
+				if ( ! dynamic_sidebar( 'sidebar-store' ) ) :
+
+					$args = array(
+						'before_widget' => '<aside class="widget inner-padding">',
+						'after_widget'  => '</aside>',
+						'before_title'  => '<h3 class="widget-title">',
+						'after_title'   => '</h3>',
+					);
+
+					if ( false == $navigation_active ) : ?>
+
+						<?php
+
+						if ( class_exists( 'Dokan_Store_Location' ) ) {
+							the_widget( 'Dokan_Store_Category_Menu', array( 'title' => __( 'Store Category', 'dokan-lite' ) ), $args );
+
+							if ( dokan_get_option( 'store_map', 'dokan_general', 'on' ) == 'on'  && !empty( $map_location ) ) {
+								the_widget( 'Dokan_Store_Location', array( 'title' => __( 'Store Location', 'dokan-lite' ) ), $args );
+							}
+
+							if ( dokan_get_option( 'contact_seller', 'dokan_general', 'on' ) == 'on' ) {
+								the_widget( 'Dokan_Store_Contact_Form', array( 'title' => __( 'Contact Vendor', 'dokan-lite' ) ), $args );
+							}
+						}
+
+						?>
+
+					<?php endif;
+
+				endif;
+
+			endif;
+
 		else :
 			if ( ! dynamic_sidebar( 'sidebar-1' ) ) :
 
