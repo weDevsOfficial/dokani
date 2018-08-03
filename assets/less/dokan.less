@@ -1,5 +1,99 @@
 /* = Store List
 ----------------------------------------------- */
+/* = Dokan Widgets
+----------------------------------------------- */
+.widget-area {
+
+    // Store Location
+    .location-container{
+        .dokan-store-address,
+        .dokan-store-phone {
+            font-size: 15px;
+            line-height: 1.5em;
+            font-weight: 400;
+            color: @content-color;
+            margin-top: 20px;
+            padding-left: 28px;
+
+            i {
+                margin-right: 14px;
+                margin-left: -27px;
+                font-size: 18px;
+                width: 10px;
+                color: #9b59b6;
+            }
+
+            a {
+                color: inherit;
+
+                &:hover {
+                    color: @theme-color;
+                }
+            }
+        }
+        
+        .dokan-store-phone {
+            i {
+                color: #00c828;
+            }
+        }
+    }
+
+    #dokan-store-location {
+        width: 100%;
+        height: 200px;
+        .rounded(5px);
+    }
+
+    // Product Category
+    #cat-drop-stack {
+        padding: 0 0 2px 0;
+
+        ul li {
+            a {
+                border-bottom: none !important;
+                padding: 0;
+                margin: 0 !important;
+                font-size: 16px;
+                position: relative;
+                display: block;
+
+                .caret-icon {
+                    position: absolute;
+                    right: -2px;
+                    display: inline-block;
+                    width: 20px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+            }
+
+            ul {
+                background-color: transparent !important;
+            }
+        }
+    }
+
+    // Store Product Cat
+    .dokan-category-menu {
+        #cat-drop-stack {
+            padding: 0 0 2px 0;
+
+            ul li {
+                a {
+                    border-bottom: none !important;
+                    padding: 0;
+                    margin: 0 !important;
+                    font-size: 16px;
+                }
+
+                ul {
+                    background-color: transparent !important;
+                }
+            }
+        }
+    }
+}
 
 #dokan-seller-listing-wrap {
     padding: 0 15px;

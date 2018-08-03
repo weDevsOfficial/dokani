@@ -664,6 +664,78 @@ ol.comment-list {
   color: #FFFFFF;
   font-weight: 300;
 }
+/* = Dokan Widgets
+----------------------------------------------- */
+.widget-area .location-container .dokan-store-address,
+.widget-area .location-container .dokan-store-phone {
+  font-size: 15px;
+  line-height: 1.5em;
+  font-weight: 400;
+  color: #8a8a8a;
+  margin-top: 20px;
+  padding-left: 28px;
+}
+.widget-area .location-container .dokan-store-address i,
+.widget-area .location-container .dokan-store-phone i {
+  margin-right: 14px;
+  margin-left: -27px;
+  font-size: 18px;
+  width: 10px;
+  color: #9b59b6;
+}
+.widget-area .location-container .dokan-store-address a,
+.widget-area .location-container .dokan-store-phone a {
+  color: inherit;
+}
+.widget-area .location-container .dokan-store-address a:hover,
+.widget-area .location-container .dokan-store-phone a:hover {
+  color: #f2624d;
+}
+.widget-area .location-container .dokan-store-phone i {
+  color: #00c828;
+}
+.widget-area #dokan-store-location {
+  width: 100%;
+  height: 200px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.widget-area #cat-drop-stack {
+  padding: 0 0 2px 0;
+}
+.widget-area #cat-drop-stack ul li a {
+  border-bottom: none !important;
+  padding: 0;
+  margin: 0 !important;
+  font-size: 16px;
+  position: relative;
+  display: block;
+}
+.widget-area #cat-drop-stack ul li a .caret-icon {
+  position: absolute;
+  right: -2px;
+  display: inline-block;
+  width: 20px;
+  vertical-align: middle;
+  text-align: center;
+}
+.widget-area #cat-drop-stack ul li ul {
+  background-color: transparent !important;
+}
+.widget-area .dokan-category-menu #cat-drop-stack {
+  padding: 0 0 2px 0;
+}
+.widget-area .dokan-category-menu #cat-drop-stack ul li a {
+  border-bottom: none !important;
+  padding: 0;
+  margin: 0 !important;
+  font-size: 16px;
+}
+.widget-area .dokan-category-menu #cat-drop-stack ul li ul {
+  background-color: transparent !important;
+}
 /* = Store List
 ----------------------------------------------- */
 #dokan-seller-listing-wrap {
