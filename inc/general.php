@@ -26,6 +26,7 @@ if ( ! function_exists( 'dokanee_scripts' ) ) {
 		wp_enqueue_style( 'dokanee-style-grid', $dir_uri . "/assets/css/unsemantic-grid{$suffix}.css", false, GENERATE_VERSION, 'all' );
 		wp_enqueue_style( 'dokanee-style', $dir_uri . "/style{$suffix}.css", array( 'dokanee-style-grid' ), GENERATE_VERSION, 'all' );
 		wp_enqueue_style( 'dokanee-mobile-style', $dir_uri . "/assets/css/mobile{$suffix}.css", array( 'dokanee-style' ), GENERATE_VERSION, 'all' );
+		wp_enqueue_style( 'dokanee-flaticon', $dir_uri . "/assets/css/flaticon.css", array(), GENERATE_VERSION, 'all' );
 		wp_enqueue_style( 'dokanee-master', $dir_uri . "/assets/css/master.css", array(), GENERATE_VERSION, 'all' );
 
 		if ( is_child_theme() ) {

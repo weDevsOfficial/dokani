@@ -1,0 +1,71 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 06/08/2018 08:44
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon.woff") format("woff"),
+       url("../fonts/Flaticon.ttf") format("truetype"),
+       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-people-2:before { content: "\f100"; }
+.flaticon-close:before { content: "\f101"; }
+.flaticon-delete:before { content: "\f102"; }
+.flaticon-technology:before { content: "\f103"; }
+.flaticon-people:before { content: "\f104"; }
+.flaticon-rest:before { content: "\f105"; }
+.flaticon-subscribe:before { content: "\f106"; }
+.flaticon-technology-1:before { content: "\f107"; }
+.flaticon-commerce:before { content: "\f108"; }
+.flaticon-suitcase:before { content: "\f109"; }
+.flaticon-computer:before { content: "\f10a"; }
+.flaticon-scissors:before { content: "\f10b"; }
+.flaticon-symbols:before { content: "\f10c"; }
+.flaticon-people-1:before { content: "\f10d"; }
+.flaticon-book:before { content: "\f10e"; }
+.flaticon-business:before { content: "\f10f"; }
+.flaticon-business-1:before { content: "\f110"; }
+.flaticon-search:before { content: "\f111"; }
+.flaticon-commerce-1:before { content: "\f112"; }
+.flaticon-exclamation:before { content: "\f113"; }
+.flaticon-draw:before { content: "\f114"; }
+.flaticon-note:before { content: "\f115"; }
+.flaticon-arrow:before { content: "\f116"; }
+.flaticon-suitcase-1:before { content: "\f117"; }
+.flaticon-arrows:before { content: "\f118"; }
+.flaticon-mark:before { content: "\f119"; }
+.flaticon-transport:before { content: "\f11a"; }
+.flaticon-three:before { content: "\f11b"; }
+.flaticon-mark-1:before { content: "\f11c"; }
+.flaticon-line:before { content: "\f11d"; }
+.flaticon-calendar:before { content: "\f11e"; }
+.flaticon-education:before { content: "\f11f"; }
+.flaticon-business-2:before { content: "\f120"; }
+.flaticon-coins:before { content: "\f121"; }
+.flaticon-gear:before { content: "\f122"; }
+.flaticon-load:before { content: "\f123"; }
+.flaticon-sign:before { content: "\f124"; }
+.flaticon-null:before { content: "\f125"; }
+.flaticon-money:before { content: "\f126"; }
+.flaticon-arrow-down-sign-to-navigate:before { content: "\f127"; }
