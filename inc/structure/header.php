@@ -252,7 +252,11 @@ if ( ! function_exists( 'dokanee_top_bar' ) ) {
 		?>
 		<div <?php dokanee_top_bar_class(); ?>>
 			<div class="inside-top-bar<?php if ( 'contained' == dokanee_get_setting( 'top_bar_inner_width' ) ) echo ' grid-container grid-parent'; ?>">
-				<?php dynamic_sidebar( 'top-bar' ); ?>
+                <?php dynamic_sidebar( 'top-bar' ); ?>
+
+                <div class="dokanee-user-menu">
+	                <?php dokan_header_user_menu(); ?>
+                </div>
 			</div>
 		</div>
 		<?php
