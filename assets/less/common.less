@@ -1,0 +1,96 @@
+
+/* BUTTON STYLE
+-----------------------------------------------------*/
+/*common-btn*/
+
+.btn {
+    border: 0;
+    font-size: 1.071rem;
+    font-weight: 400;
+    padding: 10px 20px;
+    .rounded(4px);
+
+    &.shadow {
+        .box-shadow(3.623px 13.523px 20px 0px rgba(0, 0, 0, 0.13));
+    }
+
+    &.active.focus, &.active:focus, &.focus, &:active.focus, &:active:focus, &:focus {
+        outline: none;
+    }
+
+    &-border {
+        border: 1px solid @border-color;
+        .rounded(3px);
+    }
+}
+/*button size*/
+
+.btn-md {
+    padding: 10px 20px;
+}
+
+.btn-lg,
+.btn-group-lg > .btn {
+    padding: 15px 28px;
+}
+.btn-xl {
+    font-size: 24px;
+    padding: 18px 40px;
+}
+/*btn-primary*/
+
+
+.btn-primary {
+    background-color: @theme-color;
+    color: @white;
+    .transition(all .2s);
+    &:hover, &:active:focus, &:focus, &:active, &.active {
+        color: @white;
+        .box-shadow(2.736px 7.518px 20px 0px rgba(0, 0, 0, 0.15));
+        background-color: @theme-color;
+        border-color: transparent;
+    }
+
+}
+
+.btn-secondary {
+    background-color: @secondary-theme-color;
+    color: #fff;
+
+    &:hover, &:focus, &:active, &.active {
+        color: @white;
+        .box-shadow(2.736px 7.518px 20px 0px rgba(0, 0, 0, 0.15));
+    }
+}
+
+.btn-default {
+    color: @theme-color;
+    background-color: @white;
+
+    &:hover, &:focus, &:active, &.active {
+        color: @theme-color;
+        background-color: @white;
+    }
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.5em;
+    font-weight: 400;
+    color: #333e48;
+    margin-bottom: 50px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+// divider
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    padding: 0;
+}
