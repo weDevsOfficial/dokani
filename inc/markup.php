@@ -128,6 +128,10 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 			$classes[] = 'dropdown-hover';
 		}
 
+		if ( dokan_is_store_page() ) {
+			$classes[] = 'dokanee-store-template';
+        }
+
 		return $classes;
 	}
 }
