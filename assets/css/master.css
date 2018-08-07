@@ -855,6 +855,108 @@ ol.comment-list {
   color: #FFFFFF;
   font-weight: 300;
 }
+/* = Woocommerce Products
+----------------------------------------------- */
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+  background-color: #FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 0px 0px rgba(245, 245, 245, 0.004);
+  -moz-box-shadow: 0px 2px 0px 0px rgba(245, 245, 245, 0.004);
+  -o-box-shadow: 0px 2px 0px 0px rgba(245, 245, 245, 0.004);
+  box-shadow: 0px 2px 0px 0px rgba(245, 245, 245, 0.004);
+}
+.woocommerce ul.products li.product:hover,
+.woocommerce-page ul.products li.product:hover {
+  -webkit-box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.08);
+  -o-box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.08);
+}
+.woocommerce ul.products li.product a,
+.woocommerce-page ul.products li.product a {
+  display: block;
+}
+.woocommerce ul.products li.product a img,
+.woocommerce-page ul.products li.product a img {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #ECEDEF;
+  margin-bottom: 9px;
+}
+.woocommerce ul.products li.product a .woocommerce-loop-product__title,
+.woocommerce-page ul.products li.product a .woocommerce-loop-product__title {
+  font-weight: 600;
+  line-height: 1.2em;
+  color: #000000;
+  padding: .5em 1.2em;
+}
+.woocommerce ul.products li.product .item-bar,
+.woocommerce-page ul.products li.product .item-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1.2em;
+}
+.woocommerce ul.products li.product .item-bar .item-button .button,
+.woocommerce-page ul.products li.product .item-bar .item-button .button {
+  margin-top: 0;
+  padding: 0;
+  width: 31px;
+  height: 31px;
+  line-height: 31px;
+  text-align: center;
+  background: #f2624d;
+  color: #FFFFFF;
+}
+/* = Woocommerce Common
+----------------------------------------------- */
+.woocommerce span.onsale {
+  border: 1px solid #EEEFF6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #F7F7F7;
+  color: #b3b3b3;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 13px !important;
+  line-height: 1em;
+  padding: 5px 10px;
+  min-height: auto;
+  min-width: auto;
+}
+.woocommerce .star-rating {
+  color: #f39c12;
+  width: 6.4em;
+  font-size: 14px;
+}
+.woocommerce .star-rating:before {
+  content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
+  color: #d8d8d8;
+}
+.woocommerce .star-rating span:before {
+  content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
+}
+.woocommerce ul.products li.product .price {
+  color: #f2624d;
+  font-size: 18px;
+  line-height: 1.2em;
+  font-weight: 600;
+}
+.woocommerce ul.products li.product .price ins {
+  font-weight: 600;
+}
+.woocommerce ul.products li.product .price del {
+  color: #9c9c9c;
+  font-weight: 400;
+}
 /* = Dokan Widgets
 ----------------------------------------------- */
 .widget-area .location-container .dokan-store-address,

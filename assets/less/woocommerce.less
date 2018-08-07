@@ -1,0 +1,108 @@
+/* = Woocommerce Products
+----------------------------------------------- */
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+    background-color: @white;
+    .rounded( 5px );
+    .box-shadow(0px 2px 0px 0px rgba(245, 245, 245, 0.004));
+
+    &:hover {
+        .box-shadow(0px 15px 30px 0px rgba(0, 0, 0, 0.08));
+    }
+
+    a {
+        display: block;
+
+        img {
+            .rounded( 5px 5px 0 0 );
+            border-bottom: 2px solid @border-color;
+            margin-bottom: 9px;
+        }
+
+        .woocommerce-loop-product__title {
+            font-weight: 600;
+            line-height: 1.2em;
+            color: @product-title-color;
+            padding: .5em 1.2em;
+        }
+    }
+
+    .item-bar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 1.2em;
+
+        .price {
+            
+        }
+        .item-button {
+            //text-align: right;
+
+            .button {
+                margin-top: 0;
+                padding: 0;
+                width: 31px;
+                height: 31px;
+                line-height: 31px;
+                text-align: center;
+                background: @theme-color;
+                color: @white;
+            }
+        }
+    }
+}
+
+/* = Woocommerce Common
+----------------------------------------------- */
+.woocommerce {
+    // On sale label
+    span.onsale {
+        border: 1px solid #EEEFF6;
+        .rounded(3px);
+        background-color: #F7F7F7;
+        color: #b3b3b3;
+        font-size: 13px;
+        font-weight: 400;
+        margin: 13px !important;
+        line-height: 1em;
+        padding: 5px 10px;
+        min-height: auto;
+        min-width: auto;
+    }
+
+    // star rating
+    .star-rating {
+        color: #f39c12;
+        width: 6.4em;
+        font-size: 14px;
+
+        &:before {
+            content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
+            color: #d8d8d8;
+        }
+
+        span:before {
+            content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
+        }
+    }
+
+
+    ul.products li.product .price {
+        color: @theme-color;
+        font-size: 18px;
+        line-height: 1.2em;
+        font-weight: 600;
+
+        ins {
+            font-weight: 600;
+        }
+
+        del {
+            color: #9c9c9c;
+            font-weight: 400;
+        }
+    }
+}
+
+
