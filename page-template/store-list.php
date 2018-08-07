@@ -14,9 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header(); ?>
 
 	<div id="primary" <?php dokanee_content_class();?>>
+
 		<main id="main" <?php dokanee_main_class(); ?>>
-			<?php
-			/**
+
+            <?php
+
+            /**
 			 * dokanee_before_main_content hook.
 			 *
 			 * @since 0.1
@@ -44,11 +47,15 @@ get_header(); ?>
 			 * @since 0.1
 			 */
 			do_action( 'dokanee_after_main_content' );
+
 			?>
+
 		</main><!-- #main -->
+
 	</div><!-- #primary -->
 
 	<?php
+
 	/**
 	 * dokanee_after_primary_content_area hook.
 	 *
