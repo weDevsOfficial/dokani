@@ -11,13 +11,12 @@
 		<div class="page-title text-center">
 			<h1 itemprop="headline">
 				<?php if ( is_home() ) {
-					echo 'Blog';
+					_e( 'Blog', 'dokanee' );
 				} elseif ( is_tax() ) {
 					echo single_cat_title( '', false );
 
 				} elseif ( is_singular( 'product' ) ) {
-					echo 'Product';
-
+					_e( 'Product', 'dokanee' );
 				} elseif ( is_archive() ) {
 
 					/**
@@ -30,11 +29,9 @@
 					do_action( 'dokanee_archive_title' );
 
 				} elseif ( is_post_type_archive( 'product' ) ) {
-					echo 'Products';
-
+					_e( 'Product', 'dokanee' );
 				} elseif ( is_404()) {
-				    echo apply_filters( 'dokanee_404_title', __( 'Oops! That page can&rsquo;t be found.', 'dokanee' ) );
-
+					_e( 'Oops! That page can&rsquo;t be found.', 'dokanee' );
                 } elseif ( is_search() ) {
 
                     printf( // WPCS: XSS ok.
