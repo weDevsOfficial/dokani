@@ -6,6 +6,7 @@ remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_l
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 10 );
 /**
  * Renders item-bar of products in the loop
  *
