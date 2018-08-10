@@ -286,3 +286,20 @@ function dokanee_woo_placeholder_img() {
 }
 
 add_filter('woocommerce_placeholder_img', 'dokanee_woo_placeholder_img');
+
+
+/**
+ * Product display views [ List/Grid]
+ */
+function dokanee_products_view_type() {
+	?>
+
+    <div class="dokanee-products-view buttons">
+        <button class="list"><i class="fa fa-bars"></i></button>
+        <button class="grid active"><i class="fa fa-th-large"></i></button>
+    </div>
+
+	<?php
+}
+
+add_action( 'woocommerce_before_shop_loop', 'dokanee_products_view_type' );
