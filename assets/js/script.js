@@ -28,13 +28,17 @@ jQuery(function($) {
         }
     });
 
+    $('ul.products li.product .button.product_type_simple').append( "<span>Add to Card</span>" );
+    $('ul.products li.product .button.product_type_variable').append( "<span>Select Options</span>" );
+
+
     $('ul.dropdown-menu li.dropdown').hover(function() {
         $(this).addClass('open');
     }, function() {
         $(this).removeClass('open');
     });
 
-    $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="tooltip"]').tooltip();
 
     // set dashboard menu height
     var dashboardMenu = $('ul.dokan-dashboard-menu'),
@@ -85,7 +89,7 @@ jQuery(function($) {
         var viewCartText = $('a.added_to_cart.wc-forward').text();
 
         $('i.fa-shopping-cart').removeClass('fa-spin');
-        $('a.added_to_cart.wc-forward').html('<i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="' + viewCartText + '" aria-hidden="true"></i>');
+        $('a.added_to_cart.wc-forward').html('<i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="' + viewCartText + '" aria-hidden="true"></i><span>View Cart</span>');
         $('[data-toggle="tooltip"]').tooltip();
 
         $('.dokan-cart-amount-top > .amount').fadeOut( 'fast', function(){
