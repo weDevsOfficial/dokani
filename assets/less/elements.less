@@ -44,3 +44,57 @@
         }
     }
 }
+
+/* = Section Trust Factors
+----------------------------------------------- */
+.trust-factors-section {
+    clear: both;
+    margin-bottom: -40px;
+    z-index: 1;
+    position: relative;
+
+    .grid-container {
+        padding: 0;
+
+        .factor-wrapper {
+            .rounded(5px);
+            #gradient>.directional(#FFAD6F, #FF7D90, 85deg);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10%;
+            padding: 60px 105px;
+            color: @white;
+
+            .factor-box {
+                font-size: 18px;
+                font-weight: 400;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+
+                .factor-icon {
+                    width: 64px;
+                    height: 64px;
+                    .rounded(50%);
+                    background-color: @white;
+                    color: #ff8c86;
+                    font-size: 25px;
+                    text-align: center;
+                    position: relative;
+                    margin-right: 28px;
+
+                    i {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        .translate(-50%, -50%);
+                    }
+                }
+
+                .factor-info {
+                    width: 60%;
+                }
+            }
+        }
+    }
+}

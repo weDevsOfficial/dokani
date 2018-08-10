@@ -609,6 +609,68 @@
   color: #000000;
   margin-bottom: 0;
 }
+/* = Section Trust Factors
+----------------------------------------------- */
+.trust-factors-section {
+  clear: both;
+  margin-bottom: -40px;
+  z-index: 1;
+  position: relative;
+}
+.trust-factors-section .grid-container {
+  padding: 0;
+}
+.trust-factors-section .grid-container .factor-wrapper {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #FF7D90;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(85deg, #FFAD6F, #FF7D90);
+  background-image: -webkit-linear-gradient(85deg, #FFAD6F, #FF7D90);
+  background-image: -o-linear-gradient(85deg, #FFAD6F, #FF7D90);
+  background-image: linear-gradient(85deg, #FFAD6F, #FF7D90);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10%;
+  padding: 60px 105px;
+  color: #FFFFFF;
+}
+.trust-factors-section .grid-container .factor-wrapper .factor-box {
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.trust-factors-section .grid-container .factor-wrapper .factor-box .factor-icon {
+  width: 64px;
+  height: 64px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  color: #ff8c86;
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+  margin-right: 28px;
+}
+.trust-factors-section .grid-container .factor-wrapper .factor-box .factor-icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.trust-factors-section .grid-container .factor-wrapper .factor-box .factor-info {
+  width: 60%;
+}
 .widget-area .widget {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
