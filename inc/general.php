@@ -83,6 +83,7 @@ if ( ! function_exists( 'dokanee_widgets_init' ) ) {
 			'footer-bar' => __( 'Footer Bar','dokanee' ),
 			'top-bar' => __( 'Top Bar','dokanee' ),
 			'store-list' => __( 'Store List','dokanee' ),
+			'sidebar-shop' => __( 'Shop','dokanee' ),
 		);
 
 		foreach ( $widgets as $id => $name ) {
