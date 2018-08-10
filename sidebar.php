@@ -51,7 +51,24 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 
 			endif;
 
-        elseif ( dokan_is_store_page() ) :
+        elseif ( is_archive( 'product' ) ) :
+
+			if ( ! dynamic_sidebar( 'shop' ) ) :
+
+				if ( false == $navigation_active ) : ?>
+
+                    <aside id="archives" class="widget">
+                        <h2 class="widget-title"><?php esc_html_e( 'Archives', 'dokanee' ); ?></h2>
+                        <ul>
+							<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+                        </ul>
+                    </aside>
+
+				<?php endif;
+
+			endif;
+
+		elseif ( dokan_is_store_page() ) :
 
 			if ( dokan_get_option( 'enable_theme_store_sidebar', 'dokan_general', 'off' ) == 'off' ) :
 				do_action( 'dokan_sidebar_store_before', $store_user->data, $store_info );
