@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'after_setup_theme', 'dokanee_setup_woocommerce' );
+
 /**
  * Set up WooCommerce
  *
@@ -32,8 +33,11 @@ function dokanee_setup_woocommerce() {
 	add_action( 'woocommerce_sidebar', 'dokanee_construct_sidebars' );
 }
 
+
 if ( ! function_exists( 'dokanee_woocommerce_start' ) ) {
+
 	add_action( 'woocommerce_before_main_content', 'dokanee_woocommerce_start', 10 );
+
 	/**
 	 * Add WooCommerce starting wrappers
 	 *
@@ -52,16 +56,6 @@ if ( ! function_exists( 'dokanee_woocommerce_start' ) ) {
 				?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php dokanee_article_schema( 'CreativeWork' ); ?>>
 					<div class="inside-article">
-						<?php
-						/**
-						 * dokanee_before_content hook.
-						 *
-						 * @since 0.1
-						 *
-						 * @hooked dokanee_featured_page_header_inside_single - 10
-						 */
-						do_action( 'dokanee_before_content' );
-						?>
 						<div class="entry-content" itemprop="text">
 	<?php
 	}
