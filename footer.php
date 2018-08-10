@@ -23,6 +23,19 @@ do_action( 'dokanee_before_footer' );
 ?>
 
 <div <?php dokanee_footer_class(); ?>>
+    <?php
+    /**
+     * Trust Factors Section.
+     *
+     * @since 0.1
+     */
+
+    if( is_archive('product') ) {
+	    get_template_part( 'template-parts/page/section-trust' );
+    }
+
+    ?>
+
 	<?php
 	/**
 	 * dokanee_before_footer_content hook.
