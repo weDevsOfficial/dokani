@@ -1231,6 +1231,22 @@ ol.comment-list {
 .dokan-seller-listing .dokan-seller-search-form .dokan-seller-search:focus {
   border-color: #f2624d !important;
 }
+.dokanee-products-view {
+  float: right;
+}
+.dokanee-products-view button {
+  background-color: transparent;
+  color: #d8d8d8;
+  padding: 5px 0 5px 12px;
+  font-size: 22px;
+  line-height: 1em;
+}
+.dokanee-products-view button:hover,
+.dokanee-products-view button:active,
+.dokanee-products-view button:focus,
+.dokanee-products-view button.active {
+  color: #f2624d;
+}
 /* = Dokan Widgets
 ----------------------------------------------- */
 .widget-area .location-container .dokan-store-address,
