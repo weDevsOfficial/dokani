@@ -16,16 +16,36 @@ remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pr
  */
 function dokan_product_loop_price() {
     global $product;
+	global $post;
+
+	$store_info = dokan_get_store_info( $post->post_author );
+	$url = dokan_get_store_url( $post->post_author );
     ?>
-    <div class="item-bar">
 
-        <?php woocommerce_template_loop_price(); ?>
+    <div class="item-content">
+        <div class="item-header">
+	        <?php woocommerce_template_loop_product_link_open(); ?>
+	        <?php woocommerce_template_loop_product_title(); ?>
+	        <?php woocommerce_template_loop_product_link_close(); ?>
+	        <?php
+	        echo '<div class="item-vendor"><span>Sold by </span><a href="' . $url . '">' . $store_info['store_name'] . '</a></div>';
+	        ?>
+	        <?php woocommerce_template_loop_rating(); ?>
+        </div>
+        <div class="item-bar">
+            <div class="item-meta">
+			    <?php woocommerce_template_loop_price(); ?>
+			    <?php woocommerce_template_loop_rating(); ?>
+            </div>
 
-        <span class="item-button">
-            <?php woocommerce_template_loop_add_to_cart(); ?>
-            <?php if ( function_exists( 'dokan_add_to_wishlist_link' ) ) dokan_add_to_wishlist_link(); ?>
-        </span>
+            <div class="item-button">
+			    <?php woocommerce_template_loop_add_to_cart(); ?>
+
+			    <?php if ( function_exists( 'dokan_add_to_wishlist_link' ) ) dokan_add_to_wishlist_link(); ?>
+            </div>
+        </div>
     </div>
+
     <?php
 }
 
