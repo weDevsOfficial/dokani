@@ -573,6 +573,23 @@
   background-color: #e5e5e5;
   padding: 0;
 }
+.breadcrumb {
+  margin: 0;
+  background: transparent;
+  padding: 0;
+  color: #999999;
+}
+.breadcrumb > li {
+  display: inline-block;
+}
+.breadcrumb > li a {
+  color: inherit;
+}
+.breadcrumb > li a:hover,
+.breadcrumb > li a:active,
+.breadcrumb > li a:focus {
+  color: #f2624d;
+}
 .social-follow-list {
   list-style: none;
   margin-left: -3px;

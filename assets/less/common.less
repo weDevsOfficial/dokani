@@ -94,3 +94,25 @@
     background-color: #e5e5e5;
     padding: 0;
 }
+
+// Breadcrumb
+.breadcrumb {
+    margin: 0;
+    background: transparent;
+    padding: 0;
+    color: #999999;
+
+    > li {
+        display: inline-block;
+
+        a {
+            color: inherit;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: @theme-color;
+            }
+        }
+    }
+}
