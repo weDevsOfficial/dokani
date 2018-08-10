@@ -1,4 +1,5 @@
 <?php
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
