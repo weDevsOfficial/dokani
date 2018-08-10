@@ -272,3 +272,17 @@ if ( !class_exists( 'Dokan_Category_Widget' ) ) :
     add_action( 'widgets_init', create_function( '', "register_widget( 'Dokan_Category_Widget' );" ) );
 
 endif;
+
+
+/**
+ * Change the WC placeholder image
+ */
+function dokanee_woo_placeholder_img() {
+	$size = 'woocommerce_thumbnail';
+	$dimensions = wc_get_image_size( $size );
+
+	return '<img src="' . wc_placeholder_img_src() . '" alt="' . esc_attr__( 'Placeholder', 'woocommerce' ) . '" width="' . esc_attr( $dimensions['width'] ) . '" height="' . esc_attr( $dimensions['height'] ) . '" class="woocommerce-placeholder wp-post-image" style="height: ' . esc_attr( $dimensions['height'] ) . 'px;"  />';
+
+}
+
+add_filter('woocommerce_placeholder_img', 'dokanee_woo_placeholder_img');
