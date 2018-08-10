@@ -14,7 +14,7 @@ remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pr
  *
  * @global WC_Product $product
  */
-function dokan_product_loop_price() {
+function dokanee_product_loop_price() {
     global $product;
 	global $post;
 
@@ -49,7 +49,7 @@ function dokan_product_loop_price() {
     <?php
 }
 
-add_action( 'woocommerce_after_shop_loop_item', 'dokan_product_loop_price' );
+add_action( 'woocommerce_after_shop_loop_item', 'dokanee_product_loop_price' );
 
 
 /**
