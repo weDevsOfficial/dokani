@@ -15,6 +15,18 @@ jQuery(function($) {
         }
     });
 
+    // Products list/grid view
+    $('.dokanee-products-view.buttons > button').on('click',function(e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+
+        if ($(this).hasClass('grid')) {
+            $('.site-main ul.products').removeClass('list').addClass('grid');
+        }
+        else if($(this).hasClass('list')) {
+            $('.site-main ul.products').removeClass('grid').addClass('list');
+        }
+    });
 
     $('ul.dropdown-menu li.dropdown').hover(function() {
         $(this).addClass('open');
