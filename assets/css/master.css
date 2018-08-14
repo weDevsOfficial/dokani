@@ -1650,6 +1650,9 @@ ol.comment-list {
   color: #9c9c9c;
   font-weight: 400;
 }
+.woocommerce #reviews #comment {
+  height: 200px;
+}
 .woocommerce-message {
   background-color: #FFFFFF;
   -webkit-border-radius: 5px;
