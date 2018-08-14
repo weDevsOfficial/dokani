@@ -303,3 +303,20 @@ function dokanee_products_view_type() {
 }
 
 add_action( 'woocommerce_before_shop_loop', 'dokanee_products_view_type' );
+
+/**
+ * Rename Additional Information tab
+ */
+function dokanee_woo_rename_tabs( $tabs ) {
+
+	global $product;
+
+	if( $product->has_attributes() || $product->has_dimensions() || $product->has_weight() ) { // Check if product has attributes, dimensions or weight
+		$tabs['additional_information']['title'] = __( 'Additional Info' );	// Rename the additional information tab
+	}
+
+	return $tabs;
+
+}
+
+add_filter( 'woocommerce_product_tabs', 'dokanee_woo_rename_tabs', 98 );
