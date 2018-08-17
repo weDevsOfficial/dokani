@@ -1865,19 +1865,27 @@ ol.comment-list {
 }
 /* = Woocommerce Products
 ----------------------------------------------- */
-.post-type-archive-product .inside-article {
+.post-type-archive-product .inside-article,
+.tax-product_cat .inside-article,
+.tax-product_tag .inside-article {
   background-color: transparent;
   padding: 0;
   box-shadow: none;
 }
-.post-type-archive-product #primary .entry-content {
+.post-type-archive-product #primary .entry-content,
+.tax-product_cat #primary .entry-content,
+.tax-product_tag #primary .entry-content {
   position: relative;
 }
-.post-type-archive-product #primary .entry-content .woocommerce-ordering {
+.post-type-archive-product #primary .entry-content .woocommerce-ordering,
+.tax-product_cat #primary .entry-content .woocommerce-ordering,
+.tax-product_tag #primary .entry-content .woocommerce-ordering {
   margin-right: 85px;
   margin-bottom: 2em;
 }
-.post-type-archive-product #primary .entry-content .dokanee-products-view button {
+.post-type-archive-product #primary .entry-content .dokanee-products-view button,
+.tax-product_cat #primary .entry-content .dokanee-products-view button,
+.tax-product_tag #primary .entry-content .dokanee-products-view button {
   padding-top: 0;
   padding-bottom: 0;
 }
