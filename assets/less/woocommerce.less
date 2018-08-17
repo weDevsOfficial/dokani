@@ -478,8 +478,166 @@
         }
     }
 
-    #reviews #comment {
-        height: 200px;
+    #reviews {
+        #comment {
+            height: 200px;
+        }
+
+        #comments {
+            margin-bottom: 45px;
+
+            ol.commentlist li {
+                .comment_container {
+                    border: 2px solid #e4e1e3;
+                    border-radius: 4px;
+                    padding: 25px 25px 6px 25px;
+                }
+
+                .comment-text {
+                    border: none;
+                    position: relative;
+
+                    .star-rating {
+                        width: 100%;
+                        margin-top: 12px;
+                    }
+
+                    .meta {
+                        position: absolute;
+                        top: 0;
+                        width: 97%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .woocommerce-review__author {
+                            font-size: 16px;
+                            color: @post-title-color;
+                            font-weight: 600;
+                        }
+
+                        .woocommerce-review__published-date {
+                            font-size: 14px;
+                            color: #cbd3d9;
+
+                            .woocommerce-review-date {
+                                color: #16a085;
+                            }
+                            .woocommerce-review-time {
+                                color: #9c9c9c;
+                                text-transform: uppercase;
+                            }
+                        }
+
+                    }
+
+                    .description {
+                        margin-top: 40px;
+                        color: #9c9c9c;
+                        font-size: 16px;
+                        line-height: 1.5em;
+                    }
+                }
+
+                img.avatar {
+                    border: none;
+                    padding: 0;
+                    width: 44px;
+                    .rounded(50%);
+                    top: 22px;
+                    left: 24px;
+                }
+            }
+        }
+
+        #review_form_wrapper {
+            #reply-title {
+                color: @title-color;
+                font-size: 23px;
+                font-weight: 400;
+                line-height: 1.5em;
+                display: inline-block;
+                margin-bottom: 25px;
+            }
+
+            .comment-form {
+                background-color: #fcfdfd;
+                .rounded(5px);
+                border: 2px solid @border-color;
+                padding: 25px;
+
+                .comment-notes {
+                    color: #333e48;
+                    font-size: 20px;
+                    line-height: 1.5em;
+                    margin-bottom: 25px !important;
+                }
+
+                .comment-form-rating {
+                    background-color: @white;
+                    border: 1px solid @border-color;
+                    .rounded(3px);
+                    .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
+                    display: inline-block;
+                    padding: 20px;
+                    min-width: 200px;
+                    margin-bottom: 20px;
+
+                    label {
+                        color: #9c9c9c;
+                        font-size: 16px;
+                        line-height: 1.5em;
+                        margin-bottom: 10px;
+                        display: inline-block;
+                    }
+
+                    p.stars {
+                        margin-bottom: 0 !important;
+                    }
+
+                }
+
+                label {
+                    color: #333e48;
+                    font-size: 16px;
+                    display: block;
+                    margin-bottom: 17px;
+
+                    span {
+                        color: @theme-color;
+                    }
+                }
+
+                .comment-form-comment {
+                    margin-bottom: 25px !important;
+                }
+
+                .comment-form-author,
+                .comment-form-email {
+                    float: left;
+                    width: 46%;
+
+                    input {
+                        width: 100%;
+                    }
+                }
+
+                .comment-form-author {
+                    margin-right: 4% !important;
+                }
+                .comment-form-email {
+                    margin-left: 4% !important;
+                }
+
+                .form-submit {
+                    clear: both;
+
+                    .submit {
+                        padding: 13px 29px !important;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -793,91 +951,4 @@
     }
 }
 
-#review_form_wrapper {
-    #reply-title {
-        color: @title-color;
-        font-size: 23px;
-        font-weight: 400;
-        line-height: 1.5em;
-        display: inline-block;
-        margin-bottom: 25px;
-    }
 
-    .comment-form {
-        background-color: #fcfdfd;
-        .rounded(5px);
-        border: 2px solid @border-color;
-        padding: 25px;
-
-        .comment-notes {
-            color: #333e48;
-            font-size: 20px;
-            line-height: 1.5em;
-            margin-bottom: 25px !important;
-        }
-
-        .comment-form-rating {
-            background-color: @white;
-            border: 1px solid @border-color;
-            .rounded(3px);
-            .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
-            display: inline-block;
-            padding: 20px;
-            min-width: 200px;
-            margin-bottom: 20px;
-
-            label {
-                color: #9c9c9c;
-                font-size: 16px;
-                line-height: 1.5em;
-                margin-bottom: 10px;
-                display: inline-block;
-            }
-
-            p.stars {
-                margin-bottom: 0 !important;
-            }
-
-        }
-
-        label {
-            color: #333e48;
-            font-size: 16px;
-            display: block;
-            margin-bottom: 17px;
-
-            span {
-                color: @theme-color;
-            }
-        }
-
-        .comment-form-comment {
-            margin-bottom: 25px !important;
-        }
-
-        .comment-form-author,
-        .comment-form-email {
-            float: left;
-            width: 46%;
-
-            input {
-                width: 100%;
-            }
-        }
-
-        .comment-form-author {
-            margin-right: 4% !important;
-        }
-        .comment-form-email {
-            margin-left: 4% !important;
-        }
-
-        .form-submit {
-            clear: both;
-
-            .submit {
-                padding: 13px 29px !important;
-            }
-        }
-    }
-}
