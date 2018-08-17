@@ -1943,15 +1943,32 @@ ol.comment-list {
 }
 .woocommerce div.product .product_title {
   font-size: 30px;
-  line-height: 1.5em;
+  line-height: 1.4em;
   font-weight: 600;
   color: #000000;
+  margin-bottom: 2px;
+}
+.woocommerce div.product .vendor-name {
+  margin-bottom: 6px;
+}
+.woocommerce div.product .vendor-name a {
+  color: #9b59b6;
+}
+.woocommerce div.product .vendor-name a:hover {
+  color: #f2624d;
+}
+.woocommerce div.product .woocommerce-product-rating {
+  margin-bottom: 15px;
+}
+.woocommerce div.product .woocommerce-product-rating .woocommerce-review-link {
+  color: #9c9c9c;
 }
 .woocommerce div.product p.price {
   font-size: 25px;
   line-height: 1.5em;
   font-weight: 400;
   color: #16a085;
+  margin-bottom: 15px;
 }
 .woocommerce div.product p.price del {
   color: #dddfee;
@@ -1964,6 +1981,7 @@ ol.comment-list {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5em;
+  margin-bottom: 30px;
 }
 .woocommerce div.product .quantity .qty {
   background-color: #FFFFFF;
@@ -1997,6 +2015,7 @@ ol.comment-list {
   -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  margin-bottom: 100px;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs {
   padding: 0 20px;
@@ -2033,6 +2052,9 @@ ol.comment-list {
   padding: 1.3em 0;
   font-weight: 600;
   color: #333e48;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
+  color: inherit;
 }
 .woocommerce div.product .woocommerce-tabs .panel {
   padding: 0 25px 25px;

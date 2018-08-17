@@ -769,9 +769,30 @@
 
     .product_title {
         font-size: 30px;
-        line-height: 1.5em;
+        line-height: 1.4em;
         font-weight: 600;
         color: @title-color;
+        margin-bottom: 2px;
+    }
+
+    .vendor-name {
+        margin-bottom: 6px;
+
+        a {
+            color: @secondary-theme-color;
+
+            &:hover {
+                color: @theme-color;
+            }
+        }
+    }
+
+    .woocommerce-product-rating {
+        margin-bottom: 15px;
+
+        .woocommerce-review-link {
+            color: #9c9c9c;
+        }
     }
 
     p.price {
@@ -779,6 +800,7 @@
         line-height: 1.5em;
         font-weight: 400;
         color: @wc-price-color;
+        margin-bottom: 15px;
 
         del {
             color: #dddfee;
@@ -794,6 +816,7 @@
         font-size: 16px;
         font-weight: 400;
         line-height: 1.5em;
+        margin-bottom: 30px;
     }
 
     .quantity .qty {
@@ -818,6 +841,7 @@
         background-color: @white;
         .rounded(5px);
         .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
+        margin-bottom: 100px;
 
         ul.tabs {
             padding: 0 20px;
@@ -855,6 +879,10 @@
                     padding: 1.3em 0;
                     font-weight: 600;
                     color: #333e48;
+
+                    &:hover {
+                        color: inherit;
+                    }
                 }
             }
         }
