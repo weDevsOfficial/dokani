@@ -897,6 +897,51 @@
                 font-weight: 400;
             }
         }
+
+        // shipping tab
+        .woocommerce-Tabs-panel--shipping {
+            p {
+                strong {
+                    color: #16a085;
+                    font-size: 18px;
+                    font-weight: 400;
+                    margin-bottom: 37px;
+                    display: block;
+                }
+            }
+
+            hr {
+                display: none;
+            }
+
+            h4 {
+                color: #9c9c9c;
+                font-size: 16px;
+            }
+
+            .dokan-shipping-calculate-wrapper {
+                background-color: #fcfdfd;
+                border: 2px solid @border-color;
+                .rounded(5px);
+                padding: 30px;
+
+                label {
+                    color: #333e48;
+                    font-size: 16px;
+                    display: block;
+                    margin-bottom: 15px;
+                }
+
+                input,
+                select {
+                    height: 45px;
+                }
+
+                .dokan-shipping-button-wrapper {
+                    margin: 0;
+                }
+            }
+        }
     }
 
     .related.products {

@@ -2065,6 +2065,42 @@ ol.comment-list {
   line-height: 1.5em;
   font-weight: 400;
 }
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--shipping p strong {
+  color: #16a085;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 37px;
+  display: block;
+}
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--shipping hr {
+  display: none;
+}
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--shipping h4 {
+  color: #9c9c9c;
+  font-size: 16px;
+}
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--shipping .dokan-shipping-calculate-wrapper {
+  background-color: #fcfdfd;
+  border: 2px solid #ECEDEF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 30px;
+}
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--shipping .dokan-shipping-calculate-wrapper label {
+  color: #333e48;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 15px;
+}
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--shipping .dokan-shipping-calculate-wrapper input,
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--shipping .dokan-shipping-calculate-wrapper select {
+  height: 45px;
+}
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--shipping .dokan-shipping-calculate-wrapper .dokan-shipping-button-wrapper {
+  margin: 0;
+}
 .woocommerce div.product .related.products > h2 {
   color: #000000;
   font-size: 23px;
