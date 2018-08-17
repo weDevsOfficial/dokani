@@ -720,12 +720,19 @@
     }
 
     div.images {
-        .woocommerce-product-gallery__wrapper {
-            &:before,
-            &:after {
+        margin-bottom: 110px;
+
+        .woocommerce-product-gallery__trigger {
+            &:before {
                 border-color: @theme-color;
             }
 
+            &:after {
+                background: @theme-color;
+            }
+        }
+
+        .woocommerce-product-gallery__wrapper {
             .rounded(5px);
             .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
         }

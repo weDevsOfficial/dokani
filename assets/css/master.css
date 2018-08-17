@@ -1885,6 +1885,15 @@ ol.comment-list {
   left: 0;
   top: 0;
 }
+.woocommerce div.product div.images {
+  margin-bottom: 110px;
+}
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger:before {
+  border-color: #f2624d;
+}
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger:after {
+  background: #f2624d;
+}
 .woocommerce div.product div.images .woocommerce-product-gallery__wrapper {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
