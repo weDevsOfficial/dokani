@@ -2101,14 +2101,20 @@ ol.comment-list {
 .woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--shipping .dokan-shipping-calculate-wrapper .dokan-shipping-button-wrapper {
   margin: 0;
 }
+.woocommerce div.product .woocommerce-tabs #dokan-product-enquiry .form-group {
+  margin-bottom: 25px;
+}
+.woocommerce div.product .woocommerce-tabs #dokan-product-enquiry .form-group .form-control {
+  width: 100%;
+}
+.woocommerce div.product .woocommerce-tabs #dokan-product-enquiry .dokan-btn {
+  margin-top: 8px;
+}
 .woocommerce div.product .related.products > h2 {
   color: #000000;
   font-size: 23px;
   line-height: 1.5em;
   font-weight: 400;
-}
-.woocommerce div.product #dokan-product-enquiry .form-group {
-  margin-bottom: 20px;
 }
 .dokanee-product-single-template .inside-article {
   background-color: transparent;
