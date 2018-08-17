@@ -2142,6 +2142,11 @@ ol.comment-list {
 .dokanee-products-view button.active {
   color: #f2624d;
 }
+input[type="submit"].dokan-btn,
+a.dokan-btn,
+.dokan-btn {
+  padding: 9px 21px !important;
+}
 /* = Dokan Widgets
 ----------------------------------------------- */
 .widget-area .location-container .dokan-store-address,
@@ -2604,7 +2609,7 @@ ol.comment-list {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.07);
   color: #000000;
   font-size: 14px;
-  margin: 24px 0;
+  margin: 20px 0;
 }
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li.dokan-right .dokan-btn.dokan-share-btn {
   font-size: 0;
