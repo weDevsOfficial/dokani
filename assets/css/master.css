@@ -693,10 +693,12 @@ input[type="file"] {
   padding: 0;
 }
 .breadcrumb {
-  margin: 0;
   background: transparent;
   padding: 0;
-  color: #999999;
+  color: #a2abb2;
+  font-size: 14px;
+  line-height: 1.3em;
+  margin: 47px 0 5px;
 }
 .breadcrumb > li {
   display: inline-block;

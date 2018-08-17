@@ -334,3 +334,16 @@ function dokanee_vendor_name() {
 }
 
 add_action('woocommerce_single_product_summary', 'dokanee_vendor_name', 7);
+
+/**
+ * Display woo breadcrumb
+ */
+function dokanee_woo_breadcrumb() {
+
+    if ( is_woocommerce() ) {
+	    woocommerce_breadcrumb();
+    }
+
+}
+
+add_action( 'dokanee_inside_container', 'dokanee_woo_breadcrumb', 5 );
