@@ -320,3 +320,17 @@ function dokanee_woo_rename_tabs( $tabs ) {
 }
 
 add_filter( 'woocommerce_product_tabs', 'dokanee_woo_rename_tabs', 98 );
+
+/**
+ * Display product vendor name
+ */
+function dokanee_vendor_name() {
+	global $post;
+
+	$store_info = dokan_get_store_info( $post->post_author );
+	$url = dokan_get_store_url( $post->post_author );
+
+	echo '<div class="vendor-name"><span>Sold by </span><a href="' . $url . '">' . $store_info['store_name'] . '</a></div>';
+}
+
+add_action('woocommerce_single_product_summary', 'dokanee_vendor_name', 7);
