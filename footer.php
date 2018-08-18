@@ -30,7 +30,7 @@ do_action( 'dokanee_before_footer' );
      * @since 0.1
      */
 
-    if( is_archive('product') ) {
+    if( is_front_page() or is_woocommerce() ) {
 	    get_template_part( 'template-parts/page/section-trust' );
     }
 
