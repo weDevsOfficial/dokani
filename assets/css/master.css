@@ -2413,6 +2413,9 @@ a.dokan-btn,
   list-style: none;
   margin: 0;
 }
+#dokan-seller-listing-wrap ul.dokan-seller-list.column-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
 #dokan-seller-listing-wrap ul.dokan-seller-list.grid .store-footer .store-data .dokan-seller-rating,
 #dokan-seller-listing-wrap ul.dokan-seller-list.grid .store-footer .store-data .store-address {
   display: none;
