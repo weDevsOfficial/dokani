@@ -37,6 +37,86 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
 </section> <!-- .product-cat-section -->
 
+<section class="products-section">
+    <div class="grid-container container grid-parent">
+        <div class="grid-parent mobile-grid-100 grid-75 tablet-grid-75">
+
+	        <?php if ( function_exists( 'dokan_get_featured_products' ) ) { ?>
+		        <?php if ( get_theme_mod( 'show_featured', 'on' ) == 'on' ) { ?>
+                    <div class="slider-container woocommerce">
+                        <h2 class="slider-heading"><?php _e( 'Featured Products', 'dokanee' ); ?></h2>
+
+                        <div class="product-sliders flexslider">
+                            <ul class="slides products">
+						        <?php
+						        $featured_query = dokan_get_featured_products();
+						        ?>
+						        <?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
+
+							        <?php wc_get_template_part( 'content', 'product' ); ?>
+
+						        <?php endwhile; ?>
+                            </ul>
+                        </div>
+                    </div> <!-- .slider-container -->
+		        <?php } ?>
+	        <?php } ?>
+
+	        <?php do_action( 'dokan_home_after_featured' ); ?>
+
+	        <?php if ( function_exists( 'dokan_get_latest_products' ) ) {
+		        $show_latest = get_theme_mod( 'show_latest_pro', 'on' );
+		        if ( $show_latest === true || $show_latest == 'on' ) {
+			        ?>
+                    <div class="slider-container woocommerce">
+                        <h2 class="slider-heading"><?php _e( 'Latest Products', 'dokanee' ); ?></h2>
+
+                        <div class="product-sliders flexslider">
+                            <ul class="slides products">
+						        <?php
+						        $latest_query = dokan_get_latest_products();
+						        ?>
+						        <?php while ( $latest_query->have_posts() ) : $latest_query->the_post(); ?>
+
+							        <?php wc_get_template_part( 'content', 'product' ); ?>
+
+						        <?php endwhile; ?>
+                            </ul>
+                        </div>
+                    </div> <!-- .slider-container -->
+		        <?php } ?>
+	        <?php } ?>
+
+	        <?php if ( function_exists( 'dokan_get_best_selling_products' ) ) { ?>
+		        <?php if ( get_theme_mod( 'show_best_selling', 'on' ) == 'on' ) { ?>
+                    <div class="slider-container woocommerce">
+                        <h2 class="slider-heading"><?php _e( 'Best Selling Products', 'dokanee' ); ?></h2>
+
+                        <div class="product-sliders flexslider">
+                            <ul class="slides products">
+						        <?php
+						        $best_selling_query = dokan_get_best_selling_products();
+						        ?>
+						        <?php while ( $best_selling_query->have_posts() ) : $best_selling_query->the_post(); ?>
+
+							        <?php wc_get_template_part( 'content', 'product' ); ?>
+
+						        <?php endwhile; ?>
+                            </ul>
+                        </div>
+                    </div> <!-- .slider-container -->
+		        <?php } ?>
+	        <?php } ?>
+
+        </div>
+        <div class="widget-area grid-25 tablet-grid-25 grid-parent sidebar">
+            <div class="inside-right-sidebar">
+	            <?php dynamic_sidebar( 'home' ); ?>
+            </div>
+        </div>
+    </div>
+</section> <!-- .products-section -->
+
 <section class="store-section">
     <div class="grid-container">
         <h2 class="section-title"><?php _e( 'Store List', 'dokanee' ); ?></h2>
