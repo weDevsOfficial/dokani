@@ -1,0 +1,75 @@
+/* = Welcome page
+----------------------------------------------- */
+.page-template-welcome {
+    #page.grid-container {
+        max-width: 100%;
+    }
+
+    &.separate-containers .site-main {
+        margin: 0;
+
+        > * {
+            margin-bottom: 0;
+        }
+    }
+
+    .site-footer {
+        background-color: #ececfb;
+    }
+}
+
+// Product Cat Section
+.product-cat-section {
+    background-color: @white;
+    padding: 110px 0;
+
+    .product-cat-wrapper {
+        margin: 0 11%;
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+
+        .product-cat-box {
+            .rounded(5px);
+            padding: 32px;
+            text-align: center;
+            .box-shadow(0px 10px 40px 0px rgba(0, 0, 0, 0.06));
+
+            img {
+                .rounded(5px);
+                .box-shadow(0px 13px 24px 0px rgba(0, 0, 0, 0.06));
+                width: 130px;
+                height: 95px;
+                margin-bottom: 10px;
+            }
+
+            h3 {
+                font-size: 20px;
+                line-height: 1.5em;
+                font-weight: 400;
+                color: @black;
+                margin-bottom: 22px;
+            }
+
+            .btn {
+                color: #77828c;
+                font-size: 14px;
+                .transition(all .2s);
+                display: inline-block;
+                border-width: 2px;
+                border-radius: 5px;
+                padding: 6px 18px;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: @theme-color;
+                    border-color: @theme-color;
+                }
+            }
+
+        }
+    }
+}
+
+

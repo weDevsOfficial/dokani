@@ -2862,43 +2862,79 @@ a.dokan-btn,
   font-weight: 400;
   font-size: 14px;
 }
-  font-size: 20px;
+/* = Welcome page
+----------------------------------------------- */
+.page-template-welcome #page.grid-container {
+  max-width: 100%;
 }
-.dokan-seller-view button:hover,
-.dokan-seller-view button:focus,
-.dokan-seller-view button:active,
-.dokan-seller-view button.active {
-  color: #f2624d;
+.page-template-welcome.separate-containers .site-main {
+  margin: 0;
 }
-.pagination-container .pagination-wrap ul.pagination li a,
-.pagination-container .pagination-wrap ul.pagination li .current {
-  color: #d9d9d9;
+.page-template-welcome.separate-containers .site-main > * {
+  margin-bottom: 0;
+}
+.page-template-welcome .site-footer {
+  background-color: #ececfb;
+}
+.product-cat-section {
   background-color: #FFFFFF;
-  width: 38px;
-  height: 38px;
-  line-height: 38px;
-  display: inline-block;
+  padding: 110px 0;
+}
+.product-cat-section .product-cat-wrapper {
+  margin: 0 11%;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.product-cat-section .product-cat-wrapper .product-cat-box {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 32px;
   text-align: center;
-  border-radius: 3px;
-  margin: 4px;
-  -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
-  -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
-  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
-  float: none;
-  padding: 0;
-  border: none;
+  -webkit-box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.06);
+  -o-box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.06);
 }
-.pagination-container .pagination-wrap ul.pagination li a.current,
-.pagination-container .pagination-wrap ul.pagination li .current.current,
-.pagination-container .pagination-wrap ul.pagination li a:hover,
-.pagination-container .pagination-wrap ul.pagination li .current:hover {
+.product-cat-section .product-cat-wrapper .product-cat-box img {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 13px 24px 0px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0px 13px 24px 0px rgba(0, 0, 0, 0.06);
+  -o-box-shadow: 0px 13px 24px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 13px 24px 0px rgba(0, 0, 0, 0.06);
+  width: 130px;
+  height: 95px;
+  margin-bottom: 10px;
+}
+.product-cat-section .product-cat-wrapper .product-cat-box h3 {
+  font-size: 20px;
+  line-height: 1.5em;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 22px;
+}
+.product-cat-section .product-cat-wrapper .product-cat-box .btn {
+  color: #77828c;
+  font-size: 14px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  display: inline-block;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 6px 18px;
+}
+.product-cat-section .product-cat-wrapper .product-cat-box .btn:hover,
+.product-cat-section .product-cat-wrapper .product-cat-box .btn:focus,
+.product-cat-section .product-cat-wrapper .product-cat-box .btn:active {
   color: #f2624d;
-  background-color: #FFFFFF;
-  -webkit-box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
-  -moz-box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
-  -o-box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
-  box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
-}
+  border-color: #f2624d;
 }
 /*# sourceMappingURL=master.css.map */
