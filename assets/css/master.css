@@ -1973,6 +1973,7 @@ ol.comment-list {
 }
 .woocommerce div.product .vendor-name {
   margin-bottom: 6px;
+  font-size: 15px;
 }
 .woocommerce div.product .vendor-name a {
   color: #9b59b6;
