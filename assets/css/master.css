@@ -57,7 +57,7 @@
 }
 .top-bar .dokanee-user-menu ul li {
   display: inline-block;
-  padding: 11px 22px;
+  padding: 14px 22px;
   position: relative;
   cursor: pointer;
 }
@@ -98,7 +98,7 @@
 }
 .top-bar .dokanee-user-menu ul li .dropdown-menu {
   position: absolute;
-  top: 84%;
+  top: 81%;
   left: 0;
   z-index: 1000;
   display: none;
