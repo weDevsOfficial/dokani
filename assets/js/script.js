@@ -75,15 +75,15 @@ jQuery(function($) {
         return (window.innerWidth < 600) ? 2 : (window.innerWidth < 900) ? 3 : 4;
     }
 
-    // $('.product-sliders').flexslider({
-    //     animation: "slide",
-    //     animationLoop: false,
-    //     itemWidth: 190,
-    //     itemMargin: 10,
-    //     controlNav: false,
-    //     minItems: getGridSize(),
-    //     maxItems: getGridSize()
-    // });
+    $('.product-sliders').flexslider({
+        animation: "slide",
+        animationLoop: false,
+        itemWidth: 250,
+        itemMargin: 30,
+        controlNav: false,
+        minItems: getGridSize(),
+        maxItems: getGridSize()
+    });
 
     $('body').on('added_to_cart wc_cart_button_updated', function( fragment, data ) {
         var viewCartText = $('a.added_to_cart.wc-forward').text();
