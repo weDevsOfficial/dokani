@@ -73,3 +73,85 @@
 }
 
 
+// Store Section
+.store-section {
+    padding: 110px 0;
+    background-color: #ececfb;
+
+    .store-wrapper {
+        .tabs {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tabs label {
+            -webkit-box-ordinal-group: 2;
+            -webkit-order: 1;
+            -ms-flex-order: 1;
+            order: 1;
+            display: block;
+            padding: 1rem 1.6rem;
+            margin-right: 0.2rem;
+            cursor: pointer;
+            //background: #90CAF9;
+            -webkit-transition: background ease 0.2s;
+            transition: background ease 0.2s;
+
+            color: #a7a7c1;
+            font-size: 18px;
+            line-height: 1.5em;
+        }
+
+        .tabs .tab {
+            -webkit-box-ordinal-group: 100;
+            -webkit-order: 99;
+            -ms-flex-order: 99;
+            order: 99;
+            -webkit-box-flex: 1;
+            -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            width: 100%;
+            display: none;
+            margin-top: 25px;
+        }
+
+        .tabs input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .tabs input[type="radio"]:checked + label {
+            color: @post-title-color;
+        }
+
+        .tabs input[type="radio"]:checked + label + .tab { display: block; }
+
+        @media (max-width: 45em) {
+
+            .tabs .tab,  .tabs label {
+                //-webkit-box-ordinal-group: NaN;
+                -webkit-order: initial;
+                -ms-flex-order: initial;
+                order: initial;
+            }
+
+            .tabs label {
+                width: 100%;
+                margin-right: 0;
+                margin-top: 0.2rem;
+            }
+        }
+
+
+    }
+}
+
+
