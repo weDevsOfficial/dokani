@@ -23,6 +23,8 @@ if ( ! function_exists( 'dokanee_scripts' ) ) {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		$dir_uri = get_template_directory_uri();
 
+		wp_enqueue_style( 'flexslider', $dir_uri . "/assets/css/flexslider.css", false, null );
+
 		wp_enqueue_style( 'dokanee-style-grid', $dir_uri . "/assets/css/unsemantic-grid{$suffix}.css", false, GENERATE_VERSION, 'all' );
 		wp_enqueue_style( 'dokanee-style', $dir_uri . "/style{$suffix}.css", array( 'dokanee-style-grid' ), GENERATE_VERSION, 'all' );
 		wp_enqueue_style( 'dokanee-mobile-style', $dir_uri . "/assets/css/mobile{$suffix}.css", array( 'dokanee-style' ), GENERATE_VERSION, 'all' );
@@ -45,6 +47,7 @@ if ( ! function_exists( 'dokanee_scripts' ) ) {
 		wp_enqueue_script( 'dokanee-menu', $dir_uri . "/assets/js/menu{$suffix}.js", array(), GENERATE_VERSION, true );
 		wp_enqueue_script( 'dokanee-a11y', $dir_uri . "/assets/js/a11y{$suffix}.js", array(), GENERATE_VERSION, true );
 
+		wp_enqueue_script( 'flexslider', $dir_uri . "/assets/js/jquery.flexslider-min.js", array( 'jquery' ) );
 		wp_enqueue_script( 'dokanee-script', $dir_uri . "/assets/js/script.js", array( 'jquery' ), GENERATE_VERSION, true );
 
 		if ( 'click' == $dokanee_settings[ 'nav_dropdown_type' ] || 'click-arrow' == $dokanee_settings[ 'nav_dropdown_type' ] ) {
