@@ -3017,4 +3017,65 @@ a.dokan-btn,
     margin-top: 0.2rem;
   }
 }
+/* = 404 Page
+----------------------------------------------- */
+.error404 {
+  background-color: #f4f5fb;
+}
+.error404.separate-containers .site-main {
+  margin: 0;
+}
+.error404.separate-containers .site-main > * {
+  margin-bottom: 0;
+}
+.error404.separate-containers .site-main .inside-article {
+  background-color: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content {
+  padding: 34px 0;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content .not-found-thumb {
+  width: 783px;
+  max-width: 100%;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content h2 {
+  color: #f2624d;
+  font-size: 36px;
+  line-height: 1.3em;
+  font-weight: 600;
+  margin: 25px 0 15px;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content p {
+  color: #000000;
+  font-size: 15px;
+  margin-bottom: 35px;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content .search-form .search-field {
+  background-color: transparent;
+  border-color: #d8e0e6;
+  font-size: 14px;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content .search-form .search-field:-moz-placeholder {
+  color: #b6bfc5;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content .search-form .search-field::-moz-placeholder {
+  color: #b6bfc5;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content .search-form .search-field:-ms-input-placeholder {
+  color: #b6bfc5;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content .search-form .search-field::-webkit-input-placeholder {
+  color: #b6bfc5;
+}
+.error404.separate-containers .site-main .inside-article > .entry-content .search-form .search-submit {
+  background-color: #f2624d;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-left: 10px;
+}
 /*# sourceMappingURL=master.css.map */

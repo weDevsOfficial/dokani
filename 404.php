@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<div id="primary" <?php dokanee_content_class(); ?>>
+	<div id="primary" class="content-area grid-parent grid-100">
 		<main id="main" <?php dokanee_main_class(); ?>>
 			<?php
 			/**
@@ -47,8 +47,10 @@ get_header(); ?>
 				?>
 
 				<div class="entry-content" itemprop="text">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/404_illustration@2x.png" alt="<?php _e( 'Not Found', 'dokanee' ); ?>" class="not-found-thumb">
+                    <h2><?php _e( 'Page Not Found', 'dokanee' ); ?></h2>
 					<?php
-					echo '<p>' . apply_filters( 'dokanee_404_text', __( 'It looks like nothing was found at this location. Maybe try searching?', 'dokanee' ) ) . '</p>'; // WPCS: XSS OK.
+					echo '<p>' . apply_filters( 'dokanee_404_text', __( 'For Some Reason The Page You Requested Could Not Be Found On Our Server', 'dokanee' ) ) . '</p>'; // WPCS: XSS OK.
 
 					get_search_form();
 					?>
@@ -83,7 +85,5 @@ get_header(); ?>
 	 * @since 2.0
 	 */
 	 do_action( 'dokanee_after_primary_content_area' );
-
-	 dokanee_construct_sidebars();
 
 get_footer();

@@ -1,0 +1,61 @@
+/* = 404 Page
+----------------------------------------------- */
+.error404 {
+    background-color: #f4f5fb;
+
+    #page.grid-container {
+        //max-width: 100%;
+    }
+
+    &.separate-containers .site-main {
+        margin: 0;
+
+        > * {
+            margin-bottom: 0;
+        }
+
+        .inside-article {
+            background-color: transparent;
+            box-shadow: none;
+            text-align: center;
+
+            > .entry-content {
+                padding: 34px 0;
+
+                .not-found-thumb {
+                    width: 783px;
+                    max-width: 100%;
+                }
+
+                h2 {
+                    color: @theme-color;
+                    font-size: 36px;
+                    line-height: 1.3em;
+                    font-weight: 600;
+                    margin: 25px 0 15px;
+                }
+
+                p {
+                    color: @black;
+                    font-size: 15px;
+                    margin-bottom: 35px;
+                }
+
+                .search-form {
+                    .search-field {
+                        background-color: transparent;
+                        border-color: #d8e0e6;
+                        .placeholder(#b6bfc5);
+                        font-size: 14px;
+                    }
+                    .search-submit {
+                        background-color: @theme-color;
+                        .rounded(3px);
+                        font-size: 14px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
