@@ -1002,6 +1002,106 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// Setting - Shop Layout
+		$wp_customize->add_setting(
+			'dokanee_settings[shop_layout_setting]',
+			array(
+				'default'           => $defaults['shop_layout_setting'],
+				'type'              => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_choices'
+			)
+		);
+		$wp_customize->add_control(
+			'dokanee_settings[shop_layout_setting]',
+			array(
+				'type'     => 'select',
+				'label'    => __( 'Shop Sidebar Layout', 'dokanee' ),
+				'section'  => 'dokanee_layout_sidebars',
+				'choices'  => array(
+					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
+					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
+					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' )
+				),
+				'settings' => 'dokanee_settings[shop_layout_setting]',
+				'priority' => 37
+			)
+		);
+
+		// Setting - Single Product Layout
+		$wp_customize->add_setting(
+			'dokanee_settings[single_product_layout_setting]',
+			array(
+				'default'           => $defaults['single_product_layout_setting'],
+				'type'              => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_choices'
+			)
+		);
+		$wp_customize->add_control(
+			'dokanee_settings[single_product_layout_setting]',
+			array(
+				'type'     => 'select',
+				'label'    => __( 'Single Product Sidebar Layout', 'dokanee' ),
+				'section'  => 'dokanee_layout_sidebars',
+				'choices'  => array(
+					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
+					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
+					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' )
+				),
+				'settings' => 'dokanee_settings[single_product_layout_setting]',
+				'priority' => 38
+			)
+		);
+
+		// Setting - Store List Layout
+		$wp_customize->add_setting(
+			'dokanee_settings[store_list_layout_setting]',
+			array(
+				'default'           => $defaults['store_list_layout_setting'],
+				'type'              => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_choices'
+			)
+		);
+		$wp_customize->add_control(
+			'dokanee_settings[store_list_layout_setting]',
+			array(
+				'type'     => 'select',
+				'label'    => __( 'Store List Sidebar Layout', 'dokanee' ),
+				'section'  => 'dokanee_layout_sidebars',
+				'choices'  => array(
+					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
+					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
+					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' )
+				),
+				'settings' => 'dokanee_settings[store_list_layout_setting]',
+				'priority' => 39
+			)
+		);
+
+		// Setting - Store Layout
+		$wp_customize->add_setting(
+			'dokanee_settings[store_layout_setting]',
+			array(
+				'default'           => $defaults['store_layout_setting'],
+				'type'              => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_choices'
+			)
+		);
+		$wp_customize->add_control(
+			'dokanee_settings[store_layout_setting]',
+			array(
+				'type'     => 'select',
+				'label'    => __( 'Store Sidebar Layout', 'dokanee' ),
+				'section'  => 'dokanee_layout_sidebars',
+				'choices'  => array(
+					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
+					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
+					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' )
+				),
+				'settings' => 'dokanee_settings[store_layout_setting]',
+				'priority' => 40
+			)
+		);
+
 		$wp_customize->add_section(
 			'dokanee_layout_footer',
 			array(
