@@ -144,10 +144,10 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					$wp_customize,
 					'dokanee_settings[logo]',
 					array(
-						'label'    => __( 'Site Logo', 'dokanee' ),
+						'label'       => __( 'Site Logo', 'dokanee' ),
 						'description' => __( 'Upload your logo to replace the default Logo (dimension : 180 X 50)', 'dokanee' ),
-						'section'  => 'title_tagline',
-						'settings' => 'dokanee_settings[logo]'
+						'section'     => 'title_tagline',
+						'settings'    => 'dokanee_settings[logo]'
 					)
 				)
 			);
@@ -390,6 +390,105 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 		}
 
 		/**
+		 * Add Front Page Settings
+		 */
+
+		$wp_customize->add_section(
+			'dokanee_frontpage_section',
+			array(
+				'title'    => __( 'Front Page', 'dokanee' ),
+				'priority' => 10
+			)
+		);
+
+		// show slider
+		$wp_customize->add_setting( 'show_slider' );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'show_slider',
+				array(
+					'label'   => __( 'Show Slider on home page', 'dokanee' ),
+					'section' => 'dokanee_frontpage_section',
+					'type'    => 'checkbox',
+				)
+			)
+		);
+
+		// show products category section
+		$wp_customize->add_setting( 'show_products_cat', array( 'default' => 'on' ) );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'show_products_cat',
+				array(
+					'label'   => __( 'Show products category section', 'dokanee' ),
+					'section' => 'dokanee_frontpage_section',
+					'type'    => 'checkbox',
+				)
+			)
+		);
+
+		// show featured
+		$wp_customize->add_setting( 'show_featured', array(
+			'default' => 'on'
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'show_featured',
+				array(
+					'label'   => __( 'Show Featured Products on Homepage', 'dokanee' ),
+					'section' => 'dokanee_frontpage_section',
+					'type'    => 'checkbox',
+				)
+			)
+		);
+
+		// show latest
+		$wp_customize->add_setting( 'show_latest_pro', array( 'default' => 'on' ) );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'show_latest_pro',
+				array(
+					'label'   => __( 'Show Latest Products on Homepage', 'dokanee' ),
+					'section' => 'dokanee_frontpage_section',
+					'type'    => 'checkbox',
+				)
+			)
+		);
+
+		// show best selling
+		$wp_customize->add_setting( 'show_best_selling', array( 'default' => 'on' ) );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'show_best_selling',
+				array(
+					'label'   => __( 'Show Best Selling Products on Homepage', 'dokanee' ),
+					'section' => 'dokanee_frontpage_section',
+					'type'    => 'checkbox',
+				)
+			)
+		);
+
+		// show store list section
+		$wp_customize->add_setting( 'show_store_list', array( 'default' => 'on' ) );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'show_store_list',
+				array(
+					'label'   => __( 'Show Store List Section', 'dokanee' ),
+					'section' => 'dokanee_frontpage_section',
+					'type'    => 'checkbox',
+				)
+			)
+		);
+
+
+		/**
 		 * Add the Footer Panel
 		 */
 		if ( class_exists( 'WP_Customize_Panel' ) ) {
@@ -433,8 +532,8 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 		$wp_customize->add_setting(
 			'payment_options',
 			array(
-				'default' => '',
-				'type' => 'theme_mod',
+				'default'    => '',
+				'type'       => 'theme_mod',
 				'capability' => 'edit_theme_options',
 			)
 		);
@@ -972,7 +1071,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
-		// Add Layout setting
+		// Setting - Single Post Layout
 		$wp_customize->add_setting(
 			'dokanee_settings[single_layout_setting]',
 			array(
@@ -981,8 +1080,6 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'sanitize_callback' => 'dokanee_sanitize_choices'
 			)
 		);
-
-		// Add Layout control
 		$wp_customize->add_control(
 			'dokanee_settings[single_layout_setting]',
 			array(
