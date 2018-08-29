@@ -77,6 +77,30 @@ if ( ! function_exists( 'dokanee_get_layout' ) ) {
 			$layout = $dokanee_settings['blog_layout_setting'];
 		}
 
+		// If we're on the shop page
+		if ( is_archive( 'product' ) ) {
+			$layout = null;
+			$layout = $dokanee_settings['shop_layout_setting'];
+		}
+
+		// If we're on the single product page
+		if ( is_product() ) {
+			$layout = null;
+			$layout = $dokanee_settings['single_product_layout_setting'];
+		}
+
+		// If we're on the store list page
+		if ( is_page_template( 'page-template/store-list.php' ) ) {
+			$layout = null;
+			$layout = $dokanee_settings['store_list_layout_setting'];
+		}
+
+		// If we're on the store page
+		if ( dokan_is_store_page() ) {
+			$layout = null;
+			$layout = $dokanee_settings['store_layout_setting'];
+		}
+
 		// Finally, return the layout
 		return apply_filters( 'dokanee_sidebar_layout', $layout );
 	}
