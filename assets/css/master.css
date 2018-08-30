@@ -8,8 +8,6 @@
 ----------------------------------------------- */
 .top-bar {
   border-bottom: 1px solid #ECEDEF;
-  background-color: #FFFFFF;
-  color: #a2abb2;
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -37,12 +35,6 @@
 }
 .top-bar .inside-top-bar .textwidget p:last-child {
   margin: 0;
-}
-.top-bar a {
-  color: #a2abb2;
-}
-.top-bar a:hover {
-  color: #f2624d;
 }
 .top-bar div:not(.entry-content) .widget ul li {
   padding-top: 5px;
