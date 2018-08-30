@@ -2347,6 +2347,7 @@ ol.comment-list {
   color: #f2624d;
 }
 .pagination-container .pagination-wrap ul.pagination li a,
+.pagination-container .pagination-wrap ul.pagination li span,
 .pagination-container .pagination-wrap ul.pagination li .current {
   color: #d9d9d9;
   background-color: #FFFFFF;
@@ -2366,12 +2367,16 @@ ol.comment-list {
   border: none;
 }
 .pagination-container .pagination-wrap ul.pagination li a.current,
+.pagination-container .pagination-wrap ul.pagination li span.current,
 .pagination-container .pagination-wrap ul.pagination li .current.current,
 .pagination-container .pagination-wrap ul.pagination li a:hover,
+.pagination-container .pagination-wrap ul.pagination li span:hover,
 .pagination-container .pagination-wrap ul.pagination li .current:hover,
 .pagination-container .pagination-wrap ul.pagination li a:focus,
+.pagination-container .pagination-wrap ul.pagination li span:focus,
 .pagination-container .pagination-wrap ul.pagination li .current:focus,
 .pagination-container .pagination-wrap ul.pagination li a:active,
+.pagination-container .pagination-wrap ul.pagination li span:active,
 .pagination-container .pagination-wrap ul.pagination li .current:active {
   color: #f2624d;
   background-color: #FFFFFF;
