@@ -13,7 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( get_theme_mod( 'show_slider', 'on' ) == 'on' ) { ?>
     <section class="slider-section">
 
-		<?php echo do_shortcode('[rev_slider alias="home-supermarket-2"]'); ?>
+		<?php
+
+            if ( class_exists( 'RevSlider' ) ) {
+                echo do_shortcode('[rev_slider alias="home-supermarket-2"]');
+            }
+
+		    do_action( 'dokanee_home_on_slider' );
+        ?>
 
     </section> <!-- .slider-section -->
 <?php } ?>
