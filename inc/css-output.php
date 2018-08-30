@@ -84,7 +84,8 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 
 		// Top bar link
 		$css->set_selector( '.top-bar a,.top-bar a:visited' );
-		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'top_bar_link_color' ] ) );
+		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'top_bar_text_color' ] ) );
+//		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'top_bar_link_color' ] ) );
 
 		// Top bar link hover
 		$css->set_selector( '.top-bar a:hover' );
