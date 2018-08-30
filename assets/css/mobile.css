@@ -208,40 +208,6 @@ nav.toggled ul ul.sub-menu {
 		text-align: center;
 	}
 
-	.site-info {
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-
-	.site-info {
-		text-align: center;
-	}
-
-	.copyright-bar {
-		float: none !important;
-		text-align: center !important;
-	}
-
-	.footer-bar {
-		float: none !important;
-		text-align: center !important;
-		margin-bottom: 20px;
-	}
-
-	.footer-bar .widget_nav_menu li {
-		float: none;
-		display: inline-block;
-		padding: 5px 0;
-	}
-
-	.site-footer .footer-widgets .footer-widgets-container .inside-footer-widgets {
-		margin: 0;
-	}
-
-	.site-footer .footer-widgets .footer-widgets-container .inner-padding {
-		padding: 0;
-	}
-
 	.comment .children {
 		padding-left: 10px;
 		margin-left: 0;
