@@ -74,21 +74,6 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			) );
 		}
 
-		// Add our upsell section
-		if ( ! defined( 'GP_PREMIUM_VERSION' ) ) {
-			$wp_customize->add_section(
-				new Dokanee_Upsell_Section( $wp_customize, 'dokanee_upsell_section',
-					array(
-						'pro_text'   => __( 'Premium Modules Available', 'dokanee' ),
-						'pro_url'    => dokanee_get_premium_url( 'https://generatepress.com/premium' ),
-						'capability' => 'edit_theme_options',
-						'priority'   => 0,
-						'type'       => 'gp-upsell-section'
-					)
-				)
-			);
-		}
-
 		// Remove title
 		$wp_customize->add_setting(
 			'dokanee_settings[hide_title]',
@@ -1435,24 +1420,6 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'priority' => 10
 			)
 		);
-
-		if ( ! function_exists( 'dokanee_blog_customize_register' ) && ! defined( 'GP_PREMIUM_VERSION' ) ) {
-			$wp_customize->add_control(
-				new Generate_Customize_Misc_Control(
-					$wp_customize,
-					'blog_get_addon_desc',
-					array(
-						'section'     => 'dokanee_blog_section',
-						'type'        => 'addon',
-						'label'       => __( 'Learn more', 'dokanee' ),
-						'description' => __( 'More options are available for this section in our premium version.', 'dokanee' ),
-						'url'         => dokanee_get_premium_url( 'https://generatepress.com/downloads/dokanee-blog/' ),
-						'priority'    => 30,
-						'settings'    => ( isset( $wp_customize->selective_refresh ) ) ? array() : 'blogname'
-					)
-				)
-			);
-		}
 
 		// Add Performance section
 		$wp_customize->add_section(
