@@ -9,24 +9,17 @@
 .top-bar {
   border-bottom: 1px solid #ECEDEF;
   min-height: 48px;
-  display: flex;
-  align-items: center;
   /* Top bar menu */
 }
 .top-bar .inside-top-bar {
   width: 1140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.top-bar .inside-top-bar:not(.grid-container):after,
-.top-bar .inside-top-bar:not(.grid-container):before {
-  content: ".";
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
-  font-size: 0;
-  line-height: 0;
-  width: 0;
-  height: 0;
-  clear: both;
+.top-bar .inside-top-bar:after,
+.top-bar .inside-top-bar:before {
+  content: none;
 }
 .top-bar .inside-top-bar .widget {
   padding: 0;

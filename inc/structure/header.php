@@ -245,14 +245,17 @@ if ( ! function_exists( 'dokanee_top_bar' ) ) {
 	 *
 	 * @since 1.3.45
 	 */
-	function dokanee_top_bar() {
-		if ( ! is_active_sidebar( 'top-bar' ) ) {
-			return;
-		}
-		?>
+	function dokanee_top_bar() { ?>
+
 		<div <?php dokanee_top_bar_class(); ?>>
 			<div class="inside-top-bar<?php if ( 'contained' == dokanee_get_setting( 'top_bar_inner_width' ) ) echo ' grid-container grid-parent'; ?>">
-                <?php dynamic_sidebar( 'top-bar' ); ?>
+                <?php
+                if ( ! is_active_sidebar( 'top-bar' ) ) {
+	                echo '<a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a>';
+                } else {
+	                dynamic_sidebar( 'top-bar' );
+                }
+                ?>
 
                 <div class="dokanee-user-menu">
 	                <?php dokan_header_user_menu(); ?>
