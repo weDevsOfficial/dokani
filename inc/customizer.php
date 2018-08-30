@@ -440,7 +440,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 		);
 
 		// show slider
-		$wp_customize->add_setting( 'show_slider' );
+		$wp_customize->add_setting( 'show_slider', array( 'default' => 'on' ) );
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
