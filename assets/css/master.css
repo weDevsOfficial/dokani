@@ -2981,6 +2981,16 @@ a.dokan-btn,
   grid-gap: 30px;
   grid-template-columns: repeat(3, 1fr);
 }
+@media (max-width: 991px) {
+  .product-cat-section .product-cat-wrapper {
+    margin: 0 20px;
+  }
+}
+@media (max-width: 767px) {
+  .product-cat-section .product-cat-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .product-cat-section .product-cat-wrapper .product-cat-box {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3033,12 +3043,33 @@ a.dokan-btn,
   border-color: #f2624d;
 }
 .products-section {
-  padding: 110px 0;
+  padding: 110px 20px;
   border-top: 1px solid #ECEDEF;
   border-bottom: 1px solid #ECEDEF;
 }
+@media (max-width: 991px) {
+  .products-section .widget-area {
+    float: none;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+}
 .products-section .widget-area > div {
   margin-left: 30px;
+}
+@media (max-width: 991px) {
+  .products-section .widget-area > div {
+    margin: 0;
+  }
+}
+@media (max-width: 991px) {
+  .products-section .content-area {
+    float: none;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
 }
 .products-section .product-sliders {
   box-shadow: none;
@@ -3047,7 +3078,7 @@ a.dokan-btn,
   display: flex;
 }
 .store-section {
-  padding: 110px 0;
+  padding: 110px 20px;
   background-color: #ececfb;
 }
 .store-section .store-wrapper .tabs {
@@ -3109,7 +3140,12 @@ a.dokan-btn,
   .store-section .store-wrapper .tabs label {
     width: 100%;
     margin-right: 0;
-    margin-top: 0.2rem;
+    margin-top: 0.5rem;
+    background-color: #FFFFFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
   }
 }
 /* = 404 Page

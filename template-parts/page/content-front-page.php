@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section class="products-section">
     <div class="grid-container container grid-parent">
-        <div class="grid-parent mobile-grid-100 grid-75 tablet-grid-75">
+        <div class="content-area grid-parent mobile-grid-100 grid-75 tablet-grid-75">
 
 			<?php if ( function_exists( 'dokan_get_featured_products' ) ) { ?>
 				<?php if ( get_theme_mod( 'show_featured', 'on' ) == 'on' ) { ?>

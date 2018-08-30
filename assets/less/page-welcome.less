@@ -18,6 +18,11 @@
     }
 }
 
+// Slider Section
+.slider-section {
+
+}
+
 // Product Cat Section
 .product-cat-section {
     background-color: @white;
@@ -28,6 +33,14 @@
         display: grid;
         grid-gap: 30px;
         grid-template-columns: repeat(3, 1fr);
+
+        @media (max-width: @screen-sm-max) {
+            margin: 0 20px;
+        }
+
+        @media (max-width: @screen-xs-max) {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
         .product-cat-box {
             .rounded(5px);
@@ -74,13 +87,34 @@
 
 // Products Section
 .products-section {
-    padding: 110px 0;
+    padding: 110px 20px;
     border-top:1px solid @border-color;
     border-bottom:1px solid @border-color;
 
     .widget-area {
+
+        @media (max-width: @screen-sm-max) {
+            float: none;
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+
         > div {
             margin-left: 30px;
+
+            @media (max-width: @screen-sm-max) {
+                margin: 0;
+            }
+        }
+    }
+
+    .content-area {
+        @media (max-width: @screen-sm-max) {
+            float: none;
+            width: 100%;
+            left: 0;
+            right: 0;
         }
     }
 
@@ -95,7 +129,7 @@
 
 // Store Section
 .store-section {
-    padding: 110px 0;
+    padding: 110px 20px;
     background-color: #ececfb;
 
     .store-wrapper {
@@ -166,7 +200,9 @@
             .tabs label {
                 width: 100%;
                 margin-right: 0;
-                margin-top: 0.2rem;
+                margin-top: 0.5rem;
+                background-color: @white;
+                .rounded(5px);
             }
         }
 
