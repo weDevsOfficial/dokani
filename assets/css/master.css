@@ -2511,6 +2511,16 @@ a.dokan-btn,
 #dokan-seller-listing-wrap ul.dokan-seller-list.column-4 {
   grid-template-columns: repeat(4, 1fr);
 }
+@media (max-width: 991px) {
+  #dokan-seller-listing-wrap ul.dokan-seller-list.column-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  #dokan-seller-listing-wrap ul.dokan-seller-list.column-4 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 #dokan-seller-listing-wrap ul.dokan-seller-list.grid .store-footer .store-data .dokan-seller-rating,
 #dokan-seller-listing-wrap ul.dokan-seller-list.grid .store-footer .store-data .store-address {
   display: none;
