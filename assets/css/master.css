@@ -776,12 +776,36 @@ input[type="file"] {
   padding: 60px 105px;
   color: #FFFFFF;
 }
+@media (max-width: 1199px) {
+  .trust-factors-section .grid-container .factor-wrapper {
+    padding: 60px 40px;
+    grid-gap: 5%;
+  }
+}
+@media (max-width: 991px) {
+  .trust-factors-section .grid-container .factor-wrapper {
+    padding: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .trust-factors-section .grid-container .factor-wrapper {
+    display: block;
+  }
+}
 .trust-factors-section .grid-container .factor-wrapper .factor-box {
   font-size: 18px;
   font-weight: 400;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+}
+@media (max-width: 767px) {
+  .trust-factors-section .grid-container .factor-wrapper .factor-box {
+    margin-bottom: 20px;
+  }
+  .trust-factors-section .grid-container .factor-wrapper .factor-box:last-child {
+    margin-bottom: 0;
+  }
 }
 .trust-factors-section .grid-container .factor-wrapper .factor-box .factor-icon {
   width: 64px;
@@ -809,6 +833,11 @@ input[type="file"] {
 }
 .trust-factors-section .grid-container .factor-wrapper .factor-box .factor-info {
   width: 60%;
+}
+@media (max-width: 991px) {
+  .trust-factors-section .grid-container .factor-wrapper .factor-box .factor-info {
+    font-size: 15px;
+  }
 }
 .widget-area .widget {
   -webkit-border-radius: 5px;
