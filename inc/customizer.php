@@ -343,10 +343,10 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
-		// add nav_text_color
+		// add navigation_text_color
 		$wp_customize->add_setting(
-			'dokanee_settings[nav_text_color]', array(
-				'default'           => $defaults['nav_text_color'],
+			'dokanee_settings[navigation_text_color]', array(
+				'default'           => $defaults_color['navigation_text_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
 				'transport'         => 'postMessage',
@@ -355,11 +355,11 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
-				'dokanee_settings[nav_text_color]',
+				'dokanee_settings[navigation_text_color]',
 				array(
 					'label'    => __( 'Navigation Text Color', 'dokanee' ),
 					'section'  => 'body_section',
-					'settings' => 'dokanee_settings[nav_text_color]'
+					'settings' => 'dokanee_settings[navigation_text_color]'
 				)
 			)
 		);
