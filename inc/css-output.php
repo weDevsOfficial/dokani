@@ -117,7 +117,7 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'navigation_background_color' ] ) );
 
 		// Navigation text
-		$css->set_selector( '.main-navigation .main-nav ul li a,.menu-toggle' );
+		$css->set_selector( '.main-navigation .main-nav ul li a,.menu-toggle, .main-navigation .main-nav ul ul li a' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'navigation_text_color' ] ) );
 
 		// Navigation background/text on hover
@@ -155,7 +155,7 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 
 		// Sub-navigation text
 		$css->set_selector( '.main-navigation .main-nav ul ul li a' );
-		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'subnavigation_text_color' ] ) );
+//		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'subnavigation_text_color' ] ) );
 
 		// Sub-Navigation background/text on hover
 		$css->set_selector( '.main-navigation .main-nav ul ul li:hover > a,.main-navigation .main-nav ul ul li:focus > a,.main-navigation .main-nav ul ul li.sfHover > a' );
