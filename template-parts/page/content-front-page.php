@@ -126,7 +126,23 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
         <div class="widget-area grid-25 tablet-grid-25 grid-parent sidebar">
             <div class="inside-right-sidebar">
-				<?php dynamic_sidebar( 'home' ); ?>
+				<?php
+				if ( ! is_active_sidebar( 'home' ) ) { ?>
+
+					<aside id="search" class="widget widget_search">
+						<?php get_search_form(); ?>
+                    </aside>
+
+                    <aside id="archives" class="widget">
+                        <h2 class="widget-title"><?php esc_html_e( 'Archives', 'dokanee' ); ?></h2>
+                        <ul>
+							<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+                        </ul>
+                    </aside>
+
+				<?php } else {
+					dynamic_sidebar( 'home' );
+				} ?>
             </div>
         </div>
     </div>
