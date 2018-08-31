@@ -35,18 +35,23 @@ if ( ! function_exists( 'dokanee_navigation_position' ) ) {
 					<span class="mobile-menu"><?php echo apply_filters( 'dokanee_mobile_menu_label', __( 'Menu', 'dokanee' ) ); // WPCS: XSS ok. ?></span>
 				</button>
 				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'primary',
-						'container' => 'div',
-						'container_class' => 'main-nav',
-						'container_id' => 'primary-menu',
-						'menu_class' => '',
-						'fallback_cb' => 'dokanee_menu_fallback',
-						'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
-					)
-				);
-				?>
+                if ( has_nav_menu( 'primary' ) ) {
+	                wp_nav_menu(
+		                array(
+			                'theme_location' => 'primary',
+			                'container' => 'div',
+			                'container_class' => 'main-nav',
+			                'container_id' => 'primary-menu',
+			                'menu_class' => '',
+			                'fallback_cb' => 'dokanee_menu_fallback',
+			                'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
+		                )
+	                );
+                } else { ?>
+
+                    <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php _e( 'Home', 'dokanee' ); ?></a>
+
+                <?php } ?>
 			</div><!-- .inside-navigation -->
 		</nav><!-- #site-navigation -->
 		<?php
