@@ -72,13 +72,13 @@ jQuery(function($) {
 
     // tiny helper function to add breakpoints
     function getGridSize() {
-        return (window.innerWidth < 600) ? 2 : (window.innerWidth < 900) ? 3 : 4;
+        return (window.innerWidth < 600) ? 2 : (window.innerWidth < 900) ? 2 : 3;
     }
 
     $('.product-sliders').flexslider({
         animation: "slide",
         animationLoop: false,
-        itemWidth: 250,
+        itemWidth: 190,
         itemMargin: 30,
         controlNav: false,
         minItems: getGridSize(),
