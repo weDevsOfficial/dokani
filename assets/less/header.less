@@ -7,10 +7,11 @@
     min-height: 48px;
 
     .inside-top-bar {
-        width: 1140px;
+        //width: 1140px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 0 40px;
 
         &:after,
         &:before {
@@ -243,17 +244,30 @@
     .inside-header {
         display: flex;
         align-items: center;
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: 0;
+        padding-bottom: 0;
+        justify-content: space-between;
+
+        &:before,
+        &:after {
+            content: none;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            width: 62%;
+        }
 
         .category-menu-wrapper {
             padding-right: 23px;
+            width: 34px;
 
             .dokanee-category-menu {
                 position: relative;
                 width: 32px;
-                padding-bottom: 20px;
-                margin-top: 12px;
+                padding-bottom: 26px;
+                margin-top: 20px;
                 cursor: pointer;
 
                 &:hover #cat-drop-stack {
@@ -281,9 +295,9 @@
                         text-indent: 0;
                         box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
                         border: 1px solid @border-color;
-                        border-radius: 2px;
-                        width: 32px;
-                        height: 28px;
+                        .rounded(3px);
+                        width: 34px;
+                        height: 30px;
                         text-align: center;
                         line-height: 28px;
                     }
@@ -339,27 +353,39 @@
 
         .header-widget {
             top: 0;
-            margin-left: 5%;
+            margin-left: 7%;
+            overflow: hidden;
+
+            .widget {
+                padding: 0 0 20px;
+                margin-bottom: 0;
+
+                &:last-child {
+                    padding-bottom:0;
+                }
+            }
 
             .widget_dokna_product_search {
                 float: none;
                 max-width: unset;
-
             }
         }
 
         .ajaxsearchform{
-
             .input-group {
                 display: flex;
                 width: 500px;
+                max-width: 100%
             }
 
             .dokan-ajax-search-textfield {
+                font-size: 14px;
+                padding: 7.5px 15px;
                 width: 90%;
                 background-color: transparent;
                 border: 1px solid @border-color;
                 border-radius: 5px 0 0 5px;
+                .placeholder(#b5b7c9);
             }
 
             .input-group-addon {
@@ -388,20 +414,18 @@
 
 
         .main-navigation {
-            width: 38%;
+            //width: 38%;
 
             & , .main-navigation ul ul {
                 background: transparent;
 
                 a {
-                    color: #000;
-
-
+                    //color: #000;
                 }
             }
 
             .main-nav ul {
-                overflow: hidden;
+                //overflow: hidden;
                 float: right;
 
                 li {
@@ -416,14 +440,50 @@
                     }
 
                     a {
-                        padding-left: 13px;
-                        padding-right: 13px;
-                        font-weight: @menu-font-weight;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        line-height: 70px;
                     }
+                }
+
+                ul li a {
+                    line-height: normal !important;
                 }
             }
 
         }
 
+    }
+}
+
+
+/* Site header */
+
+.main-title {
+    margin: 0;
+    font-size: 50px;
+    line-height: 1.2em;
+}
+
+.site-logo {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.site-description {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.nav-float-right .header-widget {
+    position:relative;
+    top: -10px;
+
+    .widget {
+        padding: 0 0 10px;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
     }
 }

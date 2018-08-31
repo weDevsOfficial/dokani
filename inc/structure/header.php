@@ -28,11 +28,13 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 				 */
 				do_action( 'dokanee_before_header_content' );
 
-				// Display dokan category
-				dokan_category_widget();
+				echo '<div class="header-left">';
+                    // Display dokan category
+                    dokan_category_widget();
 
-				// Add our main header items.
-				dokanee_header_items();
+                    // Add our main header items.
+                    dokanee_header_items();
+				echo '</div>';
 
 				/**
 				 * dokanee_after_header_content hook.
