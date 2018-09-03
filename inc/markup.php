@@ -136,6 +136,10 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 			$classes[] = 'dokanee-product-single-template';
         }
 
+        if ( is_front_page() ) {
+			$classes[] = 'dokanee-template-home';
+        }
+
 		return $classes;
 	}
 }
