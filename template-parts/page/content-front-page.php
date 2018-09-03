@@ -156,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="store-wrapper">
                 <div class="tabs">
                     <input type="radio" name="tabs" id="all-store" checked="checked">
-                    <label for="all-store">All</label>
+                    <label for="all-store"><?php _e( 'All', 'dokanee' ); ?></label>
                     <div class="tab">
 						<?php
 						$new_sellers    = dokan()->vendor->all( array( 'number' => 8 ) );
@@ -178,7 +178,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
 
                     <input type="radio" name="tabs" id="best-seller">
-                    <label for="best-seller">Best seller</label>
+                    <label for="best-seller"><?php _e( 'Best seller', 'dokanee' ); ?></label>
                     <div class="tab">
 						<?php
 						$best_sellers = dokan_get_best_sellers(8);
@@ -201,7 +201,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
 
                     <input type="radio" name="tabs" id="featured-store">
-                    <label for="featured-store">Featured</label>
+                    <label for="featured-store"><?php _e( 'Featured', 'dokanee' ); ?></label>
                     <div class="tab">
 						<?php
 						$feature_sellers = dokan_get_feature_sellers(8);
@@ -224,11 +224,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
 
                     <input type="radio" name="tabs" id="latest-store">
-                    <label for="latest-store">New</label>
+                    <label for="latest-store"><?php _e( 'New', 'dokanee' ); ?></label>
 
                     <div class="tab">
 						<?php
-						$new_sellers    = dokan()->vendor->all( array( 'order' => 'DESC', 'number' => 8 ) );
+						$new_sellers = dokan()->vendor->all( array( 'order' => 'DESC', 'number' => 8 ) );
 
 						$template_args = array(
 							'sellers'         => $new_sellers,
