@@ -157,8 +157,93 @@
     }
 
     .widget_shopping_cart_content {
-        padding: 5px 10px;
+        //padding: 5px 10px;
         min-width: 300px;
+
+        p.total {
+            text-align: right;
+            margin: 1em 0;
+            font-size: 15px;
+        }
+
+        p.buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            &:before,
+            &:after {
+                content: none;
+            }
+
+            a.button {
+                width: 47%;
+                height: 33px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+        }
+
+        .woocommerce-mini-cart.cart_list {
+            margin-right: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                padding: 0 0 10px 0;
+                margin-top: 10px;
+                border-bottom: 1px solid @border-color;
+
+                a {
+                    color: @theme-color;
+                }
+
+                img {
+                    float: right;
+                    margin-left: 4px;
+                    margin-right: 0;
+                    width: 50px;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                    border: 1px solid #EDEDED;
+                    padding: 2px;
+                    -moz-border-radius: 3px;
+                    -webkit-border-radius: 3px;
+                    border-radius: 3px;
+                }
+
+                .cart-remove-icon {
+                    width: 10%;
+                }
+
+                .mini-cart-content {
+                    width: 90%;
+
+                    .variation {
+                        color: @content-color;
+                    }
+
+                    .quantity {
+                        font-size: 14px;
+
+                        .woocommerce-Price-amount {
+                            font-size: inherit;
+                        }
+                    }
+
+                    dl {
+                        margin: 0;
+                        padding-left: 0;
+                        border-left: none;
+
+                        dd {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .widget-title {
