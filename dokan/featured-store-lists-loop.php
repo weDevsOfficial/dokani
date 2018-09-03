@@ -10,7 +10,7 @@
                     $store_url  = dokan_get_store_url( $seller->ID );
                     $store_address  = dokan_get_seller_short_address( $seller->ID );
                     $seller_rating  = dokan_get_seller_rating( $seller->ID );
-                    $banner_url = ( $banner_id ) ? wp_get_attachment_image_src( $banner_id, $image_size ) : get_template_directory_uri() . '/assets/images/default-store-banner.png';
+                    $banner_url = ( $banner_id ) ? wp_get_attachment_image_src( $banner_id, $image_size ) : get_template_directory_uri() . '/assets/images/single-default-store-banner.png';
                     $featured_seller = get_user_meta( $seller->ID, 'dokan_feature_seller', true );
                     ?>
 

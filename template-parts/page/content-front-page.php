@@ -160,17 +160,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="tab">
 						<?php
 						$new_sellers    = dokan()->vendor->all( array( 'number' => 8 ) );
+						$image_size = 'single-vendor-thumb';
 
 						$template_args = array(
 							'sellers'         => $new_sellers,
-							'limit'           => $limit,
-							'offset'          => $offset,
-							'paged'           => $paged,
-							'search_query'    => $search_query,
-							'pagination_base' => $pagination_base,
 							'per_row'         => 4,
-							'search_enabled'  => $search,
-							'image_size'      => $image_size,
+							'image_size'      => $image_size
 						);
 
 						dokan_get_template_part( 'new-store-lists-loop', false, $template_args );
@@ -182,17 +177,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="tab">
 						<?php
 						$best_sellers = dokan_get_best_sellers(8);
+						$image_size = 'single-vendor-thumb';
 
 						$template_args = array(
 							'sellers'         => $best_sellers,
-							'limit'           => $limit,
-							'offset'          => $offset,
-							'paged'           => $paged,
-							'search_query'    => $search_query,
-							'pagination_base' => $pagination_base,
 							'per_row'         => 4,
-							'search_enabled'  => $search,
-							'image_size'      => $image_size,
+							'image_size'      => $image_size
 						);
 
 						?>
@@ -205,17 +195,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="tab">
 						<?php
 						$feature_sellers = dokan_get_feature_sellers(8);
+						$image_size = 'single-vendor-thumb';
 
 						$template_args = array(
 							'sellers'         => $feature_sellers,
-							'limit'           => $limit,
-							'offset'          => $offset,
-							'paged'           => $paged,
-							'search_query'    => $search_query,
-							'pagination_base' => $pagination_base,
 							'per_row'         => 4,
-							'search_enabled'  => $search,
-							'image_size'      => $image_size,
+							'image_size'      => $image_size
 						);
 
 						?>
@@ -229,17 +214,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="tab">
 						<?php
 						$new_sellers = dokan()->vendor->all( array( 'order' => 'DESC', 'number' => 8 ) );
+						$image_size = 'single-vendor-thumb';
 
 						$template_args = array(
 							'sellers'         => $new_sellers,
-							'limit'           => $limit,
-							'offset'          => $offset,
-							'paged'           => $paged,
-							'search_query'    => $search_query,
-							'pagination_base' => $pagination_base,
 							'per_row'         => 4,
-							'search_enabled'  => $search,
-							'image_size'      => $image_size,
+							'image_size'      => $image_size
 						);
 
 						dokan_get_template_part( 'new-store-lists-loop', false, $template_args );
