@@ -3518,16 +3518,16 @@ a.dokan-btn,
 }
 /* = Welcome page
 ----------------------------------------------- */
-.page-template-welcome #page.grid-container {
+.dokanee-template-home #page.grid-container {
   max-width: 100%;
 }
-.page-template-welcome.separate-containers .site-main {
+.dokanee-template-home.separate-containers .site-main {
   margin: 0;
 }
-.page-template-welcome.separate-containers .site-main > * {
+.dokanee-template-home.separate-containers .site-main > * {
   margin-bottom: 0;
 }
-.page-template-welcome .site-footer {
+.dokanee-template-home .site-footer {
   background-color: #ececfb;
 }
 .product-cat-section {
