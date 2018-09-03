@@ -45,7 +45,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 				 */
 				do_action( 'dokanee_after_header_content' );
 				?>
-			</div><!-- .inside-header -->
+			</div>  <!-- .inside-header -->
 
             <?php
             if ( !is_front_page() && !dokan_is_store_page() && !is_single() && !is_404() ) {
@@ -67,7 +67,7 @@ if ( ! function_exists( 'dokan_category_widget' ) ) :
 	function dokan_category_widget() {
 		if ( class_exists( 'Dokan_Category_Widget' ) ) {
 			the_widget( 'Dokan_Category_Widget', array(
-				'title' => __( 'Product Categories', 'dokan-theme' )
+				'title' => __( 'Product Categories', 'dokanee' )
 			), array(
 					'before_widget' => '<div class="category-menu-wrapper"><div class="dokanee-category-menu">',
 					'after_widget'  => '</div></div>',

@@ -54,7 +54,7 @@ get_header(); ?>
 
                 <?php } else { ?>
 
-                    <p class="dokan-info"><?php _e( 'No products were found of this vendor!', 'dokan-lite' ); ?></p>
+                    <p class="dokan-info"><?php _e( 'No products were found of this vendor!', 'dokanee' ); ?></p>
 
                 <?php }
 

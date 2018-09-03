@@ -6,7 +6,7 @@
                 foreach ( $sellers as $seller ) {
                     $store_info = dokan_get_store_info( $seller->seller_id );
                     $banner_id  = isset( $store_info['banner'] ) ? $store_info['banner'] : 0;
-                    $store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokan-lite' );
+                    $store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokanee' );
                     $store_url  = dokan_get_store_url( $seller->seller_id );
                     $store_address  = dokan_get_seller_short_address( $seller->seller_id );
                     $seller_rating  = dokan_get_seller_rating( $seller->seller_id );
@@ -56,7 +56,7 @@
                 <div class="dokan-clearfix"></div>
             </ul> <!-- .dokan-seller-wrap -->
         <?php else:  ?>
-            <p class="dokan-error"><?php _e( 'No vendor found!', 'dokan-lite' ); ?></p>
+            <p class="dokan-error"><?php _e( 'No vendor found!', 'dokanee' ); ?></p>
         <?php endif; ?>
     </div>
 </div>

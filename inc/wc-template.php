@@ -281,7 +281,7 @@ function dokanee_woo_placeholder_img() {
 	$size = 'woocommerce_thumbnail';
 	$dimensions = wc_get_image_size( $size );
 
-	return '<img src="' . wc_placeholder_img_src() . '" alt="' . esc_attr__( 'Placeholder', 'woocommerce' ) . '" width="' . esc_attr( $dimensions['width'] ) . '" height="' . esc_attr( $dimensions['height'] ) . '" class="woocommerce-placeholder wp-post-image" style="height: ' . esc_attr( $dimensions['height'] ) . 'px;"  />';
+	return '<img src="' . wc_placeholder_img_src() . '" alt="' . esc_attr__( 'Placeholder', 'dokanee' ) . '" width="' . esc_attr( $dimensions['width'] ) . '" height="' . esc_attr( $dimensions['height'] ) . '" class="woocommerce-placeholder wp-post-image" style="height: ' . esc_attr( $dimensions['height'] ) . 'px;"  />';
 
 }
 

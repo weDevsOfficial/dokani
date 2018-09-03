@@ -99,14 +99,14 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 		            );
 
 		            if ( class_exists( 'Dokan_Store_Location' ) ) {
-			            the_widget( 'Dokan_Store_Category_Menu', array( 'title' => __( 'Store Category', 'dokan-lite' ) ), $args );
+			            the_widget( 'Dokan_Store_Category_Menu', array( 'title' => __( 'Store Category', 'dokanee' ) ), $args );
 
 			            if ( dokan_get_option( 'store_map', 'dokan_general', 'on' ) == 'on'  && !empty( $map_location ) ) {
-				            the_widget( 'Dokan_Store_Location', array( 'title' => __( 'Store Location', 'dokan-lite' ) ), $args );
+				            the_widget( 'Dokan_Store_Location', array( 'title' => __( 'Store Location', 'dokanee' ) ), $args );
 			            }
 
 			            if ( dokan_get_option( 'contact_seller', 'dokan_general', 'on' ) == 'on' ) {
-				            the_widget( 'Dokan_Store_Contact_Form', array( 'title' => __( 'Contact Vendor', 'dokan-lite' ) ), $args );
+				            the_widget( 'Dokan_Store_Contact_Form', array( 'title' => __( 'Contact Vendor', 'dokanee' ) ), $args );
 			            }
 		            }
 
@@ -130,14 +130,14 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
                         <?php
 
 			            if ( class_exists( 'Dokan_Store_Location' ) ) {
-				            the_widget( 'Dokan_Store_Category_Menu', array( 'title' => __( 'Store Category', 'dokan-lite' ) ), $args );
+				            the_widget( 'Dokan_Store_Category_Menu', array( 'title' => __( 'Store Category', 'dokanee' ) ), $args );
 
 				            if ( dokan_get_option( 'store_map', 'dokan_general', 'on' ) == 'on'  && !empty( $map_location ) ) {
-					            the_widget( 'Dokan_Store_Location', array( 'title' => __( 'Store Location', 'dokan-lite' ) ), $args );
+					            the_widget( 'Dokan_Store_Location', array( 'title' => __( 'Store Location', 'dokanee' ) ), $args );
 				            }
 
 				            if ( dokan_get_option( 'contact_seller', 'dokan_general', 'on' ) == 'on' ) {
-					            the_widget( 'Dokan_Store_Contact_Form', array( 'title' => __( 'Contact Vendor', 'dokan-lite' ) ), $args );
+					            the_widget( 'Dokan_Store_Contact_Form', array( 'title' => __( 'Contact Vendor', 'dokanee' ) ), $args );
 				            }
 			            }
 
