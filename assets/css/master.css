@@ -3045,6 +3045,9 @@ a.dokan-btn,
 .widget-area .dokan-category-menu #cat-drop-stack ul li ul {
   background-color: transparent !important;
 }
+.widget-area .menu-dokan-pages-container {
+  padding: 0 !important;
+}
 /* = Store List
 ----------------------------------------------- */
 #dokan-seller-listing-wrap {
