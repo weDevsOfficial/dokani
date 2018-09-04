@@ -367,7 +367,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 		// add sidebar_widget_title_color
 		$wp_customize->add_setting(
 			'dokanee_settings[sidebar_widget_title_color]', array(
-				'default'           => $defaults['sidebar_widget_title_color'],
+				'default'           => $defaults_color['sidebar_widget_title_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
 				'transport'         => 'postMessage',
