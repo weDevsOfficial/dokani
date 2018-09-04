@@ -2503,6 +2503,17 @@ ol.comment-list {
   background-color: #e05844;
   color: #FFFFFF;
 }
+.woocommerce-info {
+  background-color: #FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+}
 /* = Woocommerce Products
 ----------------------------------------------- */
 .post-type-archive-product .inside-article,
