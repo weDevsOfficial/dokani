@@ -3650,6 +3650,12 @@ a.dokan-btn,
     right: 0;
   }
 }
+.products-section .content-area .slider-container {
+  margin-bottom: 56px;
+}
+.products-section .content-area .slider-container .woocommerce-info {
+  margin-bottom: 65px;
+}
 .products-section .product-sliders {
   box-shadow: none;
 }
