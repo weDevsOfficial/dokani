@@ -29,7 +29,6 @@ if ( ! function_exists( 'dokanee_setup' ) ) {
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link', 'status' ) );
-		add_theme_support( 'woocommerce' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -59,6 +58,15 @@ if ( ! function_exists( 'dokanee_setup' ) ) {
 
 		// This theme styles the visual editor to resemble the theme style.
 		add_editor_style( 'assets/css/admin/editor-style.css' );
+
+		// WooCommerce support
+		add_theme_support( 'woocommerce', array(
+			'thumbnail_image_width' => 260,
+		) );
+
+		update_option( 'woocommerce_thumbnail_cropping', 'custom' );
+		update_option( 'woocommerce_thumbnail_cropping_custom_width', '4' );
+		update_option( 'woocommerce_thumbnail_cropping_custom_height', '3' );
 	}
 }
 
