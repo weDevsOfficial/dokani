@@ -120,19 +120,25 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="slider-container woocommerce">
                         <h2 class="slider-heading"><?php _e( 'Best Selling Products', 'dokanee' ); ?></h2>
 
-                        <div class="product-sliders flexslider">
-                            <ul class="slides products">
-								<?php
-								$best_selling_query = dokan_get_best_selling_products();
-								?>
-								<?php while ( $best_selling_query->have_posts() ) : $best_selling_query->the_post(); ?>
+	                    <?php
+	                    $best_selling_query = dokan_get_best_selling_products();
 
-									<?php wc_get_template_part( 'content', 'product' ); ?>
+	                    if( $best_selling_query->have_posts() ) : ?>
 
-								<?php endwhile; ?>
-                            </ul>
-                        </div>
-                    </div> <!-- .slider-container -->
+                            <div class="product-sliders flexslider">
+                                <ul class="slides products">
+                                    <?php while ( $best_selling_query->have_posts() ) : $best_selling_query->the_post(); ?>
+                                        <?php wc_get_template_part( 'content', 'product' ); ?>
+                                    <?php endwhile; ?>
+                                </ul>
+                            </div>
+
+                        <?php else :
+		                    wc_no_products_found();
+	                    endif;
+	                    ?>
+
+                    </div> <!-- .slider-container [best selling products] -->
 				<?php } ?>
 			<?php } ?>
 
