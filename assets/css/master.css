@@ -3656,6 +3656,46 @@ a.dokan-btn,
 .products-section .product-sliders .products {
   display: flex;
 }
+.products-section .product-sliders .products .product:hover {
+  box-shadow: none;
+}
+.products-section .product-sliders .flex-direction-nav a {
+  opacity: 1;
+  top: -42px;
+}
+.products-section .product-sliders .flex-direction-nav a:hover:before {
+  color: #f2624d;
+  -webkit-box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+  -o-box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+}
+.products-section .product-sliders .flex-direction-nav a:before {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  color: #d8d8d8;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+}
+.products-section .product-sliders .flex-direction-nav .flex-next {
+  right: 5px;
+  padding: 2px 0 10px 0;
+}
+.products-section .product-sliders .flex-direction-nav .flex-prev {
+  right: 45px;
+  left: auto;
+  padding: 2px 5px 10px 5px;
+}
 .store-section {
   padding: 110px 20px;
   background-color: #ececfb;

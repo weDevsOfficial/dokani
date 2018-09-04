@@ -81,6 +81,8 @@ jQuery(function($) {
         itemWidth: 190,
         itemMargin: 30,
         controlNav: false,
+        prevText: "",
+        nextText: "",
         minItems: getGridSize(),
         maxItems: getGridSize()
     });
