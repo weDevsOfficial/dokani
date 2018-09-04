@@ -3048,6 +3048,12 @@ a.dokan-btn,
 .widget-area .menu-dokan-pages-container {
   padding: 0 !important;
 }
+.widget-area .widget .dokan-bestselling-product-widget {
+  padding: 7px 0 13px !important;
+}
+.widget-area .widget .dokan-bestselling-product-widget li {
+  padding: 7px 30px !important;
+}
 /* = Store List
 ----------------------------------------------- */
 #dokan-seller-listing-wrap {
