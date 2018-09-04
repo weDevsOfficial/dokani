@@ -23,7 +23,7 @@ if ( ! function_exists( 'dokanee_get_defaults' ) ) {
 			'retina_logo' => '',
 			'top_bar_width' => 'full',
 			'top_bar_inner_width' => 'contained',
-			'top_bar_alignment' => 'right',
+			'top_bar_alignment' => 'left',
 			'container_width' => '1100',
 			'header_layout_setting' => 'fluid-header',
 			'header_inner_width' => 'contained',
