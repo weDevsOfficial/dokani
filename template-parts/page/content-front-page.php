@@ -63,19 +63,27 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="slider-container woocommerce">
                         <h2 class="slider-heading"><?php _e( 'Featured Products', 'dokanee' ); ?></h2>
 
-                        <div class="product-sliders flexslider">
-                            <ul class="slides products">
-								<?php
-								$featured_query = dokan_get_featured_products();
-								?>
-								<?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
+                            <?php
+                                $featured_query = dokan_get_featured_products();
 
-									<?php wc_get_template_part( 'content', 'product' ); ?>
+                                if( $featured_query->have_posts() ) :
+                                    while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
 
-								<?php endwhile; ?>
-                            </ul>
-                        </div>
-                    </div> <!-- .slider-container -->
+                                        <div class="product-sliders flexslider">
+                                            <ul class="slides products">
+
+                                                <?php wc_get_template_part( 'content', 'product' ); ?>
+
+                                            </ul>
+                                        </div>
+
+                                    <?php endwhile;
+                                else :
+                                    wc_no_products_found();
+                                endif;
+                            ?>
+
+                    </div> <!-- .slider-container [featured product] -->
 				<?php } ?>
 			<?php } ?>
 
