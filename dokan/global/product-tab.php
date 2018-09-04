@@ -12,19 +12,17 @@
     <div class="store-banner">
 		<?php
 		$banner_id  = isset( $store_info['banner'] ) ? $store_info['banner'] : 0;
-		$banner_url = ( $banner_id ) ? wp_get_attachment_image_src( $banner_id, 'single-vendor-thumb' ) : get_template_directory_uri() . '/assets/images/single-default-store-banner.png';
+		$banner_url = ( $banner_id ) ? wp_get_attachment_image( $banner_id, 'single-vendor-thumb' ) : get_template_directory_uri() . '/assets/images/single-default-store-banner.png';
 
-        if( is_array( $banner_url ) ) {
-        ?>
-            <a href="<?php echo dokan_get_store_url( $seller->ID ); ?>">
-                <img src="<?php echo $banner_url[0]; ?>" alt="<?php echo $store_info['store_name']; ?>">
+        if( $banner_id ) { ?>
+            <a href="<?php echo dokan_get_store_url( $author->ID ); ?>">
+                <?php echo $banner_url; ?>
             </a>
-            <?php } else { ?>
-            <a href="<?php echo dokan_get_store_url( $seller->ID ); ?>">
+        <?php } else { ?>
+            <a href="<?php echo dokan_get_store_url( $author->ID ); ?>">
                 <img src="<?php echo $banner_url; ?>" alt="<?php echo $store_info['store_name']; ?>">
             </a>
-        <?php }
-        ?>
+        <?php } ?>
     </div>
 
     <ul class="store-info">
