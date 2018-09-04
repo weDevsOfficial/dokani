@@ -63,27 +63,25 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="slider-container woocommerce">
                         <h2 class="slider-heading"><?php _e( 'Featured Products', 'dokanee' ); ?></h2>
 
-                            <?php
-                                $featured_query = dokan_get_featured_products();
+                        <?php
+                        $featured_query = dokan_get_featured_products();
 
-                                if( $featured_query->have_posts() ) :
-                                    while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
+                        if( $featured_query->have_posts() ) : ?>
 
-                                        <div class="product-sliders flexslider">
-                                            <ul class="slides products">
+                            <div class="product-sliders flexslider">
+                                <ul class="slides products">
+                                    <?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
+                                        <?php wc_get_template_part( 'content', 'product' ); ?>
+                                    <?php endwhile; ?>
+                                </ul>
+                            </div>
 
-                                                <?php wc_get_template_part( 'content', 'product' ); ?>
+                        <?php else :
+                            wc_no_products_found();
+                        endif;
+                        ?>
 
-                                            </ul>
-                                        </div>
-
-                                    <?php endwhile;
-                                else :
-                                    wc_no_products_found();
-                                endif;
-                            ?>
-
-                    </div> <!-- .slider-container [featured product] -->
+                    </div> <!-- .slider-container [featured products] -->
 				<?php } ?>
 			<?php } ?>
 
