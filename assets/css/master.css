@@ -157,6 +157,9 @@
   box-sizing: border-box;
   text-align: center;
 }
+.top-bar .widget_shopping_cart_content .empty {
+  padding: 0 !important;
+}
 .top-bar .widget_shopping_cart_content .woocommerce-mini-cart.cart_list {
   margin-right: 0;
 }
