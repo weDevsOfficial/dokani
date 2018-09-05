@@ -2816,6 +2816,12 @@ ol.comment-list {
 .woocommerce div.product .woocommerce-tabs #dokan-product-enquiry .dokan-btn {
   margin-top: 8px;
 }
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--more_seller_product .woocommerce-loop-product__title {
+  font-size: 1em;
+}
+.woocommerce div.product .woocommerce-tabs .woocommerce-Tabs-panel--more_seller_product .price {
+  font-size: 1em;
+}
 .woocommerce div.product .related.products > h2 {
   color: #000000;
   font-size: 23px;
