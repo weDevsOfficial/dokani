@@ -2141,6 +2141,14 @@ ol.comment-list {
   -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
 }
+.woocommerce .shop_table.cart .coupon input,
+.woocommerce-page .shop_table.cart .coupon input,
+.woocommerce .shop_table.cart .coupon input,
+.woocommerce-page .shop_table.cart .coupon input {
+  min-width: 150px;
+  font-size: 13px;
+  padding: 5px 10px;
+}
 /* = Woocommerce Common
 ----------------------------------------------- */
 .woocommerce span.onsale {
