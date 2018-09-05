@@ -1497,7 +1497,7 @@ input[type="file"] {
 .widget-area .widget.widget_search .search-field:hover,
 .widget-area .widget.widget_search .search-field:active,
 .widget-area .widget.widget_search .search-field:focus {
-  border-color: #f2624d;
+  border-color: #ECEDEF;
 }
 .widget-area .widget .menu-long-menu-container,
 .widget-area .widget > ul {
