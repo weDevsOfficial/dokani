@@ -2126,6 +2126,21 @@ ol.comment-list {
 .woocommerce-page .woocommerce-ordering {
   float: left;
 }
+.woocommerce .woocommerce-ordering select,
+.woocommerce-page .woocommerce-ordering select {
+  color: #b5b7c9;
+  font-size: 14px;
+  min-width: 220px;
+  height: 35px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+}
 /* = Woocommerce Common
 ----------------------------------------------- */
 .woocommerce span.onsale {
