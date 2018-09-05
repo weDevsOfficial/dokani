@@ -2461,6 +2461,9 @@ ol.comment-list {
 .woocommerce #reviews #review_form_wrapper .comment-form .form-submit .submit {
   padding: 13px 29px !important;
 }
+.woocommerce .quantity .qty {
+  padding: 5px;
+}
 .woocommerce-message {
   background-color: #FFFFFF;
   border: 1px solid #ECEDEF;
