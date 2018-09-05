@@ -31,11 +31,17 @@ if ( ! defined( 'ABSPATH' ) ) {
             <h2 class="section-title"><?php _e( 'Products Category', 'dokanee' ); ?></h2>
 
             <div class="product-cat-wrapper">
-				<?php
 
-				$terms = get_terms( $args = array( 'taxonomy' => 'product_cat' ) );
+				<?php
+				$terms = get_terms( $args = array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
+				$total_cat = count($terms);
+                $i = 0;
 
 				foreach ($terms as $term) {
+
+				    if( $i == 5 ) {
+				        continue;
+                    }
 
 					echo '<div class="product-cat-box">';
 
@@ -46,7 +52,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 					echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">Show More <i class="fa fa-arrow-right"></i></a>';
 
 					echo '</div>';
+
+					$i++;
 				}
+
+				if ( $total_cat > 5 ) {
+				    ?>
+
+                    <div class="product-cat-box more">
+
+                        <h3 itemprop="name" class="product-title entry-title">
+                        <?php
+                            echo $total_cat - 5 ;
+                            echo "+";
+                        ?>
+                        </h3>
+
+                        <a href="<?php echo get_post_type_archive_link( 'product' ); ?>" class="btn btn-border btn-default">Show More <i class="fa fa-arrow-right"></i></a>
+                    </div>
+
+                    <?php
+                }
 
 				?>
             </div>
