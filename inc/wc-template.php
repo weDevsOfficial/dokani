@@ -347,3 +347,13 @@ function dokanee_woo_breadcrumb() {
 }
 
 add_action( 'dokanee_inside_container', 'dokanee_woo_breadcrumb', 5 );
+
+/**
+ * Output the related products.
+ */
+function dokanee_woo_related_products_args( $args ) {
+	$args['posts_per_page'] = 3; // 4 related products
+	$args['columns'] = 3; // arranged in 2 columns
+	return $args;
+}
+add_filter( 'woocommerce_output_related_products_args', 'dokanee_woo_related_products_args' );
