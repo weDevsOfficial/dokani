@@ -2463,6 +2463,8 @@ ol.comment-list {
 }
 .woocommerce-message {
   background-color: #FFFFFF;
+  border: 1px solid #ECEDEF;
+  border-top: 3px solid #8fae1b;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
