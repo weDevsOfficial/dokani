@@ -38,7 +38,7 @@ jQuery(function($) {
         $(this).removeClass('open');
     });
 
-    // $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="tooltip"]').tooltip();
 
     // set dashboard menu height
     var dashboardMenu = $('ul.dokan-dashboard-menu'),
