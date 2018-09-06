@@ -309,12 +309,12 @@
   cursor: pointer;
 }
 .site-header .inside-header .category-menu-wrapper .dokanee-category-menu .title:before {
-  font-family: FontAwesome;
-  content: '\f0c9';
+  font-family: "Flaticon";
+  content: "\f125";
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 15px;
+  font-size: 10px;
   color: #f2624d;
   text-indent: 0;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
@@ -326,7 +326,7 @@
   width: 34px;
   height: 30px;
   text-align: center;
-  line-height: 28px;
+  line-height: 30px;
 }
 .site-header .inside-header .category-menu-wrapper .dokanee-category-menu #cat-drop-stack {
   display: none;
@@ -411,12 +411,12 @@
   border-left: 0;
 }
 .site-header .inside-header .ajaxsearchform .input-group-addon:before {
-  font-family: FontAwesome;
-  content: '\f002';
+  font-family: "Flaticon";
+  content: "\f110";
   position: absolute;
   left: 50%;
   top: 50%;
-  font-size: 15px;
+  font-size: 12px;
   color: #f2624d;
   transform: translate(-50%, -50%);
 }
@@ -3918,6 +3918,9 @@ a.dokan-btn,
   -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+}
+.products-section .product-sliders .flex-direction-nav a.flex-prev:before {
+  content: "\f12f";
 }
 .products-section .product-sliders .flex-direction-nav .flex-next {
   right: 5px;
