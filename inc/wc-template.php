@@ -342,3 +342,15 @@ function dokanee_woo_related_products_args( $args ) {
 	return $args;
 }
 add_filter( 'woocommerce_output_related_products_args', 'dokanee_woo_related_products_args' );
+
+/**
+ * Change the placeholder image
+ */
+add_filter('woocommerce_placeholder_img_src', 'dokan_woo_placeholder_img_src');
+
+function dokan_woo_placeholder_img_src( $src ) {
+	$src = get_template_directory_uri() . '/assets/images/placeholder.png';;
+
+	return $src;
+}
+
