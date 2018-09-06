@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="factor-wrapper">
             <div class="factor-box">
                 <div class="factor-icon">
-                    <i class="fa fa-check-circle lighten-sky-color"></i>
+                    <i class="flaticon flaticon-transport"></i>
                 </div>
                 <div class="factor-info">
                     Fast & Free Delivery
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <div class="factor-box">
                 <div class="factor-icon">
-                    <i class="fa fa-check-circle lighten-sky-color"></i>
+                    <i class="flaticon flaticon-business-2"></i>
                 </div>
                 <div class="factor-info">
                     Safe & Secure Payment
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <div class="factor-box">
                 <div class="factor-icon">
-                    <i class="fa fa-check-circle lighten-sky-color"></i>
+                    <i class="flaticon flaticon-technology"></i>
                 </div>
                 <div class="factor-info">
                     100% Money Back Guaranted

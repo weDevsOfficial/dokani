@@ -1443,6 +1443,16 @@ input[type="file"] {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.trust-factors-section .grid-container .factor-wrapper .factor-box .factor-icon i:before {
+  font-size: 21px;
+  line-height: 1.5em;
+}
+.trust-factors-section .grid-container .factor-wrapper .factor-box .factor-icon i.flaticon-transport:before {
+  font-size: 30px;
+}
+.trust-factors-section .grid-container .factor-wrapper .factor-box .factor-icon i.flaticon-business-2:before {
+  font-size: 27px;
+}
 .trust-factors-section .grid-container .factor-wrapper .factor-box .factor-info {
   width: 60%;
 }
