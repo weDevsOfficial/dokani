@@ -3887,6 +3887,11 @@ a.dokan-btn,
 .products-section .product-sliders .flex-direction-nav a {
   opacity: 1;
   top: -42px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
 }
 .products-section .product-sliders .flex-direction-nav a:hover:before {
   color: #f2624d;
@@ -3896,13 +3901,15 @@ a.dokan-btn,
   box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
 }
 .products-section .product-sliders .flex-direction-nav a:before {
+  font-family: "Flaticon";
+  content: "\f119";
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
   background-color: #FFFFFF;
   color: #d8d8d8;
-  font-size: 20px;
+  font-size: 11px;
   width: 36px;
   height: 36px;
   line-height: 36px;
