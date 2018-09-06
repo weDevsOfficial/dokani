@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 06/08/2018 08:44
+  	Creation date: 06/09/2018 10:44
   	*/
 
 @font-face {
@@ -23,49 +23,58 @@
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
-  font-family: Flaticon;
-        font-size: 20px;
-font-style: normal;
-margin-left: 20px;
+    font-family: Flaticon;
+    font-size: inherit;
+    font-style: normal;
 }
 
-.flaticon-people-2:before { content: "\f100"; }
+.flaticon-mark:before { content: "\f100"; }
 .flaticon-close:before { content: "\f101"; }
 .flaticon-delete:before { content: "\f102"; }
 .flaticon-technology:before { content: "\f103"; }
 .flaticon-people:before { content: "\f104"; }
-.flaticon-rest:before { content: "\f105"; }
-.flaticon-subscribe:before { content: "\f106"; }
-.flaticon-technology-1:before { content: "\f107"; }
-.flaticon-commerce:before { content: "\f108"; }
-.flaticon-suitcase:before { content: "\f109"; }
-.flaticon-computer:before { content: "\f10a"; }
-.flaticon-scissors:before { content: "\f10b"; }
+.flaticon-subscribe:before { content: "\f105"; }
+.flaticon-technology-1:before { content: "\f106"; }
+.flaticon-gear:before { content: "\f107"; }
+.flaticon-suitcase:before { content: "\f108"; }
+.flaticon-computer:before { content: "\f109"; }
+.flaticon-scissors:before { content: "\f10a"; }
+.flaticon-sign:before { content: "\f10b"; }
 .flaticon-symbols:before { content: "\f10c"; }
 .flaticon-people-1:before { content: "\f10d"; }
-.flaticon-book:before { content: "\f10e"; }
-.flaticon-business:before { content: "\f10f"; }
-.flaticon-business-1:before { content: "\f110"; }
-.flaticon-search:before { content: "\f111"; }
+.flaticon-business:before { content: "\f10e"; }
+.flaticon-money:before { content: "\f10f"; }
+.flaticon-search:before { content: "\f110"; }
+.flaticon-commerce:before { content: "\f111"; }
 .flaticon-commerce-1:before { content: "\f112"; }
 .flaticon-exclamation:before { content: "\f113"; }
 .flaticon-draw:before { content: "\f114"; }
 .flaticon-note:before { content: "\f115"; }
 .flaticon-arrow:before { content: "\f116"; }
 .flaticon-suitcase-1:before { content: "\f117"; }
-.flaticon-arrows:before { content: "\f118"; }
-.flaticon-mark:before { content: "\f119"; }
-.flaticon-transport:before { content: "\f11a"; }
-.flaticon-three:before { content: "\f11b"; }
-.flaticon-mark-1:before { content: "\f11c"; }
-.flaticon-line:before { content: "\f11d"; }
-.flaticon-calendar:before { content: "\f11e"; }
-.flaticon-education:before { content: "\f11f"; }
-.flaticon-business-2:before { content: "\f120"; }
-.flaticon-coins:before { content: "\f121"; }
-.flaticon-gear:before { content: "\f122"; }
-.flaticon-load:before { content: "\f123"; }
-.flaticon-sign:before { content: "\f124"; }
-.flaticon-null:before { content: "\f125"; }
-.flaticon-money:before { content: "\f126"; }
-.flaticon-arrow-down-sign-to-navigate:before { content: "\f127"; }
+.flaticon-arrow-down-sign-to-navigate:before { content: "\f118"; }
+.flaticon-arrows:before { content: "\f119"; }
+.flaticon-layout:before { content: "\f11a"; }
+.flaticon-null:before { content: "\f11b"; }
+.flaticon-transport:before { content: "\f11c"; }
+.flaticon-three:before { content: "\f11d"; }
+.flaticon-mark-1:before { content: "\f11e"; }
+.flaticon-calendar:before { content: "\f11f"; }
+.flaticon-load:before { content: "\f120"; }
+.flaticon-education:before { content: "\f121"; }
+.flaticon-business-1:before { content: "\f122"; }
+.flaticon-business-2:before { content: "\f123"; }
+.flaticon-placeholder-black-shape-for-localization-on-maps:before { content: "\f124"; }
+.flaticon-menu:before { content: "\f125"; }
+.flaticon-facebook-logo-button:before { content: "\f126"; }
+.flaticon-linkedin-button:before { content: "\f127"; }
+.flaticon-twitter-logo-button:before { content: "\f128"; }
+.flaticon-memo:before { content: "\f129"; }
+.flaticon-profit:before { content: "\f12a"; }
+.flaticon-star:before { content: "\f12b"; }
+.flaticon-google-plus:before { content: "\f12c"; }
+.flaticon-right:before { content: "\f12d"; }
+.flaticon-plus:before { content: "\f12e"; }
+.flaticon-arrowhead-thin-outline-to-the-left:before { content: "\f12f"; }
+.flaticon-navigate-up-arrow:before { content: "\f130"; }
+.flaticon-buy:before { content: "\f131"; }
