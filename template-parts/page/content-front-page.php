@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					echo '<h3 itemprop="name" class="product-title entry-title">'.$term->name.'</h3>';
 
-					echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">Show More <i class="fa fa-arrow-right"></i></a>';
+					echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">Show More <i class="flaticon flaticon-right"></i></a>';
 
 					echo '</div>';
 
@@ -68,12 +68,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                         ?>
                         </h3>
 
-                        <a href="<?php echo get_post_type_archive_link( 'product' ); ?>" class="btn btn-border btn-default">Show More <i class="fa fa-arrow-right"></i></a>
+                        <a href="<?php echo get_post_type_archive_link( 'product' ); ?>" class="btn btn-border btn-default">Show More <i class="flaticon flaticon-right"></i></a>
                     </div>
 
                     <?php
                 }
-
 				?>
             </div>
         </div>

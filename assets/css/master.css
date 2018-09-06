@@ -3833,6 +3833,13 @@ a.dokan-btn,
   color: #f2624d;
   border-color: #f2624d;
 }
+.product-cat-section .product-cat-wrapper .product-cat-box .btn i {
+  margin-left: 3px;
+}
+.product-cat-section .product-cat-wrapper .product-cat-box .btn i:before {
+  font-size: 12px;
+  color: #d8d8d8;
+}
 .products-section {
   padding: 110px 20px;
   border-top: 1px solid #ECEDEF;
