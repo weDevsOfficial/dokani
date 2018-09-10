@@ -1154,12 +1154,13 @@
             content: "\f08b";
         }
 
-        &.is-active a:before {
-            opacity: 1;
+        &.is-active a {
+            color: @theme-color;
         }
 
+
         a {
-            padding: 4px 8px;
+            padding: 8px 0;
             display: block;
 
             &:before {
@@ -1175,8 +1176,68 @@
                 width: 1.387em;
                 text-align: right;
                 float: right;
-                opacity: .25;
             }
         }
+    }
+}
+
+
+//
+.woocommerce-MyAccount-content {
+    form h3 {
+        border-bottom: 1px solid @border-color;
+        padding-bottom: 15px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        .rounded(5px);
+        height: 44px;
+
+        .select2-selection__rendered {
+            padding: 7px 15px;
+        }
+
+        .select2-selection__arrow {
+            height: inherit;
+        }
+    }
+}
+.edit-account {
+    em {
+        font-size: 12px;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    fieldset {
+        margin-top: 40px;
+
+        legend {
+            font-size: 22px;
+            line-height: 1.5em;
+            margin-bottom: 20px;
+        }
+    }
+
+    .woocommerce-Button {
+        margin-top: 25px !important;
+    }
+}
+
+.woocommerce-address-fields {
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    .button {
+        margin-top: 25px !important;
+    }
+}
+
+.dokan-support-topics-list {
+    .dokan-error {
+        margin-top: 40px;
     }
 }

@@ -3084,11 +3084,11 @@ ol.comment-list {
 .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:before {
   content: "\f08b";
 }
-.woocommerce-MyAccount-navigation ul li.is-active a:before {
-  opacity: 1;
+.woocommerce-MyAccount-navigation ul li.is-active a {
+  color: #f2624d;
 }
 .woocommerce-MyAccount-navigation ul li a {
-  padding: 4px 8px;
+  padding: 8px 0;
   display: block;
 }
 .woocommerce-MyAccount-navigation ul li a:before {
@@ -3104,7 +3104,6 @@ ol.comment-list {
   width: 1.387em;
   text-align: right;
   float: right;
-  opacity: .25;
 }
 /* = Dokan Common Styles
 ----------------------------------------------- */
