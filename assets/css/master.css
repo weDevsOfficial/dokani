@@ -3105,6 +3105,51 @@ ol.comment-list {
   text-align: right;
   float: right;
 }
+/* = Dashboard
+----------------------------------------------- */
+.woocommerce-MyAccount-content form h3 {
+  border-bottom: 1px solid #ECEDEF;
+  padding-bottom: 15px;
+}
+.woocommerce-MyAccount-content .select2-container--default .select2-selection--single {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  height: 44px;
+}
+.woocommerce-MyAccount-content .select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding: 7px 15px;
+}
+.woocommerce-MyAccount-content .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: inherit;
+}
+.edit-account em {
+  font-size: 12px;
+}
+.edit-account p:last-child {
+  margin-bottom: 0;
+}
+.edit-account fieldset {
+  margin-top: 40px;
+}
+.edit-account fieldset legend {
+  font-size: 22px;
+  line-height: 1.5em;
+  margin-bottom: 20px;
+}
+.edit-account .woocommerce-Button {
+  margin-top: 25px !important;
+}
+.woocommerce-address-fields p:last-child {
+  margin-bottom: 0;
+}
+.woocommerce-address-fields .button {
+  margin-top: 25px !important;
+}
+.dokan-support-topics-list .dokan-error {
+  margin-top: 40px;
+}
 /* = Dokan Common Styles
 ----------------------------------------------- */
 .dokan-info {
