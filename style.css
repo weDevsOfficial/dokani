@@ -339,7 +339,7 @@ img {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 2em 0 0;
+	/*margin: 2em 0 0;*/
 }
 
 .page-links {
