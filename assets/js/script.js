@@ -28,7 +28,7 @@ jQuery(function($) {
         }
     });
 
-    $('ul.products li.product .button.product_type_simple').append( "<span>Add to Card</span>" );
+    $('ul.products li.product .button.product_type_simple').append( "<span>Add to Cart</span>" );
     $('ul.products li.product .button.product_type_variable').append( "<span>Select Options</span>" );
 
 
