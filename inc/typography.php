@@ -313,24 +313,6 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 				)
 			)
 		);
-
-		if ( ! function_exists( 'dokanee_fonts_customize_register' ) && ! defined( 'GP_PREMIUM_VERSION' ) ) {
-			$wp_customize->add_control(
-				new Generate_Customize_Misc_Control(
-					$wp_customize,
-					'typography_get_addon_desc',
-					array(
-						'section' => 'font_section',
-						'type' => 'addon',
-						'label' => __( 'Learn more','dokanee' ),
-						'description' => __( 'More options are available for this section in our premium version.', 'dokanee' ),
-						'url' => dokanee_get_premium_url( 'https://generatepress.com/downloads/dokanee-typography/' ),
-						'priority' => 50,
-						'settings' => ( isset( $wp_customize->selective_refresh ) ) ? array() : 'blogname'
-					)
-				)
-			);
-		}
 	}
 }
 
