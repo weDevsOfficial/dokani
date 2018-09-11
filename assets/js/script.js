@@ -28,8 +28,10 @@ jQuery(function($) {
         }
     });
 
-    $('ul.products li.product .button.product_type_simple').append( "<span>Add to Cart</span>" );
-    $('ul.products li.product .button.product_type_variable').append( "<span>Select Options</span>" );
+    if (window.innerWidth > 767) {
+        $('ul.products li.product .button.product_type_simple').append( "<span>Add to Cart</span>" );
+        $('ul.products li.product .button.product_type_variable').append( "<span>Select Options</span>" );
+    }
 
 
     $('ul.dropdown-menu li.dropdown').hover(function() {
