@@ -214,59 +214,66 @@ if ( ! defined( 'ABSPATH' ) ) {
 						?>
                     </div>
 
-                    <input type="radio" name="tabs" id="best-seller">
-                    <label for="best-seller"><?php _e( 'Best seller', 'dokanee' ); ?></label>
-                    <div class="tab">
-						<?php
-						$best_sellers = dokan_get_best_sellers(8);
-						$image_size = 'single-vendor-thumb';
+                    <?php
+                    $best_sellers = dokan_get_best_sellers(8);
 
-						$template_args = array(
-							'sellers'         => $best_sellers,
-							'per_row'         => 4,
-							'image_size'      => $image_size
-						);
+                    if( $best_sellers ) { ?>
+                        <input type="radio" name="tabs" id="best-seller">
+                        <label for="best-seller"><?php _e( 'Best seller', 'dokanee' ); ?></label>
+                        <div class="tab">
+                            <?php
+                            $image_size = 'single-vendor-thumb';
+                            $template_args = array(
+                                'sellers'         => $best_sellers,
+                                'per_row'         => 4,
+                                'image_size'      => $image_size
+                            );
 
-						?>
+                            dokan_get_template_part( 'best-store-lists-loop', false, $template_args );
+                            ?>
+                        </div>
+                    <?php } ?>
 
-						<?php dokan_get_template_part( 'best-store-lists-loop', false, $template_args ); ?>
-                    </div>
+	                <?php
+	                $feature_sellers = dokan_get_feature_sellers(8);
 
-                    <input type="radio" name="tabs" id="featured-store">
-                    <label for="featured-store"><?php _e( 'Featured', 'dokanee' ); ?></label>
-                    <div class="tab">
-						<?php
-						$feature_sellers = dokan_get_feature_sellers(8);
-						$image_size = 'single-vendor-thumb';
+	                if( $feature_sellers ) { ?>
+                        <input type="radio" name="tabs" id="featured-store">
+                        <label for="featured-store"><?php _e( 'Featured', 'dokanee' ); ?></label>
+                        <div class="tab">
+			                <?php
+			                $image_size = 'single-vendor-thumb';
+			                $template_args = array(
+				                'sellers'         => $feature_sellers,
+				                'per_row'         => 4,
+				                'image_size'      => $image_size
+			                );
 
-						$template_args = array(
-							'sellers'         => $feature_sellers,
-							'per_row'         => 4,
-							'image_size'      => $image_size
-						);
+			                dokan_get_template_part( 'featured-store-lists-loop', false, $template_args );
+			                ?>
+                        </div>
+	                <?php } ?>
 
-						?>
+                    <?php
+                    $new_sellers = dokan()->vendor->all( array( 'order' => 'DESC', 'number' => 8 ) );
 
-						<?php dokan_get_template_part( 'featured-store-lists-loop', false, $template_args ); ?>
-                    </div>
+	                if( $new_sellers ) { ?>
+                        <input type="radio" name="tabs" id="latest-store">
+                        <label for="latest-store"><?php _e( 'New', 'dokanee' ); ?></label>
 
-                    <input type="radio" name="tabs" id="latest-store">
-                    <label for="latest-store"><?php _e( 'New', 'dokanee' ); ?></label>
+                        <div class="tab">
+			                <?php
+			                $image_size = 'single-vendor-thumb';
+			                $template_args = array(
+				                'sellers'         => $new_sellers,
+				                'per_row'         => 4,
+				                'image_size'      => $image_size
+			                );
 
-                    <div class="tab">
-						<?php
-						$new_sellers = dokan()->vendor->all( array( 'order' => 'DESC', 'number' => 8 ) );
-						$image_size = 'single-vendor-thumb';
-
-						$template_args = array(
-							'sellers'         => $new_sellers,
-							'per_row'         => 4,
-							'image_size'      => $image_size
-						);
-
-						dokan_get_template_part( 'new-store-lists-loop', false, $template_args );
-						?>
-                    </div>
+			                dokan_get_template_part( 'new-store-lists-loop', false, $template_args );
+			                ?>
+                        </div>
+	                <?php } ?>
                 </div>
             </div>
         </div>
