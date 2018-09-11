@@ -1973,9 +1973,21 @@ ol.comment-list {
 .woocommerce-page ul.products.columns-3 {
   grid-template-columns: repeat(3, 1fr);
 }
+@media (max-width: 767px) {
+  .woocommerce ul.products.columns-3,
+  .woocommerce-page ul.products.columns-3 {
+    grid-gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .woocommerce ul.products.columns-2,
 .woocommerce-page ul.products.columns-2 {
   grid-template-columns: repeat(2, 1fr);
+}
+.woocommerce ul.products[class*=columns-] li.product,
+.woocommerce-page ul.products[class*=columns-] li.product {
+  width: auto;
+  margin: 0;
 }
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
@@ -1994,7 +2006,6 @@ ol.comment-list {
   -o-transition: all 0.2s;
   transition: all 0.2s;
   float: none;
-  width: auto !important;
   margin: 0;
 }
 .woocommerce ul.products li.product:hover,
@@ -2029,6 +2040,12 @@ ol.comment-list {
 .woocommerce-page ul.products li.product .item-content {
   padding: 20px;
 }
+@media (max-width: 480px) {
+  .woocommerce ul.products li.product .item-content,
+  .woocommerce-page ul.products li.product .item-content {
+    padding: 15px;
+  }
+}
 .woocommerce ul.products li.product .item-content a.woocommerce-LoopProduct-link:hover,
 .woocommerce-page ul.products li.product .item-content a.woocommerce-LoopProduct-link:hover {
   color: #f2624d;
@@ -2045,9 +2062,15 @@ ol.comment-list {
 .woocommerce-page ul.products li.product .item-content .item-vendor {
   display: none;
   color: #8a8a8a;
-  font-size: 15px;
+  font-size: 0.938rem;
   line-height: 1.2em;
   margin-top: 6px;
+}
+@media (max-width: 767px) {
+  .woocommerce ul.products li.product .item-content .item-vendor,
+  .woocommerce-page ul.products li.product .item-content .item-vendor {
+    font-size: 0.8rem;
+  }
 }
 .woocommerce ul.products li.product .item-content .item-vendor a,
 .woocommerce-page ul.products li.product .item-content .item-vendor a {
@@ -2073,6 +2096,12 @@ ol.comment-list {
 .woocommerce ul.products li.product .item-bar .item-meta .price,
 .woocommerce-page ul.products li.product .item-bar .item-meta .price {
   margin-bottom: 4px;
+}
+@media (max-width: 480px) {
+  .woocommerce ul.products li.product .item-bar .item-meta .price,
+  .woocommerce-page ul.products li.product .item-bar .item-meta .price {
+    margin-bottom: 0;
+  }
 }
 .woocommerce ul.products li.product .item-bar .item-button,
 .woocommerce-page ul.products li.product .item-bar .item-button {
