@@ -2265,9 +2265,11 @@ ol.comment-list {
   margin-top: 10px;
   background-color: #9b59b6;
 }
-.woocommerce .woocommerce-ordering,
-.woocommerce-page .woocommerce-ordering {
-  float: left;
+@media (min-width: 768px) {
+  .woocommerce .woocommerce-ordering,
+  .woocommerce-page .woocommerce-ordering {
+    float: left;
+  }
 }
 .woocommerce .woocommerce-ordering select,
 .woocommerce-page .woocommerce-ordering select {

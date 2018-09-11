@@ -286,7 +286,9 @@
 
     // Ordering
     .woocommerce-ordering {
-        float: left;
+        @media(min-width: @screen-sm-min) {
+            float: left;
+        }
 
         select {
             color: #b5b7c9;
