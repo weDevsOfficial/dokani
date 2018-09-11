@@ -28,8 +28,6 @@
 					 */
 					do_action( 'dokanee_archive_title' );
 
-				} elseif ( is_post_type_archive( 'product' ) ) {
-					_e( 'Product', 'dokanee' );
 				} elseif ( is_404()) {
 					_e( 'Oops! That page can&rsquo;t be found.', 'dokanee' );
                 } elseif ( is_search() ) {

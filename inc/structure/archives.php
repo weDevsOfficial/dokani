@@ -91,6 +91,8 @@ if ( ! function_exists( 'dokanee_filter_the_archive_title' ) ) {
 			 * we can run the loop properly, in full.
 			 */
 			rewind_posts();
+		} elseif ( is_post_type_archive( 'product' ) ) {
+			$title = woocommerce_page_title() ;
 		}
 
 		return $title;
