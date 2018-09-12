@@ -26,57 +26,68 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php } ?>
 
 <?php if ( get_theme_mod( 'show_products_cat', 'on' ) == 'on' ) { ?>
-    <section class="product-cat-section">
-        <div class="grid-container">
-            <h2 class="section-title"><?php _e( 'Products Category', 'dokanee' ); ?></h2>
+    <?php
+    $terms = get_terms( $args = array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
+    $total_cat = count($terms);
 
-            <div class="product-cat-wrapper">
+    if ( !empty( $total_cat ) ) {
+    ?>
+        <section class="product-cat-section">
+            <div class="grid-container">
+                <h2 class="section-title"><?php _e( 'Products Category', 'dokanee' ); ?></h2>
 
-				<?php
-				$terms = get_terms( $args = array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
-				$total_cat = count($terms);
-                $i = 0;
-
-				foreach ($terms as $term) {
-
-				    if( $i == 5 ) {
-				        continue;
-                    }
-
-					echo '<div class="product-cat-box">';
-
-					woocommerce_subcategory_thumbnail( $term );
-
-					echo '<h3 itemprop="name" class="product-title entry-title">'.$term->name.'</h3>';
-
-					echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">Show More <i class="flaticon flaticon-right"></i></a>';
-
-					echo '</div>';
-
-					$i++;
-				}
-
-				if ( $total_cat > 5 ) {
-				    ?>
-
-                    <div class="product-cat-box more">
-
-                        <h3 itemprop="name" class="product-title entry-title">
-                        <?php
-                            echo $total_cat - 5 ;
-                            echo "+";
-                        ?>
-                        </h3>
-
-                        <a href="<?php echo get_post_type_archive_link( 'product' ); ?>" class="btn btn-border btn-default">Show More <i class="flaticon flaticon-right"></i></a>
-                    </div>
+                <div class="product-cat-wrapper">
 
                     <?php
-                }
-				?>
+                    $i = 0;
+
+                    foreach ($terms as $term) {
+
+                        if( $total_cat == 6 ) {
+	                        if( $i == 6 ) {
+		                        continue;
+	                        }
+                        } else {
+	                        if( $i == 5 ) {
+		                        continue;
+	                        }
+                        }
+
+                        echo '<div class="product-cat-box">';
+
+                        woocommerce_subcategory_thumbnail( $term );
+
+                        echo '<h3 itemprop="name" class="product-title entry-title">'.$term->name.'</h3>';
+
+                        echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">Show More <i class="flaticon flaticon-right"></i></a>';
+
+                        echo '</div>';
+
+                        $i++;
+                    }
+
+                    if ( $total_cat > 6 ) {
+                        ?>
+
+                        <div class="product-cat-box more">
+
+                            <h3 itemprop="name" class="product-title entry-title">
+                            <?php
+                                echo $total_cat - 5 ;
+                                echo "+";
+                            ?>
+                            </h3>
+
+                            <a href="<?php echo get_post_type_archive_link( 'product' ); ?>" class="btn btn-border btn-default">Show More <i class="flaticon flaticon-right"></i></a>
+                        </div>
+
+                        <?php
+                    }
+                    ?>
+                </div>
             </div>
-        </div>
-    </section> <!-- .product-cat-section -->
+        </section> <!-- .product-cat-section -->
+    <?php } ?>
 <?php } ?>
 
 <section class="products-section">
