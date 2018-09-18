@@ -78,7 +78,7 @@ if ( ! function_exists( 'dokanee_get_color_defaults' ) ) {
 			'site_title_color' => '#222222',
 			'site_tagline_color' => '#999999',
 			'navigation_background_color' => '#222222',
-			'navigation_text_color' => '#ffffff',
+			'navigation_text_color' => '#000000',
 			'navigation_background_hover_color' => '#3f3f3f',
 			'navigation_text_hover_color' => '#ffffff',
 			'navigation_background_current_color' => '#3f3f3f',
