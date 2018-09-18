@@ -150,12 +150,12 @@ if ( ! function_exists( 'dokanee_get_default_fonts' ) ) {
 	 */
 	function dokanee_get_default_fonts( $filter = true ) {
 		$dokanee_font_defaults = array(
-			'font_body' => 'System Stack',
+			'font_body' => 'Open Sans',
 			'font_body_category' => '',
 			'font_body_variants' => '',
 			'body_font_weight' => 'normal',
 			'body_font_transform' => 'none',
-			'body_font_size' => '17',
+			'body_font_size' => '16',
 			'body_line_height' => '1.5', // no unit
 			'paragraph_margin' => '1.5', // em
 			'font_top_bar' => 'inherit',
