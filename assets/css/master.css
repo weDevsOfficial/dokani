@@ -237,6 +237,94 @@
 .top-bar .widget-title {
   display: none;
 }
+.top-bar .top-nav {
+  width: 60%;
+}
+.top-bar .top-nav ul {
+  margin: 0;
+  list-style: none;
+  margin-left: -12px;
+}
+.top-bar .top-nav ul li {
+  display: inline-block;
+  padding: 0 12px;
+  position: relative;
+  cursor: pointer;
+}
+.top-bar .top-nav ul li:hover > ul {
+  display: block;
+}
+.top-bar .top-nav ul li.menu-item-has-children > a {
+  padding-right: 20px;
+  position: relative;
+}
+.top-bar .top-nav ul li.menu-item-has-children > a:after {
+  content: "\f107";
+  font-family: FontAwesome;
+  font-size: 1.3em;
+  position: absolute;
+  right: 0;
+  top: 52%;
+  transform: translateY(-50%);
+}
+.top-bar .top-nav ul li a {
+  display: block;
+  line-height: 48px;
+}
+.top-bar .top-nav ul ul {
+  padding: 5px 0;
+}
+.top-bar .top-nav ul ul li {
+  display: block;
+  padding: 0;
+}
+.top-bar .top-nav ul ul li.menu-item-has-children > a {
+  padding-right: 30px;
+  position: relative;
+}
+.top-bar .top-nav ul ul li.menu-item-has-children > a:after {
+  content: "\f105";
+  right: 15px;
+  font-size: .9em;
+}
+.top-bar .top-nav ul ul li:hover > ul {
+  left: 100%;
+  top: 0;
+  margin: 0;
+}
+.top-bar .top-nav ul ul li a {
+  padding: 5px 20px;
+  line-height: 1em;
+}
+.top-bar .top-nav .sub-menu {
+  position: absolute;
+  top: 81%;
+  left: 12px;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 10px 0 0;
+  font-size: 1em;
+  list-style: none;
+  background-color: #ffffff;
+  border: none;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.17);
+  -o-box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.17);
+  box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.17);
+  background-clip: padding-box;
+}
 .top-bar .widget_nav_menu > div > ul {
   display: inline-block;
   vertical-align: top;

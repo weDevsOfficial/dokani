@@ -251,13 +251,21 @@ if ( ! function_exists( 'dokanee_top_bar' ) ) {
 
 		<div <?php dokanee_top_bar_class(); ?>>
 			<div class="inside-top-bar<?php if ( 'contained' == dokanee_get_setting( 'top_bar_inner_width' ) ) echo ' grid-container grid-parent'; ?>">
-                <?php
-                if ( ! is_active_sidebar( 'top-bar' ) ) {
-	                echo '<a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a>';
-                } else {
-	                dynamic_sidebar( 'top-bar' );
-                }
-                ?>
+				<?php
+				if ( has_nav_menu( 'top' ) ) {
+					wp_nav_menu(
+						array(
+							'theme_location' => 'top',
+							'container' => 'div',
+							'container_class' => 'top-nav',
+							'container_id' => 'top-menu',
+							'menu_class' => '',
+							'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
+						)
+					);
+				} else {
+                    echo '<a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a>';
+				} ?>
 
                 <div class="dokanee-user-menu">
 	                <?php dokan_header_user_menu(); ?>

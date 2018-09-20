@@ -79,7 +79,7 @@ if ( ! function_exists( 'dokanee_menu_fallback' ) ) {
 				$args = array(
 					'sort_column' => 'menu_order',
 					'title_li' => '',
-					'walker' => new Generate_Page_Walker()
+					'walker' => new Dokanee_Page_Walker()
 				);
 
 				wp_list_pages( $args );
@@ -153,14 +153,14 @@ if ( ! function_exists( 'dokanee_add_navigation_before_left_sidebar' ) ) {
 	}
 }
 
-if ( ! class_exists( 'Generate_Page_Walker' ) && class_exists( 'Walker_Page' ) ) {
+if ( ! class_exists( 'Dokanee_Page_Walker' ) && class_exists( 'Walker_Page' ) ) {
 	/**
 	 * Add current-menu-item to the current item if no theme location is set
 	 * This means we don't have to duplicate CSS properties for current_page_item and current-menu-item
 	 *
 	 * @since 1.3.21
 	 */
-	class Generate_Page_Walker extends Walker_Page {
+	class Dokanee_Page_Walker extends Walker_Page {
 		function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
 			$css_class = array( 'page_item', 'page-item-' . $page->ID );
 			$button = '';

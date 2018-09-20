@@ -277,6 +277,99 @@
     }
 
     /* Top bar menu */
+    .top-nav {
+        width: 60%;
+
+        ul {
+            margin: 0;
+            list-style: none;
+            margin-left: -12px;
+
+            li {
+                display: inline-block;
+                padding: 0 12px;
+                position: relative;
+                cursor: pointer;
+
+                &:hover > ul {
+                    display: block;
+                }
+
+                &.menu-item-has-children > a {
+                    padding-right: 20px;
+                    position: relative;
+
+                    &:after {
+                        content: "\f107";
+                        font-family: FontAwesome;
+                        font-size: 1.3em;
+                        position: absolute;
+                        right: 0;
+                        top: 52%;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                a {
+                    display: block;
+                    line-height: 48px;
+                }
+            }
+
+            ul {
+                padding: 5px 0;
+
+                li {
+                    display: block;
+                    padding: 0;
+
+                    &.menu-item-has-children > a{
+                        padding-right: 30px;
+                        position: relative;
+
+                        &:after {
+                            content: "\f105";
+                            right: 15px;
+                            font-size: .9em;
+                        }
+                    }
+
+                    &:hover > ul {
+                        left: 100%;
+                        top: 0;
+                        margin: 0;
+                    }
+
+                    a {
+                        padding: 5px 20px;
+                        line-height: 1em;
+                    }
+                }
+            }
+
+        }
+
+        .sub-menu {
+            position: absolute;
+            top: 81%;
+            left: 12px;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 160px;
+            padding: 5px 0;
+            margin: 10px 0 0;
+            font-size: 1em;
+            list-style: none;
+            background-color: #ffffff;
+            border: none;
+            .transition(all 0.2s);
+            .rounded(4px);
+            .box-shadow(0 10px 50px 0 rgba(0, 0, 0, 0.17));
+            background-clip: padding-box;
+        }
+    }
+
     .widget_nav_menu {
         > div > ul {
             display: inline-block;

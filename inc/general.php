@@ -85,7 +85,6 @@ if ( ! function_exists( 'dokanee_widgets_init' ) ) {
 			'footer-4' => __( 'Footer Widget 4', 'dokanee' ),
 			'footer-5' => __( 'Footer Widget 5', 'dokanee' ),
 			'footer-bar' => __( 'Footer Bar','dokanee' ),
-			'top-bar' => __( 'Top Bar','dokanee' ),
 			'store-list' => __( 'Store List','dokanee' ),
 			'sidebar-shop' => __( 'Shop','dokanee' ),
 			'sidebar-product' => __( 'Product','dokanee' ),
