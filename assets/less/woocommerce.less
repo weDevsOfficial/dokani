@@ -107,7 +107,8 @@
                     }
                 }
 
-                .item-header .star-rating {
+                .item-header .star-rating,
+                .item-header .rating-blank {
                     display: none;
                 }
             }
@@ -244,7 +245,8 @@
                     }
 
                     .item-vendor,
-                    .star-rating {
+                    .star-rating,
+                    .rating-blank {
                         display: block !important;
                     }
                 }
@@ -256,7 +258,8 @@
                         min-height: auto !important;
                     }
 
-                    .star-rating {
+                    .star-rating,
+                    .rating-blank {
                         display: none !important;
                     }
 
@@ -427,6 +430,22 @@
         }
     }
 
+    .rating-blank {
+        width: 6.4em;
+        font-size: 14px;
+        float: left;
+        height: 1em;
+        font-family: star;
+        overflow: hidden;
+        line-height: 1;
+        display: inline-block;
+
+        &:before {
+            content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
+            color: #d8d8d8;
+        }
+    }
+
     // pagination
     nav.woocommerce-pagination {
         text-align: left;
@@ -557,7 +576,8 @@
             position: relative;
         }
 
-        .star-rating {
+        .star-rating,
+        .rating-blank {
             font-size: 13px;
             margin: 9px 0 0;
         }
