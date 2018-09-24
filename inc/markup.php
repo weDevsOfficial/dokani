@@ -67,6 +67,16 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 		// Get the layout
 		$layout = dokanee_get_layout();
 
+		if ( is_page_template('page-template/page-sidebar-no.php') || is_page_template('page-template/page-full-width.php') ){
+			$layout = 'no-sidebar';
+		} elseif ( is_page_template('page-template/page-sidebar-left.php') ){
+			$layout = 'left-sidebar';
+		} elseif ( is_page_template('page-template/page-sidebar-right.php') ){
+			$layout = 'right-sidebar';
+		} else {
+			$layout;
+		}
+
 		// Get the navigation location
 		$navigation_location = dokanee_get_navigation_location();
 
@@ -271,6 +281,16 @@ if ( ! function_exists( 'dokanee_content_classes' ) ) {
 
 		// Get the layout
 		$layout = dokanee_get_layout();
+
+		if ( is_page_template('page-template/page-sidebar-no.php') || is_page_template('page-template/page-full-width.php') ){
+			$layout = 'no-sidebar';
+		} elseif ( is_page_template('page-template/page-sidebar-left.php') ){
+			$layout = 'left-sidebar';
+		} elseif ( is_page_template('page-template/page-sidebar-right.php') ){
+			$layout = 'right-sidebar';
+		} else {
+			$layout;
+		}
 
 		if ( '' !== $layout ) {
 			switch ( $layout ) {

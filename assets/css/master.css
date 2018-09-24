@@ -1574,6 +1574,17 @@ input[type="file"] {
     font-size: 15px;
   }
 }
+/* = Full Width Page Layout
+----------------------------------------------- */
+.page-template-page-full-width #page.grid-container {
+  max-width: 100%;
+}
+.page-template-page-full-width.separate-containers .site-main {
+  margin: 0;
+}
+.page-template-page-full-width.separate-containers .site-main > * {
+  margin-bottom: 0;
+}
 /* = Tooltips
 ----------------------------------------------- */
 .tooltip {
