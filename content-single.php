@@ -32,9 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 */
 			do_action( 'dokanee_before_entry_title' );
 
-			if ( dokanee_show_title() ) {
-				the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
-			}
+            the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
 
 			/**
 			 * dokanee_after_entry_title hook.

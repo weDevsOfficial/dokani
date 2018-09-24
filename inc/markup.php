@@ -83,15 +83,6 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 		// Get the footer widgets
 		$widgets = dokanee_get_footer_widgets();
 
-		// Full width content
-		// Used for page builders, sets the content to full width and removes the padding
-		$full_width = get_post_meta( get_the_ID(), '_dokanee-full-width-content', true );
-		$classes[] = ( '' !== $full_width && false !== $full_width && is_singular() && 'true' == $full_width ) ? 'full-width-content' : '';
-
-		// Contained content
-		// Used for page builders, basically just removes the content padding
-		$classes[] = ( '' !== $full_width && false !== $full_width && is_singular() && 'contained' == $full_width ) ? 'contained-content' : '';
-
 		// Let us know if a featured image is being used
 		if ( has_post_thumbnail() ) {
 			$classes[] = 'featured-image-active';

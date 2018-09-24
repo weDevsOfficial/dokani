@@ -50,9 +50,6 @@ if ( ! function_exists( 'dokanee_get_layout' ) ) {
 		// Set up the layout variable for pages
 		$layout = $dokanee_settings['layout_setting'];
 
-		// Get the individual page/post sidebar metabox value
-		$layout_meta = ( isset( $post ) ) ? get_post_meta( $post->ID, '_dokanee-sidebar-layout-meta', true ) : '';
-
 		// Set up BuddyPress variable
 		$buddypress = false;
 		if ( function_exists( 'is_buddypress' ) ) {
@@ -64,11 +61,6 @@ if ( ! function_exists( 'dokanee_get_layout' ) ) {
 		if ( is_single() && ! $buddypress ) {
 			$layout = null;
 			$layout = $dokanee_settings['single_layout_setting'];
-		}
-
-		// If the metabox is set, use it instead of the global settings
-		if ( '' !== $layout_meta && false !== $layout_meta ) {
-			$layout = $layout_meta;
 		}
 
 		// If we're on the blog, archive, attachment etc..
@@ -127,17 +119,9 @@ if ( ! function_exists( 'dokanee_get_footer_widgets' ) ) {
 		// Set up the footer widget variable
 		$widgets = $dokanee_settings['footer_widget_setting'];
 
-		// Get the individual footer widget metabox value
-		$widgets_meta = ( isset( $post ) ) ? get_post_meta( $post->ID, '_dokanee-footer-widget-meta', true ) : '';
-
 		// If we're not on a single page or post, the metabox hasn't been set
 		if ( ! is_singular() ) {
 			$widgets_meta = '';
-		}
-
-		// If we have a metabox option set, use it
-		if ( '' !== $widgets_meta && false !== $widgets_meta ) {
-			$widgets = $widgets_meta;
 		}
 
 		// Finally, return the layout
@@ -180,51 +164,6 @@ if ( ! function_exists( 'dokanee_show_excerpt' ) ) {
 
 		// Return our value
 		return apply_filters( 'dokanee_show_excerpt', $show_excerpt );
-	}
-}
-
-if ( ! function_exists( 'dokanee_show_title' ) ) {
-	/**
-	 * Check to see if we should show our page/post title or not.
-	 *
-	 * @since 1.3.18
-	 *
-	 * @return bool Whether to show the content title.
-	 */
-	function dokanee_show_title() {
-		return apply_filters( 'dokanee_show_title', true );
-	}
-}
-
-if ( ! function_exists( 'dokanee_get_premium_url' ) ) {
-	/**
-	 * Generate a URL to our premium add-ons.
-	 * Allows the use of a referral ID and campaign.
-	 *
-	 * @since 1.3.42
-	 *
-	 * @param string $url URL to premium page.
-	 * @return string The URL to generatepress.com.
-	 */
-	function dokanee_get_premium_url( $url = 'https://generatepress.com/premium' ) {
-		$url = trailingslashit( $url );
-
-		$args = apply_filters( 'dokanee_premium_url_args', array(
-			'ref' => null,
-			'campaign' => null
-		) );
-
-		// Set up our URL if we have an ID
-		if ( isset( $args[ 'ref' ] ) ) {
-			$url = add_query_arg( 'ref', absint( $args[ 'ref' ] ), $url );
-		}
-
-		// Set up our URL if we have a campaign
-		if ( isset( $args[ 'campaign' ] ) ) {
-			$url = add_query_arg( 'campaign', sanitize_text_field( $args[ 'campaign' ] ), $url );
-		}
-
-		return esc_url( $url );
 	}
 }
 

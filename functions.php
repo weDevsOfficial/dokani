@@ -104,7 +104,6 @@ require get_template_directory() . '/inc/wc-template.php';
 require get_template_directory() . '/inc/slider.php';
 
 if ( is_admin() ) {
-	require get_template_directory() . '/inc/meta-box.php';
 	require get_template_directory() . '/inc/dashboard.php';
 }
 

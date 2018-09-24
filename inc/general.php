@@ -147,28 +147,6 @@ if ( ! function_exists( 'dokanee_page_menu_args' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_disable_title' ) ) {
-	add_filter( 'dokanee_show_title', 'dokanee_disable_title' );
-	/**
-	 * Remove our title if set.
-	 *
-	 * @since 1.3.18
-	 *
-	 * @return bool Whether to display the content title.
-	 */
-	function dokanee_disable_title() {
-		global $post;
-
-		$disable_headline = ( isset( $post ) ) ? get_post_meta( $post->ID, '_dokanee-disable-headline', true ) : '';
-
-		if ( ! empty( $disable_headline ) && false !== $disable_headline ) {
-			return false;
-		}
-
-		return true;
-	}
-}
-
 if ( ! function_exists( 'dokanee_resource_hints' ) ) {
 	add_filter( 'wp_resource_hints', 'dokanee_resource_hints', 10, 2 );
 	/**

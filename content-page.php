@@ -21,7 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked dokanee_featured_page_header_inside_single - 10
 		 */
 		do_action( 'dokanee_before_content' );
+		?>
 
+        <header class="entry-header">
+            <?php the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
+        </header><!-- .entry-header -->
+
+		<?php
 		/**
 		 * dokanee_after_entry_header hook.
 		 *

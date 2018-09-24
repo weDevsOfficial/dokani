@@ -723,17 +723,6 @@ function dokanee_no_cache_dynamic_css() {
 	// Initiate our class.
 	$css = new Dokanee_CSS;
 
-	// Content margin if there's no title.
-	if ( ! dokanee_show_title() ) {
-		$css->set_selector( '.page .entry-content' )->add_property( 'margin-top', '0px' );
-
-		if ( is_single() ) {
-			if ( ! apply_filters( 'dokanee_post_author', true ) && ! apply_filters( 'dokanee_post_date', true ) ) {
-				$css->set_selector( '.single .entry-content' )->add_property( 'margin-top', '0px' );
-			}
-		}
-	}
-
 	return $css->css_output();
 }
 
