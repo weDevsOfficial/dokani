@@ -29,18 +29,20 @@
 /* = Page Header
 ----------------------------------------------- */
 
-.page-header-section {
-    border-top: 1px solid @border-color;
+.page-header {
+    margin: 0 0 30px 0;
 
     .page-title {
-        margin: 32px 0;
+        font-size: 35px;
+        line-height: 1.3em;
+        font-weight: 400;
 
-        h1 {
-            font-size: 23px;
-            line-height: 1.5em;
-            font-weight: 400;
-            color: @title-color;
-            margin-bottom: 0;
+        a {
+            color: @post-title-color;
+
+            &:hover {
+                color: @theme-color;
+            }
         }
     }
 }

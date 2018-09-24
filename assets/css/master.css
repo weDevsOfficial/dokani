@@ -1460,18 +1460,19 @@ input[type="file"] {
 }
 /* = Page Header
 ----------------------------------------------- */
-.page-header-section {
-  border-top: 1px solid #ECEDEF;
+.page-header {
+  margin: 0 0 30px 0;
 }
-.page-header-section .page-title {
-  margin: 32px 0;
-}
-.page-header-section .page-title h1 {
-  font-size: 23px;
-  line-height: 1.5em;
+.page-header .page-title {
+  font-size: 35px;
+  line-height: 1.3em;
   font-weight: 400;
+}
+.page-header .page-title a {
   color: #000000;
-  margin-bottom: 0;
+}
+.page-header .page-title a:hover {
+  color: #f2624d;
 }
 /* = Section Trust Factors
 ----------------------------------------------- */
@@ -1789,12 +1790,12 @@ input[type="file"] {
   border-radius: 5px;
 }
 .entry-header {
-  margin: 0 0 2em 0;
+  margin: -9px 0 22px 0;
 }
 .entry-header .entry-title {
-  font-size: 23px;
-  line-height: 1.5em;
-  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.3em;
+  font-weight: 400;
 }
 .entry-header .entry-title a {
   color: #000000;

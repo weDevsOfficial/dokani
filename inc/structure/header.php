@@ -46,12 +46,6 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 				do_action( 'dokanee_after_header_content' );
 				?>
 			</div>  <!-- .inside-header -->
-
-            <?php
-            if ( !is_front_page() && !dokan_is_store_page() && !is_single() && !is_404() ) {
-	            get_template_part( 'template-parts/page', 'header' );
-            }
-            ?>
 		</header><!-- #masthead -->
 		<?php
 	}
