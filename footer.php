@@ -21,21 +21,20 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'dokanee_before_footer' );
 ?>
+<?php
+/**
+ * Trust Factors Section.
+ *
+ * @since 0.1
+ */
+
+if( ( get_theme_mod( 'show_trusted_factors_section', 'on' ) == 'on' ) and ( is_front_page() or is_woocommerce() ) ) {
+	get_template_part( 'template-parts/page/section-trust' );
+}
+
+?>
 
 <div <?php dokanee_footer_class(); ?>>
-    <?php
-    /**
-     * Trust Factors Section.
-     *
-     * @since 0.1
-     */
-
-    if( is_front_page() or is_woocommerce() ) {
-	    get_template_part( 'template-parts/page/section-trust' );
-    }
-
-    ?>
-
 	<?php
 	/**
 	 * dokanee_before_footer_content hook.

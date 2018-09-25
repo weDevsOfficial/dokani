@@ -50,30 +50,22 @@
 /* = Section Trust Factors
 ----------------------------------------------- */
 .trust-factors-section {
-    clear: both;
-    margin-bottom: -40px;
-    z-index: 1;
-    position: relative;
+    #gradient>.directional(#FFAD6F, #FF7D90, 85deg);
+    padding: 47px 40px;
 
     .grid-container {
         padding: 0;
 
         .factor-wrapper {
-            .rounded(5px);
-            #gradient>.directional(#FFAD6F, #FF7D90, 85deg);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10%;
-            padding: 60px 105px;
+            grid-gap: 30px;
             color: @white;
 
             @media (max-width: @screen-md-max) {
-                padding: 60px 40px;
-                grid-gap: 5%;
+                grid-gap: 15px;
             }
-            @media (max-width: @screen-sm-max) {
-                padding: 40px;
-            }
+            
             @media (max-width: @screen-xs-max) {
                 display: block;
             }
@@ -125,10 +117,11 @@
                 }
 
                 .factor-info {
-                    width: 60%;
+                    width: 70%;
 
                     @media (max-width: @screen-sm-max) {
                         font-size: 15px;
+                        width: 60%;
                     }
                 }
             }

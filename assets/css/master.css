@@ -1477,40 +1477,26 @@ input[type="file"] {
 /* = Section Trust Factors
 ----------------------------------------------- */
 .trust-factors-section {
-  clear: both;
-  margin-bottom: -40px;
-  z-index: 1;
-  position: relative;
-}
-.trust-factors-section .grid-container {
-  padding: 0;
-}
-.trust-factors-section .grid-container .factor-wrapper {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
   background-color: #FF7D90;
   background-repeat: repeat-x;
   background-image: -moz-linear-gradient(85deg, #FFAD6F, #FF7D90);
   background-image: -webkit-linear-gradient(85deg, #FFAD6F, #FF7D90);
   background-image: -o-linear-gradient(85deg, #FFAD6F, #FF7D90);
   background-image: linear-gradient(85deg, #FFAD6F, #FF7D90);
+  padding: 47px 40px;
+}
+.trust-factors-section .grid-container {
+  padding: 0;
+}
+.trust-factors-section .grid-container .factor-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10%;
-  padding: 60px 105px;
+  grid-gap: 30px;
   color: #FFFFFF;
 }
 @media (max-width: 1199px) {
   .trust-factors-section .grid-container .factor-wrapper {
-    padding: 60px 40px;
-    grid-gap: 5%;
-  }
-}
-@media (max-width: 991px) {
-  .trust-factors-section .grid-container .factor-wrapper {
-    padding: 40px;
+    grid-gap: 15px;
   }
 }
 @media (max-width: 767px) {
@@ -1568,11 +1554,12 @@ input[type="file"] {
   font-size: 27px;
 }
 .trust-factors-section .grid-container .factor-wrapper .factor-box .factor-info {
-  width: 60%;
+  width: 70%;
 }
 @media (max-width: 991px) {
   .trust-factors-section .grid-container .factor-wrapper .factor-box .factor-info {
     font-size: 15px;
+    width: 60%;
   }
 }
 /* = Full Width Page Layout

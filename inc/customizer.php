@@ -538,6 +538,165 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			}
 		}
 
+		// footer trusted_factors section
+		$wp_customize->add_section(
+			'dokanee_footer_trusted_factors',
+			array(
+				'title'    => 'Trusted Factors',
+				'priority' => 15,
+				'panel'    => 'dokanee_footer_panel',
+			)
+		);
+
+		// show trusted factors
+		$wp_customize->add_setting(
+			'show_trusted_factors_section',
+			array(
+				'default' => 'on'
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'show_trusted_factors_section',
+				array(
+					'label'   => __( 'Show Trusted Factors Section on WooCommerce pages', 'dokanee' ),
+					'section' => 'dokanee_footer_trusted_factors',
+					'type'    => 'checkbox',
+				)
+			)
+		);
+
+		// trusted fact 1
+		$wp_customize->add_setting(
+			'dokanee_trusted_fact_1_icon',
+			array(
+				'default'           => 'flaticon flaticon-transport',
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'dokanee_trusted_fact_1_icon',
+				array(
+					'label'    => __( 'Fact 1 Icon ( Class Name )', 'dokanee' ),
+					'section'  => 'dokanee_footer_trusted_factors',
+					'settings' => 'dokanee_trusted_fact_1_icon',
+					'type'     => 'text',
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_trusted_fact_1',
+			array(
+				'default'           => __( 'Fast & Free Delivery', 'dokanee' ),
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'dokanee_trusted_fact_1',
+				array(
+					'label'    => __( 'Fact 1 Text', 'dokanee' ),
+					'section'  => 'dokanee_footer_trusted_factors',
+					'settings' => 'dokanee_trusted_fact_1',
+					'type'     => 'textarea',
+				)
+			)
+		);
+
+		// trusted fact 2
+		$wp_customize->add_setting(
+			'dokanee_trusted_fact_2_icon',
+			array(
+				'default'           => 'flaticon flaticon-business-2',
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'dokanee_trusted_fact_2_icon',
+				array(
+					'label'    => __( 'Fact 2 Icon ( Class Name )', 'dokanee' ),
+					'section'  => 'dokanee_footer_trusted_factors',
+					'settings' => 'dokanee_trusted_fact_2_icon',
+					'type'     => 'text',
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_trusted_fact_2',
+			array(
+				'default'           => __( 'Safe & Secure Payment', 'dokanee' ),
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'dokanee_trusted_fact_2',
+				array(
+					'label'    => __( 'Fact 2 Text', 'dokanee' ),
+					'section'  => 'dokanee_footer_trusted_factors',
+					'settings' => 'dokanee_trusted_fact_2',
+					'type'     => 'textarea',
+				)
+			)
+		);
+
+		// trusted fact 3
+		$wp_customize->add_setting(
+			'dokanee_trusted_fact_3_icon',
+			array(
+				'default'           => 'flaticon flaticon-technology',
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'dokanee_trusted_fact_3_icon',
+				array(
+					'label'    => __( 'Fact 3 Icon ( Class Name )', 'dokanee' ),
+					'section'  => 'dokanee_footer_trusted_factors',
+					'settings' => 'dokanee_trusted_fact_3_icon',
+					'type'     => 'text',
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_trusted_fact_3',
+			array(
+				'default'           => __( '100% Money Back Guarantee', 'dokanee' ),
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'dokanee_trusted_fact_3',
+				array(
+					'label'    => __( 'Fact 3 Text', 'dokanee' ),
+					'section'  => 'dokanee_footer_trusted_factors',
+					'settings' => 'dokanee_trusted_fact_3',
+					'type'     => 'textarea',
+				)
+			)
+		);
+
 		// footer bottom bar section
 		$wp_customize->add_section(
 			'dokanee_footer_bottom_bar',
