@@ -2920,6 +2920,15 @@ ol.comment-list {
 }
 /* = Woocommerce Products
 ----------------------------------------------- */
+.post-type-archive-product .woocommerce-products-header .woocommerce-products-header__title,
+.tax-product_cat .woocommerce-products-header .woocommerce-products-header__title,
+.tax-product_tag .woocommerce-products-header .woocommerce-products-header__title {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2em;
+  margin-bottom: 24px;
+  margin-top: -5px;
+}
 .post-type-archive-product .inside-article,
 .tax-product_cat .inside-article,
 .tax-product_tag .inside-article {

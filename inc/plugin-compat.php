@@ -53,15 +53,6 @@ if ( ! function_exists( 'dokanee_woocommerce_start' ) ) {
 				 * @since 0.1
 				 */
 				do_action( 'dokanee_before_main_content' );
-
-                /**
-                 * dokanee_archive_title hook.
-                 *
-                 * @since 0.1
-                 *
-                 * @hooked dokanee_archive_title - 10
-                 */
-                do_action( 'dokanee_archive_title' );
 				?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php dokanee_article_schema( 'CreativeWork' ); ?>>
 					<div class="inside-article">
