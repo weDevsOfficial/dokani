@@ -26,7 +26,7 @@
 // Product Cat Section
 .product-cat-section {
     background-color: @white;
-    padding: 110px 0;
+    padding: 58px 0 70px;
 
     .product-cat-wrapper {
         margin: 0 11%;
@@ -108,7 +108,7 @@
 
 // Products Section
 .products-section {
-    padding: 110px 20px;
+    padding: 62px 20px 5px;
     border-top:1px solid @border-color;
     border-bottom:1px solid @border-color;
 
@@ -215,8 +215,8 @@
 
 // Store Section
 .store-section {
-    padding: 110px 20px;
-    background-color: #ececfb;
+    padding: 59px 20px 37px;
+    background-color: #f0f1fa;
 
     .store-wrapper {
         .tabs {
@@ -237,7 +237,7 @@
             -ms-flex-order: 1;
             order: 1;
             display: block;
-            padding: 1rem 1.6rem;
+            padding: .5rem 1.6rem;
             margin-right: 0.2rem;
             cursor: pointer;
             //background: #90CAF9;
@@ -259,8 +259,10 @@
             -ms-flex-positive: 1;
             flex-grow: 1;
             width: 100%;
-            display: none;
             margin-top: 25px;
+            opacity: 0;
+            display: none;
+            transition: all .3s ease-in;
         }
 
         .tabs input[type="radio"] {
@@ -272,7 +274,11 @@
             color: @post-title-color;
         }
 
-        .tabs input[type="radio"]:checked + label + .tab { display: block; }
+        .tabs input[type="radio"]:checked + label + .tab {
+            display: block;
+            opacity: 1;
+            transition: all .5s ease-out .4s;
+        }
 
         @media (max-width: 45em) {
 

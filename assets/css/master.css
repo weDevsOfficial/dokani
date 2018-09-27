@@ -4103,7 +4103,7 @@ a.dokan-btn,
 }
 .product-cat-section {
   background-color: #FFFFFF;
-  padding: 110px 0;
+  padding: 58px 0 70px;
 }
 .product-cat-section .product-cat-wrapper {
   margin: 0 11%;
@@ -4188,7 +4188,7 @@ a.dokan-btn,
   color: #d8d8d8;
 }
 .products-section {
-  padding: 110px 20px;
+  padding: 62px 20px 5px;
   border-top: 1px solid #ECEDEF;
   border-bottom: 1px solid #ECEDEF;
 }
@@ -4279,8 +4279,8 @@ a.dokan-btn,
   padding: 2px 5px 10px 5px;
 }
 .store-section {
-  padding: 110px 20px;
-  background-color: #ececfb;
+  padding: 59px 20px 37px;
+  background-color: #f0f1fa;
 }
 .store-section .store-wrapper .tabs {
   display: -webkit-box;
@@ -4299,7 +4299,7 @@ a.dokan-btn,
   -ms-flex-order: 1;
   order: 1;
   display: block;
-  padding: 1rem 1.6rem;
+  padding: .5rem 1.6rem;
   margin-right: 0.2rem;
   cursor: pointer;
   -webkit-transition: background ease 0.2s;
@@ -4318,8 +4318,10 @@ a.dokan-btn,
   -ms-flex-positive: 1;
   flex-grow: 1;
   width: 100%;
-  display: none;
   margin-top: 25px;
+  opacity: 0;
+  display: none;
+  transition: all 0.3s ease-in;
 }
 .store-section .store-wrapper .tabs input[type="radio"] {
   position: absolute;
@@ -4330,6 +4332,8 @@ a.dokan-btn,
 }
 .store-section .store-wrapper .tabs input[type="radio"]:checked + label + .tab {
   display: block;
+  opacity: 1;
+  transition: all 0.5s ease-out 0.4s;
 }
 @media (max-width: 45em) {
   .store-section .store-wrapper .tabs .tab,
