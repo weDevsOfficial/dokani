@@ -383,6 +383,22 @@
             .rounded(3px);
             .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
         }
+
+        & + .woocommerce-pagination {
+            float: right;
+            margin-bottom: 18px;
+
+            ul {
+                margin-top: -4px;
+
+                li a, li .current {
+                    width: 33px;
+                    height: 33px;
+                    line-height: 33px;
+                    font-size: 0.9rem;
+                }
+            }
+        }
     }
 
     // Shop Table
@@ -448,7 +464,7 @@
 
     // pagination
     nav.woocommerce-pagination {
-        text-align: left;
+        text-align: right;
 
         ul {
             border: none;
@@ -859,7 +875,7 @@
 
             .woocommerce-ordering {
                 margin-right: 85px;
-                margin-bottom: 2em;
+                margin-bottom: 18px;
             }
 
             .dokanee-products-view {

@@ -1406,7 +1406,7 @@ input[type="file"] {
   line-height: 1.5em;
   font-weight: 400;
   color: #333e48;
-  margin-bottom: 50px;
+  margin-bottom: 36px;
 }
 .text-center {
   text-align: center;
@@ -1422,9 +1422,9 @@ input[type="file"] {
   background: transparent;
   padding: 0;
   color: #a2abb2;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.3em;
-  margin: 47px 0 5px;
+  margin: 28px 0 -1px;
 }
 .breadcrumb > li {
   display: inline-block;
@@ -2486,6 +2486,24 @@ ol.comment-list {
   -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
 }
+.woocommerce .woocommerce-ordering + .woocommerce-pagination,
+.woocommerce-page .woocommerce-ordering + .woocommerce-pagination {
+  float: right;
+  margin-bottom: 18px;
+}
+.woocommerce .woocommerce-ordering + .woocommerce-pagination ul,
+.woocommerce-page .woocommerce-ordering + .woocommerce-pagination ul {
+  margin-top: -4px;
+}
+.woocommerce .woocommerce-ordering + .woocommerce-pagination ul li a,
+.woocommerce-page .woocommerce-ordering + .woocommerce-pagination ul li a,
+.woocommerce .woocommerce-ordering + .woocommerce-pagination ul li .current,
+.woocommerce-page .woocommerce-ordering + .woocommerce-pagination ul li .current {
+  width: 33px;
+  height: 33px;
+  line-height: 33px;
+  font-size: 0.9rem;
+}
 .woocommerce .shop_table.cart .coupon input,
 .woocommerce-page .shop_table.cart .coupon input,
 .woocommerce .shop_table.cart .coupon input,
@@ -2540,7 +2558,7 @@ ol.comment-list {
   color: #d8d8d8;
 }
 .woocommerce nav.woocommerce-pagination {
-  text-align: left;
+  text-align: right;
 }
 .woocommerce nav.woocommerce-pagination ul {
   border: none;
@@ -2945,7 +2963,7 @@ ol.comment-list {
 .tax-product_cat #primary .entry-content .woocommerce-ordering,
 .tax-product_tag #primary .entry-content .woocommerce-ordering {
   margin-right: 85px;
-  margin-bottom: 2em;
+  margin-bottom: 18px;
 }
 .post-type-archive-product #primary .entry-content .dokanee-products-view button,
 .tax-product_cat #primary .entry-content .dokanee-products-view button,
@@ -3411,12 +3429,14 @@ ol.comment-list {
   position: absolute;
   top: 0;
   right: 0;
+  padding: 5px 9px;
 }
 .dokan-seller-view button {
   background-color: transparent;
   color: #d8d8d8;
-  padding: 10px 5px;
-  font-size: 20px;
+  padding: 0 6px;
+  font-size: 18px;
+  line-height: 1em;
 }
 .dokan-seller-view button:hover,
 .dokan-seller-view button:focus,
@@ -3467,28 +3487,33 @@ ol.comment-list {
   margin-top: 0 !important;
 }
 .dokan-seller-listing .dokan-seller-search-form .dokan-seller-search {
+  font-size: 14px;
+  line-height: 1.2em;
   border: 1px solid transparent !important;
-  height: 46px;
+  height: 35px;
   padding: 5px 20px 5px 41px !important;
   -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
-  background-position: 10px 13px !important;
+  background-position: 10px 10px !important;
 }
 .dokan-seller-listing .dokan-seller-search-form .dokan-seller-search:hover,
 .dokan-seller-listing .dokan-seller-search-form .dokan-seller-search:active,
 .dokan-seller-listing .dokan-seller-search-form .dokan-seller-search:focus {
-  border-color: #f2624d !important;
+  border-color: #bfbfbf !important;
 }
 .dokanee-products-view {
-  float: right;
+  float: left;
+  padding: 4px 9px;
+  margin-right: 20px;
+  margin-bottom: 18px;
 }
 .dokanee-products-view button {
   background-color: transparent;
   color: #d8d8d8;
-  padding: 5px 0 5px 12px;
-  font-size: 22px;
+  padding: 0 6px;
+  font-size: 18px;
   line-height: 1em;
 }
 .dokanee-products-view button:hover,
