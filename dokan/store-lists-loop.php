@@ -1,4 +1,4 @@
-<div class="dokan-seller-view buttons">
+<div class="dokan-seller-view buttons box-shadow">
     <button class="list"><i class="fa fa-bars"></i></button>
     <button class="grid active"><i class="fa fa-th-large"></i></button>
 </div>

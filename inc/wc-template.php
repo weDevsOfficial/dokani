@@ -10,6 +10,13 @@ remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_pr
 remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 
 /**
+ * Pagination before shop loops.
+ *
+ * @see woocommerce_pagination()
+ */
+add_action( 'woocommerce_before_shop_loop', 'woocommerce_pagination', 40 );
+
+/**
  * Renders item-bar of products in the loop
  *
  * @global WC_Product $product
@@ -35,7 +42,7 @@ function dokanee_product_loop_price() {
         <div class="item-bar">
             <div class="item-meta">
 			    <?php woocommerce_template_loop_price(); ?>
-			    <?php woocommerce_template_loop_rating(); ?>
+			    <?php woocommerce_template_loop_rating();?>
             </div>
 
             <div class="item-button">
@@ -279,7 +286,7 @@ endif;
 function dokanee_products_view_type() {
 	?>
 
-    <div class="dokanee-products-view buttons">
+    <div class="dokanee-products-view buttons box-shadow">
         <button class="list"><i class="fa fa-bars"></i></button>
         <button class="grid active"><i class="fa fa-th-large"></i></button>
     </div>

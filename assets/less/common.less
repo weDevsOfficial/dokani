@@ -191,7 +191,7 @@ input[type="file"] {
     line-height: 1.5em;
     font-weight: 400;
     color: #333e48;
-    margin-bottom: 50px;
+    margin-bottom: 36px;
 }
 
 .text-center {
@@ -212,9 +212,9 @@ input[type="file"] {
     background: transparent;
     padding: 0;
     color: #a2abb2;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.3em;
-    margin: 47px 0 5px;
+    margin: 28px 0 -1px;
 
     > li {
         display: inline-block;
@@ -229,4 +229,11 @@ input[type="file"] {
             }
         }
     }
+}
+
+// Box shadow
+.box-shadow {
+    background-color: @white;
+    .rounded(3px);
+    .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
 }
