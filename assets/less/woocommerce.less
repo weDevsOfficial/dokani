@@ -915,7 +915,6 @@
     }
 
     div.images {
-        margin-bottom: 110px;
 
         .woocommerce-product-gallery__trigger {
             &:before {
@@ -967,11 +966,12 @@
         line-height: 1.4em;
         font-weight: 600;
         color: @title-color;
-        margin-bottom: 2px;
+        margin-bottom: 6px;
+        margin-top: -9px;
     }
 
     .vendor-name {
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         font-size: 15px;
 
         a {
@@ -984,22 +984,28 @@
     }
 
     .woocommerce-product-rating {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
+
+        .star-rating {
+            font-size: 12px;
+            margin-top: 11px;
+        }
 
         .woocommerce-review-link {
             color: #9c9c9c;
         }
     }
 
-    p.price {
+    p.price,
+    span.price {
         font-size: 25px;
         line-height: 1.5em;
         font-weight: 400;
         color: @wc-price-color;
-        margin-bottom: 15px;
+        margin-bottom: 9px;
 
         del {
-            color: #dddfee;
+            color: #9c9c9c;
         }
 
         ins {
@@ -1012,32 +1018,122 @@
         font-size: 16px;
         font-weight: 400;
         line-height: 1.5em;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
-    .quantity .qty {
-        background-color: @white;
-        padding: 7px 13px;
-        .rounded(3px);
-        .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
-        border: none;
-        color: @black;
-        width: 80px;
-        margin-right: 20px;
+    .quantity {
+        display: block;
+        width: 100%;
+        margin-bottom: 22px !important;
+
+        label.screen-reader-text {
+            position: relative !important;
+            height: auto !important;
+            width: 31% !important;
+            float: left;
+            font-size: 1rem;
+            line-height: 1.2em;
+            font-weight: 600;
+            color: #333e48;
+            margin-top: 13px;
+        }
+
+        .qty {
+            background-color: @white;
+            padding: 7px 10px;
+            .rounded(3px);
+            .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
+            border: none;
+            color: @black;
+            width: 60px;
+            margin-right: 20px;
+        }
+    }
+
+    // variations
+    table.variations {
+        .label {
+            width: 30%;
+
+            label {
+                font-size: 1rem;
+                line-height: 1.2em;
+                font-weight: 600;
+                color: #333e48;
+            }
+
+        }
+
+        .value {
+            select {
+                height: 35px;
+                font-size: 1rem;
+                .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
+            }
+        }
+    }
+
+    .woocommerce-variation {
+        &-price {
+            margin-top: -10px;
+        }
     }
 
     .single_add_to_cart_button {
         background-color: @theme-color;
         color: @white;
-        font-size: 13px;
-        padding: 13px 34px;
+        font-size: 1rem;
+        padding: 14px 22px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    form.cart {
+        margin-bottom: 22px;
+    }
+
+    // product meta
+    .product_meta {
+        > div {
+            display: flex;
+            margin-top: 12px;
+
+            .meta-title {
+                width: 30%;
+                font-size: 1rem;
+                line-height: 1.2em;
+                font-weight: 600;
+                color: #333e48;
+                margin-top: 5px;
+            }
+
+            .meta-content {
+                width: 70%;
+            }
+
+            a {
+                font-size: 14px;
+                line-height: 1.2em;
+                color: #808080;
+                background-color: @white;
+                .rounded(3px);
+                .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
+                padding: 5px 12px;
+                display: inline-block;
+                margin: 5px;
+                font-weight: 400;
+
+                &:hover {
+                    color: @theme-color;
+                }
+            }
+        }
     }
 
     .woocommerce-tabs {
         background-color: @white;
         .rounded(5px);
         .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
-        margin-bottom: 100px;
 
         ul.tabs {
             padding: 0 20px;
@@ -1167,6 +1263,8 @@
     }
 
     .related.products {
+        margin-bottom: -30px;
+
         > h2 {
             color: @title-color;
             font-size: 23px;
