@@ -2881,15 +2881,25 @@ ol.comment-list {
 .woocommerce #respond input#submit,
 .woocommerce-page #respond input#submit,
 .woocommerce #content input.button,
-.woocommerce-page #content input.button {
+.woocommerce-page #content input.button,
+.woocommerce #respond input#submit.alt.disabled,
+.woocommerce #respond input#submit.alt:disabled,
+.woocommerce #respond input#submit.alt:disabled[disabled],
+.woocommerce a.button.alt:disabled[disabled],
+.woocommerce button.button.alt.disabled,
+.woocommerce button.button.alt:disabled,
+.woocommerce button.button.alt:disabled[disabled],
+.woocommerce input.button.alt.disabled,
+.woocommerce input.button.alt:disabled,
+.woocommerce input.button.alt:disabled[disabled] {
   background-color: #f2624d;
   color: #FFFFFF;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1em;
 }
 .woocommerce a.button:hover,
@@ -2902,6 +2912,16 @@ ol.comment-list {
 .woocommerce-page #respond input#submit:hover,
 .woocommerce #content input.button:hover,
 .woocommerce-page #content input.button:hover,
+.woocommerce #respond input#submit.alt.disabled:hover,
+.woocommerce #respond input#submit.alt:disabled:hover,
+.woocommerce #respond input#submit.alt:disabled[disabled]:hover,
+.woocommerce a.button.alt:disabled[disabled]:hover,
+.woocommerce button.button.alt.disabled:hover,
+.woocommerce button.button.alt:disabled:hover,
+.woocommerce button.button.alt:disabled[disabled]:hover,
+.woocommerce input.button.alt.disabled:hover,
+.woocommerce input.button.alt:disabled:hover,
+.woocommerce input.button.alt:disabled[disabled]:hover,
 .woocommerce a.button:active,
 .woocommerce-page a.button:active,
 .woocommerce button.button:active,
@@ -2912,6 +2932,16 @@ ol.comment-list {
 .woocommerce-page #respond input#submit:active,
 .woocommerce #content input.button:active,
 .woocommerce-page #content input.button:active,
+.woocommerce #respond input#submit.alt.disabled:active,
+.woocommerce #respond input#submit.alt:disabled:active,
+.woocommerce #respond input#submit.alt:disabled[disabled]:active,
+.woocommerce a.button.alt:disabled[disabled]:active,
+.woocommerce button.button.alt.disabled:active,
+.woocommerce button.button.alt:disabled:active,
+.woocommerce button.button.alt:disabled[disabled]:active,
+.woocommerce input.button.alt.disabled:active,
+.woocommerce input.button.alt:disabled:active,
+.woocommerce input.button.alt:disabled[disabled]:active,
 .woocommerce a.button:focus,
 .woocommerce-page a.button:focus,
 .woocommerce button.button:focus,
@@ -2921,7 +2951,17 @@ ol.comment-list {
 .woocommerce #respond input#submit:focus,
 .woocommerce-page #respond input#submit:focus,
 .woocommerce #content input.button:focus,
-.woocommerce-page #content input.button:focus {
+.woocommerce-page #content input.button:focus,
+.woocommerce #respond input#submit.alt.disabled:focus,
+.woocommerce #respond input#submit.alt:disabled:focus,
+.woocommerce #respond input#submit.alt:disabled[disabled]:focus,
+.woocommerce a.button.alt:disabled[disabled]:focus,
+.woocommerce button.button.alt.disabled:focus,
+.woocommerce button.button.alt:disabled:focus,
+.woocommerce button.button.alt:disabled[disabled]:focus,
+.woocommerce input.button.alt.disabled:focus,
+.woocommerce input.button.alt:disabled:focus,
+.woocommerce input.button.alt:disabled[disabled]:focus {
   background-color: #e05844;
   color: #FFFFFF;
 }

@@ -822,12 +822,22 @@
 .woocommerce #respond input#submit,
 .woocommerce-page #respond input#submit,
 .woocommerce #content input.button,
-.woocommerce-page #content input.button {
+.woocommerce-page #content input.button,
+.woocommerce #respond input#submit.alt.disabled,
+.woocommerce #respond input#submit.alt:disabled,
+.woocommerce #respond input#submit.alt:disabled[disabled],
+.woocommerce a.button.alt:disabled[disabled],
+.woocommerce button.button.alt.disabled,
+.woocommerce button.button.alt:disabled,
+.woocommerce button.button.alt:disabled[disabled],
+.woocommerce input.button.alt.disabled,
+.woocommerce input.button.alt:disabled,
+.woocommerce input.button.alt:disabled[disabled] {
     background-color: @theme-color;
     color: @white;
     .rounded(3px);
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
     line-height: 1em;
 
     &:hover,
