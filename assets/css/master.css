@@ -1475,9 +1475,7 @@ input[type="submit"] {
 button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
-input[type="submit"]:hover {
-  background: #606060;
-}
+input[type="submit"]:hover,
 button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
@@ -1486,7 +1484,7 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  background: #606060;
+  background: #f2624d;
 }
 .button {
   padding: 10px 20px;
@@ -1704,6 +1702,12 @@ input[type="file"] {
   -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   -o-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+}
+.no-list-style {
+  list-style: none;
+}
+.m-0 {
+  margin: 0;
 }
 .social-follow-list {
   list-style: none;
@@ -4492,6 +4496,31 @@ a.dokan-btn,
 .dokan-support-topic-counts {
   margin-bottom: 40px;
 }
+/* = Product category page
+----------------------------------------------- */
+.dokanee-product-category .cat-wrapper {
+  border-bottom: 1px solid #ECEDEF;
+}
+.dokanee-product-category .cat-wrapper .cat-title {
+  font-size: 22px;
+  color: #f2624d;
+  margin: 15px 0;
+}
+.dokanee-product-category .cat-wrapper .cat-title a {
+  color: inherit;
+}
+.dokanee-product-category .cat-wrapper ul {
+  margin: 0 0 15px;
+  list-style: none;
+  font-size: 14px;
+  overflow: hidden;
+}
+.dokanee-product-category .cat-wrapper ul li {
+  float: left;
+  width: 33%;
+  padding: 3px 10px 3px 0px;
+  box-sizing: border-box;
+}
 /* = Welcome page
 ----------------------------------------------- */
 .dokanee-template-home #page.grid-container {
@@ -4569,20 +4598,19 @@ a.dokan-btn,
 .product-cat-section .product-cat-wrapper .product-cat-box .btn {
   color: #77828c;
   font-size: 14px;
+  display: inline-block;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 6px 18px;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -ms-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
-  display: inline-block;
-  border-width: 2px;
-  border-radius: 5px;
-  padding: 6px 18px;
 }
 .product-cat-section .product-cat-wrapper .product-cat-box .btn:hover,
 .product-cat-section .product-cat-wrapper .product-cat-box .btn:focus,
 .product-cat-section .product-cat-wrapper .product-cat-box .btn:active {
-  color: #f2624d;
   border-color: #f2624d;
 }
 .product-cat-section .product-cat-wrapper .product-cat-box .btn i {

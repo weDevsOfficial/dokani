@@ -21,24 +21,12 @@ input[type="submit"] {
     -webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
     padding: 10px 20px;
     color: #FFF;
-}
 
-button:hover,
-html input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-    background: #606060;
-}
-
-button:focus,
-html input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-html input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-    background: #606060;
+    &:hover,
+    &:focus,
+    &:active {
+        background: @theme-color;
+    }
 }
 
 .button {
@@ -236,4 +224,14 @@ input[type="file"] {
     background-color: @white;
     .rounded(3px);
     .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
+}
+
+.no-list-style {
+    list-style: none;
+}
+
+.m {
+    &-0 {
+        margin: 0;
+    }
 }

@@ -361,3 +361,18 @@ function dokan_woo_placeholder_img_src( $src ) {
 	return $src;
 }
 
+/**
+ * Redirect product category template
+ */
+add_action( 'template_redirect', function() {
+	global $wp, $wp_query;
+
+	if ( isset( $wp->query_vars['name'] ) && $wp->query_vars['name'] == 'product-category' ) {
+		$wp_query->set( 'is_404', false );
+		status_header( 200 );
+
+		get_template_part( 'template-parts/page/product-category' );
+		exit();
+	}
+}, 10, 1 );
+

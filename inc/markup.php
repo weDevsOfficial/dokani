@@ -58,6 +58,9 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 	 * @since 0.1
 	 */
 	function dokanee_body_classes( $classes ) {
+
+		global $wp;
+
 		// Get Customizer settings
 		$dokanee_settings = wp_parse_args(
 			get_option( 'dokanee_settings', array() ),
@@ -140,6 +143,12 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
         if ( is_front_page() ) {
 			$classes[] = 'dokanee-template-home';
         }
+
+		if ( isset( $wp->query_vars['name'] ) && $wp->query_vars['name'] == 'product-category' ) {
+			$page_404 = array_search( 'error404', $classes );
+			unset( $classes[$page_404] );
+			$classes[] = 'dokanee-product-category';
+		}
 
 		return $classes;
 	}
