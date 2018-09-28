@@ -4596,6 +4596,7 @@ a.dokan-btn,
   padding: 62px 20px 5px;
   border-top: 1px solid #ECEDEF;
   border-bottom: 1px solid #ECEDEF;
+  background-color: #fafafa;
 }
 @media (max-width: 991px) {
   .products-section .widget-area {
