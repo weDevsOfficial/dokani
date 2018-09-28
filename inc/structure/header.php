@@ -34,6 +34,22 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 
                     // Add our main header items.
                     dokanee_header_items();
+
+				echo '</div>';
+				echo '<div class="header-right">';
+
+				    dokanee_construct_header_widget();
+
+                    /**
+                     * dokanee_after_header_right hook.
+                     *
+                     * @since 0.1
+                     *
+                     * @hooked dokanee_add_navigation_float_right - 5
+                     * @hooked dokanee_add_cart_menu_after_search - 10
+                     */
+                    do_action( 'dokanee_after_header_right' );
+
 				echo '</div>';
 
 				/**
@@ -85,7 +101,6 @@ if ( ! function_exists( 'dokanee_header_items' ) ) {
 	function dokanee_header_items() {
 		dokanee_construct_site_title();
 		dokanee_construct_logo();
-		dokanee_construct_header_widget();
 	}
 }
 

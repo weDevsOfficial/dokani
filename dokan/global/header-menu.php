@@ -9,15 +9,13 @@
 ?>
 
 <ul class="nav navbar-nav navbar-right">
-    <li>
-        <a href="#" class="dropdown-toggle dokanee-menu-cart" data-toggle="dropdown"><?php printf( __( 'Cart %s', 'dokanee' ), '<span class="dokan-cart-amount-top">(' . WC()->cart->get_cart_total() . ')</span>' ); ?> <b class="caret"></b></a>
+    <?php
+    $cart_topbar = dokanee_get_setting( 'cart_position_setting' );
 
-        <ul class="dropdown-menu">
-            <li>
-                <div class="widget_shopping_cart_content"></div>
-            </li>
-        </ul>
-    </li>
+    if ( 'cart-topbar' == $cart_topbar){
+	    echo dokanee_cart_position();
+    }
+    ?>
 
     <?php if ( is_user_logged_in() ) { ?>
 

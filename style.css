@@ -1129,16 +1129,6 @@ footer.entry-meta .byline {
     height: 100%;
 }
 
-.menu-item-has-children .dropdown-menu-toggle {
-    /*padding-right: 20px;*/
-}
-
-.menu-item-has-children ul .dropdown-menu-toggle {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: -10px;
-}
-
 
 /* Typography */
 body,

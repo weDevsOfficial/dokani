@@ -116,6 +116,7 @@ require get_template_directory() . '/inc/structure/featured-images.php';
 require get_template_directory() . '/inc/structure/footer.php';
 require get_template_directory() . '/inc/structure/header.php';
 require get_template_directory() . '/inc/structure/navigation.php';
+require get_template_directory() . '/inc/structure/cart.php';
 require get_template_directory() . '/inc/structure/post-meta.php';
 require get_template_directory() . '/inc/structure/sidebars.php';
 

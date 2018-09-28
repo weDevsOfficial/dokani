@@ -309,35 +309,13 @@ function dokanee_classes_live_update( id, classes, selector, prefix ) {
 				wp.customize.preview.send( 'refresh' );
 				return false;
 			}
-			if ( 'nav-left-sidebar' == newval ) {
-				wp.customize.preview.send( 'refresh' );
-				return false;
-			}
-			if ( 'nav-right-sidebar' == newval ) {
-				wp.customize.preview.send( 'refresh' );
-				return false;
-			}
-			var classes = [ 'nav-below-header', 'nav-above-header', 'nav-float-right', 'nav-float-left', 'nav-left-sidebar', 'nav-right-sidebar' ];
-			if ( 'nav-left-sidebar' !== newval && 'nav-right-sidebar' !== newval ) {
-				$.each( classes, function( i, v ) {
-					$( 'body' ).removeClass( v );
-				});
-			}
+			var classes = [ 'nav-below-header', 'nav-float-right' ];
 			$( 'body' ).addClass( newval );
+
 			if ( 'nav-below-header' == newval ) {
 				$( '#site-navigation:first' ).insertAfter( '.site-header' ).show();
 			}
-			if ( 'nav-above-header' == newval ) {
-				if ( $( '.top-bar:not(.secondary-navigation .top-bar)' ).length ) {
-					$( '#site-navigation:first' ).insertAfter( '.top-bar' ).show();
-				} else {
-					$( '#site-navigation:first' ).prependTo( 'body' ).show();
-				}
-			}
 			if ( 'nav-float-right' == newval ) {
-				$( '#site-navigation:first' ).appendTo( '.inside-header' ).show();
-			}
-			if ( 'nav-float-left' == newval ) {
 				$( '#site-navigation:first' ).appendTo( '.inside-header' ).show();
 			}
 			if ( '' == newval ) {

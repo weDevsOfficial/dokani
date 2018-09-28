@@ -30,7 +30,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 	 */
 	function dokanee_customize_register( $wp_customize ) {
 		// Get our default values
-		$defaults = dokanee_get_defaults();
+		$defaults       = dokanee_get_defaults();
 		$defaults_color = dokanee_get_color_defaults();
 
 		// Load helpers
@@ -168,10 +168,10 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 		$wp_customize->add_section(
 			'body_section',
 			array(
-				'title' => $wp_customize->get_panel( 'dokanee_colors_panel' ) ? __( 'Body', 'dokanee' ) : __( 'Colors', 'dokanee' ),
+				'title'      => $wp_customize->get_panel( 'dokanee_colors_panel' ) ? __( 'Body', 'dokanee' ) : __( 'Colors', 'dokanee' ),
 				'capability' => 'edit_theme_options',
-				'priority' => 30,
-				'panel' => $wp_customize->get_panel( 'dokanee_colors_panel' ) ? 'dokanee_colors_panel' : false,
+				'priority'   => 30,
+				'panel'      => $wp_customize->get_panel( 'dokanee_colors_panel' ) ? 'dokanee_colors_panel' : false,
 			)
 		);
 
@@ -339,6 +339,27 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					'label'    => __( 'Topbar Text Hover Color', 'dokanee' ),
 					'section'  => 'body_section',
 					'settings' => 'dokanee_settings[top_bar_link_color_hover]'
+				)
+			)
+		);
+
+		// add navigation_background_color
+		$wp_customize->add_setting(
+			'dokanee_settings[navigation_background_color]', array(
+				'default'           => $defaults_color['navigation_background_color'],
+				'type'              => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_hex_color',
+				'transport'         => 'postMessage',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'dokanee_settings[navigation_background_color]',
+				array(
+					'label'    => __( 'Navigation Background Color', 'dokanee' ),
+					'section'  => 'body_section',
+					'settings' => 'dokanee_settings[navigation_background_color]'
 				)
 			)
 		);
@@ -875,7 +896,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
-		// Add top bar alignment
+		// Add top_bar_alignment
 		$wp_customize->add_setting(
 			'dokanee_settings[top_bar_alignment]',
 			array(
@@ -886,7 +907,6 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
-		// Add navigation control
 		$wp_customize->add_control(
 			'dokanee_settings[top_bar_alignment]',
 			array(
@@ -901,6 +921,33 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'settings'        => 'dokanee_settings[top_bar_alignment]',
 				'priority'        => 15,
 				'active_callback' => 'dokanee_is_top_bar_active',
+			)
+		);
+
+		// Add cart_position_setting
+		$wp_customize->add_setting(
+			'dokanee_settings[cart_position_setting]',
+			array(
+				'default'           => $defaults['cart_position_setting'],
+				'type'              => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_choices',
+				'transport'         => 'postMessage'
+			)
+		);
+
+		$wp_customize->add_control(
+			'dokanee_settings[cart_position_setting]',
+			array(
+				'type'     => 'select',
+				'label'    => __( 'Cart Position', 'dokanee' ),
+				'section'  => 'dokanee_top_bar',
+				'choices'  => array(
+					'cart-topbar' => __( 'Show Cart in Topbar', 'dokanee' ),
+					'cart-nav'    => __( 'Show Cart in Navigation', 'dokanee' ),
+					'cart-search' => __( 'Show Cart after Search', 'dokanee' )
+				),
+				'settings' => 'dokanee_settings[cart_position_setting]',
+				'priority' => 20,
 			)
 		);
 
@@ -1005,6 +1052,32 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// Add nav_position_setting
+		$wp_customize->add_setting(
+			'dokanee_settings[nav_position_setting]',
+			array(
+				'default'           => $defaults['nav_position_setting'],
+				'type'              => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_choices',
+				'transport'         => ( '' !== dokanee_get_setting( 'nav_position_setting' ) ) ? 'postMessage' : 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			'dokanee_settings[nav_position_setting]',
+			array(
+				'type'     => 'select',
+				'label'    => __( 'Navigation Location', 'dokanee' ),
+				'section'  => 'dokanee_layout_navigation',
+				'choices'  => array(
+					'nav-float-right'   => __( 'Header', 'dokanee' ),
+					'nav-below-header'  => __( 'Below Header', 'dokanee' )
+				),
+				'settings' => 'dokanee_settings[nav_position_setting]',
+				'priority' => 15
+			)
+		);
+
 		// Add navigation setting
 		$wp_customize->add_setting(
 			'dokanee_settings[nav_layout_setting]',
@@ -1028,7 +1101,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					'contained-nav' => __( 'Contained', 'dokanee' )
 				),
 				'settings' => 'dokanee_settings[nav_layout_setting]',
-				'priority' => 15
+				'priority' => 16
 			)
 		);
 
@@ -1055,7 +1128,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					'full-width' => __( 'Full', 'dokanee' )
 				),
 				'settings' => 'dokanee_settings[nav_inner_width]',
-				'priority' => 16
+				'priority' => 17
 			)
 		);
 
@@ -1084,38 +1157,6 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				),
 				'settings' => 'dokanee_settings[nav_alignment_setting]',
 				'priority' => 20
-			)
-		);
-
-		// Add navigation setting
-		$wp_customize->add_setting(
-			'dokanee_settings[nav_position_setting]',
-			array(
-				'default'           => $defaults['nav_position_setting'],
-				'type'              => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_choices',
-				'transport'         => ( '' !== dokanee_get_setting( 'nav_position_setting' ) ) ? 'postMessage' : 'refresh'
-			)
-		);
-
-		// Add navigation control
-		$wp_customize->add_control(
-			'dokanee_settings[nav_position_setting]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Navigation Location', 'dokanee' ),
-				'section'  => 'dokanee_layout_navigation',
-				'choices'  => array(
-					'nav-below-header'  => __( 'Below Header', 'dokanee' ),
-					'nav-above-header'  => __( 'Above Header', 'dokanee' ),
-					'nav-float-right'   => __( 'Float Right', 'dokanee' ),
-					'nav-float-left'    => __( 'Float Left', 'dokanee' ),
-					'nav-left-sidebar'  => __( 'Left Sidebar', 'dokanee' ),
-					'nav-right-sidebar' => __( 'Right Sidebar', 'dokanee' ),
-					''                  => __( 'No Navigation', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[nav_position_setting]',
-				'priority' => 22
 			)
 		);
 

@@ -87,6 +87,11 @@ if ( ! function_exists( 'dokanee_menu_fallback' ) ) {
 				if ( 'enable' == $dokanee_settings['nav_search'] ) {
 					echo '<li class="search-item" title="' . esc_attr_x( 'Search', 'submit button', 'dokanee' ) . '"><a href="#"><span class="screen-reader-text">' . esc_html_x( 'Search', 'submit button', 'dokanee' ) . '</span></a></li>';
 				}
+
+				if ( 'cart-nav' == $dokanee_settings['cart_position_setting'] ){
+					echo dokanee_cart_position();
+				}
+
 				?>
 			</ul>
 		</div><!-- .main-nav -->
@@ -113,42 +118,11 @@ if ( ! function_exists( 'dokanee_add_navigation_after_header' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_add_navigation_before_header' ) ) {
-	add_action( 'dokanee_before_header', 'dokanee_add_navigation_before_header', 5 );
-	function dokanee_add_navigation_before_header() {
-		if ( 'nav-above-header' == dokanee_get_navigation_location() ) {
-			dokanee_navigation_position();
-		}
-	}
-}
-
 if ( ! function_exists( 'dokanee_add_navigation_float_right' ) ) {
-	add_action( 'dokanee_after_header_content', 'dokanee_add_navigation_float_right', 5 );
+	add_action( 'dokanee_after_header_right', 'dokanee_add_navigation_float_right', 5 );
 	function dokanee_add_navigation_float_right() {
-		if ( 'nav-float-right' == dokanee_get_navigation_location() || 'nav-float-left' == dokanee_get_navigation_location() ) {
+		if ( 'nav-float-right' == dokanee_get_navigation_location() ) {
 			dokanee_navigation_position();
-		}
-	}
-}
-
-if ( ! function_exists( 'dokanee_add_navigation_before_right_sidebar' ) ) {
-	add_action( 'dokanee_before_right_sidebar_content', 'dokanee_add_navigation_before_right_sidebar', 5 );
-	function dokanee_add_navigation_before_right_sidebar() {
-		if ( 'nav-right-sidebar' == dokanee_get_navigation_location() ) {
-			echo '<div class="gen-sidebar-nav">';
-				dokanee_navigation_position();
-			echo '</div>';
-		}
-	}
-}
-
-if ( ! function_exists( 'dokanee_add_navigation_before_left_sidebar' ) ) {
-	add_action( 'dokanee_before_left_sidebar_content', 'dokanee_add_navigation_before_left_sidebar', 5 );
-	function dokanee_add_navigation_before_left_sidebar() {
-		if ( 'nav-left-sidebar' == dokanee_get_navigation_location() ) {
-			echo '<div class="gen-sidebar-nav">';
-				dokanee_navigation_position();
-			echo '</div>';
 		}
 	}
 }
@@ -328,6 +302,39 @@ if ( ! function_exists( 'dokanee_mobile_menu_search_icon' ) ) {
 			</span>
 		</div><!-- .mobile-bar-items -->
 		<?php
+	}
+}
+
+if ( ! function_exists( 'dokanee_menu_cart' ) ) {
+	add_filter( 'wp_nav_menu_items', 'dokanee_menu_cart', 5, 2 );
+	/**
+	 * Add cart to primary menu if set
+	 *
+	 * @since 1.2.9.7
+	 *
+	 * @param string $nav The HTML list content for the menu items.
+	 * @param stdClass $args An object containing wp_nav_menu() arguments.
+	 * @return string The cart menu item.
+	 */
+	function dokanee_menu_cart( $nav, $args ) {
+		$dokanee_settings = wp_parse_args(
+			get_option( 'dokanee_settings', array() ),
+			dokanee_get_defaults()
+		);
+
+		// If the cart isn't enabled, return the regular nav.
+		if ( 'cart-nav' !== $dokanee_settings['cart_position_setting'] ) {
+			return $nav;
+		}
+
+		// If our primary menu is set, add the cart.
+		if ( $args->theme_location == 'primary' ) {
+			return $nav . dokanee_cart_position();
+		}
+
+		// Our primary menu isn't set, return the regular nav.
+		// In this case, the cart is added to the dokanee_menu_fallback() function in navigation.php.
+		return $nav;
 	}
 }
 
