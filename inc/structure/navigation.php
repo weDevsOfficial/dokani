@@ -84,10 +84,6 @@ if ( ! function_exists( 'dokanee_menu_fallback' ) ) {
 
 				wp_list_pages( $args );
 
-				if ( 'enable' == $dokanee_settings['nav_search'] ) {
-					echo '<li class="search-item" title="' . esc_attr_x( 'Search', 'submit button', 'dokanee' ) . '"><a href="#"><span class="screen-reader-text">' . esc_html_x( 'Search', 'submit button', 'dokanee' ) . '</span></a></li>';
-				}
-
 				if ( 'cart-nav' == $dokanee_settings['cart_position_setting'] ){
 					echo dokanee_cart_position();
 				}
@@ -210,98 +206,6 @@ if ( ! function_exists( 'dokanee_dropdown_icon_to_menu_link' ) ) {
 
 		// Return our title.
 		return $title;
-	}
-}
-
-if ( ! function_exists( 'dokanee_navigation_search' ) ) {
-	add_action( 'dokanee_inside_navigation', 'dokanee_navigation_search' );
-	/**
-	 * Add the search bar to the navigation.
-	 *
-	 * @since 1.1.4
-	 */
-	function dokanee_navigation_search() {
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
-		);
-
-		if ( 'enable' !== $dokanee_settings['nav_search'] ) {
-			return;
-		}
-
-		echo apply_filters( 'dokanee_navigation_search_output', sprintf( // WPCS: XSS ok, sanitization ok.
-			'<form method="get" class="search-form navigation-search" action="%1$s">
-				<input type="search" class="search-field" value="%2$s" name="s" title="%3$s" />
-			</form>',
-			esc_url( home_url( '/' ) ),
-			esc_attr( get_search_query() ),
-			esc_attr_x( 'Search', 'label', 'dokanee' )
-		));
-	}
-}
-
-if ( ! function_exists( 'dokanee_menu_search_icon' ) ) {
-	add_filter( 'wp_nav_menu_items', 'dokanee_menu_search_icon', 10, 2 );
-	/**
-	 * Add search icon to primary menu if set
-	 *
-	 * @since 1.2.9.7
-	 *
-	 * @param string $nav The HTML list content for the menu items.
-	 * @param stdClass $args An object containing wp_nav_menu() arguments.
-	 * @return string The search icon menu item.
-	 */
-	function dokanee_menu_search_icon( $nav, $args ) {
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
-		);
-
-		// If the search icon isn't enabled, return the regular nav.
-		if ( 'enable' !== $dokanee_settings['nav_search'] ) {
-			return $nav;
-		}
-
-		// If our primary menu is set, add the search icon.
-		if ( $args->theme_location == 'primary' ) {
-			return $nav . '<li class="search-item" title="' . esc_attr_x( 'Search', 'submit button', 'dokanee' ) . '"><a href="#"><span class="screen-reader-text">' . _x( 'Search', 'submit button', 'dokanee' ) . '</span></a></li>';
-		}
-
-		// Our primary menu isn't set, return the regular nav.
-		// In this case, the search icon is added to the dokanee_menu_fallback() function in navigation.php.
-	    return $nav;
-	}
-}
-
-if ( ! function_exists( 'dokanee_mobile_menu_search_icon' ) ) {
-	add_action( 'dokanee_inside_navigation', 'dokanee_mobile_menu_search_icon' );
-	/**
-	 * Add search icon to mobile menu bar
-	 *
-	 * @since 1.3.12
-	 */
-	function dokanee_mobile_menu_search_icon() {
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
-		);
-
-		// If the search icon isn't enabled, return the regular nav.
-		if ( 'enable' !== $dokanee_settings['nav_search'] ) {
-			return;
-		}
-
-		?>
-		<div class="mobile-bar-items">
-			<?php do_action( 'dokanee_inside_mobile_menu_bar' ); ?>
-			<span class="search-item" title="<?php echo esc_attr_x( 'Search', 'submit button', 'dokanee' ); ?>">
-				<a href="#">
-					<span class="screen-reader-text"><?php echo esc_attr_x( 'Search', 'submit button', 'dokanee' ); ?></span>
-				</a>
-			</span>
-		</div><!-- .mobile-bar-items -->
-		<?php
 	}
 }
 

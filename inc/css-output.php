@@ -139,16 +139,6 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 		//$css->add_property( 'color', esc_attr( $dokanee_settings[ 'navigation_text_current_color' ] ) );
 		//$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'navigation_background_current_color' ] ) );
 
-		// Navigation search input
-		$css->set_selector( '.navigation-search input[type="search"],.navigation-search input[type="search"]:active' );
-		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'navigation_background_hover_color' ] ) );
-		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'navigation_background_hover_color' ] ) );
-
-		// Navigation search input on focus
-		$css->set_selector( '.navigation-search input[type="search"]:focus' );
-		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'navigation_text_hover_color' ] ) );
-		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'navigation_background_hover_color' ] ) );
-
 		// Sub-navigation background
 		$css->set_selector( '.main-navigation ul ul' );
 		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'subnavigation_background_color' ] ) );
@@ -640,10 +630,6 @@ if ( ! function_exists( 'dokanee_spacing_css' ) ) {
 		// Sub-menu positioning
 		$css->set_selector( '.main-navigation ul ul' );
 		$css->add_property( 'top', 'auto' ); // Added for compatibility purposes on 22/12/2016
-
-		// Navigation search
-		$css->set_selector( '.navigation-search, .navigation-search input' );
-		$css->add_property( 'height', '100%' ); // Added to give browser caches a chance to clear
 
 		// Dropdown arrow spacing
 		$css->set_selector( '.rtl .menu-item-has-children .dropdown-menu-toggle' );

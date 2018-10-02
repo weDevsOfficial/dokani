@@ -1187,32 +1187,6 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
-		// Add navigation setting
-		$wp_customize->add_setting(
-			'dokanee_settings[nav_search]',
-			array(
-				'default'           => $defaults['nav_search'],
-				'type'              => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_choices'
-			)
-		);
-
-		// Add navigation control
-		$wp_customize->add_control(
-			'dokanee_settings[nav_search]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Navigation Search', 'dokanee' ),
-				'section'  => 'dokanee_layout_navigation',
-				'choices'  => array(
-					'enable'  => __( 'Enable', 'dokanee' ),
-					'disable' => __( 'Disable', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[nav_search]',
-				'priority' => 23
-			)
-		);
-
 		// Add content setting
 		$wp_customize->add_setting(
 			'dokanee_settings[content_layout_setting]',

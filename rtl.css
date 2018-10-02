@@ -154,8 +154,7 @@ footer.entry-meta .posted-on:before {
     margin-left: 5px;
 }
 
-.menu-toggle,
-.nav-search-enabled .main-navigation .menu-toggle {
+.menu-toggle {
 	text-align: right;
 }
 
@@ -163,15 +162,6 @@ footer.entry-meta .posted-on:before {
 	float: left;
 	left: 0;
 	right: auto;
-}
-
-.rtl .navigation-search {
-	left: auto;
-	right: -999999px;
-}
-
-.rtl .navigation-search.nav-search-active {
-    right: 0;
 }
 
 .rtl .footer-bar .widget_nav_menu li {

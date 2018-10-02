@@ -6,7 +6,7 @@ button.menu-toggle {
 }
 
 .nav-search-enabled .main-navigation .menu-toggle {
-	text-align: left;
+	/*text-align: left;*/
 }
 
 .mobile-bar-items {
@@ -104,10 +104,6 @@ button.menu-toggle {
 
 	body:not(.no-sidebar) .site-main {
 		margin-bottom: 0 !important;
-	}
-
-	.fluid-header .inside-header {
-		text-align: center;
 	}
 
 	.header-widget {

@@ -34,7 +34,6 @@ if ( ! function_exists( 'dokanee_get_defaults' ) ) {
 			'nav_inner_width' => 'contained',
 			'nav_position_setting' => 'nav-float-right',
 			'nav_dropdown_type' => 'hover',
-			'nav_search' => 'disable',
 			'content_layout_setting' => 'separate-containers',
 			'layout_setting' => 'right-sidebar',
 			'blog_layout_setting' => 'right-sidebar',

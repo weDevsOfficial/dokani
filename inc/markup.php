@@ -97,7 +97,6 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 		$classes[] = ( $dokanee_settings['header_layout_setting'] ) ? $dokanee_settings['header_layout_setting'] : 'fluid-header';
 		$classes[] = ( $dokanee_settings['content_layout_setting'] ) ? $dokanee_settings['content_layout_setting'] : 'separate-containers';
 		$classes[] = ( '' !== $widgets ) ? 'active-footer-widgets-' . $widgets : 'active-footer-widgets-3';
-		$classes[] = ( 'enable' == $dokanee_settings['nav_search'] ) ? 'nav-search-enabled' : '';
 
 		// Navigation alignment class
 		if ( $dokanee_settings['nav_alignment_setting'] == 'left' ) {

@@ -55,10 +55,6 @@ if ( ! function_exists( 'dokanee_scripts' ) ) {
 			wp_enqueue_script( 'dokanee-dropdown-click', $dir_uri . "/assets/js/dropdown-click{$suffix}.js", array( 'dokanee-menu' ), GENERATE_VERSION, true );
 		}
 
-		if ( 'enable' == $dokanee_settings['nav_search'] ) {
-			wp_enqueue_script( 'dokanee-navigation-search', $dir_uri . "/assets/js/navigation-search{$suffix}.js", array( 'dokanee-menu' ), GENERATE_VERSION, true );
-		}
-
 		if ( 'enable' == $dokanee_settings['back_to_top'] ) {
 			wp_enqueue_script( 'dokanee-back-to-top', $dir_uri . "/assets/js/back-to-top{$suffix}.js", array(), GENERATE_VERSION, true );
 		}
