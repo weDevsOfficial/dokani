@@ -80,6 +80,13 @@
                 &:last-child > a {
                     padding-right: 0;
                 }
+
+                > a {
+                    @media (max-width: @screen-sm-min) {
+                        padding-left: 0 !important;
+                        padding-right: 0 !important;
+                    }
+                }
             }
         }
     }
@@ -99,8 +106,21 @@
         z-index: 21;
     }
 
+    #responsive-menu,
+    .widget_dokna_product_search {
+        display: none;
+    }
+
     // toggled
     &.toggled {
+        #primary-menu {
+            display: none;
+        }
+        #responsive-menu,
+        .widget_dokna_product_search {
+            display: block;
+        }
+
         & ul ul {
             transition: 0s;
             visibility: hidden;
@@ -176,6 +196,13 @@
 
     }
 
+    // Responsive menu
+    #primary-menu + .widget{
+        margin: 30px 0;
+        float: none;
+        max-width: 100%;
+    }
+
 }
 
 // menu-toggle
@@ -184,11 +211,17 @@
     padding: 0;
 
     &:before {
-        content: "\f0c9";
-        font-family: GeneratePress;
+        content: "\f125";
+        font-family: "Flaticon";
         width: 1.28571429em;
         text-align: center;
         display: inline-block;
+        border: 1px solid @border-color;
+        .rounded(5px);
+        color: @theme-color;
+        .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
+        padding: 12px;
+        font-size: 15px;
     }
 
     &:hover,
@@ -196,6 +229,7 @@
     &:active {
         background: transparent;
         color: @theme-color !important;
+        outline: none;
     }
 
     .mobile-menu {
@@ -214,7 +248,7 @@
 .toggled {
     .menu-toggle {
         &:before {
-            content: "\f00d";
+            content: "\f101";
         }
     }
 }

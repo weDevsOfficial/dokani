@@ -25,6 +25,7 @@ if ( ! function_exists( 'dokanee_navigation_position' ) ) {
 				 *
 				 * @since 0.1
 				 *
+				 * @hooked dokanee_responsive_user_menu - 5
 				 * @hooked dokanee_navigation_search - 10
 				 * @hooked dokanee_mobile_menu_search_icon - 10
 				 */
@@ -32,26 +33,45 @@ if ( ! function_exists( 'dokanee_navigation_position' ) ) {
 				?>
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 					<?php do_action( 'dokanee_inside_mobile_menu' ); ?>
-					<span class="mobile-menu"><?php echo apply_filters( 'dokanee_mobile_menu_label', __( 'Menu', 'dokanee' ) ); // WPCS: XSS ok. ?></span>
+					<span class="mobile-menu screen-reader-text"><?php echo apply_filters( 'dokanee_mobile_menu_label', __( 'Menu', 'dokanee' ) ); // WPCS: XSS ok. ?></span>
 				</button>
-				<?php
+
+                <?php
                 if ( has_nav_menu( 'primary' ) ) {
-	                wp_nav_menu(
-		                array(
-			                'theme_location' => 'primary',
-			                'container' => 'div',
-			                'container_class' => 'main-nav',
-			                'container_id' => 'primary-menu',
-			                'menu_class' => '',
-			                'fallback_cb' => 'dokanee_menu_fallback',
-			                'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
-		                )
-	                );
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'primary',
+                            'container' => 'div',
+                            'container_class' => 'main-nav',
+                            'container_id' => 'primary-menu',
+                            'menu_class' => '',
+                            'fallback_cb' => 'dokanee_menu_fallback',
+                            'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
+                        )
+                    );
+
+	                if ( has_nav_menu( 'responsive_menu' ) ) {
+		                wp_nav_menu(
+			                array(
+				                'theme_location' => 'responsive_menu',
+				                'container' => 'div',
+				                'container_class' => 'main-nav',
+				                'container_id' => 'responsive-menu',
+				                'menu_class' => '',
+				                'fallback_cb' => 'dokanee_menu_fallback',
+				                'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
+			                )
+		                );
+                    }
+
                 } else { ?>
 
                     <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php _e( 'Home', 'dokanee' ); ?></a>
 
-                <?php } ?>
+                <?php }
+
+                ?>
+
 			</div><!-- .inside-navigation -->
 		</nav><!-- #site-navigation -->
 		<?php
@@ -273,4 +293,54 @@ function dokanee_clone_sidebar_navigation() {
 		}
 	</script>
 	<?php
+}
+
+if ( ! function_exists( 'dokanee_menu_responsive_search' ) ) {
+	add_filter( 'wp_nav_menu_items', 'dokanee_menu_responsive_search', 10, 2 );
+	/**
+	 * Build responsive search
+	 *
+	 * @since 1.2.9.7
+	 */
+	function dokanee_menu_responsive_search( $nav, $args ) {
+
+		if ( $args->theme_location == 'responsive_menu' ) {
+			return $nav . '<li class="menu-item">' . the_widget( 'Dokan_Live_Search_Widget' ) . '</li>';
+		}
+
+		return $nav;
+	}
+}
+
+if ( ! function_exists( 'dokanee_responsive_vendor_menu' ) ) {
+	add_filter( 'wp_nav_menu_items', 'dokanee_responsive_vendor_menu', 5, 2 );
+	/**
+	 * Build responsive vendor menu
+	 *
+	 * @since 1.2.9.7
+	 */
+	function dokanee_responsive_vendor_menu( $nav, $args ) {
+		global $current_user;
+		$user_id = $current_user->ID;
+		$nav_urls = dokan_get_dashboard_nav();
+
+		if ( $args->theme_location == 'responsive_menu' ) {
+
+            if ( dokan_is_user_seller( $user_id ) ) {
+                $vendor = '';
+                $vendor .= '<li class="menu-item menu-item-has-children"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'. __( 'Vendor Dashboard', 'dokan-lite' ) .'<span role="presentation" class="dropdown-menu-toggle" aria-expanded="false"></span></a>';
+
+                $vendor .= '<ul class="sub-menu"><li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank">'. __( 'Visit your store', 'dokan-lite' ) .'<i class="fa fa-external-link"></i></a></li>
+                            <li class="divider"></li>';
+                           foreach ( $nav_urls as $key => $item ) {;
+                                $vendor .= '<li><a href="'.$item['url'].'">'.$item['icon'].' &nbsp;'.$item['title'].'</a></li>';
+                            }
+	            $vendor .='</ul></li>';
+
+			    return $nav . $vendor;
+			}
+		}
+
+		return $nav;
+	}
 }

@@ -46,6 +46,7 @@ if ( ! function_exists( 'dokanee_setup' ) ) {
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', 'dokanee' ),
 			'top' => __( 'Top Menu', 'dokanee' ),
+			'responsive_menu' => __( 'Responsive Menu', 'dokanee' ),
 		) );
 
 		/**

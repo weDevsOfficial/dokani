@@ -35,6 +35,15 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
                     // Add our main header items.
                     dokanee_header_items();
 
+                    /**
+                     * dokanee_after_header_right hook.
+                     *
+                     * @since 0.1
+                     *
+                     * @hooked dokanee_responsive_nav - 5
+                     */
+                    do_action( 'dokanee_after_header_left' );
+
 				echo '</div>';
 				echo '<div class="header-right">';
 
@@ -323,3 +332,79 @@ function dokanee_do_skip_to_content_link() {
 		esc_html__( 'Skip to content', 'dokanee' )
 	);
 }
+
+if ( ! function_exists( 'dokanee_responsive_nav' ) ) {
+	add_action( 'dokanee_after_header_left', 'dokanee_responsive_nav', 5 );
+
+	/**
+	 * Build responsive menu.
+	 *
+	 * @since 1.3.45
+	 */
+	function dokanee_responsive_nav() {
+	    echo '<div class="responsive-nav">';
+		dokanee_navigation_position();
+	    echo '</div>';
+	}
+}
+
+if ( ! function_exists( 'dokanee_responsive_user_menu' ) ) {
+	add_action( 'dokanee_inside_navigation', 'dokanee_responsive_user_menu', 5 );
+
+	/**
+	 * Build responsive user menu.
+	 *
+	 * @since 1.3.45
+	 */
+	function dokanee_responsive_user_menu() {
+	    echo '<ul class="responsive-user-menu no-list-style">';
+		dokan_responsive_user_menu();
+	    echo '</ul>';
+	}
+}
+
+if ( !function_exists( 'dokan_responsive_user_menu' ) ) :
+
+	/**
+	 * Responsive User menu
+	 */
+	function dokan_responsive_user_menu() {
+		?>
+		<li id="dokane-menu-cart-wrapper">
+            <a href="#" class="dropdown-toggle dokanee-menu-cart" data-toggle="dropdown">
+                <i class="flaticon flaticon-commerce-1"></i>
+                <span class="screen-reader-text"><?php _e( 'Cart', 'dokanee' )?></span>
+                <span class="dokan-cart-amount-top"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li>
+                    <div class="widget_shopping_cart_content"></div>
+                </li>
+            </ul>
+		</li>
+
+		<?php if ( is_user_logged_in() ) { ?>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle dokanee-menu-user" data-toggle="dropdown">
+                    <i class="flaticon flaticon-people"></i>
+                    <span class="screen-reader-text"><?php echo esc_html( $current_user->display_name ); ?> <i class="fa fa-angle-down"></i></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?php echo dokan_get_page_url( 'my_orders' ); ?>"><?php _e( 'My Orders', 'dokanee' ); ?></a></li>
+                    <li><a href="<?php echo dokan_get_page_url( 'myaccount', 'woocommerce' ); ?>"><?php _e( 'My Account', 'dokanee' ); ?></a></li>
+                    <li><a href="<?php echo wc_customer_edit_account_url(); ?>"><?php _e( 'Edit Account', 'dokanee' ); ?></a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo wc_get_endpoint_url( 'edit-address', 'billing', get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>"><?php _e( 'Billing Address', 'dokanee' ); ?></a></li>
+                    <li><a href="<?php echo wc_get_endpoint_url( 'edit-address', 'shipping', get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>"><?php _e( 'Shipping Address', 'dokanee' ); ?></a></li>
+                    <li><?php wp_loginout( home_url() ); ?></li>
+                </ul>
+            </li>
+
+        <?php } else { ?>
+            <li><a href="<?php echo dokan_get_page_url( 'myaccount', 'woocommerce' ); ?>" class="dokanee-menu-login"><?php _e( 'Login / Register', 'dokanee' ); ?></a></li>
+        <?php }
+	}
+
+endif;
