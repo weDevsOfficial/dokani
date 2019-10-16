@@ -27,11 +27,12 @@ get_header(); ?>
 			 */
 			do_action( 'dokanee_before_main_content' );
 
-			while ( have_posts() ) : the_post();
-
-				get_template_part( 'template-parts/page/content', 'front-page' );
-
-			endwhile;
+			/**
+			 * get content-front-page template
+			 *
+			 * @since 0.1
+			 */
+            get_template_part( 'template-parts/page/content', 'front-page' );
 
 			/**
 			 * dokanee_after_main_content hook.
