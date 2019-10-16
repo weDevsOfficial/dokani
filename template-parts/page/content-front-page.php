@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( get_theme_mod( 'show_products_cat', 'on' ) == 'on' ) { ?>
 	<?php
-	$terms     = get_terms( $args = array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
+	$terms     = get_terms( array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
 	$total_cat = count( $terms );
 
 	if ( ! empty( $total_cat ) ) {
@@ -40,19 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="product-cat-wrapper">
 
 					<?php
-					$i = 0;
 
 					foreach ( $terms as $term ) {
-
-						if ( $total_cat == 6 ) {
-							if ( $i == 6 ) {
-								continue;
-							}
-						} else {
-							if ( $i == 5 ) {
-								continue;
-							}
-						}
 
 						echo '<div class="product-cat-box">';
 
@@ -64,8 +53,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 								'dokanee' ) . '<i class="flaticon flaticon-right"></i></a>';
 
 						echo '</div>';
-
-						$i ++;
 					}
 
 					if ( $total_cat > 6 ) {
@@ -110,9 +97,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                             <div class="product-sliders flexslider">
                                 <ul class="slides products">
-									<?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
-										<?php wc_get_template_part( 'content', 'product' ); ?>
-									<?php endwhile; ?>
+									<?php
+									while ( $featured_query->have_posts() ) :
+										$featured_query->the_post();
+										wc_get_template_part( 'content', 'product' );
+									endwhile;
+									?>
                                 </ul>
                             </div>
 
@@ -139,9 +129,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                             <div class="product-sliders flexslider">
                                 <ul class="slides products">
-									<?php while ( $latest_query->have_posts() ) : $latest_query->the_post(); ?>
-										<?php wc_get_template_part( 'content', 'product' ); ?>
-									<?php endwhile; ?>
+									<?php
+                                    while ( $latest_query->have_posts() ) :
+                                        $latest_query->the_post();
+										wc_get_template_part( 'content', 'product' );
+                                    endwhile;
+                                    ?>
                                 </ul>
                             </div>
 
