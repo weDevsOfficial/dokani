@@ -41,6 +41,8 @@ class Dokanee_Slider {
         add_action( 'admin_head', array($this, 'enqueue_scripts' ) );
 
         add_action( 'save_post', array($this, 'save_meta'), 10, 2 );
+
+        add_action( 'dokanee_home_slider', array( $this, 'get_slider' ) );
     }
 
 	function do_metaboxes() {

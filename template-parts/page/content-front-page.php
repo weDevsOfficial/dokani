@@ -15,79 +15,83 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php
 
-            if ( class_exists( 'RevSlider' ) ) {
-                echo do_shortcode('[rev_slider alias="home-supermarket-2"]');
-            }
+		if ( get_theme_mod( 'slider_type' ) == 'plugin_slider' ) {
+			echo do_shortcode( get_theme_mod( 'plugin_slider_shortcode' ) );
+		} elseif ( get_theme_mod( 'slider_type' ) == 'dokanee_slider' ) {
+			do_action( 'dokanee_home_slider', get_theme_mod( 'dokanee_slider' ) );
+		}
 
-		    do_action( 'dokanee_home_on_slider' );
-        ?>
+		?>
 
     </section> <!-- .slider-section -->
 <?php } ?>
 
 <?php if ( get_theme_mod( 'show_products_cat', 'on' ) == 'on' ) { ?>
-    <?php
-    $terms = get_terms( $args = array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
-    $total_cat = count($terms);
+	<?php
+	$terms     = get_terms( $args = array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
+	$total_cat = count( $terms );
 
-    if ( !empty( $total_cat ) ) {
-    ?>
+	if ( ! empty( $total_cat ) ) {
+		?>
         <section class="product-cat-section">
             <div class="grid-container">
                 <h2 class="section-title"><?php _e( 'Products Category', 'dokanee' ); ?></h2>
 
                 <div class="product-cat-wrapper">
 
-                    <?php
-                    $i = 0;
+					<?php
+					$i = 0;
 
-                    foreach ($terms as $term) {
+					foreach ( $terms as $term ) {
 
-                        if( $total_cat == 6 ) {
-	                        if( $i == 6 ) {
-		                        continue;
-	                        }
-                        } else {
-	                        if( $i == 5 ) {
-		                        continue;
-	                        }
-                        }
+						if ( $total_cat == 6 ) {
+							if ( $i == 6 ) {
+								continue;
+							}
+						} else {
+							if ( $i == 5 ) {
+								continue;
+							}
+						}
 
-                        echo '<div class="product-cat-box">';
+						echo '<div class="product-cat-box">';
 
-                        woocommerce_subcategory_thumbnail( $term );
+						woocommerce_subcategory_thumbnail( $term );
 
-                        echo '<h3 itemprop="name" class="product-title entry-title">'.$term->name.'</h3>';
+						echo '<h3 itemprop="name" class="product-title entry-title">' . $term->name . '</h3>';
 
-                        echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">'. __('Show More', 'dokanee'). '<i class="flaticon flaticon-right"></i></a>';
+						echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">' . __( 'Show More',
+								'dokanee' ) . '<i class="flaticon flaticon-right"></i></a>';
 
-                        echo '</div>';
+						echo '</div>';
 
-                        $i++;
-                    }
+						$i ++;
+					}
 
-                    if ( $total_cat > 6 ) {
-                        ?>
+					if ( $total_cat > 6 ) {
+						?>
 
                         <div class="product-cat-box more">
 
                             <h3 itemprop="name" class="product-title entry-title">
-                            <?php
-                                echo $total_cat - 5 ;
-                                echo "+";
-                            ?>
+								<?php
+								echo $total_cat - 5;
+								echo "+";
+								?>
                             </h3>
 
-                            <a href="<?php site_url('/'); ?>product-category" class="btn btn-border btn-default"><?php _e('Show More', 'dokanee'); ?><i class="flaticon flaticon-right"></i></a>
+                            <a href="<?php site_url( '/' ); ?>product-category"
+                               class="btn btn-border btn-default"><?php _e( 'Show More', 'dokanee' ); ?><i
+                                        class="flaticon flaticon-right"></i></a>
                         </div>
 
-                        <?php
-                    }
-                    ?>
+						<?php
+					}
+					?>
                 </div>
             </div>
         </section> <!-- .product-cat-section -->
-    <?php } ?>
+	<?php } ?>
 <?php } ?>
 
 <section class="products-section">
@@ -99,23 +103,23 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="slider-container woocommerce">
                         <h2 class="slider-heading"><?php _e( 'Featured Products', 'dokanee' ); ?></h2>
 
-                        <?php
-                        $featured_query = dokan_get_featured_products();
+						<?php
+						$featured_query = dokan_get_featured_products();
 
-                        if( $featured_query->have_posts() ) : ?>
+						if ( $featured_query->have_posts() ) : ?>
 
                             <div class="product-sliders flexslider">
                                 <ul class="slides products">
-                                    <?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
-                                        <?php wc_get_template_part( 'content', 'product' ); ?>
-                                    <?php endwhile; ?>
+									<?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
+										<?php wc_get_template_part( 'content', 'product' ); ?>
+									<?php endwhile; ?>
                                 </ul>
                             </div>
 
-                        <?php else :
-                            wc_no_products_found();
-                        endif;
-                        ?>
+						<?php else :
+							wc_no_products_found();
+						endif;
+						?>
 
                     </div> <!-- .slider-container [featured products] -->
 				<?php } ?>
@@ -128,23 +132,23 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="slider-container woocommerce">
                         <h2 class="slider-heading"><?php _e( 'Latest Products', 'dokanee' ); ?></h2>
 
-	                    <?php
-                        $latest_query = dokan_get_latest_products();
+						<?php
+						$latest_query = dokan_get_latest_products();
 
-                        if( $latest_query->have_posts() ) : ?>
+						if ( $latest_query->have_posts() ) : ?>
 
                             <div class="product-sliders flexslider">
                                 <ul class="slides products">
-                                    <?php while ( $latest_query->have_posts() ) : $latest_query->the_post(); ?>
-                                        <?php wc_get_template_part( 'content', 'product' ); ?>
-                                    <?php endwhile; ?>
+									<?php while ( $latest_query->have_posts() ) : $latest_query->the_post(); ?>
+										<?php wc_get_template_part( 'content', 'product' ); ?>
+									<?php endwhile; ?>
                                 </ul>
                             </div>
 
-                        <?php else :
-                            wc_no_products_found();
-                        endif;
-	                    ?>
+						<?php else :
+							wc_no_products_found();
+						endif;
+						?>
                     </div> <!-- .slider-container [ latest products] -->
 				<?php } ?>
 			<?php } ?>
@@ -154,23 +158,23 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="slider-container woocommerce">
                         <h2 class="slider-heading"><?php _e( 'Best Selling Products', 'dokanee' ); ?></h2>
 
-	                    <?php
-	                    $best_selling_query = dokan_get_best_selling_products();
+						<?php
+						$best_selling_query = dokan_get_best_selling_products();
 
-	                    if( $best_selling_query->have_posts() ) : ?>
+						if ( $best_selling_query->have_posts() ) : ?>
 
                             <div class="product-sliders flexslider">
                                 <ul class="slides products">
-                                    <?php while ( $best_selling_query->have_posts() ) : $best_selling_query->the_post(); ?>
-                                        <?php wc_get_template_part( 'content', 'product' ); ?>
-                                    <?php endwhile; ?>
+									<?php while ( $best_selling_query->have_posts() ) : $best_selling_query->the_post(); ?>
+										<?php wc_get_template_part( 'content', 'product' ); ?>
+									<?php endwhile; ?>
                                 </ul>
                             </div>
 
-                        <?php else :
-		                    wc_no_products_found();
-	                    endif;
-	                    ?>
+						<?php else :
+							wc_no_products_found();
+						endif;
+						?>
 
                     </div> <!-- .slider-container [best selling products] -->
 				<?php } ?>
@@ -182,7 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php
 				if ( ! is_active_sidebar( 'home' ) ) { ?>
 
-					<aside id="search" class="widget widget_search">
+                    <aside id="search" class="widget widget_search">
 						<?php get_search_form(); ?>
                     </aside>
 
@@ -212,79 +216,79 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <label for="all-store"><?php _e( 'All', 'dokanee' ); ?></label>
                     <div class="tab">
 						<?php
-						$new_sellers    = dokan()->vendor->all( array( 'number' => 8 ) );
-						$image_size = 'single-vendor-thumb';
+						$new_sellers = dokan()->vendor->all( array( 'number' => 8 ) );
+						$image_size  = 'single-vendor-thumb';
 
 						$template_args = array(
-							'sellers'         => $new_sellers,
-							'per_row'         => 4,
-							'image_size'      => $image_size
+							'sellers'    => $new_sellers,
+							'per_row'    => 4,
+							'image_size' => $image_size,
 						);
 
 						dokan_get_template_part( 'new-store-lists-loop', false, $template_args );
 						?>
                     </div>
 
-                    <?php
-                    $best_sellers = dokan_get_best_sellers(8);
+					<?php
+					$best_sellers = dokan_get_best_sellers( 8 );
 
-                    if( $best_sellers ) { ?>
+					if ( $best_sellers ) { ?>
                         <input type="radio" name="tabs" id="best-seller">
                         <label for="best-seller"><?php _e( 'Best seller', 'dokanee' ); ?></label>
                         <div class="tab">
-                            <?php
-                            $image_size = 'single-vendor-thumb';
-                            $template_args = array(
-                                'sellers'         => $best_sellers,
-                                'per_row'         => 4,
-                                'image_size'      => $image_size
-                            );
+							<?php
+							$image_size    = 'single-vendor-thumb';
+							$template_args = array(
+								'sellers'    => $best_sellers,
+								'per_row'    => 4,
+								'image_size' => $image_size,
+							);
 
-                            dokan_get_template_part( 'best-store-lists-loop', false, $template_args );
-                            ?>
+							dokan_get_template_part( 'best-store-lists-loop', false, $template_args );
+							?>
                         </div>
-                    <?php } ?>
+					<?php } ?>
 
-	                <?php
-	                $feature_sellers = dokan_get_feature_sellers(8);
+					<?php
+					$feature_sellers = dokan_get_feature_sellers( 8 );
 
-	                if( $feature_sellers ) { ?>
+					if ( $feature_sellers ) { ?>
                         <input type="radio" name="tabs" id="featured-store">
                         <label for="featured-store"><?php _e( 'Featured', 'dokanee' ); ?></label>
                         <div class="tab">
-			                <?php
-			                $image_size = 'single-vendor-thumb';
-			                $template_args = array(
-				                'sellers'         => $feature_sellers,
-				                'per_row'         => 4,
-				                'image_size'      => $image_size
-			                );
+							<?php
+							$image_size    = 'single-vendor-thumb';
+							$template_args = array(
+								'sellers'    => $feature_sellers,
+								'per_row'    => 4,
+								'image_size' => $image_size,
+							);
 
-			                dokan_get_template_part( 'featured-store-lists-loop', false, $template_args );
-			                ?>
+							dokan_get_template_part( 'featured-store-lists-loop', false, $template_args );
+							?>
                         </div>
-	                <?php } ?>
+					<?php } ?>
 
-                    <?php
-                    $new_sellers = dokan()->vendor->all( array( 'order' => 'DESC', 'number' => 8 ) );
+					<?php
+					$new_sellers = dokan()->vendor->all( array( 'order' => 'DESC', 'number' => 8 ) );
 
-	                if( $new_sellers ) { ?>
+					if ( $new_sellers ) { ?>
                         <input type="radio" name="tabs" id="latest-store">
                         <label for="latest-store"><?php _e( 'New', 'dokanee' ); ?></label>
 
                         <div class="tab">
-			                <?php
-			                $image_size = 'single-vendor-thumb';
-			                $template_args = array(
-				                'sellers'         => $new_sellers,
-				                'per_row'         => 4,
-				                'image_size'      => $image_size
-			                );
+							<?php
+							$image_size    = 'single-vendor-thumb';
+							$template_args = array(
+								'sellers'    => $new_sellers,
+								'per_row'    => 4,
+								'image_size' => $image_size,
+							);
 
-			                dokan_get_template_part( 'new-store-lists-loop', false, $template_args );
-			                ?>
+							dokan_get_template_part( 'new-store-lists-loop', false, $template_args );
+							?>
                         </div>
-	                <?php } ?>
+					<?php } ?>
                 </div>
             </div>
         </div>
