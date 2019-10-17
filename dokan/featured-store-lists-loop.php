@@ -26,12 +26,12 @@
                             <div class="store-banner">
 				                <?php
 				                if( is_array( $banner_url ) ) { ?>
-                                    <a href="<?php echo $store_url; ?>">
-                                        <img src="<?php echo $banner_url[0]; ?>" alt="<?php echo $store_name; ?>">
+                                    <a href="<?php echo esc_url( $store_url ); ?>">
+                                        <img src="<?php echo esc_url( $banner_url[0] ); ?>" alt="<?php echo esc_attr( $store_name ); ?>">
                                     </a>
 				                <?php } else { ?>
-                                    <a href="<?php echo $store_url; ?>">
-                                        <img src="<?php echo $banner_url; ?>" alt="<?php echo $store_name; ?>">
+                                    <a href="<?php echo esc_url( $store_url ); ?>">
+                                        <img src="<?php echo esc_url( $banner_url ); ?>" alt="<?php echo esc_attr( $store_name ); ?>">
                                     </a>
 				                <?php }
 				                ?>
@@ -42,13 +42,13 @@
                         </div>
                         <div class="store-footer">
                             <div class="store-data">
-                                <h2><a href="<?php echo $store_url; ?>"><?php echo $store_name; ?></a></h2>
+                                <h2><a href="<?php echo esc_url( $store_url ); ?>"><?php echo $store_name; ?></a></h2>
 
 				                <?php do_action( 'dokan_seller_listing_after_store_data', $seller, $store_info ); ?>
 
                             </div>
 
-			                <?php do_action( 'dokan_seller_listing_footer_content', $seller, $store_info ); ?>
+			                <?php do_action( 'dokan_seller_listing_footer_content', $seller->data, $store_info ); ?>
                         </div>
                     </li>
 

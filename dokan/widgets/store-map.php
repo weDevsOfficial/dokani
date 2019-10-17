@@ -43,19 +43,19 @@
     <?php } ?>
 
 	<?php
-	$store_user   = dokan()->vendor->get( get_query_var( 'author' ) );
+	$store_user    = dokan()->vendor->get( get_query_var( 'author' ) );
 	$store_address = dokan_get_seller_short_address( $store_user->get_id(), false );
 
-    if ( isset( $store_address ) && !empty( $store_address ) ) { ?>
+    if ( isset( $store_address ) && ! empty( $store_address ) ) { ?>
         <div class="dokan-store-address"><i class="fa fa-map-marker"></i>
 			<?php echo $store_address; ?>
         </div>
 	<?php } ?>
 
-	<?php if ( !empty( $store_user->get_phone() ) ) { ?>
+	<?php if ( ! empty( $store_user->get_phone() ) ) { ?>
         <div class="dokan-store-phone">
             <i class="fa fa-phone"></i>
-            <a href="tel:<?php echo esc_html( $store_user->get_phone() ); ?>"><?php echo esc_html( $store_user->get_phone() ); ?></a>
+            <a href="tel:<?php echo esc_attr( $store_user->get_phone() ); ?>"><?php echo esc_html( $store_user->get_phone() ); ?></a>
         </div>
 	<?php } ?>
 
