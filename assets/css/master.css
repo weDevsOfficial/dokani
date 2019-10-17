@@ -4469,14 +4469,6 @@ a.dokan-btn,
   display: none;
 }
 #dokan-seller-listing-wrap ul.dokan-seller-list li .store-footer .dokan-btn {
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
   border: 1px solid #EAECF4;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -4491,6 +4483,12 @@ a.dokan-btn,
   line-height: 1.2em;
   background-color: transparent;
   padding: 9px 21px;
+}
+#dokan-seller-listing-wrap ul.dokan-seller-list li .store-footer .dokan-btn.dokan-follow-store-button-working:after {
+  color: inherit;
+  top: 50%;
+  margin-top: -10px;
+  margin-left: -15px;
 }
 #dokan-seller-listing-wrap ul.dokan-seller-list li .store-footer .dokan-btn:hover {
   background-color: #f2624d;
