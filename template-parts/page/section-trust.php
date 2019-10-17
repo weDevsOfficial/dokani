@@ -14,17 +14,20 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="grid-container">
         <div class="factor-wrapper">
 
-            <?php
-            $dokanee_trusted_fact_1 = get_theme_mod('dokanee_trusted_fact_1', 'Fast & Free Delivery');
-            $dokanee_trusted_fact_1_icon = get_theme_mod('dokanee_trusted_fact_1_icon', 'flaticon flaticon-transport');
+			<?php
+			$dokanee_trusted_fact_1      = get_theme_mod( 'dokanee_trusted_fact_1', 'Fast & Free Delivery' );
+			$dokanee_trusted_fact_1_icon = get_theme_mod( 'dokanee_trusted_fact_1_icon',
+				'flaticon flaticon-transport' );
 
-            $dokanee_trusted_fact_2 = get_theme_mod('dokanee_trusted_fact_2', 'Safe & Secure Payment');
-            $dokanee_trusted_fact_2_icon = get_theme_mod('dokanee_trusted_fact_2_icon', 'flaticon flaticon-business-2');
+			$dokanee_trusted_fact_2      = get_theme_mod( 'dokanee_trusted_fact_2', 'Safe & Secure Payment' );
+			$dokanee_trusted_fact_2_icon = get_theme_mod( 'dokanee_trusted_fact_2_icon',
+				'flaticon flaticon-business-2' );
 
-            $dokanee_trusted_fact_3 = get_theme_mod('dokanee_trusted_fact_3', '100% Money Back Guarantee');
-            $dokanee_trusted_fact_3_icon = get_theme_mod('dokanee_trusted_fact_3_icon', 'flaticon flaticon-technology');
+			$dokanee_trusted_fact_3      = get_theme_mod( 'dokanee_trusted_fact_3', '100% Money Back Guarantee' );
+			$dokanee_trusted_fact_3_icon = get_theme_mod( 'dokanee_trusted_fact_3_icon',
+				'flaticon flaticon-technology' );
 
-            if( $dokanee_trusted_fact_1 || $dokanee_trusted_fact_1_icon ){ ?>
+			if ( $dokanee_trusted_fact_1 || $dokanee_trusted_fact_1_icon ) { ?>
 
                 <div class="factor-box">
                     <div class="factor-icon">
@@ -33,9 +36,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="factor-info"><?php _e( $dokanee_trusted_fact_1, 'dokanee' ); ?></div>
                 </div>
 
-            <?php }
+			<?php }
 
-            if( $dokanee_trusted_fact_2 || $dokanee_trusted_fact_2_icon ){ ?>
+			if ( $dokanee_trusted_fact_2 || $dokanee_trusted_fact_2_icon ) { ?>
 
                 <div class="factor-box">
                     <div class="factor-icon">
@@ -44,9 +47,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="factor-info"><?php _e( $dokanee_trusted_fact_2, 'dokanee' ); ?></div>
                 </div>
 
-            <?php }
+			<?php }
 
-            if( $dokanee_trusted_fact_3 || $dokanee_trusted_fact_3_icon ){ ?>
+			if ( $dokanee_trusted_fact_3 || $dokanee_trusted_fact_3_icon ) { ?>
 
                 <div class="factor-box">
                     <div class="factor-icon">
@@ -55,8 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="factor-info"><?php _e( $dokanee_trusted_fact_3, 'dokanee' ); ?></div>
                 </div>
 
-            <?php }
-            ?>
+			<?php } ?>
 
         </div>
     </div>

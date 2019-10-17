@@ -28,7 +28,7 @@ do_action( 'dokanee_before_footer' );
  * @since 0.1
  */
 
-if( ( get_theme_mod( 'show_trusted_factors_section', 'on' ) == 'on' ) and ( is_front_page() or is_woocommerce() ) ) {
+if( ( get_theme_mod( 'show_trusted_factors_section', 'on' ) == 'on' ) && ( is_front_page() || is_woocommerce() ) ) {
 	get_template_part( 'template-parts/page/section-trust' );
 }
 

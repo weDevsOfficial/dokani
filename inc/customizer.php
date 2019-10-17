@@ -9,18 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_action( 'customize_register', 'dokanee_set_customizer_helpers', 1 );
-/**
- * Set up helpers early so they're always available.
- * Other modules might need access to them at some point.
- *
- * @since 2.0
- */
-function dokanee_set_customizer_helpers( $wp_customize ) {
-	// Load helpers
-	require_once trailingslashit( get_template_directory() ) . 'inc/customizer/customizer-helpers.php';
-}
-
 if ( ! function_exists( 'dokanee_customize_register' ) ) {
 	add_action( 'customize_register', 'dokanee_customize_register' );
 	/**
@@ -181,7 +169,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults['background_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -202,7 +190,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults['text_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -223,7 +211,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults['link_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -244,7 +232,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults['link_color_hover'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -265,7 +253,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults['link_color_visited'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'refresh',
+//				'transport'         => 'refresh',
 			)
 		);
 		$wp_customize->add_control(
@@ -286,7 +274,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults_color['top_bar_background_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -307,7 +295,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults_color['top_bar_text_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -328,7 +316,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults_color['top_bar_link_color_hover'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -349,7 +337,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults_color['navigation_background_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -370,7 +358,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults_color['navigation_text_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -391,7 +379,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => $defaults_color['sidebar_widget_title_color'],
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -412,7 +400,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => '#ffffff',
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
@@ -433,7 +421,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 				'default'           => '#ffffff',
 				'type'              => 'option',
 				'sanitize_callback' => 'dokanee_sanitize_hex_color',
-				'transport'         => 'postMessage',
+//				'transport'         => 'postMessage',
 			)
 		);
 		$wp_customize->add_control(
