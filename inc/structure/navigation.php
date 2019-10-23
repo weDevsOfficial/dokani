@@ -328,9 +328,9 @@ if ( ! function_exists( 'dokanee_responsive_vendor_menu' ) ) {
 
             if ( dokan_is_user_seller( $user_id ) ) {
                 $vendor = '';
-                $vendor .= '<li class="menu-item menu-item-has-children"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'. __( 'Vendor Dashboard', 'dokan-lite' ) .'<span role="presentation" class="dropdown-menu-toggle" aria-expanded="false"></span></a>';
+                $vendor .= '<li class="menu-item menu-item-has-children"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'. __( 'Vendor Dashboard', 'dokanee' ) .'<span role="presentation" class="dropdown-menu-toggle" aria-expanded="false"></span></a>';
 
-                $vendor .= '<ul class="sub-menu"><li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank">'. __( 'Visit your store', 'dokan-lite' ) .'<i class="fa fa-external-link"></i></a></li>
+                $vendor .= '<ul class="sub-menu"><li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank">'. __( 'Visit your store', 'dokanee' ) .'<i class="fa fa-external-link"></i></a></li>
                             <li class="divider"></li>';
                            foreach ( $nav_urls as $key => $item ) {;
                                 $vendor .= '<li><a href="'.$item['url'].'">'.$item['icon'].' &nbsp;'.$item['title'].'</a></li>';
