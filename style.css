@@ -4,6 +4,7 @@ Theme URI: http://wedevs.com/theme/dokanee/
 Author: weDevs, LLC
 Author URI: https://wedevs.com
 Description: An e-commerce theme for Dokan
+Tags: dokanee-theme, woocommerce-theme, dokan-theme, flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -329,6 +330,10 @@ img {
 
 .byline {
 	display: inline;
+}
+
+.bypostauthor {
+	display: block;
 }
 
 .single .byline,
@@ -1160,18 +1165,18 @@ p {
 .site-description {
     font-weight: normal;
     text-transform: none;
-    font-size: 15px;
+    /*font-size: 15px;*/
 }
 
 .main-navigation a,
 .menu-toggle {
-    font-weight: normal;
-    text-transform: none;
-    font-size: 15px;
+    /*font-weight: normal;*/
+    /*text-transform: none;*/
+    /*font-size: 15px;*/
 }
 
 .main-navigation .main-nav ul ul li a {
-    font-size: 14px;
+    /*font-size: 14px;*/
 }
 
 
