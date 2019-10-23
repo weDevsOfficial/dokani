@@ -49,7 +49,7 @@ if ( ! function_exists( 'dokanee_construct_footer' ) ) {
 
                     } else {?>
 
-                        <span class="copyright"> <?php _e( $dokanee_footer_content, 'dokanee' ); ?> </span>
+                        <span class="copyright"> <?php echo $dokanee_footer_content; ?> </span>
 
                     <?php }
 
