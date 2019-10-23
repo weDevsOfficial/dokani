@@ -532,6 +532,21 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
+		// show products category section
+		$wp_customize->add_setting( 'products_cat_counter', array( 'default' => '5' ) );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'products_cat_counter',
+				array(
+					'label'   => __( 'How many category will show?', 'dokanee' ),
+					'section' => 'dokanee_frontpage_section',
+					'type'    => 'number',
+					'active_callback' => 'is_show_products_cat_on'
+				)
+			)
+		);
+
 		// show featured
 		$wp_customize->add_setting( 'show_featured', array(
 			'default' => 'on'

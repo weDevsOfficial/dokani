@@ -30,6 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php
 	$terms     = get_terms( array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
 	$total_cat = count( $terms );
+	$visible_item = get_theme_mod( 'products_cat_counter' );
+	//	var_dump($total_cat);
 
 	if ( ! empty( $total_cat ) ) {
 		?>
@@ -40,30 +42,30 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="product-cat-wrapper">
 
 					<?php
+					$i = 0;
 
 					foreach ( $terms as $term ) {
 
-						echo '<div class="product-cat-box">';
+						if ( $i < $visible_item ) {
+							echo '<div class="product-cat-box">';
+							woocommerce_subcategory_thumbnail( $term );
+							echo '<h3 itemprop="name" class="product-title entry-title">' . $term->name . '</h3>';
+							echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">' . __( 'Show More',
+									'dokanee' ) . '<i class="flaticon flaticon-right"></i></a>';
+							echo '</div>';
+						}
 
-						woocommerce_subcategory_thumbnail( $term );
-
-						echo '<h3 itemprop="name" class="product-title entry-title">' . $term->name . '</h3>';
-
-						echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">' . __( 'Show More',
-								'dokanee' ) . '<i class="flaticon flaticon-right"></i></a>';
-
-						echo '</div>';
+						$i ++;
 					}
 
-					if ( $total_cat > 6 ) {
+					if ( $total_cat > $visible_item ) {
 						?>
 
                         <div class="product-cat-box more">
 
                             <h3 itemprop="name" class="product-title entry-title">
 								<?php
-								echo $total_cat - 5;
-								echo "+";
+								echo $total_cat - $visible_item . '+';
 								?>
                             </h3>
 
@@ -130,11 +132,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <div class="product-sliders flexslider">
                                 <ul class="slides products">
 									<?php
-                                    while ( $latest_query->have_posts() ) :
-                                        $latest_query->the_post();
+									while ( $latest_query->have_posts() ) :
+										$latest_query->the_post();
 										wc_get_template_part( 'content', 'product' );
-                                    endwhile;
-                                    ?>
+									endwhile;
+									?>
                                 </ul>
                             </div>
 
