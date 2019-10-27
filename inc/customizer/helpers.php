@@ -275,6 +275,11 @@ if ( ! function_exists( 'dokanee_get_available_sliders' ) ) {
 }
 
 if ( ! function_exists( 'is_show_products_cat_on' ) ) {
+	/**
+	 * Check Is products category on
+	 *
+	 * @since 1.3.24
+	 */
     function is_show_products_cat_on() {
 	    if ( get_theme_mod( 'show_products_cat' ) == 1 ) {
 		    return true;

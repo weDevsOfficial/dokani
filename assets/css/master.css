@@ -553,6 +553,7 @@
 }
 #dokane-menu-cart-wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list li .cart-remove-icon a {
   padding: 0 !important;
+  line-height: 90% !important;
 }
 #dokane-menu-cart-wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list li .mini-cart-content {
   width: 90%;
@@ -736,7 +737,7 @@
 .site-header .inside-header .header-widget {
   top: 0;
   overflow: hidden;
-  width: 55%;
+  width: 35%;
 }
 @media (max-width: 768px) {
   .site-header .inside-header .header-widget {
@@ -2192,6 +2193,31 @@ input[type="file"] {
   border-width: 0 5px 5px;
   border-bottom-color: #000;
 }
+.slider-section .flex-direction-nav a:before {
+  font-size: 32px;
+}
+.slider-section .flexslider {
+  border: 0;
+}
+.slider-section .flexslider .slide-textarea h2 {
+  font-weight: bold;
+}
+.slider-section .flexslider li {
+  position: relative;
+}
+.slider-section .flexslider .slide-textarea,
+.slider-section .flexslider .flex-direction-nav {
+  width: 100%;
+  position: absolute;
+  z-index: 9999;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
 .widget-area .widget {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -2629,7 +2655,7 @@ ol.comment-list {
 }
 .woocommerce ul.products li.product a .woocommerce-loop-product__title,
 .woocommerce-page ul.products li.product a .woocommerce-loop-product__title {
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5em;
   color: #000000;
   min-height: 50px;
@@ -3021,7 +3047,24 @@ ol.comment-list {
 .woocommerce-page .shop_table.cart .coupon input {
   min-width: 150px;
   font-size: 13px;
-  padding: 5px 10px;
+  padding: 8px 8px !important;
+}
+.woocommerce .shop_table button[disabled],
+.woocommerce-page .shop_table button[disabled] {
+  color: #fff !important;
+}
+.woocommerce .shop_table button[disabled]:hover,
+.woocommerce-page .shop_table button[disabled]:hover {
+  background: #f2624d !important;
+}
+.woocommerce table.shop_attributes td,
+.woocommerce-page table.shop_attributes td {
+  padding: 0 10px;
+  border-right: 1px dotted rgba(0, 0, 0, 0.1);
+}
+.woocommerce table.shop_attributes th,
+.woocommerce-page table.shop_attributes th {
+  border-left: 1px dotted rgba(0, 0, 0, 0.1);
 }
 /* = Woocommerce Common
 ----------------------------------------------- */
@@ -3042,31 +3085,7 @@ ol.comment-list {
   min-width: auto;
 }
 .woocommerce .star-rating {
-  color: #f39c12;
-  width: 6.4em;
-  font-size: 14px;
-  float: left;
-}
-.woocommerce .star-rating:before {
-  content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
-  color: #d8d8d8;
-}
-.woocommerce .star-rating span:before {
-  content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
-}
-.woocommerce .rating-blank {
-  width: 6.4em;
-  font-size: 14px;
-  float: left;
-  height: 1em;
-  font-family: star;
-  overflow: hidden;
-  line-height: 1;
-  display: inline-block;
-}
-.woocommerce .rating-blank:before {
-  content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
-  color: #d8d8d8;
+  color: #ffa500;
 }
 .woocommerce nav.woocommerce-pagination {
   text-align: right;
@@ -3198,7 +3217,7 @@ ol.comment-list {
   color: #f2624d;
   font-size: 1.125em;
   line-height: 1.2em;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 0;
 }
 @media (max-width: 480px) {
@@ -3207,7 +3226,7 @@ ol.comment-list {
   }
 }
 .woocommerce ul.products li.product .price ins {
-  font-weight: 600;
+  font-weight: 500;
 }
 .woocommerce ul.products li.product .price del {
   color: #9c9c9c;
@@ -3233,23 +3252,24 @@ ol.comment-list {
   position: relative;
 }
 .woocommerce #reviews #comments ol.commentlist li .comment-text .star-rating {
-  width: 100%;
-  margin-top: 18px;
+  float: none;
+}
+.woocommerce #reviews #comments ol.commentlist li .comment-text .star-rating span {
+  color: #ffa500;
 }
 .woocommerce #reviews #comments ol.commentlist li .comment-text > p {
-  position: absolute;
-  top: 6px;
-  width: 97%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: #fff;
+  margin-top: -10px;
 }
 .woocommerce #reviews #comments ol.commentlist li .comment-text > p .woocommerce-review__author,
 .woocommerce #reviews #comments ol.commentlist li .comment-text > p strong {
   font-size: 16px;
   color: #000000;
-  font-weight: 600;
+  font-weight: 500;
 }
 .woocommerce #reviews #comments ol.commentlist li .comment-text > p .woocommerce-review__published-date,
 .woocommerce #reviews #comments ol.commentlist li .comment-text > p time {
@@ -3266,7 +3286,7 @@ ol.comment-list {
   text-transform: uppercase;
 }
 .woocommerce #reviews #comments ol.commentlist li .comment-text .description {
-  margin-top: 50px;
+  margin-top: 10px;
   color: #9c9c9c;
   font-size: 16px;
   line-height: 1.5em;
@@ -3411,7 +3431,7 @@ ol.comment-list {
   -o-border-radius: 3px;
   border-radius: 3px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1em;
 }
 .woocommerce a.button:hover,
@@ -3598,7 +3618,7 @@ ol.comment-list {
 .woocommerce div.product .product_title {
   font-size: 30px;
   line-height: 1.4em;
-  font-weight: 600;
+  font-weight: 400;
   color: #000000;
   margin-bottom: 6px;
   margin-top: -9px;
@@ -3618,7 +3638,7 @@ ol.comment-list {
 }
 .woocommerce div.product .woocommerce-product-rating .star-rating {
   font-size: 12px;
-  margin-top: 11px;
+  margin-top: 8px;
 }
 .woocommerce div.product .woocommerce-product-rating .woocommerce-review-link {
   color: #9c9c9c;
@@ -3637,7 +3657,7 @@ ol.comment-list {
 }
 .woocommerce div.product p.price ins,
 .woocommerce div.product span.price ins {
-  font-weight: 600;
+  font-weight: 500;
 }
 .woocommerce div.product .woocommerce-product-details__short-description {
   color: #9c9c9c;
@@ -3651,16 +3671,14 @@ ol.comment-list {
   width: 100%;
   margin-bottom: 22px !important;
 }
-.woocommerce div.product .quantity label.screen-reader-text {
-  position: relative !important;
-  height: auto !important;
-  width: 31% !important;
-  float: left;
+.woocommerce div.product .quantity .quantity_label {
+  width: 30%;
+  display: inline-block;
+  color: #000;
   font-size: 1rem;
   line-height: 1.2em;
-  font-weight: 600;
+  font-weight: 500;
   color: #333e48;
-  margin-top: 13px;
 }
 .woocommerce div.product .quantity .qty {
   background-color: #FFFFFF;
@@ -3684,7 +3702,7 @@ ol.comment-list {
 .woocommerce div.product table.variations .label label {
   font-size: 1rem;
   line-height: 1.2em;
-  font-weight: 600;
+  font-weight: 500;
   color: #333e48;
 }
 .woocommerce div.product table.variations .value select {
@@ -3703,7 +3721,7 @@ ol.comment-list {
   color: #FFFFFF;
   font-size: 1rem;
   padding: 14px 22px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: capitalize;
 }
 .woocommerce div.product form.cart {
@@ -3717,12 +3735,13 @@ ol.comment-list {
   width: 30%;
   font-size: 1rem;
   line-height: 1.2em;
-  font-weight: 600;
+  font-weight: 500;
   color: #333e48;
   margin-top: 5px;
 }
 .woocommerce div.product .product_meta > div .meta-content {
   width: 70%;
+  margin-top: 5px;
 }
 .woocommerce div.product .product_meta > div a {
   font-size: 14px;
@@ -3758,16 +3777,20 @@ ol.comment-list {
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs {
   padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs:before {
   border-bottom: 2px solid #ecf1f5;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
+  margin: 0;
+  padding: 0 10px;
   border: none;
   background-color: transparent;
   color: #333e48;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li:before,
 .woocommerce div.product .woocommerce-tabs ul.tabs li:after {
@@ -3789,6 +3812,7 @@ ol.comment-list {
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li a {
   padding: 1.3em 0;
+  font-size: 15px;
   font-weight: 600;
   color: #333e48;
 }
@@ -3917,7 +3941,7 @@ ol.comment-list {
 .woocommerce-Tabs-panel--seller .store-info-wrapper .store-info li.store-name {
   color: #333e48;
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5em;
 }
 .woocommerce-Tabs-panel--seller .store-info-wrapper .store-info li.store-rating {

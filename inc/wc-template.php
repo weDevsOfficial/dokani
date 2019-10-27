@@ -8,6 +8,18 @@ remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_ad
 
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 10 );
 remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 20 );
+
+add_action( 'woocommerce_before_quantity_input_field', 'dokanee_quantity_label' );
+add_action( 'woocommerce_review_meta', 'woocommerce_review_display_rating', 10 );
+
+/*
+ *
+ *
+ */
+function dokanee_quantity_label() {
+    echo "<label class='quantity_label'>" . __( 'Quantity' ) . " :</label>";
+}
 
 /**
  * Pagination before shop loops.
@@ -304,7 +316,7 @@ function dokanee_woo_rename_tabs( $tabs ) {
 	global $product;
 
 	if( $product->has_attributes() || $product->has_dimensions() || $product->has_weight() ) { // Check if product has attributes, dimensions or weight
-		$tabs['additional_information']['title'] = __( 'Additional Info' );	// Rename the additional information tab
+		$tabs['additional_information']['title'] = __( 'Additional Info', 'dokanee' );	// Rename the additional information tab
 	}
 
 	return $tabs;

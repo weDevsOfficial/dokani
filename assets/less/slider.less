@@ -1,0 +1,31 @@
+// Slider styles
+
+.slider-section {
+    .flex-direction-nav a:before {
+        font-size: 32px;
+    }
+    .flexslider {
+        border: 0;
+        //.slides img {
+        //    width: auto;
+        //    display: inline-block;
+        //}
+        .slide-textarea {
+            h2 {
+                font-weight: bold;
+            }
+        }
+        li {
+            position: relative;
+        }
+        .slide-textarea,
+        .flex-direction-nav {
+            width: 100%;
+            position: absolute;
+            z-index: 9999;
+            top: 50%;
+            left: 0;
+            .translate(0, -50%);
+        }
+    }
+}
