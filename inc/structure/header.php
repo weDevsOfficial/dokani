@@ -286,7 +286,11 @@ if ( ! function_exists( 'dokanee_top_bar' ) ) {
 				} ?>
 
                 <div class="dokanee-user-menu">
-	                <?php dokan_header_user_menu(); ?>
+	                <?php
+                    if ( function_exists( 'dokan_header_user_menu' ) ) {
+	                    dokan_header_user_menu();
+                    }
+                    ?>
                 </div>
 			</div>
 		</div>
@@ -384,7 +388,10 @@ if ( !function_exists( 'dokan_responsive_user_menu' ) ) :
             </ul>
 		</li>
 
-		<?php if ( is_user_logged_in() ) { ?>
+		<?php
+            if ( is_user_logged_in() ) {
+            $current_user = wp_get_current_user();
+        ?>
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle dokanee-menu-user" data-toggle="dropdown">

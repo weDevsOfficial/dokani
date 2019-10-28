@@ -88,7 +88,7 @@ if ( ! function_exists( 'dokanee_get_layout' ) ) {
 		}
 
 		// If we're on the store page
-		if ( dokan_is_store_page() ) {
+		if ( function_exists('dokan_is_store_page') && dokan_is_store_page() ) {
 			$layout = null;
 			$layout = $dokanee_settings['store_layout_setting'];
 		}
