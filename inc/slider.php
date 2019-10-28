@@ -54,15 +54,18 @@ class Dokanee_Slider {
 		add_action( 'dokanee_home_slider', array( $this, 'get_slider' ) );
 
 		if ( is_admin() ) {
-
-			// Add the color picker css file
-			wp_enqueue_style( 'wp-color-picker' );
-
-			// Include our custom jQuery file with WordPress Color Picker dependency
-			wp_enqueue_script( 'wp-color-picker-handler', get_theme_file_uri() . '/assets/js/wp-color-picker.js',
-				array( 'wp-color-picker' ), false, true );
+            add_action( 'wp_enquee_scripts', array( $this, 'enqueue_color_picker_assets' ) );
 		}
 	}
+
+	public function enqueue_color_picker_assets() {
+		// Add the color picker css file
+		wp_enqueue_style( 'wp-color-picker' );
+
+		// Include our custom jQuery file with WordPress Color Picker dependency
+		wp_enqueue_script( 'wp-color-picker-handler', get_theme_file_uri() . '/assets/js/wp-color-picker.js',
+			array( 'wp-color-picker' ), false, true );
+    }
 
 	function do_metaboxes() {
 		add_meta_box( 'slider-meta-box', __( 'Slides', 'dokanee' ), array( $this, 'meta_boxes' ), $this->post_type );
@@ -73,12 +76,12 @@ class Dokanee_Slider {
 	function enqueue_scripts() {
 		global $wp;
 
-		//        if ( isset( $wp->query_vars['post_type'] ) && $wp->query_vars['post_type'] == 'dokanee_slider' ) {
-		wp_enqueue_script( 'media-upload' );
-		wp_enqueue_script( 'thickbox' );
+        if ( isset( $wp->query_vars['post_type'] ) && $wp->query_vars['post_type'] == 'dokanee_slider' ) {
+            wp_enqueue_script( 'media-upload' );
+            wp_enqueue_script( 'thickbox' );
 
-		wp_enqueue_style( 'thickbox' );
-		$help_text = sprintf( __( 'Learn More: <a target="_blank" href="%s">How to Create Slider in Dokanee</a>',
+            wp_enqueue_style( 'thickbox' );
+            $help_text = sprintf( __( 'Learn More: <a target="_blank" href="%s">How to Create Slider in Dokanee</a>',
 			'dokanee' ), 'https://wedevs.com/docs/dokan/tutorials/how-to-create-a-slider-for-homepage-using-dokan/' );
 		?>
         <script>
@@ -87,7 +90,7 @@ class Dokanee_Slider {
             });
         </script>
 		<?php
-		//        }
+        }
 	}
 
 	function post_types() {
