@@ -203,6 +203,30 @@ if ( ! function_exists( 'dokanee_sanitize_choices' ) ) {
 	}
 }
 
+if ( ! function_exists( 'dokanee_sanitize_file' ) ) {
+	/**
+	 * Sanitize files.
+	 *
+	 * @since 1.3.24
+	 */
+	function dokanee_sanitize_file( $file, $setting ) {
+
+		//allowed file types
+		$mimes = array(
+			'jpg|jpeg|jpe' => 'image/jpeg',
+			'gif'          => 'image/gif',
+			'png'          => 'image/png',
+			'svg'          => 'image/svg',
+		);
+
+		//check file type from file name
+		$file_ext = wp_check_filetype( $file, $mimes );
+
+		//if file has a valid mime type return it, otherwise return default
+		return ( $file_ext['ext'] ? $file : $setting->default );
+	}
+}
+
 if ( ! function_exists( 'is_show_slider' ) ) {
 	/**
 	 * Check Is slider enable for showing home page
