@@ -18,7 +18,7 @@ add_action( 'woocommerce_review_meta', 'woocommerce_review_display_rating', 10 )
  *
  */
 function dokanee_quantity_label() {
-    echo "<label class='quantity_label'>" . __( 'Quantity' ) . " :</label>";
+    echo "<label class='quantity_label'>" . __( 'Quantity', 'dokanee' ) . " :</label>";
 }
 
 /**
@@ -288,7 +288,7 @@ if ( !class_exists( 'Dokan_Category_Widget' ) ) :
 
     }
 
-    add_action( 'widgets_init', create_function( '', "register_widget( 'Dokan_Category_Widget' );" ) );
+    add_action( 'widgets_init', function() { register_widget( 'Dokan_Category_Widget' ); } );
 
 endif;
 
