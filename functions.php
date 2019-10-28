@@ -80,7 +80,7 @@ if ( ! function_exists( 'slider_page' ) ) {
 	 * @since 0.1
 	 */
 	function slider_page() {
-		add_submenu_page( 'themes.php', __( 'Slider', 'dokanee' ), __( 'Slider', 'dokanee' ), 'manage_options', 'edit.php?post_type=dokanee_slider' );
+		add_theme_page( __( 'Slider', 'dokanee' ), __( 'Slider', 'dokanee' ), 'manage_options', 'edit.php?post_type=dokanee_slider' );
 	}
 }
 
@@ -103,10 +103,6 @@ require get_template_directory() . '/inc/deprecated.php';
 
 require get_template_directory() . '/inc/wc-template.php';
 require get_template_directory() . '/inc/slider.php';
-
-if ( is_admin() ) {
-	require get_template_directory() . '/inc/dashboard.php';
-}
 
 /**
  * Load our theme structure
