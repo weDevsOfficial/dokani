@@ -11,7 +11,6 @@ remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pr
 remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 20 );
 
 add_action( 'woocommerce_before_quantity_input_field', 'dokanee_quantity_label' );
-add_action( 'woocommerce_review_meta', 'woocommerce_review_display_rating', 10 );
 
 /*
  *

@@ -156,7 +156,7 @@ if ( ! function_exists( 'dokanee_get_default_fonts' ) ) {
 			'font_body_variants'          => '',
 			'body_font_weight'            => 'normal',
 			'body_font_transform'         => 'none',
-			'body_font_size'              => '16',
+			'body_font_size'              => '14',
 			'body_line_height'            => '1.5', // no unit
 			'paragraph_margin'            => '1.5', // em
 			'font_top_bar'                => 'inherit',

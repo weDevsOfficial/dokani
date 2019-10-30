@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php wp_head(); ?>
 </head>
 
-<body <?php dokanee_body_schema();?> <?php body_class(); ?>>
+<body <?php dokanee_body_schema();?> <?php body_class( 'woocommerce' ); ?>>
 	<?php
 	/**
 	 * dokanee_before_header hook.

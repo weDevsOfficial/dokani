@@ -28,7 +28,7 @@ if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
 
 $rating = wc_get_rating_html( $product->get_average_rating() );
 
-if ($rating){
+if ( $rating ) {
 	echo $rating;
 } else {
 	echo '<span class="rating-blank"></span>';

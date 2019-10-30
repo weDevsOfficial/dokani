@@ -84,6 +84,7 @@ if ( ! function_exists( 'slider_page' ) ) {
 	}
 }
 
+add_filter('flush_rewrite_rules_hard','__return_false');
 
 /**
  * Get all necessary theme files

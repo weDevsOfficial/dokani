@@ -18,10 +18,10 @@
 
 // store list/grid view
 .dokan-seller-view {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 5px 9px;
+    //position: absolute;
+    //top: 0;
+    //right: 0;
+    //padding: 5px 9px;
 
     button {
         background-color: transparent;
@@ -77,9 +77,32 @@
 }
 
 // store search
-.dokan-seller-listing {
+.page-template-store-list {
+
+    .entry-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .dokan-seller-view {
+        padding: 0 10px;
+        display: flex;
+    }
+
+    .breadcrumb {
+        margin: 34px 0;
+    }
+
+    .store-buttons {
+        text-align: right;
+
+        .dokan-btn {
+            margin: 3px 0;
+        }
+    }
+
     .dokan-seller-search-form {
-        margin-top: 0 !important;
+        margin-top: 0;
 
         .dokan-seller-search {
             font-size: 14px;
@@ -97,7 +120,9 @@
             }
         }
     }
+
 }
+
 
 // Product display views
 .dokanee-products-view {
@@ -319,8 +344,11 @@ input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn {
                 }
 
                 .store-footer {
-                    padding: 25px 58px;
-                    width: 40%;
+                    padding: 25px 25px 25px 60px;
+                    width: ~"calc(100% - 340px)";
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
 
                     .store-data {
                         h2 {
@@ -349,11 +377,11 @@ input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn {
                     }
 
                     .dokan-btn {
-                        bottom: auto;
-                        left: auto;
-                        right: 25px;
-                        top: 50%;
-                        .translateY(-50%);
+                        //bottom: auto;
+                        //left: auto;
+                        //right: 25px;
+                        //top: 50%;
+                        //.translateY(-50%);
                     }
                 }
             }
@@ -596,9 +624,14 @@ input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn {
 }
 
 
+.grid-container .grid-container {
+    padding: 0;
+}
+
 .dokan-store-tab-wrapper {
     position: relative;
     top: -5px;
+    padding: 0 15px;
     background-color: @white;
     .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.03));
 

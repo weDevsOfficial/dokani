@@ -97,7 +97,7 @@ if ( 'layout3' === $profile_layout ) {
 
 <?php if ( $store_tabs ) { ?>
     <div class="dokan-store-tab-wrapper">
-        <div class="grid-container">
+        <div class="store-tab-container">
             <div class="dokan-store-tabs<?php echo $no_banner_class_tabs; ?>">
                 <ul class="dokan-list-inline">
                     <?php foreach( $store_tabs as $key => $tab ) { ?>

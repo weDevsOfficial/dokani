@@ -25,6 +25,11 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 }
 ?>
 <div id="right-sidebar" itemtype="https://schema.org/WPSideBar" itemscope="itemscope" <?php dokanee_right_sidebar_class(); ?>>
+	<?php
+	if ( dokan_is_store_listing() ) {
+		woocommerce_breadcrumb();
+	}
+	?>
 	<div class="inside-right-sidebar">
 		<?php
 		/**
