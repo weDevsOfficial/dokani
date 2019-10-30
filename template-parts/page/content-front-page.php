@@ -31,7 +31,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$terms     = get_terms( array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
 	$total_cat = count( $terms );
 	$visible_item = get_theme_mod( 'products_cat_counter' );
-	//	var_dump($total_cat);
 
 	if ( ! empty( $total_cat ) ) {
 		?>
@@ -225,7 +224,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
 
 					<?php
-					$best_sellers = dokan_get_best_sellers( 8 );
+					$best_sellers = function_exists( 'dokan_get_best_sellers' ) ? dokan_get_best_sellers( 8 ) : false;
 
 					if ( $best_sellers ) { ?>
                         <input type="radio" name="tabs" id="best-seller">
@@ -245,7 +244,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php } ?>
 
 					<?php
-					$feature_sellers = dokan_get_feature_sellers( 8 );
+					$feature_sellers = function_exists( 'dokan_get_feature_sellers' ) ? dokan_get_feature_sellers( 8 ) : false;
 
 					if ( $feature_sellers ) { ?>
                         <input type="radio" name="tabs" id="featured-store">
