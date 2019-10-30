@@ -450,7 +450,6 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 
 		// show slider
 		$wp_customize->add_setting( 'show_slider', array(
-				'default'          => 'on',
 				'sanitize_callback'=> 'dokanee_sanitize_checkbox',
 			)
 		);
@@ -462,49 +461,6 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					'label'   => __( 'Show Slider on home page', 'dokanee' ),
 					'section' => 'dokanee_frontpage_section',
 					'type'    => 'checkbox',
-				)
-			)
-		);
-
-		// slider type
-		$wp_customize->add_setting( 'slider_type', array(
-			'default'           => 'dokanee_slider',
-			'sanitize_callback' => 'dokanee_sanitize_choices',
-		) );
-
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'slider_type',
-				array(
-					'label'   => __( 'Select slider type', 'dokanee' ),
-					'section' => 'dokanee_frontpage_section',
-					'type'    => 'select',
-					'choices' => array(
-						'dokanee_slider'        => __( 'Theme Slider', 'dokanee' ),
-						'plugin_slider'         => __( 'Plugin Slider', 'dokanee' ),
-					),
-					'active_callback' => 'is_show_slider',
-				)
-			)
-		);
-
-		// Select dokanee slider
-		$wp_customize->add_setting( 'dokanee_slider', array(
-			'default'           => ! empty( dokanee_get_available_sliders() ) ? array_keys( dokanee_get_available_sliders() )[0] : __( 'Select', 'dokanee' ),
-			'sanitize_callback' => 'dokanee_sanitize_choices',
-		) );
-
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'dokanee_slider',
-				array(
-					'label'   => __( 'Select slider', 'dokanee' ),
-					'section' => 'dokanee_frontpage_section',
-					'type'    => 'select',
-					'choices' => dokanee_get_available_sliders(),
-					'active_callback' => 'is_active_dokanee_slider',
 				)
 			)
 		);
@@ -525,7 +481,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					'input_attrs' => array(
 						'placeholder' => __( 'Paste shortcode here.', 'dokanee' ),
 					),
-					'active_callback' => 'is_active_plugin_slider',
+					'active_callback' => 'is_show_slider',
 				)
 			)
 		);

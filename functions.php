@@ -72,20 +72,6 @@ if ( ! function_exists( 'dokanee_setup' ) ) {
 	}
 }
 
-if ( ! function_exists( 'slider_page' ) ) {
-	add_action( 'dokan_admin_menu', 'slider_page' );
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * @since 0.1
-	 */
-	function slider_page() {
-		add_theme_page( __( 'Slider', 'dokanee' ), __( 'Slider', 'dokanee' ), 'manage_options', 'edit.php?post_type=dokanee_slider' );
-	}
-}
-
-add_filter('flush_rewrite_rules_hard','__return_false');
-
 /**
  * Get all necessary theme files
  */
@@ -103,7 +89,6 @@ require get_template_directory() . '/inc/migrate.php';
 require get_template_directory() . '/inc/deprecated.php';
 
 require get_template_directory() . '/inc/wc-template.php';
-require get_template_directory() . '/inc/slider.php';
 
 /**
  * Load our theme structure
@@ -117,6 +102,3 @@ require get_template_directory() . '/inc/structure/navigation.php';
 require get_template_directory() . '/inc/structure/cart.php';
 require get_template_directory() . '/inc/structure/post-meta.php';
 require get_template_directory() . '/inc/structure/sidebars.php';
-
-
-Dokanee_Slider::init();

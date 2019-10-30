@@ -12,17 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( get_theme_mod( 'show_slider', 'on' ) == 'on' ) { ?>
     <section class="slider-section">
-
-		<?php
-
-		if ( get_theme_mod( 'slider_type' ) == 'plugin_slider' ) {
-			echo do_shortcode( get_theme_mod( 'plugin_slider_shortcode' ) );
-		} elseif ( get_theme_mod( 'slider_type' ) == 'dokanee_slider' ) {
-			do_action( 'dokanee_home_slider', get_theme_mod( 'dokanee_slider' ) );
-		}
-
-		?>
-
+		<?php echo do_shortcode( get_theme_mod( 'plugin_slider_shortcode' ) ); ?>
     </section> <!-- .slider-section -->
 <?php } ?>
 

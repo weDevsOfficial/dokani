@@ -242,62 +242,6 @@ if ( ! function_exists( 'is_show_slider' ) ) {
 	}
 }
 
-if ( ! function_exists( 'is_active_dokanee_slider' ) ) {
-	/**
-	 * Check Is active dokanee theme slider
-	 *
-	 * @since 1.3.24
-	 */
-	function is_active_dokanee_slider() {
-		if ( get_theme_mod( 'show_slider' ) == 1 && get_theme_mod( 'slider_type' ) == 'dokanee_slider' ) {
-			return true;
-		}
-
-		return false;
-	}
-}
-
-if ( ! function_exists( 'is_active_plugin_slider' ) ) {
-	/**
-	 * Check Is active plugin slider
-	 *
-	 * @since 1.3.24
-	 */
-	function is_active_plugin_slider() {
-		if ( get_theme_mod( 'show_slider' ) == 1 && get_theme_mod( 'slider_type' ) == 'plugin_slider' ) {
-			return true;
-		}
-
-		return false;
-	}
-}
-
-if ( ! function_exists( 'dokanee_get_available_sliders' ) ) {
-
-	function dokanee_get_available_sliders() {
-
-		$args              = array(
-			'post_type'      => 'dokanee_slider',
-			'status'         => 'publish',
-			'posts_per_page' => - 1,
-		);
-		$slider_query      = new WP_Query( $args );
-		$available_sliders = array();
-
-		if ( $slider_query->have_posts() ) {
-
-			while ( $slider_query->have_posts() ) :
-
-				$slider_query->the_post();
-				$available_sliders[ get_the_id() ] = get_the_title();
-
-			endwhile;
-		}
-
-		return $available_sliders;
-	}
-}
-
 if ( ! function_exists( 'is_show_products_cat_on' ) ) {
 	/**
 	 * Check Is products category on
