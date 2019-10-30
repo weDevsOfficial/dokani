@@ -550,7 +550,7 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 		// show products category section
 		$wp_customize->add_setting( 'products_cat_counter', array(
 			'default'           => '5',
-			'sanitize_callback' => 'absint',
+			'sanitize_callback' => 'dokanee_sanitize_integer',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Control(

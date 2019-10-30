@@ -1,8 +1,3 @@
-<div class="dokan-seller-view buttons box-shadow">
-    <button class="list"><i class="fa fa-bars"></i></button>
-    <button class="grid active"><i class="fa fa-th-large"></i></button>
-</div>
-
 <div id="dokan-seller-listing-wrap">
     <div class="seller-listing-content">
         <?php if ( $sellers['users'] ) : ?>
@@ -57,7 +52,7 @@
                                     </div>
                                 <?php endif ?>
 
-                                <?php if ( $store_address ): ?>
+                                <?php if ( $store_address ) : ?>
                                     <p class="store-address"><?php echo $store_address; ?></p>
                                 <?php endif ?>
 
@@ -65,9 +60,12 @@
 
                             </div>
 
-                            <a href="<?php echo esc_url( $store_url ); ?>" class="dokan-btn dokan-btn-theme"><?php _e( 'Visit Store', 'dokanee' ); ?></a>
+                            <div class="store-buttons">
+                                <a href="<?php echo esc_url( $store_url ); ?>" class="dokan-btn dokan-btn-theme"><?php _e( 'Visit Store', 'dokanee' ); ?></a>
 
-                            <?php do_action( 'dokan_seller_listing_footer_content', $seller->data, $store_info ); ?>
+	                            <?php do_action( 'dokan_seller_listing_footer_content', $seller->data, $store_info ); ?>
+                            </div>
+
                         </div>
                     </li>
 
