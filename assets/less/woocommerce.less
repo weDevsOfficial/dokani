@@ -345,6 +345,16 @@
                         .button {
                             font-size: 12px;
 
+                            &.loading {
+                                span {
+                                    opacity: 0;
+                                }
+                                &:after {
+                                    margin-top: 8px;
+                                }
+                            }
+
+
                             @media(min-width: @screen-sm-min){
                                 background: @white !important;
                                 color: #333e48 !important;
@@ -559,6 +569,9 @@
                     display: inline-block;
                     float: left;
                     width: 60%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
             }
 
@@ -1077,6 +1090,21 @@
         }
     }
 
+    // grouped products
+    .woocommerce-grouped-product-list {
+        padding-bottom: 20px;
+        td {
+            vertical-align: middle !important;
+
+            .quantity {
+                margin-bottom: 0 !important;
+            }
+            .quantity_label {
+                display: none;
+            }
+        }
+    }
+
     // variations
     table.variations {
         .label {
@@ -1151,12 +1179,22 @@
                 display: inline-block;
                 margin: 5px;
                 font-weight: 400;
-
+                &:first-child {
+                    margin-left: 0;
+                }
                 &:hover {
                     color: @theme-color;
                 }
             }
         }
+    }
+
+    .dokan-report-abuse-button {
+        margin-top: 15px;
+    }
+
+    .woocommerce-product-gallery .flex-viewport {
+        border: 1px solid #d7d7d7;
     }
 
     .woocommerce-tabs {
@@ -1197,12 +1235,11 @@
                 border: none;
                 background-color: transparent;
                 color: #333e48;
-                font-size: 16px;
                 font-weight: 500;
 
                 a {
                     padding: 1.3em 0;
-                    font-size: 15px;
+                    font-size: 90%;
                     font-weight: 600;
                     color: #333e48;
 

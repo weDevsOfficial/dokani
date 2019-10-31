@@ -223,9 +223,9 @@ if ( ! function_exists( 'dokanee_construct_site_title' ) ) {
 
 		// Build our tagline.
 		$site_tagline = apply_filters( 'dokanee_site_description_output', sprintf(
-			'<p class="site-description">
+			'<p class="site-description"><small>
 				%1$s
-			</p>',
+			</small></p>',
 			html_entity_decode( get_bloginfo( 'description', 'display' ) )
 		) );
 

@@ -33,6 +33,7 @@ if ( 'layout3' === $profile_layout ) {
 }
 
 ?>
+<div class="dokan-single-store">
 <div class="profile-frame<?php echo $no_banner_class; ?>">
     <div class="store-banner">
         <div class="profile-info-img-wrapper">
@@ -94,6 +95,7 @@ if ( 'layout3' === $profile_layout ) {
         </div> <!-- .profile-info-box -->
     </div>
 </div> <!-- .profile-frame -->
+</div><!-- .dokan-single-store -->
 
 <?php if ( $store_tabs ) { ?>
     <div class="dokan-store-tab-wrapper">
