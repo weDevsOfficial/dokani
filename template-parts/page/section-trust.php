@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
+<?php if ( class_exists( 'WooCommerce' ) ) { ?>
 <div class="trust-factors-section">
     <div class="grid-container">
         <div class="factor-wrapper">
@@ -63,3 +64,4 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
     </div>
 </div> <!-- .trust-factors-section -->
+<?php } ?>

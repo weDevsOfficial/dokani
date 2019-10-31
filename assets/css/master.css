@@ -4795,17 +4795,21 @@ a.dokan-btn,
 }
 /* = Welcome page
 ----------------------------------------------- */
-.dokanee-template-home #page.grid-container {
+body.dokanee-template-front-page #page.grid-container {
   max-width: 100%;
 }
-.dokanee-template-home.separate-containers .site-main {
+body.dokanee-template-front-page.separate-containers .site-main {
   margin: 0;
 }
-.dokanee-template-home.separate-containers .site-main > * {
+body.dokanee-template-front-page.separate-containers .site-main > * {
   margin-bottom: 0;
 }
-.dokanee-template-home .site-footer {
+body.dokanee-template-front-page .site-footer {
   background-color: #ececfb;
+}
+.home-template-without-wc {
+  margin-top: 50px;
+  margin-bottom: 50px !important;
 }
 .product-cat-section {
   background-color: #FFFFFF;

@@ -72,6 +72,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php } ?>
 <?php } ?>
 
+
+<?php if ( function_exists( 'dokan' ) ) { ?>
 <section class="products-section">
     <div class="grid-container container grid-parent">
         <div class="content-area grid-parent mobile-grid-100 grid-75 tablet-grid-75">
@@ -188,8 +190,9 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
     </div>
 </section> <!-- .products-section -->
+<?php } ?>
 
-<?php if ( get_theme_mod( 'show_store_list', 'on' ) == 'on' ) { ?>
+<?php if ( get_theme_mod( 'show_store_list', 'on' ) == 'on' && function_exists( 'dokan' ) ) { ?>
     <section class="store-section">
         <div class="grid-container">
             <h2 class="section-title"><?php _e( 'Store List', 'dokanee' ); ?></h2>

@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <header class="entry-header">
             <?php the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
-            <?php if( dokan_is_store_listing() ) { ?>
+            <?php if ( function_exists( 'dokan_is_store_listing' ) && dokan_is_store_listing() ) { ?>
                 <div class="dokan-seller-view buttons box-shadow">
                     <button class="list"><i class="fa fa-bars"></i></button>
                     <button class="grid active"><i class="fa fa-th-large"></i></button>

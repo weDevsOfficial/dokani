@@ -26,7 +26,7 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 ?>
 <div id="left-sidebar" itemtype="https://schema.org/WPSideBar" itemscope="itemscope" <?php dokanee_left_sidebar_class(); ?>>
     <?php
-    if ( dokan_is_store_listing() ) {
+    if ( function_exists( 'dokan_is_store_listing' ) && dokan_is_store_listing() ) {
         woocommerce_breadcrumb();
     }
     ?>

@@ -30,19 +30,23 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 
 				echo '<div class="header-left">';
                     // Display dokan category
-                    dokan_category_widget();
+                    if ( class_exists( 'WooCommerce' ) ) {
+	                    dokan_category_widget();
+                    }
 
                     // Add our main header items.
-                    dokanee_header_items();
+                     dokanee_header_items();
 
                     /**
-                     * dokanee_after_header_right hook.
+                     * dokanee_after_header_left hook.
                      *
                      * @since 0.1
                      *
                      * @hooked dokanee_responsive_nav - 5
                      */
-                    do_action( 'dokanee_after_header_left' );
+                    if ( class_exists( 'WooCommerce' ) ) {
+	                    do_action( 'dokanee_after_header_left' );
+                    }
 
 				echo '</div>';
 				echo '<div class="header-right">';
@@ -57,7 +61,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
                      * @hooked dokanee_add_navigation_float_right - 5
                      * @hooked dokanee_add_cart_menu_after_search - 10
                      */
-                    do_action( 'dokanee_after_header_right' );
+                     do_action( 'dokanee_after_header_right' );
 
 				echo '</div>';
 
@@ -77,7 +81,6 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 }
 
 if ( ! function_exists( 'dokan_category_widget' ) ) :
-
 	/**
 	 * Display the product category widget
 	 *
@@ -353,7 +356,9 @@ if ( ! function_exists( 'dokanee_responsive_nav' ) ) {
 }
 
 if ( ! function_exists( 'dokanee_responsive_user_menu' ) ) {
-	add_action( 'dokanee_inside_navigation', 'dokanee_responsive_user_menu', 5 );
+    if ( class_exists( 'WooCommerce' ) ) {
+	    add_action( 'dokanee_inside_navigation', 'dokanee_responsive_user_menu', 5 );
+    }
 
 	/**
 	 * Build responsive user menu.
@@ -362,12 +367,12 @@ if ( ! function_exists( 'dokanee_responsive_user_menu' ) ) {
 	 */
 	function dokanee_responsive_user_menu() {
 	    echo '<ul class="responsive-user-menu no-list-style">';
-		dokan_responsive_user_menu();
+		 dokan_responsive_user_menu();
 	    echo '</ul>';
 	}
 }
 
-if ( !function_exists( 'dokan_responsive_user_menu' ) ) :
+if ( ! function_exists( 'dokan_responsive_user_menu' ) ) :
 
 	/**
 	 * Responsive User menu
@@ -399,8 +404,10 @@ if ( !function_exists( 'dokan_responsive_user_menu' ) ) :
                     <span class="screen-reader-text"><?php echo esc_html( $current_user->display_name ); ?> <i class="fa fa-angle-down"></i></span>
                 </a>
                 <ul class="dropdown-menu">
+                    <?php if ( function_exists( 'dokan_get_page_url' ) ) { ?>
                     <li><a href="<?php echo dokan_get_page_url( 'my_orders' ); ?>"><?php _e( 'My Orders', 'dokanee' ); ?></a></li>
                     <li><a href="<?php echo dokan_get_page_url( 'myaccount', 'woocommerce' ); ?>"><?php _e( 'My Account', 'dokanee' ); ?></a></li>
+                    <?php } ?>
                     <li><a href="<?php echo wc_customer_edit_account_url(); ?>"><?php _e( 'Edit Account', 'dokanee' ); ?></a></li>
                     <li class="divider"></li>
                     <li><a href="<?php echo wc_get_endpoint_url( 'edit-address', 'billing', get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>"><?php _e( 'Billing Address', 'dokanee' ); ?></a></li>
@@ -410,7 +417,7 @@ if ( !function_exists( 'dokan_responsive_user_menu' ) ) :
             </li>
 
         <?php } else { ?>
-            <li><a href="<?php echo dokan_get_page_url( 'myaccount', 'woocommerce' ); ?>" class="dokanee-menu-login"><?php _e( 'Login / Register', 'dokanee' ); ?></a></li>
+            <li><a href="<?php echo wc_get_page_permalink( 'myaccount', 'woocommerce' ); ?>" class="dokanee-menu-login"><?php _e( 'Login / Register', 'dokanee' ); ?></a></li>
         <?php }
 	}
 

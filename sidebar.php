@@ -26,7 +26,7 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 ?>
 <div id="right-sidebar" itemtype="https://schema.org/WPSideBar" itemscope="itemscope" <?php dokanee_right_sidebar_class(); ?>>
 	<?php
-	if ( dokan_is_store_listing() ) {
+	if ( function_exists( 'dokan_is_store_listing' ) && dokan_is_store_listing() ) {
 		woocommerce_breadcrumb();
 	}
 	?>
@@ -73,7 +73,7 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 
 			endif;
 
-        elseif ( is_product() ) :
+        elseif ( class_exists( 'WooCommerce' ) && is_product() ) :
 
 			if ( ! dynamic_sidebar( 'product' ) ) :
 
@@ -90,7 +90,7 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 
 			endif;
 
-		elseif ( dokan_is_store_page() ) :
+		elseif ( function_exists( 'dokan_is_store_page' ) && dokan_is_store_page() ) :
 
 			if ( dokan_get_option( 'enable_theme_store_sidebar', 'dokan_general', 'off' ) == 'off' ) :
 

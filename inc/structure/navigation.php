@@ -322,7 +322,7 @@ if ( ! function_exists( 'dokanee_responsive_vendor_menu' ) ) {
 	function dokanee_responsive_vendor_menu( $nav, $args ) {
 		global $current_user;
 		$user_id = $current_user->ID;
-		$nav_urls = dokan_get_dashboard_nav();
+		$nav_urls = function_exists( 'dokan_get_dashboard_nav' ) ? dokan_get_dashboard_nav() : false;
 
 		if ( $args->theme_location == 'responsive_menu' ) {
 

@@ -76,7 +76,7 @@ if ( ! function_exists( 'dokanee_get_layout' ) ) {
 		}
 
 		// If we're on the single product page
-		if ( is_product() ) {
+		if ( function_exists( 'is_product' ) && is_product() ) {
 			$layout = null;
 			$layout = $dokanee_settings['single_product_layout_setting'];
 		}

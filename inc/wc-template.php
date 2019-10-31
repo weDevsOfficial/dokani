@@ -36,8 +36,8 @@ function dokanee_product_loop_price() {
     global $product;
 	global $post;
 
-	$store_info = dokan_get_store_info( $post->post_author );
-	$url = dokan_get_store_url( $post->post_author );
+	$store_info = function_exists( 'dokan_get_store_info' ) ? dokan_get_store_info( $post->post_author ) : false;
+	$url = function_exists( 'dokan_get_store_url' ) ? dokan_get_store_url( $post->post_author ) : false;
     ?>
 
     <div class="item-content">
@@ -101,7 +101,9 @@ function dokan_add_to_cart_fragments( $fragment ) {
     return $fragment;
 }
 
-add_filter( 'woocommerce_add_to_cart_fragments', 'dokan_add_to_cart_fragments' );
+if ( class_exists( 'WooCommerce' ) ) {
+	add_filter( 'woocommerce_add_to_cart_fragments', 'dokan_add_to_cart_fragments' );
+}
 
 if ( !class_exists( 'Dokan_Category_Walker' ) ) {
 
@@ -343,7 +345,7 @@ add_action('woocommerce_single_product_summary', 'dokanee_vendor_name', 7);
  */
 function dokanee_woo_breadcrumb() {
 
-    if ( is_woocommerce() ) {
+    if ( class_exists('WooCommerce' ) && is_woocommerce() ) {
 	    woocommerce_breadcrumb();
     }
 
