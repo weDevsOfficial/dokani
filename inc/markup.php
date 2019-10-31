@@ -135,13 +135,17 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 			$classes[] = 'dokanee-store-template';
         }
 
-		if ( is_product() ) {
+		if ( function_exists( 'is_product' ) && is_product() ) {
 			$classes[] = 'dokanee-product-single-template';
         }
 
-        if ( is_front_page() ) {
-			$classes[] = 'dokanee-template-home';
+        if ( is_front_page() && is_page_template( 'page-template/page-home.php' ) ) {
+			$classes[] = 'dokanee-template-front-page';
         }
+
+		if ( is_front_page() && is_home() ) {
+			$classes[] = 'dokanee-template-posts';
+		}
 
 		if ( isset( $wp->query_vars['name'] ) && $wp->query_vars['name'] == 'product-category' ) {
 			$page_404 = array_search( 'error404', $classes );
