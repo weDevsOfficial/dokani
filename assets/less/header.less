@@ -533,6 +533,10 @@
         min-width: 300px;
         right: 0;
 
+        @media @media-screen-xs {
+            left: -140px;
+        }
+
         li {
             padding: 0;
         }
@@ -930,6 +934,9 @@
     .main-nav ul {
         //overflow: hidden;
         float: right;
+        @media @media-screen-xs {
+            float: none;
+        }
 
         li {
             &[class*="current-menu-"] > a {
@@ -1115,6 +1122,15 @@ ul.responsive-user-menu {
         margin-left: 0;
     }
 
+    @media @media-screen-xs {
+        .dropdown {
+            .dropdown-menu {
+                right: 50%;
+                transform: translate(50%, 0);
+            }
+        }
+    }
+
     #dokane-menu-cart-wrapper {
         .dokanee-menu-cart {
             padding-left: 0;
@@ -1237,5 +1253,12 @@ ul.responsive-user-menu {
                 }
             }
         }
+    }
+}
+
+@media @media-screen-md {
+    .site-header .inside-header,
+    .top-bar .inside-top-bar {
+        padding: 0 30px;
     }
 }

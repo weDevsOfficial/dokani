@@ -26,6 +26,11 @@ if ( ! function_exists( 'dokanee_cart_position' ) ) {
                 $cart .= '</li>';
             $cart .= '</ul>';
         $cart .= '</li>';
+        if ( ! function_exists( 'dokan' ) ) {
+	        $cart .= '<li>';
+	        $cart .= '<a class="dokanee-menu-user" href="' . wc_get_page_permalink( 'myaccount' ) . '">' . __( 'My Account', 'dokanee' ) . '</a>';
+	        $cart .= '</li>';
+        }
 
         return $cart;
 	}

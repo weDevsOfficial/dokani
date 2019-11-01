@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * @hooked dokanee_top_bar - 5
 	 * @hooked dokanee_add_navigation_before_header - 5
 	 */
-	do_action( 'dokanee_before_header' );
+	 do_action( 'dokanee_before_header' );
 
 	/**
 	 * dokanee_header hook.

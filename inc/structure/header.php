@@ -30,7 +30,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 
 				echo '<div class="header-left">';
                     // Display dokan category
-                    if ( class_exists( 'WooCommerce' ) ) {
+                    if ( function_exists( 'dokan' ) ) {
 	                    dokan_category_widget();
                     }
 
@@ -61,7 +61,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
                      * @hooked dokanee_add_navigation_float_right - 5
                      * @hooked dokanee_add_cart_menu_after_search - 10
                      */
-                     do_action( 'dokanee_after_header_right' );
+                      do_action( 'dokanee_after_header_right' );
 
 				echo '</div>';
 
@@ -290,10 +290,19 @@ if ( ! function_exists( 'dokanee_top_bar' ) ) {
 
                 <div class="dokanee-user-menu">
 	                <?php
-                    if ( function_exists( 'dokan_header_user_menu' ) ) {
+                    if ( function_exists( 'dokan_header_user_menu' ) && class_exists( 'WooCommerce' ) ) {
 	                    dokan_header_user_menu();
-                    }
-                    ?>
+                    } elseif ( ! function_exists( 'dokan_header_user_menu' ) && class_exists( 'WooCommerce' ) ) { ?>
+                        <ul class="nav navbar-nav navbar-right">
+		                    <?php
+		                    $cart_topbar = dokanee_get_setting( 'cart_position_setting' );
+
+		                    if ( 'cart-topbar' == $cart_topbar){
+			                    echo dokanee_cart_position();
+		                    }
+		                    ?>
+                        </ul>
+                    <?php } ?>
                 </div>
 			</div>
 		</div>

@@ -32,7 +32,7 @@ if ( ! function_exists( 'dokanee_navigation_position' ) ) {
 				do_action( 'dokanee_inside_navigation' );
 				?>
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<?php do_action( 'dokanee_inside_mobile_menu' ); ?>
+					<?php  do_action( 'dokanee_inside_mobile_menu' ); ?>
 					<span class="mobile-menu screen-reader-text"><?php echo apply_filters( 'dokanee_mobile_menu_label', __( 'Menu', 'dokanee' ) ); // WPCS: XSS ok. ?></span>
 				</button>
 
@@ -296,7 +296,9 @@ function dokanee_clone_sidebar_navigation() {
 }
 
 if ( ! function_exists( 'dokanee_menu_responsive_search' ) ) {
-	add_filter( 'wp_nav_menu_items', 'dokanee_menu_responsive_search', 10, 2 );
+    if ( function_exists( 'dokan_pro' ) ) {
+	    add_filter( 'wp_nav_menu_items', 'dokanee_menu_responsive_search', 10, 2 );
+    }
 	/**
 	 * Build responsive search
 	 *
@@ -326,7 +328,7 @@ if ( ! function_exists( 'dokanee_responsive_vendor_menu' ) ) {
 
 		if ( $args->theme_location == 'responsive_menu' ) {
 
-            if ( dokan_is_user_seller( $user_id ) ) {
+            if ( function_exists( 'dokan_is_user_seller' ) && dokan_is_user_seller( $user_id ) ) {
                 $vendor = '';
                 $vendor .= '<li class="menu-item menu-item-has-children"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'. __( 'Vendor Dashboard', 'dokanee' ) .'<span role="presentation" class="dropdown-menu-toggle" aria-expanded="false"></span></a>';
 

@@ -36,27 +36,16 @@ get_header(); ?>
 		 */
 		if ( class_exists( 'WooCommerce' ) ) {
 			get_template_part( 'template-parts/page/content', 'front-page' );
-		} else {
-            echo '<div class="grid-container home-template-without-wc">';
-			if ( have_posts() ) :
+		} else { ?>
+            <div class="grid-container home-template-without-wc">
+			    <div class="woocommerce-notices-wrapper"><div class="woocommerce-message" role="alert">
+                    <?php
+                    echo __( 'Looks like you are using Homepage template without WooCommerce, This template is designed for WooCommerce so for using this page-template please install WooCommerce First!', 'dokanee' );
+                    ?>
+                </div>
+            </div>
 
-				while ( have_posts() ) : the_post();
-
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-
-				endwhile;
-
-			else :
-
-				get_template_part( 'no-results', 'index' );
-
-			endif;
-			echo '</div>';
-		}
+		<?php }
 
 		/**
 		 * dokanee_after_main_content hook.

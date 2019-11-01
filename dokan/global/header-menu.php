@@ -13,7 +13,7 @@
     $cart_topbar = dokanee_get_setting( 'cart_position_setting' );
 
     if ( 'cart-topbar' == $cart_topbar){
-	    echo dokanee_cart_position();
+        echo dokanee_cart_position();
     }
     ?>
 
