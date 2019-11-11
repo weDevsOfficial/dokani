@@ -85,4 +85,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'dokanee_after_content' );
 		?>
 	</div><!-- .inside-article -->
+	<?php
+	/**
+	 * dokane_post_meta hook.
+	 *
+	 * @since 0.1
+	 *
+	 * @hooked dokane_post_meta - 10
+	 */
+	do_action( 'dokane_post_meta' );
+
+	/**
+	 * dokanee_post_nav hook.
+	 *
+	 * @since 0.1
+	 *
+	 * @hooked dokanee_post_nav - 10
+	 */
+	do_action( 'dokanee_post_nav' );
+
+	/**
+	 * dokanee_post_author_profile hook.
+	 *
+	 * @since 0.1
+	 *
+	 * @hooked dokanee_post_author_profile - 10
+	 */
+	do_action( 'dokanee_post_author_profile' );
+	?>
 </article><!-- #post-## -->

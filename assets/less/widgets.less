@@ -19,8 +19,9 @@
             text-transform: none;
             font-size: 20px;
             line-height: 1.3em;
-            padding: 23px 29px 21px;
-            border-bottom: 2px solid @border-color;
+            padding-left: 30px;
+            padding-right: 30px;
+            //border-bottom: 2px solid @border-color;
             margin-bottom: 0;
         }
 
@@ -68,8 +69,8 @@
         ul {
 
             > li {
-                padding: 14px 30px !important;
-                border-bottom: 2px solid @border-color;
+                padding-left: 30px;
+                padding-right: 30px;
 
                 &:last-child {
                     border-bottom: 0;
@@ -78,11 +79,11 @@
                 > a {
                     color: @sidebar-content-color;
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: @theme-color;
-                    }
+                    //&:hover,
+                    //&:active,
+                    //&:focus {
+                    //    color: @theme-color;
+                    //}
                 }
 
                 .children {
@@ -103,5 +104,9 @@
 }
 
 .sidebar .widget {
+    margin-top: 30px;
+}
 
+.dokanee-template-front-page .sidebar .widget {
+    margin-top: 0;
 }

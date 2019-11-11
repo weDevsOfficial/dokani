@@ -30,7 +30,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 
 				echo '<div class="header-left">';
                     // Display dokan category
-                    if ( function_exists( 'dokan' ) ) {
+                    if ( function_exists( 'dokan' ) && get_theme_mod( 'show_product_cateogry_menu', 'on' ) == 'on' ) {
 	                    dokan_category_widget();
                     }
 
@@ -262,13 +262,15 @@ if ( ! function_exists( 'dokanee_construct_header_widget' ) ) {
 }
 
 if ( ! function_exists( 'dokanee_top_bar' ) ) {
-	add_action( 'dokanee_before_header', 'dokanee_top_bar', 5 );
+    add_action( 'dokanee_before_header', 'dokanee_top_bar', 5 );
 	/**
 	 * Build our top bar.
 	 *
 	 * @since 1.3.45
 	 */
-	function dokanee_top_bar() { ?>
+	function dokanee_top_bar() {
+	    if ( get_theme_mod( 'show_topbar' ) === 'disabled' ) return false;
+	    ?>
 
 		<div <?php dokanee_top_bar_class(); ?>>
 			<div class="inside-top-bar<?php if ( 'contained' == dokanee_get_setting( 'top_bar_inner_width' ) ) echo ' grid-container grid-parent'; ?>">

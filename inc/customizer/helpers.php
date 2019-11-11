@@ -38,9 +38,11 @@ if ( ! function_exists( 'dokanee_is_top_bar_active' ) ) {
 	 * @since 1.3.45
 	 */
 	function dokanee_is_top_bar_active() {
-		$top_bar = is_active_sidebar( 'top-bar' ) ? true : false;
+		if ( get_theme_mod( 'show_topbar', 'enabled' ) == 'enabled' ) {
+			return true;
+		}
 
-		return apply_filters( 'dokanee_is_top_bar_active', $top_bar );
+		return false;
 	}
 }
 
@@ -187,7 +189,7 @@ if ( ! function_exists( 'dokanee_sanitize_choices' ) ) {
 	/**
 	 * Sanitize choices.
 	 *
-	 * @since 1.3.24
+	 * @since 1.0.0
 	 */
 	function dokanee_sanitize_choices( $input, $setting ) {
 		// Ensure input is a slug
@@ -207,7 +209,7 @@ if ( ! function_exists( 'dokanee_sanitize_file' ) ) {
 	/**
 	 * Sanitize files.
 	 *
-	 * @since 1.3.24
+	 * @since 1.0.0
 	 */
 	function dokanee_sanitize_file( $file, $setting ) {
 
@@ -231,10 +233,10 @@ if ( ! function_exists( 'is_show_slider' ) ) {
 	/**
 	 * Check Is slider enable for showing home page
 	 *
-	 * @since 1.3.24
+	 * @since 1.0.0
 	 */
 	function is_show_slider() {
-		if ( get_theme_mod( 'show_slider' ) == 1 ) {
+		if ( get_theme_mod( 'show_slider' ) == 'on' ) {
 			return true;
 		}
 
@@ -246,15 +248,172 @@ if ( ! function_exists( 'is_show_products_cat_on' ) ) {
 	/**
 	 * Check Is products category on
 	 *
-	 * @since 1.3.24
+	 * @since 1.0.0
 	 */
     function is_show_products_cat_on() {
-	    if ( get_theme_mod( 'show_products_cat' ) == 1 ) {
+	    if ( get_theme_mod( 'show_products_cat' ) == 'on' ) {
 		    return true;
 	    }
 
 	    return false;
     }
+}
+
+if ( ! function_exists( 'is_show_trusted_factors' ) ) {
+	/**
+	 * Check Is products category on
+	 *
+	 * @since 1.0.0
+	 */
+    function is_show_trusted_factors() {
+	    if ( get_theme_mod( 'show_trusted_factors_section' ) == 'on' ) {
+		    return true;
+	    }
+
+	    return false;
+    }
+}
+
+if ( ! function_exists( 'is_copyright_with_image' ) ) {
+	/**
+	 * Check Is copyright text with image
+	 *
+	 * @since 1.0.0
+	 */
+    function is_copyright_with_image() {
+        if ( get_theme_mod( 'dokanee_footer_structure' ) == 'copyright_with_image' ) {
+		    return true;
+	    }
+
+	    return false;
+    }
+}
+
+if ( ! function_exists( 'dokanee_is_footer_bar_layout_1' ) ) {
+	/**
+	 * Check is footer bar layout 1
+	 *
+	 * @since 1.0.0
+	 */
+    function dokanee_is_footer_bar_layout_1() {
+        if ( get_theme_mod( 'footer_bar_layout' ) == 'layout-1' ) {
+		    return true;
+	    }
+
+	    return false;
+    }
+}
+
+if ( ! function_exists( 'dokanee_is_footer_bar_layout_2' ) ) {
+	/**
+	 * Check is footer bar layout 2
+	 *
+	 * @since 1.0.0
+	 */
+    function dokanee_is_footer_bar_layout_2() {
+        if ( get_theme_mod( 'footer_bar_layout' ) == 'layout-2' ) {
+		    return true;
+	    }
+
+	    return false;
+    }
+}
+
+if ( ! function_exists( 'dokanee_is_footer_bar_layout_disabled' ) ) {
+	/**
+	 * Check is footer bar layout disabled
+	 *
+	 * @since 1.0.0
+	 */
+    function dokanee_is_footer_bar_layout_disabled() {
+        if ( get_theme_mod( 'footer_bar_layout' ) == 'disabled' ) {
+		    return true;
+	    }
+
+	    return false;
+    }
+}
+
+if ( ! function_exists( 'dokanee_is_footer_bar_layout_not_disabled' ) ) {
+	/**
+	 * Check is footer bar layout not disabled
+	 *
+	 * @since 1.0.0
+	 */
+    function dokanee_is_footer_bar_layout_not_disabled() {
+        if ( get_theme_mod( 'footer_bar_layout' ) == 'layout-1' || get_theme_mod( 'footer_bar_layout' ) == 'layout-2' ) {
+		    return true;
+	    }
+
+	    return false;
+    }
+}
+
+if ( ! function_exists( 'dokanee_is_footer_widget_layout_not_disabled' ) ) {
+	/**
+	 * Check is footer bar layout not disabled
+	 *
+	 * @since 1.0.0
+	 */
+    function dokanee_is_footer_widget_layout_not_disabled() {
+        if ( get_theme_mod( 'footer_widget_layout' ) == 'layout-1' ) {
+		    return true;
+	    }
+
+	    return false;
+    }
+}
+
+if ( ! function_exists( 'is_section1_type_text' ) ) {
+	/**
+	 * Check is section 1 content type text
+	 *
+	 * @since 1.0.0
+	 */
+    function is_section1_type_text() {
+	    if ( dokanee_is_footer_bar_layout_disabled() ) {
+		    return false;
+	    }
+
+        if ( get_theme_mod( 'dokanee_footer_bar_section1_type' ) == 'text' ) {
+		    return true;
+	    }
+
+	    return false;
+    }
+}
+
+if ( ! function_exists( 'is_section2_type_text' ) ) {
+	/**
+	 * Check is section 2 content type text
+	 *
+	 * @since 1.0.0
+	 */
+	function is_section2_type_text() {
+	    if ( dokanee_is_footer_bar_layout_disabled() ) {
+	        return false;
+        }
+		if ( get_theme_mod( 'dokanee_footer_bar_section2_type' ) == 'text' ) {
+			return true;
+		}
+
+		return false;
+	}
+}
+
+if ( ! function_exists( 'is_nav_position_bellow_header' ) ) {
+	/**
+	 * Check is section 2 content type text
+	 *
+	 * @since 1.0.0
+	 */
+	function is_nav_position_bellow_header() {
+	    if ( dokanee_get_setting( 'nav_position_setting' ) === 'nav-below-header' ) {
+			return true;
+		}
+
+		return false;
+	}
 }
 
 
@@ -271,7 +430,25 @@ function dokanee_sanitize_variants( $input ) {
 	return sanitize_text_field( $input );
 }
 
+/**
+ * Sanitize radio buttons
+ *
+ * @since 1.0.0
+ */
+function dokanee_sanitize_radio( $input, $setting ){
+
+	//input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only
+	$input = sanitize_key($input);
+
+	//get the list of possible radio box options
+	$choices = $setting->manager->get_control( $setting->id )->choices;
+
+	//return input if valid or return default option
+	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+
+}
 add_action( 'customize_controls_enqueue_scripts', 'dokanee_do_control_inline_scripts', 100 );
+
 /**
  * Add misc inline scripts to our controls.
  *

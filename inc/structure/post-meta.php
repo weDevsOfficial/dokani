@@ -157,12 +157,12 @@ if ( ! function_exists( 'dokanee_entry_meta' ) ) {
 	 * @since 1.2.5
 	 */
 	function dokanee_entry_meta() {
-		$categories = apply_filters( 'dokanee_show_categories', true );
-		$tags = apply_filters( 'dokanee_show_tags', true );
+		$is_show_categories = get_theme_mod( 'blog_single_show_category' );
+		$is_show_tags = get_theme_mod( 'blog_single_show_tag' );
 		$comments = apply_filters( 'dokanee_show_comments', true );
 
 		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'dokanee' ) );
-		if ( $categories_list && $categories ) {
+		if ( $categories_list && $is_show_categories ) {
 			echo apply_filters( 'dokanee_category_list_output', sprintf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>', // WPCS: XSS ok, sanitization ok.
 				esc_html_x( 'Categories', 'Used before category names.', 'dokanee' ),
 				$categories_list
@@ -170,7 +170,7 @@ if ( ! function_exists( 'dokanee_entry_meta' ) ) {
 		}
 
 		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'dokanee' ) );
-		if ( $tags_list && $tags ) {
+		if ( $tags_list && $is_show_tags ) {
 			echo apply_filters( 'dokanee_tag_list_output', sprintf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>', // WPCS: XSS ok, sanitization ok.
 				esc_html_x( 'Tags', 'Used before tag names.', 'dokanee' ),
 				$tags_list
@@ -203,6 +203,37 @@ if ( ! function_exists( 'dokanee_excerpt_more' ) ) {
 			'<span class="screen-reader-text">' . get_the_title() . '</span>'
 		) );
 	}
+}
+
+if ( ! function_exists( 'dokanee_author_profile' ) ) {
+	/**
+	 * Prints the author profile.
+	 */
+	function dokanee_author_profile() {
+	    $author_id = get_the_author_meta( 'ID' );
+	    $author_name = get_the_author_meta( 'display_name' );
+	    $author_email = get_the_author_meta( 'user_email' );
+	    $author_avatar = get_avatar( $author_email, 60 );
+	    $author_description = get_the_author_meta( 'user_description' );
+	    $author_url = get_author_posts_url( $author_id );
+    ?>
+        <div class="author-profile">
+            <div class="author-thumb">
+                <?php
+                echo $author_avatar;
+                ?>
+            </div>
+            <div class="author-bio">
+                <h3>
+                    <span><?php echo _e( 'About', 'dokanee' ); ?></span>
+                    <a href="<?php echo $author_url; ?>"><?php echo $author_name; ?></a>
+                </h3>
+                <div class="author-description">
+                    <?php echo $author_description; ?>
+                </div>
+            </div>
+        </div>
+	<?php }
 }
 
 if ( ! function_exists( 'dokanee_content_more' ) ) {
@@ -241,19 +272,51 @@ if ( ! function_exists( 'dokanee_post_meta' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_footer_meta' ) ) {
-//	add_action( 'dokanee_after_entry_content', 'dokanee_footer_meta' );
+if ( ! function_exists( 'dokanee_get_post_nav' ) ) {
+	add_action( 'dokanee_post_nav', 'dokanee_get_post_nav' );
 	/**
 	 * Build the footer post meta.
 	 *
 	 * @since 1.3.30
 	 */
-	function dokanee_footer_meta() {
+	function dokanee_get_post_nav() {
 		if ( 'post' == get_post_type() ) : ?>
 			<footer class="entry-meta">
-				<?php dokanee_entry_meta(); ?>
-				<?php if ( is_single() ) dokanee_content_nav( 'nav-below' ); ?>
+				<?php if ( is_single() && get_theme_mod( 'show_post_nav' ) ) dokanee_content_nav( 'nav-below' ); ?>
 			</footer><!-- .entry-meta -->
 		<?php endif;
 	}
 }
+
+if ( ! function_exists( 'dokanee_get_author_profile' ) ) {
+	add_action( 'dokanee_post_author_profile', 'dokanee_get_author_profile' );
+	/**
+	 * Build the author profile.
+	 *
+	 * @since 1.0.0
+	 */
+	function dokanee_get_author_profile() {
+		if ( 'post' == get_post_type() && is_single() && get_theme_mod( 'blog_single_show_author_profile' ) ) {
+			dokanee_author_profile();
+        }
+	}
+}
+
+if ( ! function_exists( 'dokane_get_post_meta' ) ) {
+	add_action( 'dokane_post_meta', 'dokane_get_post_meta' );
+	/**
+	 * Build the footer post meta.
+	 *
+	 * @since 1.3.30
+	 */
+	function dokane_get_post_meta() {
+		if ( 'post' == get_post_type() && is_single() ) {
+		    ?>
+            <div class="dokanee-entry-meta-wrap">
+                <?php dokanee_entry_meta(); ?>
+            </div>
+            <?php
+        }
+	}
+}
+

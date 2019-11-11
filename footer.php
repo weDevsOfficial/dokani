@@ -51,6 +51,7 @@ if( ( get_theme_mod( 'show_trusted_factors_section', 'on' ) == 'on' ) && class_e
 	 * @hooked dokanee_construct_footer_widgets - 5
 	 * @hooked dokanee_construct_footer - 10
 	 */
+
 	do_action( 'dokanee_footer' );
 
 	/**

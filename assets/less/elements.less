@@ -49,7 +49,7 @@
 /* = Section Trust Factors
 ----------------------------------------------- */
 .trust-factors-section {
-    #gradient>.directional(#FFAD6F, #FF7D90, 85deg);
+    //#gradient>.directional(#FFAD6F, #FF7D90, 85deg);
     padding: 47px 40px;
 
     .grid-container {
@@ -59,7 +59,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 30px;
-            color: @white;
 
             @media (max-width: @screen-md-max) {
                 grid-gap: 15px;
@@ -88,8 +87,6 @@
                     width: 64px;
                     height: 64px;
                     .rounded(50%);
-                    background-color: @white;
-                    color: #ff8c86;
                     font-size: 25px;
                     text-align: center;
                     position: relative;

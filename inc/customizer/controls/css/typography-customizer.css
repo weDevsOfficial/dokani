@@ -1,7 +1,53 @@
 .dokanee-font-weight,
 .dokanee-font-transform {
     float: left;
-    width: 50%
+    width: 48%
+}
+
+.dokanee-font-transform {
+	float: right;
+}
+
+.customize-control-dokanee-range-slider .dokanee-slider {
+	margin-top: 9px;
+}
+
+.dokanee-range-slider-control {
+	margin-bottom: 15px;
+}
+
+.dokanee-range-slider-control .gp-range-title-area,
+.customize-control-title {
+	display: flex;
+	justify-content: space-between;
+	background: #fff;
+	padding: 8px 12px;
+	font-size: 11.5px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	line-height: 1;
+	text-transform: uppercase;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	margin: 0 -12px 10px;
+	align-items: center;
+}
+
+.gp-range-title-area .customize-control-title {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.customize-control-title {
+	color: #1e8cbe !important;
+	min-height: 20px;
+}
+
+.dokanee-range-slider-control .gp-range-title-area .description {
+	color: #1e8cbe !important;
+	font-style: normal;
+	margin: 0;
 }
 
 .dokanee-font-weight select {

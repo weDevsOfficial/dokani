@@ -76,19 +76,20 @@ if ( ! function_exists( 'dokanee_widgets_init' ) ) {
 	 */
 	function dokanee_widgets_init() {
 		$widgets = array(
-			'sidebar-1' => __( 'Right Sidebar', 'dokanee' ),
-			'sidebar-2' => __( 'Left Sidebar', 'dokanee' ),
-			'header' => __( 'Header', 'dokanee' ),
-			'footer-1' => __( 'Footer Widget 1', 'dokanee' ),
-			'footer-2' => __( 'Footer Widget 2', 'dokanee' ),
-			'footer-3' => __( 'Footer Widget 3', 'dokanee' ),
-			'footer-4' => __( 'Footer Widget 4', 'dokanee' ),
-			'footer-5' => __( 'Footer Widget 5', 'dokanee' ),
-			'footer-bar' => __( 'Footer Bar','dokanee' ),
-			'store-list' => __( 'Store List','dokanee' ),
-			'sidebar-shop' => __( 'Shop','dokanee' ),
+			'sidebar-1'       => __( 'Right Sidebar', 'dokanee' ),
+			'sidebar-2'       => __( 'Left Sidebar', 'dokanee' ),
+			'header'          => __( 'Header', 'dokanee' ),
+			'footer-1'        => __( 'Footer Widget 1', 'dokanee' ),
+			'footer-2'        => __( 'Footer Widget 2', 'dokanee' ),
+			'footer-3'        => __( 'Footer Widget 3', 'dokanee' ),
+			'footer-4'        => __( 'Footer Widget 4', 'dokanee' ),
+			'footer-5'        => __( 'Footer Widget 5', 'dokanee' ),
+			'footer-bar-1'    => __( 'Footer Bar Section 1','dokanee' ),
+			'footer-bar-2'    => __( 'Footer Bar Section 2','dokanee' ),
+			'store-list'      => __( 'Store List','dokanee' ),
+			'sidebar-shop'    => __( 'Shop','dokanee' ),
 			'sidebar-product' => __( 'Product','dokanee' ),
-			'home' => __( 'Home','dokanee' ),
+			'home'            => __( 'Home','dokanee' ),
 		);
 
 		foreach ( $widgets as $id => $name ) {

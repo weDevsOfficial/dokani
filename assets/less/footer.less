@@ -26,7 +26,6 @@
     line-height: 1.5em;
     color: @footer-color;
     padding: 110px 40px;
-    border-top: 1px solid @border-color;
 
     .inside-footer-widgets .inner-padding {
         padding: 0 40px;
@@ -67,9 +66,19 @@
         text-align: center;
     }
 
+
     .inside-site-info {
-        display: flex;
-        align-items: center;
+
+        .footer-bar-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 -15px;
+        }
+
+        .footer-bar-column {
+            padding: 0 15px;
+        }
 
         @media (max-width: @screen-sm-min) {
             display: block;
@@ -98,91 +107,83 @@
             }
         }
     }
+
+    // layout 2 style
+    &.layout-2 .inside-site-info .footer-bar-row {
+        flex-direction: row;
+    }
+
+    &.layout-1 .inside-site-info .footer-bar-row {
+        flex-direction: column;
+    }
+
+    &.layout-1 .footer-bar-section1 {
+        margin-bottom: 10px;
+    }
+
+
 }
 
 
-/* Footer bar */
+// footer menu
 
-.footer-bar {
-    @media (max-width: @screen-sm-min) {
-        float: none !important;
-        text-align: center !important;
-        margin-bottom: 20px;
-    }
+.footer-menu {
 
-    .widget_nav_menu > div > ul {
-        display: inline-block;
-        vertical-align: top;
-    }
-
-    .textwidget p:last-child {
+    ul {
         margin: 0;
+        display: flex;
+        align-items: center;
+
+        &:not(.sub-menu) {
+            margin: 0 -8px;
+        }
+
+        li {
+            list-style: none;
+
+            a {
+                display: block;
+                padding: 8px 12px;
+            }
+
+            &.menu-item-has-children {
+                position: relative;
+                margin-right: 10px;
+                > a {
+                    position: relative;
+                    &:after {
+                        content: "\f106";
+                        font-family: FontAwesome;
+                        position: absolute;
+                        color: inherit;
+                        right: -2px;
+                        top: 50%;
+                        transform: translate(0%, -50%);
+                    }
+                }
+
+                ul {
+                    position: absolute;
+                    bottom: 100%;
+                    left: 0;
+                    min-width: 160px;
+                    z-index: 1000;
+                    padding: 5px 0;
+                    .box-shadow(0 10px 50px 0 rgba(0, 0, 0, 0.17));
+                    flex-direction: column;
+                    align-items: flex-start;
+                    background: #fff;
+                    border-radius: 4px;
+                    display: none;
+                }
+
+                &:hover ul {
+                    display: flex;
+                    li a {
+                        padding: 4px 15px;
+                    }
+                }
+            }
+        }
     }
-
-    .widget-title {
-        display: none;
-    }
-
-    /* Footer bar menu */
-    .widget_nav_menu li {
-        margin: 0 10px;
-        float: left;
-        padding: 0;
-
-        @media (max-width: @screen-sm-min) {
-            float: none;
-            display: inline-block;
-            padding: 5px 0;
-        }
-
-        &:first-child {
-            margin-left: 0;
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
-
-        ul {
-            display: none;
-        }
-    }
-}
-
-.footer-bar-active .footer-bar .widget {
-    padding: 0;
-}
-
-
-/* Footer bar aligned right */
-.footer-bar-align-right .copyright-bar {
-    float: left;
-}
-
-.footer-bar-align-right .footer-bar {
-    float: right;
-    text-align: right;
-}
-
-/* Footer bar aligned left */
-.footer-bar-align-left .copyright-bar {
-    float: right;
-    text-align: right;
-}
-
-.footer-bar-align-left .footer-bar {
-    float: left;
-    text-align: left;
-}
-
-/* Footer bar aligned center */
-.footer-bar-align-center .copyright-bar {
-    float: none;
-    text-align: center;
-}
-
-.footer-bar-align-center .footer-bar {
-    float: none;
-    text-align: center;
-    margin-bottom: 10px;
 }

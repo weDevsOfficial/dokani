@@ -10,7 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php dokanee_article_schema( 'CreativeWork' ); ?>>
-	<div class="inside-article">
+    <?php
+    $is_fluid_content = get_theme_mod( 'fluid_featured_image' );
+    $is_show_comments = get_theme_mod( 'blog_post_show_comment' );
+    $is_show_category = get_theme_mod( 'blog_post_show_category' );
+    $is_show_tag = get_theme_mod( 'blog_post_show_tag' );
+    $is_show_author = get_theme_mod( 'blog_post_show_author' );
+    $is_show_date = get_theme_mod( 'blog_post_show_date' );
+    ?>
+	<div class="inside-article <?php echo ( $is_fluid_content ) ? 'is-fluid-content' : ''; ?>">
 		<?php
 		/**
 		 * dokanee_before_content hook.
@@ -91,4 +99,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'dokanee_after_content' );
 		?>
 	</div><!-- .inside-article -->
+
 </article><!-- #post-## -->

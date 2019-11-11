@@ -34,19 +34,7 @@ if ( ! function_exists( 'dokanee_enqueue_google_fonts' ) ) {
 		// Grab our font family settings
 		$font_settings = array(
 			'font_body',
-			'font_top_bar',
-			'font_site_title',
-			'font_site_tagline',
-			'font_navigation',
-			'font_widget_title',
-			'font_buttons',
-			'font_heading_1',
-			'font_heading_2',
-			'font_heading_3',
-			'font_heading_4',
-			'font_heading_5',
-			'font_heading_6',
-			'font_footer',
+			'font_heading'
 		);
 
 		// Create our Google Fonts array
@@ -135,13 +123,17 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 			$wp_customize->register_control_type( 'Generate_Range_Slider_Control' );
 		}
 
+		/**
+		 * Add Base Typography Section
+		 */
 		$wp_customize->add_section(
-			'font_section',
+			'base_typo_section',
 			array(
-				'title' => __( 'Typography', 'dokanee' ),
+				'title' => __( 'Base Typography', 'dokanee' ),
 				'capability' => 'edit_theme_options',
 				'description' => '',
-				'priority' => 30
+				'priority' => 1,
+				'panel'      => $wp_customize->get_panel( 'dokanee_typography_panel' ) ? 'dokanee_typography_panel' : false,
 			)
 		);
 
@@ -196,7 +188,7 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 				$wp_customize,
 				'body_typography',
 				array(
-					'section' => 'font_section',
+					'section' => 'base_typo_section',
 					'priority' => 1,
 					'settings' => array(
 						'family' => 'dokanee_settings[font_body]',
@@ -208,6 +200,303 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 				)
 			)
 		);
+
+
+		/**
+		 * Add Heading Typography Section
+		 */
+		$wp_customize->add_section(
+			'heading_typo_section',
+			array(
+				'title' => __( 'Headings', 'dokanee' ),
+				'capability' => 'edit_theme_options',
+				'description' => '',
+				'priority' => 2,
+				'panel'      => $wp_customize->get_panel( 'dokanee_typography_panel' ) ? 'dokanee_typography_panel' : false,
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_settings[font_heading]',
+			array(
+				'default' => $defaults['font_heading'],
+				'type' => 'option',
+				'sanitize_callback' => 'sanitize_text_field'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'font_heading_category',
+			array(
+				'default' => $defaults['font_heading_category'],
+				'sanitize_callback' => 'sanitize_text_field'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'font_heading_variants',
+			array(
+				'default' => $defaults['font_heading_variants'],
+				'sanitize_callback' => 'dokanee_sanitize_variants'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_settings[heading_font_weight]',
+			array(
+				'default' => $defaults['heading_font_weight'],
+				'type' => 'option',
+				'sanitize_callback' => 'sanitize_key',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_settings[heading_font_transform]',
+			array(
+				'default' => $defaults['heading_font_transform'],
+				'type' => 'option',
+				'sanitize_callback' => 'sanitize_key',
+				'transport' => 'refresh'
+
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Typography_Customize_Control(
+				$wp_customize,
+				'heading_typography',
+				array(
+					'section'   => 'heading_typo_section',
+					'priority'  => 1,
+					'settings'  => array(
+						'family'    => 'dokanee_settings[font_heading]',
+						'variant'   => 'font_heading_variants',
+						'category'  => 'font_heading_category',
+						'weight'    => 'dokanee_settings[heading_font_weight]',
+						'transform' => 'dokanee_settings[heading_font_transform]',
+					),
+				)
+			)
+		);
+
+
+		$wp_customize->add_setting(
+			'dokanee_settings[heading_1_font_size]',
+			array(
+				'default' => $defaults['heading_1_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokanee_settings[heading_1_font_size]',
+				array(
+					'type' => 'dokanee-range-slider',
+					'description' => __( 'Heading 1 Font size', 'dokanee' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokanee_settings[heading_1_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 2,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_settings[heading_2_font_size]',
+			array(
+				'default' => $defaults['heading_2_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokanee_settings[heading_2_font_size]',
+				array(
+					'type' => 'dokanee-range-slider',
+					'description' => __( 'Heading 2 Font size', 'dokanee' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokanee_settings[heading_2_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 3,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_settings[heading_3_font_size]',
+			array(
+				'default' => $defaults['heading_3_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokanee_settings[heading_3_font_size]',
+				array(
+					'type' => 'dokanee-range-slider',
+					'description' => __( 'Heading 3 Font size', 'dokanee' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokanee_settings[heading_3_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 4,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_settings[heading_4_font_size]',
+			array(
+				'default' => $defaults['heading_4_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokanee_settings[heading_4_font_size]',
+				array(
+					'type' => 'dokanee-range-slider',
+					'description' => __( 'Heading 4 Font size', 'dokanee' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokanee_settings[heading_4_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 5,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_settings[heading_5_font_size]',
+			array(
+				'default' => $defaults['heading_5_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokanee_settings[heading_5_font_size]',
+				array(
+					'type' => 'dokanee-range-slider',
+					'description' => __( 'Heading 5 Font size', 'dokanee' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokanee_settings[heading_5_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 6,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokanee_settings[heading_6_font_size]',
+			array(
+				'default' => $defaults['heading_6_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokanee_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokanee_settings[heading_6_font_size]',
+				array(
+					'type' => 'dokanee-range-slider',
+					'description' => __( 'Heading 6 Font size', 'dokanee' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokanee_settings[heading_6_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 6,
+				)
+			)
+		);
+
+
+
+
+
+
+
 
 		$wp_customize->add_setting(
 			'dokanee_settings[body_font_size]',
@@ -226,7 +515,7 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 				array(
 					'type' => 'dokanee-range-slider',
 					'description' => __( 'Font size', 'dokanee' ),
-					'section' => 'font_section',
+					'section' => 'base_typo_section',
 					'settings' => array(
 						'desktop' => 'dokanee_settings[body_font_size]',
 					),
@@ -261,7 +550,7 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 				array(
 					'type' => 'dokanee-range-slider',
 					'description' => __( 'Line height', 'dokanee' ),
-					'section' => 'font_section',
+					'section' => 'base_typo_section',
 					'settings' => array(
 						'desktop' => 'dokanee_settings[body_line_height]',
 					),
@@ -296,7 +585,7 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 				array(
 					'type' => 'dokanee-range-slider',
 					'description' => __( 'Paragraph margin', 'dokanee' ),
-					'section' => 'font_section',
+					'section' => 'base_typo_section',
 					'settings' => array(
 						'desktop' => 'dokanee_settings[paragraph_margin]',
 					),

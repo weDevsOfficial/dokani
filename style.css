@@ -1,6 +1,6 @@
 /*
 Theme Name: Dokanee
-Theme URI: https://wordpress.org/themes/dokanee/
+Theme URI: https://wedevs.com/themes/dokanee/
 Author: weDevs, LLC
 Author URI: https://wedevs.com
 Description: An eCommerce theme for Dokan
@@ -102,10 +102,10 @@ button,
 input,
 select,
 textarea {
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.5;
+	/*font-family: sans-serif;*/
+	/*font-size: 16px;*/
+	/*font-size: 1.6rem;*/
+	/*line-height: 1.5;*/
 }
 
 hr {
@@ -118,7 +118,7 @@ hr {
 
 /* Text elements */
 p {
-	margin-bottom: 1.5em;
+	/*margin-bottom: 1.5em;*/
 }
 
 ul, ol {
@@ -747,7 +747,7 @@ h4, h5, h6 {
 	margin: 0;
 }
 
-div:not(.entry-content) .widget ul li {
+div:not(.entry-content) .widget li {
 	list-style-type: none;
 	position:relative;
 	padding-bottom: 5px;
@@ -1109,7 +1109,7 @@ footer.entry-meta .byline {
 
 .separate-containers .inside-right-sidebar,
 .separate-containers .inside-left-sidebar {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     margin-bottom: 30px;
 }
 
