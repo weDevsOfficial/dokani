@@ -15,6 +15,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        min-height: 45px;
 
         @media (max-width: @screen-xs-max) {
             padding: 0 15px;
@@ -734,6 +735,7 @@
         padding-top: 0;
         padding-bottom: 0;
         justify-content: space-between;
+        min-height: 70px;
 
         &:before,
         &:after {
@@ -1259,9 +1261,10 @@ ul.responsive-user-menu {
     }
 }
 
-@media @media-screen-md {
+@media @media-screen-sm-md {
     .site-header .inside-header,
-    .top-bar .inside-top-bar {
+    .top-bar .inside-top-bar,
+    .main-navigation .inside-navigation {
         padding: 0 30px;
     }
 }

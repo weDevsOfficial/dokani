@@ -131,7 +131,7 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 			$classes[] = 'dropdown-hover';
 		}
 
-		if ( function_exists( 'dokan_is_store_page()' ) && dokan_is_store_page() ) {
+		if ( function_exists( 'dokan_is_store_page' ) && dokan_is_store_page() ) {
 			$classes[] = 'dokanee-store-template';
         }
 

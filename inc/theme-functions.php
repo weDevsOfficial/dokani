@@ -29,6 +29,36 @@ if ( ! function_exists( 'dokanee_get_setting' ) ) {
 	}
 }
 
+if ( ! function_exists( 'dokanee_add_store_header_template' ) ) {
+	/**
+	 * Add store header template for single store
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $settins.
+	 * @return array.
+	 */
+	if ( function_exists( 'dokan' ) ) {
+		add_filter( 'dokan_settings_fields', 'dokanee_add_store_header_template' );
+		add_filter( 'dokan_admin_localize_script', 'dokanee_admin_localize_script' );
+	}
+
+	function dokanee_add_store_header_template( $settings ) {
+		$settings['dokan_appearance']['store_header_template']['options']['layout3'] =  get_template_directory_uri() . '/assets/images/dokanee-store-header-template.png';
+		return $settings;
+	}
+
+	function dokanee_admin_localize_script( $args ) {
+		$args['store_banner_dimension']['width']  = 1920;
+		$args['store_banner_dimension']['height'] = 470;
+		return $args;
+	}
+
+}
+
+
+
+
 if ( ! function_exists( 'dokanee_get_layout' ) ) {
 	/**
 	 * Get the layout for the current page.

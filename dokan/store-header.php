@@ -1,7 +1,10 @@
 <?php
+
 $store_user    = dokan()->vendor->get( get_query_var( 'author' ) );
 $store_info    = $store_user->get_shop_info();
 $social_info   = $store_user->get_social_profiles();
+$phone         = $store_user->get_phone();
+$email         = $store_user->get_email();
 $store_tabs    = dokan_get_store_tabs( $store_user->get_id() );
 $social_fields = dokan_get_social_profile_fields();
 
@@ -33,8 +36,7 @@ if ( 'layout3' === $profile_layout ) {
 }
 
 ?>
-<div class="dokan-single-store">
-<div class="profile-frame<?php echo $no_banner_class; ?>">
+<div class="profile-frame<?php echo $no_banner_class . ' ' . $profile_layout; ?>">
     <div class="store-banner">
         <div class="profile-info-img-wrapper">
             <?php if ( $store_user->get_banner() ) : ?>
@@ -47,7 +49,7 @@ if ( 'layout3' === $profile_layout ) {
             <?php endif; ?>
         </div> <!-- .profile-info-img-wrapper -->
 
-        <div class="profile-info-box profile-layout-<?php echo $profile_layout; ?>">
+        <div class="profile-info-box profile-layout-<?php echo $profile_layout; ?>" style="background-image: url('<?php echo $store_user->get_banner(); ?>')">
             <div class="grid-container">
                 <div class="profile-info-summery">
                     <div class="profile-info-head">
@@ -57,54 +59,99 @@ if ( 'layout3' === $profile_layout ) {
                     </div>
 
                     <div class="profile-info">
-	                    <?php if ( ! empty( $featured_seller ) && 'yes' == $featured_seller ): ?>
-                            <span class="featured-label"><?php _e( 'Featured', 'dokanee' ); ?></span>
-	                    <?php endif ?>
+                        <div class="store-info-column">
+                            <?php if ( ! empty( $featured_seller ) && 'yes' == $featured_seller ): ?>
+                                <span class="featured-label"><?php _e( 'Featured', 'dokanee' ); ?></span>
+                            <?php endif ?>
 
-	                    <?php if ( ! empty( $store_user->get_shop_name() ) && 'default' === $profile_layout ) { ?>
-                            <h1 class="store-name"><?php echo esc_html( $store_user->get_shop_name() ); ?></h1>
-	                    <?php } ?>
+                            <?php if ( ! empty( $store_user->get_shop_name() ) && 'default' === $profile_layout ) { ?>
+                                <h1 class="store-name"><?php echo esc_html( $store_user->get_shop_name() ); ?></h1>
+                            <?php } ?>
 
-					    <?php if ( ! empty( $store_user->get_shop_name() ) && 'default' !== $profile_layout ) { ?>
-                            <h1 class="store-name"><?php echo esc_html( $store_user->get_shop_name() ); ?></h1>
-					    <?php } ?>
+                            <?php if ( ! empty( $store_user->get_shop_name() ) && 'default' !== $profile_layout ) { ?>
+                                <h1 class="store-name"><?php echo esc_html( $store_user->get_shop_name() ); ?></h1>
+                            <?php } ?>
 
-                        <ul class="dokan-store-info">
-                            <li class="dokan-store-rating">
+                            <ul class="dokan-store-info">
+                                <li class="dokan-store-rating">
 
-	                            <?php if ( !empty( $seller_rating['count'] ) ): ?>
-                                    <div class="star-rating dokan-seller-rating" title="<?php echo sprintf( __( 'Rated %s out of 5', 'dokanee' ), $seller_rating['rating'] ) ?>">
-                                        <span style="width: <?php echo ( ( $seller_rating['rating']/5 ) * 100 - 1 ); ?>%">
-                                            <strong class="rating"><?php echo $seller_rating['rating']; ?></strong> out of 5
-                                        </span>
-                                    </div>
-	                            <?php else: ?>
+                                    <?php if ( ! empty( $seller_rating['count'] ) ): ?>
+                                        <div class="star-rating dokan-seller-rating" title="<?php echo sprintf( __( 'Rated %s out of 5', 'dokanee' ), $seller_rating['rating'] ) ?>">
+                                            <span style="width: <?php echo ( ( $seller_rating['rating']/5 ) * 100 - 1 ); ?>%">
+                                                <strong class="rating"><?php echo $seller_rating['rating']; ?></strong> out of 5
+                                            </span>
+                                        </div>
+                                    <?php else: ?>
 
-                                    <i class="fa fa-star"></i>
-		                            <?php echo $seller_rating['rating']; ?>
+                                        <i class="fa fa-star"></i>
+                                        <?php echo $seller_rating['rating']; ?>
 
-                                <?php endif ?>
+                                    <?php endif ?>
 
-                            </li>
+                                </li>
 
-						    <?php do_action( 'dokan_store_header_info_fields',  $store_user->get_id() ); ?>
-                        </ul>
+                                <?php do_action( 'dokan_store_header_info_fields',  $store_user->get_id() ); ?>
+                            </ul>
+                        </div>
+
+                        <div class="store-info-column">
+                            <ul class="store-meta-info">
+		                        <?php if ( ! empty( $store_address ) ) { ?>
+                                    <li>
+                                        <i class="fa fa-map-marker"></i>
+				                        <?php echo $store_address; ?>
+                                    </li>
+		                        <?php } ?>
+
+		                        <?php if ( ! empty( $phone ) ) { ?>
+                                    <li>
+                                        <a href="tel:<?php echo $phone; ?>">
+                                            <i class="fa fa-phone"></i>
+                                            <?php echo $phone; ?>
+                                        </a>
+                                    </li>
+		                        <?php } ?>
+
+
+		                        <?php if ( ! empty( $email ) ) { ?>
+                                    <li>
+                                        <a href="mailto:<?php echo $email; ?>">
+                                            <i class="fa fa-envelope"></i>
+                                            <?php echo $email; ?>
+                                        </a>
+                                    </li>
+		                        <?php } ?>
+                            </ul>
+
+                            <ul class="store-social-profiles">
+	                            <?php foreach( $social_fields as $key => $field ) { ?>
+		                            <?php if ( ! empty( $social_info[ $key ] ) ) {
+		                                $icon_class = str_replace( '-square', '', $field['icon'] );
+                                    ?>
+                                        <li class="<?php echo esc_attr( $icon_class ); ?>">
+                                            <a href="<?php echo esc_url( $social_info[ $key ] ); ?>" target="_blank"><i class="fa fa-<?php echo esc_attr( $icon_class ); ?>"></i></a>
+                                        </li>
+		                            <?php } ?>
+	                            <?php } ?>
+                            </ul>
+                        </div>
                     </div> <!-- .profile-info -->
                 </div><!-- .profile-info-summery -->
             </div><!-- .profile-info-summery-wrapper -->
         </div> <!-- .profile-info-box -->
     </div>
 </div> <!-- .profile-frame -->
-</div><!-- .dokan-single-store -->
 
 <?php if ( $store_tabs ) { ?>
-    <div class="dokan-store-tab-wrapper">
-        <div class="store-tab-container">
+    <div class="dokan-store-tab-wrapper <?php echo $profile_layout; ?>">
+        <div class="grid-container">
             <div class="dokan-store-tabs<?php echo $no_banner_class_tabs; ?>">
                 <ul class="dokan-list-inline">
-                    <?php foreach( $store_tabs as $key => $tab ) { ?>
+                    <?php foreach( $store_tabs as $key => $tab ) {
+                        if ( ! empty( $tab['url'] ) ) {
+                        ?>
                         <li><a href="<?php echo esc_url( $tab['url'] ); ?>"><?php echo $tab['title']; ?></a></li>
-                    <?php } ?>
+                    <?php } } ?>
                     <?php do_action( 'dokan_after_store_tabs', $store_user->get_id() ); ?>
                 </ul>
             </div>

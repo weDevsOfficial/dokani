@@ -104,6 +104,13 @@ jQuery(function ($) {
         $(button).children('i').addClass('fa-spin');
     });
 
+    $( document ).on( 'ready', function(){
+        if( ! $('.profile-frame').hasClass('layout1') && window.innerWidth < 768 ) {
+            $('.profile-frame').removeClass('layout3');
+            $('.profile-frame').addClass('layout1');
+        }
+    } )
+
 });
 
 

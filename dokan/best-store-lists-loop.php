@@ -4,6 +4,7 @@
             <ul class="dokan-seller-list column-<?php echo $per_row; ?>">
                 <?php
                 foreach ( $sellers as $seller ) {
+	                $seller_info = dokan()->vendor->get( $seller->seller_id );
                     $store_info = dokan_get_store_info( $seller->seller_id );
                     $banner_id  = isset( $store_info['banner'] ) ? $store_info['banner'] : 0;
                     $store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokanee' );
@@ -47,8 +48,11 @@
 				                <?php do_action( 'dokan_seller_listing_after_store_data', $seller, $store_info ); ?>
 
                             </div>
-
-			                <?php do_action( 'dokan_seller_listing_footer_content', $seller->data, $store_info ); ?>
+			                <?php
+			                if ( ! $seller instanceof Dokan_Seller || $seller->get_id() !== 0 ) {
+				                do_action( 'dokan_seller_listing_footer_content', $seller_info->data, $store_info );
+			                }
+			                ?>
                         </div>
                     </li>
 

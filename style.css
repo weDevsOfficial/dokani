@@ -516,9 +516,6 @@ object {
 
 /* =Start custom CSS
 ----------------------------------------------- */
-body {
-	font-size: 15px;
-}
 
 a,
 button,
@@ -631,19 +628,19 @@ fieldset legend {
 }
 
 h1 {
-	font-size: 35px;
+	font-size: 40px;
 	margin-bottom: 20px;
 	line-height: 1.2em;
 }
 
 h2 {
-	font-size: 25px;
+	font-size: 30px;
 	margin-bottom: 20px;
 	line-height: 1.2em;
 }
 
 h3 {
-	font-size: 20px;
+	font-size: 25px;
 	margin-bottom: 20px;
 	line-height: 1.2em;
 }
@@ -727,8 +724,8 @@ h4, h5, h6 {
 }
 
 /* Widget styling */
-.sidebar .widget *:last-child,
-.footer-widgets .widget *:last-child {
+.sidebar .widget > *:last-child,
+.footer-widgets .widget > *:last-child {
 	margin-bottom: 0;
 }
 
@@ -1172,12 +1169,6 @@ p {
 
 .main-navigation .main-nav ul ul li a {
     /*font-size: 14px;*/
-}
-
-
-.sidebar .widget,
-.footer-widgets .widget {
-    font-size: 17px;
 }
 
 h1 {

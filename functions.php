@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Set our theme version.
-define( 'GENERATE_VERSION', '2.1.2' );
+define( 'GENERATE_VERSION', '1.0.0' );
 
 if ( ! function_exists( 'dokanee_setup' ) ) {
 	add_action( 'after_setup_theme', 'dokanee_setup' );
@@ -70,6 +70,19 @@ if ( ! function_exists( 'dokanee_setup' ) ) {
 		update_option( 'woocommerce_thumbnail_cropping', 'custom' );
 		update_option( 'woocommerce_thumbnail_cropping_custom_width', '4' );
 		update_option( 'woocommerce_thumbnail_cropping_custom_height', '3' );
+
+		if ( function_exists( 'dokan' ) ) {
+			$dokan_apearance = get_option('dokan_appearance');
+
+			if ( ! function_exists( 'dokan_pro' ) ) {
+				$dokan_apearance['store_banner_width'] = 1900;
+				$dokan_apearance['store_banner_height'] = 470;
+			}
+
+			update_option('dokan_appearance', $dokan_apearance);
+
+		}
+
 	}
 }
 

@@ -30,12 +30,12 @@
         font-size: 18px;
         line-height: 1em;
 
-        &:hover,
-        &:focus,
-        &:active,
-        &.active {
-            color: @theme-color;
-        }
+        //&:hover,
+        //&:focus,
+        //&:active,
+        //&.active {
+        //    color: @theme-color;
+        //}
     }
 }
 
@@ -82,10 +82,11 @@
     .entry-header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     .dokan-seller-view {
-        padding: 0 10px;
+        padding: 10px;
         display: flex;
     }
 
@@ -487,7 +488,7 @@ input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn {
                     border: 1px solid #EAECF4;
                     .rounded(3px);
                     .box-shadow(0px 2px 10px 0px rgba(0, 0, 0, 0.07));
-                    color: #333e48;
+                    color: #fff;
                     font-size: 16px;
                     line-height: 1.2em;
                     background-color: transparent;
@@ -523,6 +524,10 @@ input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn {
 
 /* = Store Page
 ----------------------------------------------- */
+.dokan-follow-store-button.dokan-follow-store-button-working.dokan-btn-sm:after {
+    margin-top: -5px;
+}
+
 .dokan-single-store .dokan-store-tabs ul li {
     border: 0;
     .dokan-follow-store-button:after {
@@ -541,107 +546,303 @@ input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn {
         }
     }
 }
-//.dokanee-store-template {
-//    #page.grid-container {
-//        max-width: 100%;
-//    }
-//}
-//
-//.profile-frame {
-//    .store-banner {
-//        position: relative;
-//
-//        .profile-info-img-wrapper {
-//            position: relative;
-//        }
-//
-//        .profile-info-img-default {
-//            background-image: url(../images/default-store-banner.png);
-//            background-size: cover;
-//            background-position: center center;
-//            background-repeat: no-repeat;
-//            height: 460px;
-//            position: relative;
-//        }
-//
-//        .profile-info-box {
-//            width: 100%;
-//            position: absolute;
-//            bottom: 50px;
-//            left: 0;
-//
-//            .profile-img {
-//                img {
-//                    .rounded(50%);
-//                    .box-shadow(0px 0px 30px -6px #afafaf);
-//                    border: 5px solid @white;
-//                }
-//            }
-//
-//            .profile-info-summery {
-//                display: flex;
-//
-//                .profile-img {
-//                    margin-right: 27px;
-//                }
-//                .profile-info {
-//                    h1 {
-//                        font-size: 30px;
-//                        line-height: 1.2em;
-//                        font-weight: 600;
-//                        color: @black;
-//                        margin: 10px 0;
-//                    }
-//
-//                    .dokan-store-info {
-//                        margin: 0;
-//                        list-style: none;
-//
-//                        .dokan-store-rating {
-//                            .star-rating {
-//                                overflow: hidden;
-//                                position: relative;
-//                                height: 1em;
-//                                line-height: 1;
-//                                font-size: 12px;
-//                                width: 6.4em;
-//                                font-family: star;
-//                                color: #f39c12;
-//                                float: none;
-//
-//                                &:before {
-//                                    content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
-//                                    color: #c3c9cd;
-//                                    float: left;
-//                                    top: 0;
-//                                    left: 0;
-//                                    position: absolute;
-//                                }
-//
-//                                span {
-//                                    overflow: hidden;
-//                                    float: left;
-//                                    top: 0;
-//                                    left: 0;
-//                                    position: absolute;
-//                                    padding-top: 1.5em;
-//
-//                                    &:before {
-//                                        content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
-//                                        top: 0;
-//                                        position: absolute;
-//                                        left: 0;
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
+.dokanee-store-template {
+    #page.grid-container {
+        max-width: 100%;
+    }
+}
 
+.profile-frame {
+    .store-banner {
+        position: relative;
+
+        .profile-info-img-wrapper {
+            position: relative;
+            height: 470px;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 9;
+                transform: translate(-50%, -50%);
+                width: 100%;
+            }
+        }
+
+        .profile-info-img-default {
+            background-image: url(../images/default-store-banner.png);
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 460px;
+            position: relative;
+        }
+
+        .profile-info-box {
+            width: 100%;
+            position: absolute;
+            z-index: 10;
+            bottom: 50px;
+            left: 0;
+
+            .profile-img {
+                img {
+                    .rounded(50%);
+                    .box-shadow(0px 0px 30px -6px #afafaf);
+                    border: 5px solid @white;
+                }
+            }
+
+            .profile-info {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .store-info-column {
+                ul {
+                    list-style: none;
+                    margin: 12px 0 0;
+                    max-width: 400px;
+
+                    li {
+                        padding: 3px 0;
+                    }
+                }
+
+                .store-meta-info {
+                    i {
+                        margin-right: 5px;
+                    }
+
+                    a {
+                        color: inherit;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .store-social-profiles {
+                    display: flex;
+                    margin-left: -5px;
+                    margin-right: -5px;
+                    li {
+                        padding: 0 5px;
+
+                        a {
+                            border-radius: 50%;
+                            line-height: 0;
+                            display: flex;
+                            width: 30px;
+                            max-width: 30px;
+                            height: 30px;
+                            justify-content: center;
+                            align-items: center;
+                            color: #fff;
+
+                            i {
+                                .transition(transform .3s);
+                            }
+
+
+                            &:hover i {
+                                transform: scale(1.1);
+                            }
+
+                        }
+
+                        &[class^='facebook'] a {
+                            background: #3b5998;
+                        }
+
+                        &[class^='google-plus'] a {
+                            background: #dd4b39;
+                        }
+
+                        &[class^='twitter'] a {
+                            background: #00aced;
+                        }
+
+                        &[class^='linkedin'] a {
+                            background: #007bb6;
+                        }
+
+                        &[class^='youtube'] a {
+                            background: #c91210;
+                        }
+
+                        &[class^='instagram'] a {
+                            background: #007bb6;
+                        }
+
+                        &[class^='flickr'] a {
+                            background: #ed017d;
+                        }
+
+                        &[class^='pinterest'] a {
+                            background: #cb2027;
+                        }
+                    }
+
+                }
+            }
+
+            .profile-info-summery {
+                display: flex;
+                align-items: center;
+
+                .profile-img {
+                    margin-right: 27px;
+                }
+                .profile-info {
+                    align-items: center;
+
+                    h1 {
+                        font-size: 30px;
+                        line-height: 1.2em;
+                        font-weight: 600;
+                        color: @black;
+                        margin: 10px 0;
+                    }
+
+                    .dokan-store-info {
+                        margin: 0;
+                        list-style: none;
+
+                        .dokan-store-rating {
+                            .star-rating {
+                                overflow: hidden;
+                                position: relative;
+                                height: 1em;
+                                line-height: 1;
+                                font-size: 12px;
+                                width: 6.4em;
+                                font-family: star;
+                                color: #f39c12;
+                                float: none;
+
+                                &:before {
+                                    content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
+                                    color: #c3c9cd;
+                                    float: left;
+                                    top: 0;
+                                    left: 0;
+                                    position: absolute;
+                                }
+
+                                span {
+                                    overflow: hidden;
+                                    float: left;
+                                    top: 0;
+                                    left: 0;
+                                    position: absolute;
+                                    padding-top: 1.5em;
+
+                                    &:before {
+                                        content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
+                                        top: 0;
+                                        position: absolute;
+                                        left: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    // dokanee-theme-layout store header template
+    &.dokanee_theme_layout .store-banner .profile-info-box .store-info-column .store-meta-info {
+        margin-top: 0;
+    }
+
+    // default layout store header template
+    &.default,
+    &.layout1,
+    &.layout2 {
+        .store-banner .profile-info-box  {
+
+            bottom: 50%;
+            transform: translate(0, 50%);
+
+            .profile-info-summery {
+                position: relative;
+                flex-direction: column;
+                align-items: flex-start;
+                max-width: 400px;
+                background: rgba(0,0,0,0.6);
+                padding: 30px 40px;
+                border-radius: 2px;
+                color: #fff;
+
+                .store-name {
+                    color: #fff;
+                }
+
+                .featured-label {
+                    position: absolute;
+                    top: 40px;
+                    left: 100px;
+                }
+
+                .profile-info {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+        }
+    }
+
+    &.layout1:not(.default) {
+        .store-banner .profile-info-box {
+            @media (min-width: 1120px) {
+                transform: none;
+                bottom: -82px;
+            }
+            @media (max-width: 1119px) {
+                left: 20px;
+            }
+        }
+    }
+
+    &.layout2:not(.default) {
+        .store-banner .profile-info-box {
+            .grid-container {
+                display: flex;
+                justify-content: center;
+            }
+            .profile-info-summery {
+                background: transparent;
+                text-align: center;
+                align-items: center;
+
+                * {
+                    align-items: center;
+                }
+
+                .profile-img {
+                    margin-right: 0;
+                }
+
+                .store-social-profiles {
+                    justify-content: center;
+                }
+
+                .featured-label {
+                    left: 120px;
+                }
+
+            }
+        }
+    }
+}
 
 .grid-container .grid-container {
     padding: 0;
@@ -649,7 +850,6 @@ input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn {
 
 .dokan-store-tab-wrapper {
     position: relative;
-    top: -5px;
     padding: 0 15px;
     background-color: @white;
     .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.03));
@@ -716,18 +916,98 @@ input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn {
                     border-bottom: 2px solid transparent;
                     .transition(all .2s);
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: @theme-color;
-                        border-color: @theme-color;
-                    }
+                    //&:hover,
+                    //&:active,
+                    //&:focus {
+                    //    color: @theme-color;
+                    //    border-color: @theme-color;
+                    //}
+                }
+            }
+        }
+    }
+
+    &.layout1 {
+        .dokan-store-tabs .dokan-list-inline {
+            @media (min-width: 1120px) {
+                margin-left: 420px;
+                position: relative;
+                z-index: 99;
+                li {
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+
+}
+
+@media @media-screen-sm-min {
+    .profile-frame.layout1:not(.default) .store-banner .profile-info-box {
+        background-image: none !important;
+    }
+}
+
+@media @media-screen-xs {
+    .dokan-store-tabs ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0 -15px !important;
+
+        li {
+            padding: 0 10px !important;
+            &.dokan-share-btn-wrap {
+                order: 2;
+            }
+
+            a {
+                font-size: 13px !important;
+                padding: 12px 0 !important;
+            }
+        }
+
+    }
+
+    .profile-frame {
+        .store-banner {
+            .profile-info-img-wrapper {
+                display: none;
+            }
+
+            .store-social-profiles {
+                flex-wrap: wrap;
+                max-width: 100%;
+                li {
+                    margin-top: 10px;
+                }
+            }
+
+
+
+            .profile-info-box {
+                position: static;
+                transform: none !important;
+                background-size: cover;
+                background-position: center;
+
+                .profile-info-summery {
+                    width: 100%;
+                    max-width: 100% !important;
                 }
             }
         }
     }
 }
 
+
+// store terms & condition style
+#store-toc-wrapper {
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+}
 
 // Store Review
 .store-review-wrap {
