@@ -43,18 +43,27 @@ if ( ! function_exists( 'dokanee_base_css' ) ) {
 		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'link_color_hover' ] ) );
 		$css->add_property( 'text-decoration', 'none' ); // Temporary until people can get their browser caches cleared
 
-		// Footer
-		$css->set_selector( '#footer-widgets' );
-		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'footer_widgets_bg_color' ] ) );
+		$css->set_selector( '.entry-meta a:hover' );
+		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'link_color_hover' ] ) );
 
-		// Bottom bar
-		$css->set_selector( 'footer.site-info' );
-		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'footer_bottom_bar_bg_color' ] ) );
-		$css->add_property( 'border-color', esc_attr( $dokanee_settings[ 'footer_bottom_bar_border_color' ] ) );
-		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'footer_bottom_bar_text_color' ] ) );
+		$css->set_selector( '.comments-area .logged-in-as a:hover, .comments-area .logged-in-as a:focus, .comments-area .logged-in-as a:active' );
+		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'link_color_hover' ] ) );
 
-		// Container width
-		$css->set_selector( 'body .grid-container' )->add_property( 'max-width', absint( $dokanee_settings['container_width'] ), false, 'px' );
+		$css->set_selector( '.widget-area .widget ul > li > a:hover, .dokan-widget-area .widget ul > li > a:hover, .widget-area .widget ul > li > a:active, .dokan-widget-area .widget ul > li > a:active, .widget-area .widget ul > li > a:focus, .dokan-widget-area .widget ul > li > a:focus' );
+		$css->add_property( 'color', esc_attr( $dokanee_settings['link_color_hover'] ) );
+
+		// Entry meta links
+		$css->set_selector( '.entry-meta a' );
+		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'link_color' ] ) );
+
+		// widget list styles
+		$css->set_selector( '.widget-area .widget ul > li, .dokan-widget-area .widget ul > li, .widget-area .widget .widget-title, .dokan-widget-area .widget .widget-title' );
+		$css->add_property( 'border-color', esc_attr( $dokanee_settings['sidebar_list_border_color'] ) );
+
+		$css->add_property( 'border-bottom-width', absint( $dokanee_settings['sidebar_list_border_width'] ), false, 'px' );
+		$css->add_property( 'border-style', 'solid' );
+		$css->add_property( 'padding-top', absint( $dokanee_settings['sidebar_list_spacing'] ), false, 'px' );
+		$css->add_property( 'padding-bottom', absint( $dokanee_settings['sidebar_list_spacing'] ), false, 'px' );
 
 		// Allow us to hook CSS into our output
 		do_action( 'dokanee_base_css', $css );
@@ -89,7 +98,7 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 		// Top bar link
 		$css->set_selector( '.top-bar a,.top-bar a:visited' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'top_bar_text_color' ] ) );
-//		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'top_bar_link_color' ] ) );
+		//		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'top_bar_link_color' ] ) );
 
 		// Top bar link hover
 		$css->set_selector( '.top-bar a:hover' );
@@ -183,18 +192,13 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 		$css->set_selector( '.entry-meta' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'entry_meta_text_color' ] ) );
 
-		// Entry meta links
-		$css->set_selector( '.entry-meta a' );
-		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'link_color' ] ) );
 
-		$css->set_selector( '.entry-meta a:hover' );
-		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'link_color_hover' ] ) );
 
 		$css->set_selector( '.paging-navigation .nav-links .page-numbers.current, .paging-navigation .nav-links .page-numbers:hover' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'theme_color' ] ) );
 
-		$css->set_selector( '.comments-area .logged-in-as a:hover, .comments-area .logged-in-as a:focus, .comments-area .logged-in-as a:active' );
-		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'link_color_hover' ] ) );
+
+
 
 
 		// Sidebar widget
@@ -215,9 +219,9 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'sidebar_widget_title_color' ] ) );
 
 		// Footer widget
-		$css->set_selector( '.footer-widgets' );
+		$css->set_selector( '#footer-widgets' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'footer_widget_text_color' ] ) );
-		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'footer_widget_background_color' ] ) );
+		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'footer_widget_bg_color' ] ) );
 
 		// Footer widget links
 		$css->set_selector( '.footer-widgets a,.footer-widgets a:visited' );
@@ -289,7 +293,7 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 		$css->set_selector( '.woocommerce nav.woocommerce-pagination ul li a.current, .woocommerce nav.woocommerce-pagination ul li .current.current, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li .current:hover, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li .current:focus, .woocommerce nav.woocommerce-pagination ul li a:active, .woocommerce nav.woocommerce-pagination ul li .current:active' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings['theme_color'] ) );
 
-		$css->set_selector( '.dokanee-products-view button:hover, .dokanee-products-view button:active, .dokanee-products-view button:focus, .dokanee-products-view button.active' );
+		$css->set_selector( '.dokanee-products-view button:hover, .dokanee-products-view button:active, .dokanee-products-view button:focus, .dokanee-products-view button.active, .dokan-seller-view button:hover, .dokan-seller-view button:focus, .dokan-seller-view button:active, .dokan-seller-view button.active' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings['theme_color'] ) );
 
 		$css->set_selector( '.entry-header .entry-title a:hover', '.entry-header .entry-meta a:hover' );
@@ -315,8 +319,7 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 		$css->set_selector( '.woocommerce div.product .product_meta > div a:hover, #dokane-menu-cart-wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list li a, .woocommerce ul.cart_list li .woocommerce-Price-amount, .woocommerce ul.product_list_widget li .woocommerce-Price-amount' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings['theme_color'] ) );
 
-		$css->set_selector( '.widget-area .widget ul > li > a:hover, .dokan-widget-area .widget ul > li > a:hover, .widget-area .widget ul > li > a:active, .dokan-widget-area .widget ul > li > a:active, .widget-area .widget ul > li > a:focus, .dokan-widget-area .widget ul > li > a:focus' );
-		$css->add_property( 'color', esc_attr( $dokanee_settings['link_color_hover'] ) );
+
 
 		$css->set_selector( '.woocommerce div.product .woocommerce-tabs ul.tabs li:active a, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a' );
 		$css->add_property( 'border-bottom-color', esc_attr( $dokanee_settings['theme_color'] ) );
@@ -331,16 +334,6 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 
 		$css->set_selector( '.product-cat-section .product-cat-wrapper .product-cat-box .btn:hover, .product-cat-section .product-cat-wrapper .product-cat-box .btn:focus, .product-cat-section .product-cat-wrapper .product-cat-box .btn:active' );
 		$css->add_property( 'border-color', esc_attr( $dokanee_settings['theme_color'] ) );
-
-
-
-		// widget styles
-		$css->set_selector( '.widget-area .widget ul > li, .dokan-widget-area .widget ul > li, .widget-area .widget .widget-title, .dokan-widget-area .widget .widget-title' );
-		$css->add_property( 'border-color', esc_attr( $dokanee_settings['sidebar_list_border_color'] ) );
-		$css->add_property( 'border-bottom-width', absint( $dokanee_settings['sidebar_list_border_width'] ), false, 'px' );
-		$css->add_property( 'border-style', 'solid' );
-		$css->add_property( 'padding-top', absint( $dokanee_settings['sidebar_list_spacing'] ), false, 'px' );
-		$css->add_property( 'padding-bottom', absint( $dokanee_settings['sidebar_list_spacing'] ), false, 'px' );
 
 
 		// footer widget styles
@@ -366,6 +359,45 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 		$css->set_selector( '.trust-factors-section .grid-container .factor-wrapper .factor-box .factor-icon' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings['trusted_factor_icon_color'] ) );
 		$css->add_property( 'background-color', esc_attr( $dokanee_settings['trusted_factor_icon_bg_color'] ) );
+
+		// single store styles
+		$css->set_selector( '.dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li a:hover, .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li a:active, .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li a:focus' );
+		$css->add_property( 'color', esc_attr( $dokanee_settings['theme_color'] ) );
+		$css->add_property( 'border-color', esc_attr( $dokanee_settings['theme_color'] ) );
+
+		$css->set_selector( '.dokan-theme-dokanee input[type="submit"].dokan-btn-theme, .dokan-theme-dokanee a.dokan-btn-theme, .dokan-theme-dokanee .dokan-btn-theme' );
+		$css->add_property( 'background-color', esc_attr( $dokanee_settings['theme_color'] ) . '!important' );
+		$css->add_property( 'border-color', esc_attr( $dokanee_settings['theme_color'] ) . '!important' );
+
+		$css->set_selector( '.dokan-theme-dokanee input[type="submit"].dokan-btn-theme:hover, .dokan-theme-dokanee .dokan-btn-theme:hover, .dokan-theme-dokanee .dokan-btn-theme:focus' );
+		$css->add_property( 'background-color', esc_attr( $dokanee_settings['theme_color'] ) . '!important' );
+		$css->add_property( 'opacity', '.9' );
+		$css->add_property( 'border-color', esc_attr( $dokanee_settings['theme_color'] ) . '!important' );
+
+
+		// Bottom bar
+		$css->set_selector( 'footer.site-info' );
+		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'footer_bottom_bar_bg_color' ] ) );
+		$css->add_property( 'border-color', esc_attr( $dokanee_settings[ 'footer_bottom_bar_border_color' ] ) );
+		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'footer_bottom_bar_text_color' ] ) );
+
+		// store header template colors
+		if ( function_exists( 'dokan' ) ) {
+			$css->set_selector( 'div.profile-frame .store-banner .profile-info-box .profile-info-summery .profile-info h1' );
+			$css->add_property( 'color', esc_attr( $dokanee_settings[ 'store_header_title_color' ] ) );
+
+			$css->set_selector( '.profile-info-summery' );
+			$css->add_property( 'color', esc_attr( $dokanee_settings[ 'store_header_text_color' ] ) );
+
+			$css->set_selector( 'div.profile-frame .store-banner .profile-info-box .store-info-column .store-meta-info a' );
+			$css->add_property( 'color', esc_attr( $dokanee_settings['store_header_link_color'] ) );
+
+			$css->set_selector( 'div.profile-frame .store-banner .profile-info-box .store-info-column .store-meta-info a:hover' );
+			$css->add_property( 'color', esc_attr( $dokanee_settings['store_header_link_hover_color'] ) );
+
+			// Container width
+			$css->set_selector( 'body .grid-container' )->add_property( 'max-width', absint( $dokanee_settings['container_width'] ), false, 'px' );
+		}
 
 		// Allow us to hook CSS into our output
 		do_action( 'dokanee_colors_css', $css );
@@ -403,11 +435,6 @@ if ( ! function_exists( 'dokanee_font_css' ) ) {
 		$navigation_family = dokanee_get_font_family_css( 'font_navigation', 'dokanee_settings', dokanee_get_default_fonts() );
 		$widget_family = dokanee_get_font_family_css( 'font_widget_title', 'dokanee_settings', dokanee_get_default_fonts() );
 		$heading_family = dokanee_get_font_family_css( 'font_heading', 'dokanee_settings', dokanee_get_default_fonts() );
-		$h2_family = dokanee_get_font_family_css( 'font_heading_2', 'dokanee_settings', dokanee_get_default_fonts() );
-		$h3_family = dokanee_get_font_family_css( 'font_heading_3', 'dokanee_settings', dokanee_get_default_fonts() );
-		$h4_family = dokanee_get_font_family_css( 'font_heading_4', 'dokanee_settings', dokanee_get_default_fonts() );
-		$h5_family = dokanee_get_font_family_css( 'font_heading_5', 'dokanee_settings', dokanee_get_default_fonts() );
-		$h6_family = dokanee_get_font_family_css( 'font_heading_6', 'dokanee_settings', dokanee_get_default_fonts() );
 		$footer_family = dokanee_get_font_family_css( 'font_footer', 'dokanee_settings', dokanee_get_default_fonts() );
 		$buttons_family = dokanee_get_font_family_css( 'font_buttons', 'dokanee_settings', dokanee_get_default_fonts() );
 
@@ -416,6 +443,8 @@ if ( ! function_exists( 'dokanee_font_css' ) ) {
 		$css->add_property( 'font-family', $body_family );
 		$css->add_property( 'font-weight', esc_attr( $dokanee_settings[ 'body_font_weight' ] ), $og_defaults[ 'body_font_weight' ] );
 		$css->add_property( 'text-transform', esc_attr( $dokanee_settings[ 'body_font_transform' ] ), $og_defaults[ 'body_font_transform' ] );
+
+		$css->set_selector( 'html, body' );
 		$css->add_property( 'font-size', absint( $dokanee_settings[ 'body_font_size' ] ), $og_defaults[ 'body_font_size' ], 'px' );
 
 		// Line hieght
@@ -510,63 +539,6 @@ if ( ! function_exists( 'dokanee_font_css' ) ) {
 		$css->set_selector( 'h6' );
 		$css->add_property( 'font-size', absint( $dokanee_settings[ 'heading_6_font_size' ] ), absint( $og_defaults[ 'heading_6_font_size' ] ), 'px' );
 
-//		// H2
-//		$css->set_selector( 'h2' );
-//		$css->add_property( 'font-family', $og_defaults[ 'font_heading_2' ] !== $dokanee_settings[ 'font_heading_2' ] ? $h2_family : null );
-//		$css->add_property( 'font-weight', esc_attr( $dokanee_settings[ 'heading_2_weight' ] ), $og_defaults[ 'heading_2_weight' ] );
-//		$css->add_property( 'text-transform', esc_attr( $dokanee_settings[ 'heading_2_transform' ] ), $og_defaults[ 'heading_2_transform' ] );
-//		$css->add_property( 'font-size', absint( $dokanee_settings[ 'heading_2_font_size' ] ), $og_defaults[ 'heading_2_font_size' ], 'px' );
-//		$css->add_property( 'line-height', floatval( $dokanee_settings['heading_2_line_height'] ), $og_defaults['heading_2_line_height'], 'em' );
-//
-//		// H3
-//		$css->set_selector( 'h3' );
-//		$css->add_property( 'font-family', $og_defaults[ 'font_heading_3' ] !== $dokanee_settings[ 'font_heading_3' ] ? $h3_family : null );
-//		$css->add_property( 'font-weight', esc_attr( $dokanee_settings[ 'heading_3_weight' ] ), $og_defaults[ 'heading_3_weight' ] );
-//		$css->add_property( 'text-transform', esc_attr( $dokanee_settings[ 'heading_3_transform' ] ), $og_defaults[ 'heading_3_transform' ] );
-//		$css->add_property( 'font-size', absint( $dokanee_settings[ 'heading_3_font_size' ] ), $og_defaults[ 'heading_3_font_size' ], 'px' );
-//		$css->add_property( 'line-height', floatval( $dokanee_settings['heading_3_line_height'] ), $og_defaults['heading_3_line_height'], 'em' );
-//
-//		// H4
-//		$css->set_selector( 'h4' );
-//		$css->add_property( 'font-family', $og_defaults[ 'font_heading_4' ] !== $dokanee_settings[ 'font_heading_4' ] ? $h4_family : null );
-//		$css->add_property( 'font-weight', esc_attr( $dokanee_settings[ 'heading_4_weight' ] ), $og_defaults[ 'heading_4_weight' ] );
-//		$css->add_property( 'text-transform', esc_attr( $dokanee_settings[ 'heading_4_transform' ] ), $og_defaults[ 'heading_4_transform' ] );
-//
-//		if ( '' !== $dokanee_settings[ 'heading_4_font_size' ] ) {
-//			$css->add_property( 'font-size', absint( $dokanee_settings[ 'heading_4_font_size' ] ), $og_defaults[ 'heading_4_font_size' ], 'px' );
-//		}
-//
-//		if ( '' !== $dokanee_settings[ 'heading_4_line_height' ] ) {
-//			$css->add_property( 'line-height', floatval( $dokanee_settings['heading_4_line_height'] ), $og_defaults['heading_4_line_height'], 'em' );
-//		}
-//
-//		// H5
-//		$css->set_selector( 'h5' );
-//		$css->add_property( 'font-family', $og_defaults[ 'font_heading_5' ] !== $dokanee_settings[ 'font_heading_5' ] ? $h5_family : null );
-//		$css->add_property( 'font-weight', esc_attr( $dokanee_settings[ 'heading_5_weight' ] ), $og_defaults[ 'heading_5_weight' ] );
-//		$css->add_property( 'text-transform', esc_attr( $dokanee_settings[ 'heading_5_transform' ] ), $og_defaults[ 'heading_5_transform' ] );
-//
-//		if ( '' !== $dokanee_settings[ 'heading_5_font_size' ] ) {
-//			$css->add_property( 'font-size', absint( $dokanee_settings[ 'heading_5_font_size' ] ), $og_defaults[ 'heading_5_font_size' ], 'px' );
-//		}
-//
-//		if ( '' !== $dokanee_settings['heading_5_line_height'] ) {
-//			$css->add_property( 'line-height', floatval( $dokanee_settings['heading_5_line_height'] ), $og_defaults['heading_5_line_height'], 'em' );
-//		}
-//
-//		// H6
-//		$css->set_selector( 'h6' );
-//		$css->add_property( 'font-family', $og_defaults[ 'font_heading_6' ] !== $dokanee_settings[ 'font_heading_6' ] ? $h6_family : null );
-//		$css->add_property( 'font-weight', esc_attr( $dokanee_settings[ 'heading_6_weight' ] ), $og_defaults[ 'heading_6_weight' ] );
-//		$css->add_property( 'text-transform', esc_attr( $dokanee_settings[ 'heading_6_transform' ] ), $og_defaults[ 'heading_6_transform' ] );
-//
-//		if ( '' !== $dokanee_settings[ 'heading_6_font_size' ] ) {
-//			$css->add_property( 'font-size', absint( $dokanee_settings[ 'heading_6_font_size' ] ), $og_defaults[ 'heading_6_font_size' ], 'px' );
-//		}
-//
-//		if ( '' !== $dokanee_settings['heading_6_line_height'] ) {
-//			$css->add_property( 'line-height', floatval( $dokanee_settings['heading_6_line_height'] ), $og_defaults['heading_6_line_height'], 'em' );
-//		}
 
 		// Footer
 		$css->set_selector( '.site-info' );
@@ -577,20 +549,20 @@ if ( ! function_exists( 'dokanee_font_css' ) ) {
 
 		// Mobile
 		$css->start_media_query( apply_filters( 'dokanee_mobile_media_query', '(max-width:768px)' ) );
-			// Site title
-			$mobile_site_title = ( isset( $dokanee_settings[ 'mobile_site_title_font_size' ] ) ) ? $dokanee_settings[ 'mobile_site_title_font_size' ] : '30';
-			$css->set_selector( '.main-title' );
-			$css->add_property( 'font-size', absint( $mobile_site_title ), false, 'px' );
+		// Site title
+		$mobile_site_title = ( isset( $dokanee_settings[ 'mobile_site_title_font_size' ] ) ) ? $dokanee_settings[ 'mobile_site_title_font_size' ] : '30';
+		$css->set_selector( '.main-title' );
+		$css->add_property( 'font-size', absint( $mobile_site_title ), false, 'px' );
 
-			// H1
-			$mobile_h1 = ( isset( $dokanee_settings[ 'mobile_heading_1_font_size' ] ) ) ? $dokanee_settings[ 'mobile_heading_1_font_size' ] : '30';
-			$css->set_selector( 'h1' );
-			$css->add_property( 'font-size', absint( $mobile_h1 ), false, 'px' );
+		// H1
+		$mobile_h1 = ( isset( $dokanee_settings[ 'mobile_heading_1_font_size' ] ) ) ? $dokanee_settings[ 'mobile_heading_1_font_size' ] : '30';
+		$css->set_selector( 'h1' );
+		$css->add_property( 'font-size', absint( $mobile_h1 ), false, 'px' );
 
-			// H2
-			$mobile_h2 = ( isset( $dokanee_settings[ 'mobile_heading_2_font_size' ] ) ) ? $dokanee_settings[ 'mobile_heading_2_font_size' ] : '25';
-			$css->set_selector( 'h2' );
-			$css->add_property( 'font-size', absint( $mobile_h2 ), false, 'px' );
+		// H2
+		$mobile_h2 = ( isset( $dokanee_settings[ 'mobile_heading_2_font_size' ] ) ) ? $dokanee_settings[ 'mobile_heading_2_font_size' ] : '25';
+		$css->set_selector( 'h2' );
+		$css->add_property( 'font-size', absint( $mobile_h2 ), false, 'px' );
 		$css->stop_media_query();
 
 		// Allow us to hook CSS into our output
@@ -631,8 +603,8 @@ if ( ! function_exists( 'dokanee_spacing_css' ) ) {
 
 		// Mobile Content padding
 		$css->start_media_query( apply_filters( 'dokanee_mobile_media_query', '(max-width:768px)' ) );
-			$css->set_selector( '.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .separate-containers .paging-navigation, .one-container .site-content, .inside-page-header' );
-			$css->add_property( 'padding', dokanee_padding_css( $spacing_settings[ 'mobile_content_top' ], $spacing_settings[ 'mobile_content_right' ], $spacing_settings[ 'mobile_content_bottom' ], $spacing_settings[ 'mobile_content_left' ] ) );
+		$css->set_selector( '.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .separate-containers .paging-navigation, .one-container .site-content, .inside-page-header' );
+		$css->add_property( 'padding', dokanee_padding_css( $spacing_settings[ 'mobile_content_top' ], $spacing_settings[ 'mobile_content_right' ], $spacing_settings[ 'mobile_content_bottom' ], $spacing_settings[ 'mobile_content_left' ] ) );
 		$css->stop_media_query();
 
 		// One container
