@@ -9,7 +9,8 @@
 
 .customize-control-radio-image img {
     box-sizing: border-box;
-    max-width:  100%;
+    max-width:  100px !important;
+    width: 100%;
     height:     auto;
 }
 
@@ -37,6 +38,7 @@
 
 .customize-control-radio-image .buttonset {
     display: flex;
+    justify-content: space-around;
     margin-left: -5px;
     margin-right: -5px;
 }

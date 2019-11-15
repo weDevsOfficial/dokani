@@ -83,19 +83,24 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <h2 class="slider-heading"><?php _e( 'Featured Products', 'dokanee' ); ?></h2>
 
                     <?php
-                    $args = array(
-                        'post_type' => 'product',
-                        'posts_per_page' => 20,
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'product_visibility',
-                                'field'    => 'name',
-                                'terms'    => 'featured',
-                            ),
-                        ),
-                    );
+                    if ( function_exists( 'dokan' ) ) {
+                        $featured_query = dokan_get_featured_products();
+                    } else {
+	                    $args = array(
+		                    'post_type' => 'product',
+		                    'posts_per_page' => 20,
+		                    'tax_query' => array(
+			                    array(
+				                    'taxonomy' => 'product_visibility',
+				                    'field'    => 'name',
+				                    'terms'    => 'featured',
+			                    ),
+		                    ),
+	                    );
 
-                    $featured_query = new WP_Query( $args );
+	                    $featured_query = new WP_Query( $args );
+                    }
+
 
                     if ( $featured_query->have_posts() ) : ?>
 
@@ -127,12 +132,17 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <h2 class="slider-heading"><?php _e( 'Latest Products', 'dokanee' ); ?></h2>
 
                     <?php
-                    $args = array(
-	                    'post_type'      => 'product',
-	                    'posts_per_page' => 20,
-                    );
+                    if ( function_exists( 'dokan' ) ) {
+                        $latest_query = dokan_get_latest_products();
+                    } else {
+	                    $args = array(
+		                    'post_type'      => 'product',
+		                    'posts_per_page' => 20,
+	                    );
 
-                    $latest_query = new WP_Query( $args );
+	                    $latest_query = new WP_Query( $args );
+                    }
+
 
                     if ( $latest_query->have_posts() ) : ?>
 

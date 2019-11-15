@@ -1058,15 +1058,15 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					'choices'  => array(
 						'disabled' => array(
 							'label' => esc_html__( 'Disabled', 'dokanee' ),
-							'url'   => '%s/assets/images/customizer/footer-bottom-bar/disabled.svg',
+							'url'   => '%s/assets/images/customizer/disabled.svg',
 						),
 						'layout-1' => array(
 							'label' => esc_html__( 'Footer Bar Layout 1', 'dokanee' ),
-							'url'   => '%s/assets/images/customizer/footer-bottom-bar/layout-1.svg',
+							'url'   => '%s/assets/images/customizer/footer-bottom-bar-layout1.svg',
 						),
 						'layout-2' => array(
 							'label' => esc_html__( 'Footer Bar Layout 2', 'dokanee' ),
-							'url'   => '%s/assets/images/customizer/footer-bottom-bar/layout-2.svg',
+							'url'   => '%s/assets/images/customizer/footer-bottom-bar-layout2.svg',
 						)
 					)
 				)
@@ -1361,11 +1361,11 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					'choices'  => array(
 						'disabled' => array(
 							'label' => esc_html__( 'Disabled', 'dokanee' ),
-							'url'   => '%s/assets/images/customizer/footer-bottom-bar/disabled.svg',
+							'url'   => '%s/assets/images/customizer/disabled.svg',
 						),
 						'enabled' => array(
 							'label' => esc_html__( 'Footer Widgets', 'dokanee' ),
-							'url'   => '%s/assets/images/customizer/header/top-bar.svg',
+							'url'   => '%s/assets/images/customizer/header-top-bar.svg',
 						)
 					)
 				)
@@ -1778,16 +1778,25 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 		);
 
 		$wp_customize->add_control(
-			'dokanee_settings[nav_position_setting]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Navigation Location', 'dokanee' ),
-				'section'  => 'dokanee_layout_navigation',
-				'choices'  => array(
-					'nav-float-right'   => __( 'Header', 'dokanee' ),
-					'nav-below-header'  => __( 'Below Header', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[nav_position_setting]',
+			new Dokanee_Customize_Control_Radio_Image(
+				$wp_customize,
+				'dokanee_settings[nav_position_setting]',
+				array(
+					'label'    => esc_html__( 'Navigation Location', 'dokanee' ),
+					'section'  => 'dokanee_layout_navigation',
+					'choices'  => array(
+						'nav-float-right' => array(
+							'label' => esc_html__( 'Navigation Inside Header', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/header-only.svg',
+						),
+						'nav-below-header' => array(
+							'label' => esc_html__( 'Navigation Below Header', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/header-below-nav.svg',
+						)
+					),
+					'settings' => 'dokanee_settings[nav_position_setting]',
+
+				)
 			)
 		);
 
@@ -2010,65 +2019,79 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			)
 		);
 
-
-
 		// Add Layout setting
 		$wp_customize->add_setting(
 			'dokanee_settings[layout_setting]',
 			array(
 				'default'           => $defaults['layout_setting'],
 				'type'              => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_choices'
+				'sanitize_callback' => 'dokanee_sanitize_choices',
+				'transport'         => 'refresh',
 			)
 		);
 
-		// Add Layout control
 		$wp_customize->add_control(
-			'dokanee_settings[layout_setting]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Sidebar Layout', 'dokanee' ),
-				'section'  => 'dokanee_layout_sidebars',
-				'choices'  => array(
-					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
-					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
-					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' ),
-					'both-sidebars' => __( 'Sidebar / Content / Sidebar', 'dokanee' ),
-					'both-left'     => __( 'Sidebar / Sidebar / Content', 'dokanee' ),
-					'both-right'    => __( 'Content / Sidebar / Sidebar', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[layout_setting]',
-				'priority' => 30
+			new Dokanee_Customize_Control_Radio_Image(
+				$wp_customize,
+				'dokanee_settings[layout_setting]',
+				array(
+					'label'    => esc_html__( 'Sidebar Layout', 'dokanee' ),
+					'section'  => 'dokanee_layout_sidebars',
+					'choices'  => array(
+						'left-sidebar' => array(
+							'label' => esc_html__( 'Left Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+						),
+						'no-sidebar' => array(
+							'label' => esc_html__( 'No Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+						),
+						'right-sidebar' => array(
+							'label' => esc_html__( 'Right Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+						),
+					),
+					'settings' => 'dokanee_settings[layout_setting]',
+
+				)
 			)
 		);
 
-		// Add Layout setting
+		// Add Blog Layout setting
 		$wp_customize->add_setting(
 			'dokanee_settings[blog_layout_setting]',
 			array(
 				'default'           => $defaults['blog_layout_setting'],
 				'type'              => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_choices'
+				'sanitize_callback' => 'dokanee_sanitize_choices',
+				'transport'         => 'refresh',
 			)
 		);
 
-		// Add Layout control
 		$wp_customize->add_control(
-			'dokanee_settings[blog_layout_setting]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Blog Sidebar Layout', 'dokanee' ),
-				'section'  => 'dokanee_layout_sidebars',
-				'choices'  => array(
-					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
-					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
-					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' ),
-					'both-sidebars' => __( 'Sidebar / Content / Sidebar', 'dokanee' ),
-					'both-left'     => __( 'Sidebar / Sidebar / Content', 'dokanee' ),
-					'both-right'    => __( 'Content / Sidebar / Sidebar', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[blog_layout_setting]',
-				'priority' => 35
+			new Dokanee_Customize_Control_Radio_Image(
+				$wp_customize,
+				'dokanee_settings[blog_layout_setting]',
+				array(
+					'label'    => esc_html__( 'Blog Sidebar Layout', 'dokanee' ),
+					'section'  => 'dokanee_layout_sidebars',
+					'choices'  => array(
+						'left-sidebar' => array(
+							'label' => esc_html__( 'Left Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+						),
+						'no-sidebar' => array(
+							'label' => esc_html__( 'No Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+						),
+						'right-sidebar' => array(
+							'label' => esc_html__( 'Right Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+						),
+					),
+					'settings' => 'dokanee_settings[blog_layout_setting]',
+					'priority' => 35,
+				)
 			)
 		);
 
@@ -2078,25 +2101,35 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			array(
 				'default'           => $defaults['single_layout_setting'],
 				'type'              => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_choices'
+				'sanitize_callback' => 'dokanee_sanitize_choices',
+				'transport'         => 'refresh',
 			)
 		);
+
 		$wp_customize->add_control(
-			'dokanee_settings[single_layout_setting]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Single Post Sidebar Layout', 'dokanee' ),
-				'section'  => 'dokanee_layout_sidebars',
-				'choices'  => array(
-					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
-					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
-					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' ),
-					'both-sidebars' => __( 'Sidebar / Content / Sidebar', 'dokanee' ),
-					'both-left'     => __( 'Sidebar / Sidebar / Content', 'dokanee' ),
-					'both-right'    => __( 'Content / Sidebar / Sidebar', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[single_layout_setting]',
-				'priority' => 36
+			new Dokanee_Customize_Control_Radio_Image(
+				$wp_customize,
+				'dokanee_settings[single_layout_setting]',
+				array(
+					'label'    => esc_html__( 'Single Post Sidebar Layout', 'dokanee' ),
+					'section'  => 'dokanee_layout_sidebars',
+					'choices'  => array(
+						'left-sidebar' => array(
+							'label' => esc_html__( 'Left Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+						),
+						'no-sidebar' => array(
+							'label' => esc_html__( 'No Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+						),
+						'right-sidebar' => array(
+							'label' => esc_html__( 'Right Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+						),
+					),
+					'settings' => 'dokanee_settings[single_layout_setting]',
+					'priority' => 36,
+				)
 			)
 		);
 
@@ -2106,24 +2139,39 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			array(
 				'default'           => $defaults['shop_layout_setting'],
 				'type'              => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_choices'
+				'sanitize_callback' => 'dokanee_sanitize_choices',
+				'transport'         => 'refresh',
 			)
 		);
+
 		$wp_customize->add_control(
-			'dokanee_settings[shop_layout_setting]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Shop Sidebar Layout', 'dokanee' ),
-				'section'  => 'dokanee_layout_sidebars',
-				'choices'  => array(
-					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
-					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
-					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[shop_layout_setting]',
-				'priority' => 37
+			new Dokanee_Customize_Control_Radio_Image(
+				$wp_customize,
+				'dokanee_settings[shop_layout_setting]',
+				array(
+					'label'    => esc_html__( 'Shop Sidebar Layout', 'dokanee' ),
+					'section'  => 'dokanee_layout_sidebars',
+					'choices'  => array(
+						'left-sidebar' => array(
+							'label' => esc_html__( 'Left Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+						),
+						'no-sidebar' => array(
+							'label' => esc_html__( 'No Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+						),
+						'right-sidebar' => array(
+							'label' => esc_html__( 'Right Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+						),
+					),
+					'settings' => 'dokanee_settings[shop_layout_setting]',
+					'priority' => 37,
+				)
 			)
 		);
+
+
 
 		// Setting - Single Product Layout
 		$wp_customize->add_setting(
@@ -2131,22 +2179,35 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			array(
 				'default'           => $defaults['single_product_layout_setting'],
 				'type'              => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_choices'
+				'sanitize_callback' => 'dokanee_sanitize_choices',
+				'transport'         => 'refresh',
 			)
 		);
+
 		$wp_customize->add_control(
-			'dokanee_settings[single_product_layout_setting]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Single Product Sidebar Layout', 'dokanee' ),
-				'section'  => 'dokanee_layout_sidebars',
-				'choices'  => array(
-					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
-					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
-					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[single_product_layout_setting]',
-				'priority' => 38
+			new Dokanee_Customize_Control_Radio_Image(
+				$wp_customize,
+				'dokanee_settings[single_product_layout_setting]',
+				array(
+					'label'    => esc_html__( 'Single Product Sidebar Layout', 'dokanee' ),
+					'section'  => 'dokanee_layout_sidebars',
+					'choices'  => array(
+						'left-sidebar' => array(
+							'label' => esc_html__( 'Left Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+						),
+						'no-sidebar' => array(
+							'label' => esc_html__( 'No Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+						),
+						'right-sidebar' => array(
+							'label' => esc_html__( 'Right Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+						),
+					),
+					'settings' => 'dokanee_settings[single_product_layout_setting]',
+					'priority' => 38,
+				)
 			)
 		);
 
@@ -2156,22 +2217,35 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			array(
 				'default'           => $defaults['store_list_layout_setting'],
 				'type'              => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_choices'
+				'sanitize_callback' => 'dokanee_sanitize_choices',
+				'transport'         => 'refresh',
 			)
 		);
+
 		$wp_customize->add_control(
-			'dokanee_settings[store_list_layout_setting]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Store List Sidebar Layout', 'dokanee' ),
-				'section'  => 'dokanee_layout_sidebars',
-				'choices'  => array(
-					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
-					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
-					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[store_list_layout_setting]',
-				'priority' => 39
+			new Dokanee_Customize_Control_Radio_Image(
+				$wp_customize,
+				'dokanee_settings[store_list_layout_setting]',
+				array(
+					'label'    => esc_html__( 'Store List Sidebar Layout', 'dokanee' ),
+					'section'  => 'dokanee_layout_sidebars',
+					'choices'  => array(
+						'left-sidebar' => array(
+							'label' => esc_html__( 'Left Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+						),
+						'no-sidebar' => array(
+							'label' => esc_html__( 'No Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+						),
+						'right-sidebar' => array(
+							'label' => esc_html__( 'Right Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+						),
+					),
+					'settings' => 'dokanee_settings[store_list_layout_setting]',
+					'priority' => 39,
+				)
 			)
 		);
 
@@ -2181,22 +2255,35 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 			array(
 				'default'           => $defaults['store_layout_setting'],
 				'type'              => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_choices'
+				'sanitize_callback' => 'dokanee_sanitize_choices',
+				'transport'         => 'refresh',
 			)
 		);
+
 		$wp_customize->add_control(
-			'dokanee_settings[store_layout_setting]',
-			array(
-				'type'     => 'select',
-				'label'    => __( 'Store Sidebar Layout', 'dokanee' ),
-				'section'  => 'dokanee_layout_sidebars',
-				'choices'  => array(
-					'left-sidebar'  => __( 'Sidebar / Content', 'dokanee' ),
-					'right-sidebar' => __( 'Content / Sidebar', 'dokanee' ),
-					'no-sidebar'    => __( 'Content (no sidebars)', 'dokanee' )
-				),
-				'settings' => 'dokanee_settings[store_layout_setting]',
-				'priority' => 40
+			new Dokanee_Customize_Control_Radio_Image(
+				$wp_customize,
+				'dokanee_settings[store_layout_setting]',
+				array(
+					'label'    => esc_html__( 'Store Sidebar Layout', 'dokanee' ),
+					'section'  => 'dokanee_layout_sidebars',
+					'choices'  => array(
+						'left-sidebar' => array(
+							'label' => esc_html__( 'Left Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+						),
+						'no-sidebar' => array(
+							'label' => esc_html__( 'No Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+						),
+						'right-sidebar' => array(
+							'label' => esc_html__( 'Right Sidebar', 'dokanee' ),
+							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+						),
+					),
+					'settings' => 'dokanee_settings[store_layout_setting]',
+					'priority' => 40,
+				)
 			)
 		);
 
@@ -2322,11 +2409,11 @@ if ( ! function_exists( 'dokanee_customize_register' ) ) {
 					'choices'  => array(
 						'disabled' => array(
 							'label' => esc_html__( 'Disabled', 'dokanee' ),
-							'url'   => '%s/assets/images/customizer/footer-bottom-bar/disabled.svg',
+							'url'   => '%s/assets/images/customizer/disabled.svg',
 						),
 						'layout-1' => array(
 							'label' => esc_html__( 'Footer Widgets', 'dokanee' ),
-							'url'   => '%s/assets/images/customizer/footer-widget/widget.svg',
+							'url'   => '%s/assets/images/customizer/footer-widgets.svg',
 						)
 					)
 				)
