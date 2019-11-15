@@ -1260,12 +1260,14 @@ ul.responsive-user-menu li .dropdown-menu li a i.pull-right {
 }
 /* =Menu
 ----------------------------------------------- */
+.site-header + .main-navigation {
+  min-height: 50px;
+}
 .main-navigation {
   z-index: 100;
   padding: 0;
   clear: both;
   display: block;
-  min-height: 50px;
 }
 .main-navigation .inside-navigation {
   position: relative;
@@ -4540,7 +4542,6 @@ a.dokan-btn,
   color: #fff;
   font-size: 16px;
   line-height: 1.2em;
-  background-color: transparent;
   padding: 9px 21px;
 }
 #dokan-seller-listing-wrap ul.dokan-seller-list li .store-footer .dokan-btn.dokan-follow-store-button-working:after {

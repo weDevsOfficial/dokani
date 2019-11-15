@@ -22,6 +22,8 @@ if ( ! function_exists( 'dokanee_base_css' ) ) {
 			dokanee_get_defaults()
 		);
 
+		$og_defaults = dokanee_get_defaults();
+
 		// Initiate our class
 		$css = new Dokanee_CSS;
 
@@ -64,6 +66,9 @@ if ( ! function_exists( 'dokanee_base_css' ) ) {
 		$css->add_property( 'border-style', 'solid' );
 		$css->add_property( 'padding-top', absint( $dokanee_settings['sidebar_list_spacing'] ), false, 'px' );
 		$css->add_property( 'padding-bottom', absint( $dokanee_settings['sidebar_list_spacing'] ), false, 'px' );
+
+		// Container width
+		$css->set_selector( 'body .grid-container' )->add_property( 'max-width', absint( $dokanee_settings['container_width'] ), false, 'px' );
 
 		// Allow us to hook CSS into our output
 		do_action( 'dokanee_base_css', $css );
@@ -197,8 +202,8 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 		$css->set_selector( '.paging-navigation .nav-links .page-numbers.current, .paging-navigation .nav-links .page-numbers:hover' );
 		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'theme_color' ] ) );
 
-
-
+		$css->set_selector( '.product-cat-section .product-cat-wrapper .product-cat-box.more h3' );
+		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'theme_color' ] ) );
 
 
 		// Sidebar widget
@@ -394,9 +399,6 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 
 			$css->set_selector( 'div.profile-frame .store-banner .profile-info-box .store-info-column .store-meta-info a:hover' );
 			$css->add_property( 'color', esc_attr( $dokanee_settings['store_header_link_hover_color'] ) );
-
-			// Container width
-			$css->set_selector( 'body .grid-container' )->add_property( 'max-width', absint( $dokanee_settings['container_width'] ), false, 'px' );
 		}
 
 		// Allow us to hook CSS into our output

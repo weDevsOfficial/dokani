@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php
 	$terms     = get_terms( array( 'taxonomy' => 'product_cat', 'parent' => 0 ) );
 	$total_cat = count( $terms );
-	$visible_item = get_theme_mod( 'products_cat_counter' );
+	$visible_item = get_theme_mod( 'products_cat_counter', 5 );
 
 	if ( ! empty( $total_cat ) ) {
 		?>
