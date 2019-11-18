@@ -793,10 +793,6 @@ div:not(.entry-content) .widget ul li ul li:before {
 	width:100%;
 }
 
-
-
-
-
 /* Posts */
 .entry-title {
 	margin-bottom: 0;
@@ -841,7 +837,6 @@ footer.entry-meta .posted-on:before,
 .comments-link:before,
 .nav-previous .prev:before,
 .nav-next .next:before {
-	font-family: GeneratePress;
 	text-decoration: inherit;
 	position: relative;
 	margin-right: 0.6em;
@@ -1160,17 +1155,6 @@ p {
     /*font-size: 15px;*/
 }
 
-.main-navigation a,
-.menu-toggle {
-    /*font-weight: normal;*/
-    /*text-transform: none;*/
-    /*font-size: 15px;*/
-}
-
-.main-navigation .main-nav ul ul li a {
-    /*font-size: 14px;*/
-}
-
 h1 {
     font-weight: 300;
     text-transform: none;
@@ -1187,22 +1171,6 @@ h3 {
     font-weight: normal;
     text-transform: none;
     font-size: 20px;
-}
-
-
-/*
- * Icons
- */
-@font-face {
-	font-family: 'GeneratePress';
-	src:  url('assets/fonts/generatepress.eot');
-	src:  url('assets/fonts/generatepress.eot#iefix') format('embedded-opentype'),
-		  url('assets/fonts/generatepress.woff2') format('woff2'),
-		  url('assets/fonts/generatepress.woff') format('woff'),
-		  url('assets/fonts/generatepress.ttf') format('truetype'),
-		  url('assets/fonts/generatepress.svg#GeneratePress') format('svg');
-	font-weight: normal;
-	font-style: normal;
 }
 
 .menu-toggle:before,
@@ -1224,13 +1192,4 @@ footer.entry-meta .posted-on:before,
 	text-rendering: auto;
 	line-height: 1;
 	speak: none;
-}
-
-/*
- * Backwards compatibility until Slideout is updated
- * GP Premium 1.6
- */
-.main-navigation .slideout-toggle a:before,
-.slide-opened .slideout-overlay .slideout-exit:before {
-	font-family: GeneratePress;
 }
