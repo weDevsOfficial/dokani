@@ -4772,12 +4772,6 @@ a.dokan-btn,
   background: rgba(0, 0, 0, 0.6);
   padding: 30px 40px;
   border-radius: 2px;
-  color: #fff;
-}
-.profile-frame.default .store-banner .profile-info-box .profile-info-summery .store-name,
-.profile-frame.layout1 .store-banner .profile-info-box .profile-info-summery .store-name,
-.profile-frame.layout2 .store-banner .profile-info-box .profile-info-summery .store-name {
-  color: #fff;
 }
 .profile-frame.default .store-banner .profile-info-box .profile-info-summery .featured-label,
 .profile-frame.layout1 .store-banner .profile-info-box .profile-info-summery .featured-label,
