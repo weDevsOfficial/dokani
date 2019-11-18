@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_right_sidebar_class' ) ) {
 	/**
 	 * Display the classes for the sidebar.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_right_sidebar_class( $class = '' ) {
@@ -26,7 +26,7 @@ if ( ! function_exists( 'dokanee_get_right_sidebar_class' ) ) {
 	/**
 	 * Retrieve the classes for the sidebar.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -50,7 +50,7 @@ if ( ! function_exists( 'dokanee_left_sidebar_class' ) ) {
 	/**
 	 * Display the classes for the sidebar.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_left_sidebar_class( $class = '' ) {
@@ -63,7 +63,7 @@ if ( ! function_exists( 'dokanee_get_left_sidebar_class' ) ) {
 	/**
 	 * Retrieve the classes for the sidebar.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -87,7 +87,7 @@ if ( ! function_exists( 'dokanee_content_class' ) ) {
 	/**
 	 * Display the classes for the content.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_content_class( $class = '' ) {
@@ -100,7 +100,7 @@ if ( ! function_exists( 'dokanee_get_content_class' ) ) {
 	/**
 	 * Retrieve the classes for the content.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -124,7 +124,7 @@ if ( ! function_exists( 'dokanee_header_class' ) ) {
 	/**
 	 * Display the classes for the header.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_header_class( $class = '' ) {
@@ -137,7 +137,7 @@ if ( ! function_exists( 'dokanee_get_header_class' ) ) {
 	/**
 	 * Retrieve the classes for the content.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -161,7 +161,7 @@ if ( ! function_exists( 'dokanee_inside_header_class' ) ) {
 	/**
 	 * Display the classes for inside the header.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_inside_header_class( $class = '' ) {
@@ -174,7 +174,7 @@ if ( ! function_exists( 'dokanee_get_inside_header_class' ) ) {
 	/**
 	 * Retrieve the classes for inside the header.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -198,7 +198,7 @@ if ( ! function_exists( 'dokanee_container_class' ) ) {
 	/**
 	 * Display the classes for the container.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_container_class( $class = '' ) {
@@ -211,7 +211,7 @@ if ( ! function_exists( 'dokanee_get_container_class' ) ) {
 	/**
 	 * Retrieve the classes for the content.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -235,7 +235,7 @@ if ( ! function_exists( 'dokanee_navigation_class' ) ) {
 	/**
 	 * Display the classes for the navigation.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_navigation_class( $class = '' ) {
@@ -248,7 +248,7 @@ if ( ! function_exists( 'dokanee_get_navigation_class' ) ) {
 	/**
 	 * Retrieve the classes for the navigation.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -272,7 +272,7 @@ if ( ! function_exists( 'dokanee_inside_navigation_class' ) ) {
 	/**
 	 * Display the classes for the inner navigation.
 	 *
-	 * @since 1.3.41
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_inside_navigation_class( $class = '' ) {
@@ -297,7 +297,7 @@ if ( ! function_exists( 'dokanee_menu_class' ) ) {
 	/**
 	 * Display the classes for the navigation.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_menu_class( $class = '' ) {
@@ -310,7 +310,7 @@ if ( ! function_exists( 'dokanee_get_menu_class' ) ) {
 	/**
 	 * Retrieve the classes for the navigation.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -334,7 +334,7 @@ if ( ! function_exists( 'dokanee_main_class' ) ) {
 	/**
 	 * Display the classes for the <main> container.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_main_class( $class = '' ) {
@@ -347,7 +347,7 @@ if ( ! function_exists( 'dokanee_get_main_class' ) ) {
 	/**
 	 * Retrieve the classes for the footer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -371,7 +371,7 @@ if ( ! function_exists( 'dokanee_footer_class' ) ) {
 	/**
 	 * Display the classes for the footer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_footer_class( $class = '' ) {
@@ -384,7 +384,7 @@ if ( ! function_exists( 'dokanee_get_footer_class' ) ) {
 	/**
 	 * Retrieve the classes for the footer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
@@ -408,7 +408,7 @@ if ( ! function_exists( 'dokanee_inside_footer_class' ) ) {
 	/**
 	 * Display the classes for the footer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_inside_footer_class( $class = '' ) {
@@ -433,7 +433,7 @@ if ( ! function_exists( 'dokanee_top_bar_class' ) ) {
 	/**
 	 * Display the classes for the top bar.
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
 	function dokanee_top_bar_class( $class = '' ) {

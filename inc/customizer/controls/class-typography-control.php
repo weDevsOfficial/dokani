@@ -13,7 +13,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Typogra
 	/**
 	 * Create the typography elements control.
 	 *
-	 * @since 2.0
+	 * @since 1.0.0
 	 */
 	class Generate_Typography_Customize_Control extends WP_Customize_Control {
 		public $type = 'gp-customizer-typography';

@@ -14,7 +14,7 @@ if ( ! function_exists( 'dokanee_construct_footer' ) ) {
 	/**
 	 * Build our footer.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 */
 	function dokanee_construct_footer() {
 	    $footer_bar_layout = get_theme_mod( 'footer_bar_layout', 'layout-2' );
@@ -114,7 +114,7 @@ if ( ! function_exists( 'dokanee_footer_bar' ) ) {
 	/**
 	 * Build our footer bar
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 */
 	function dokanee_footer_bar() {
 		if ( ! is_active_sidebar( 'footer-bar' ) ) {
@@ -133,7 +133,7 @@ if ( ! function_exists( 'dokanee_add_footer_info' ) ) {
 	/**
 	 * Add the copyright to the footer
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_add_footer_info() {
 		$copyright = sprintf( '<span class="copyright">&copy; %1$s</span> &bull; <a href="%2$s" target="_blank" itemprop="url">%3$s</a>',
@@ -150,7 +150,7 @@ if ( ! function_exists( 'dokanee_add_footer_info' ) ) {
  * Build our individual footer widgets.
  * Displays a sample widget if no widget is found in the area.
  *
- * @since 2.0
+ * @since 1.0.0
  *
  * @param int $widget_width The width class of our widget.
  * @param int $widget The ID of our widget.
@@ -196,7 +196,7 @@ if ( ! function_exists( 'dokanee_construct_footer_widgets' ) ) {
 	/**
 	 * Build our footer widgets.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 */
 	function dokanee_construct_footer_widgets() {
 		// Get how many widgets to show.
@@ -259,7 +259,7 @@ if ( ! function_exists( 'dokanee_construct_footer_widgets' ) ) {
 		/**
 		 * dokanee_after_footer_widgets hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 */
 		do_action( 'dokanee_after_footer_widgets' );
 
@@ -271,7 +271,7 @@ if ( ! function_exists( 'dokanee_back_to_top' ) ) {
 	/**
 	 * Build the back to top button
 	 *
-	 * @since 1.3.24
+	 * @since 1.0.0
 	 */
 	function dokanee_back_to_top() {
 		$dokanee_settings = wp_parse_args(

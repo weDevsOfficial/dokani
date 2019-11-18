@@ -14,7 +14,7 @@ add_action( 'after_setup_theme', 'dokanee_setup_woocommerce' );
 /**
  * Set up WooCommerce
  *
- * @since 1.3.47
+ * @since 1.0.0
  */
 function dokanee_setup_woocommerce() {
 	if ( ! class_exists( 'WooCommerce' ) ) {
@@ -41,7 +41,7 @@ if ( ! function_exists( 'dokanee_woocommerce_start' ) ) {
 	/**
 	 * Add WooCommerce starting wrappers
 	 *
-	 * @since 1.3.22
+	 * @since 1.0.0
 	 */
 	function dokanee_woocommerce_start() { ?>
 		<div id="primary" <?php dokanee_content_class();?>>
@@ -50,7 +50,7 @@ if ( ! function_exists( 'dokanee_woocommerce_start' ) ) {
 				/**
 				 * dokanee_before_main_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 */
 				do_action( 'dokanee_before_main_content' );
 				?>
@@ -66,7 +66,7 @@ if ( ! function_exists( 'dokanee_woocommerce_end' ) ) {
 	/**
 	 * Add WooCommerce ending wrappers
 	 *
-	 * @since 1.3.22
+	 * @since 1.0.0
 	 */
 	function dokanee_woocommerce_end() { ?>
 						</div><!-- .entry-content -->
@@ -74,7 +74,7 @@ if ( ! function_exists( 'dokanee_woocommerce_end' ) ) {
 						/**
 						 * dokanee_after_content hook.
 						 *
-						 * @since 0.1
+						 * @since 1.0.0
 						 */
 						do_action( 'dokanee_after_content' );
 						?>
@@ -84,7 +84,7 @@ if ( ! function_exists( 'dokanee_woocommerce_end' ) ) {
 				/**
 				 * dokanee_after_main_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 */
 				do_action( 'dokanee_after_main_content' );
 				?>
@@ -99,7 +99,7 @@ if ( ! function_exists( 'dokanee_woocommerce_css' ) ) {
 	/**
 	 * Add WooCommerce CSS
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 */
 	function dokanee_woocommerce_css() {
 		if ( ! class_exists( 'WooCommerce' ) ) {
@@ -155,7 +155,7 @@ if ( ! function_exists( 'dokanee_bbpress_css' ) ) {
 	/**
 	 * Add bbPress CSS
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 */
 	function dokanee_bbpress_css() {
 		$css = '#bbpress-forums ul.bbp-lead-topic,
@@ -194,7 +194,7 @@ if ( ! function_exists( 'dokanee_buddypress_css' ) ) {
 	/**
 	 * Add BuddyPress CSS
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 */
 	function dokanee_buddypress_css() {
 		$css = '#buddypress form#whats-new-form #whats-new-options[style] {

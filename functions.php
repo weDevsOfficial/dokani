@@ -19,7 +19,7 @@ if ( ! function_exists( 'dokanee_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_setup() {
 		// Make theme available for translation.

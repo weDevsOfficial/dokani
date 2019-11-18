@@ -137,7 +137,7 @@ if ( ! function_exists( 'dokanee_page_menu_args' ) ) {
 	/**
 	 * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @param array $args The existing menu args.
 	 * @return array Menu args.
@@ -153,7 +153,7 @@ if ( ! function_exists( 'dokanee_resource_hints' ) ) {
 	/**
 	 * Add resource hints to our Google fonts call.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 *
 	 * @param array  $urls           URLs to print for resource hints.
 	 * @param string $relation_type  The relation type the URLs are printed.
@@ -210,7 +210,7 @@ if ( ! function_exists( 'dokanee_categorized_blog' ) ) {
 	/**
 	 * Determine whether blog/site has more than one category.
 	 *
-	 * @since 1.2.5
+	 * @since 1.0.0
 	 *
 	 * @return bool True of there is more than one category, false otherwise.
 	 */
@@ -247,7 +247,7 @@ if ( ! function_exists( 'dokanee_category_transient_flusher' ) ) {
 	/**
 	 * Flush out the transients used in {@see dokanee_categorized_blog()}.
 	 *
-	 * @since 1.2.5
+	 * @since 1.0.0
 	 */
 	function dokanee_category_transient_flusher() {
 		// Like, beat it. Dig?
@@ -259,7 +259,7 @@ if ( ! function_exists( 'dokanee_get_default_color_palettes' ) ) {
 	/**
 	 * Set up our colors for the color picker palettes and filter them so you can change them.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 */
 	function dokanee_get_default_color_palettes() {
 		$palettes = array(
@@ -281,7 +281,7 @@ add_filter( 'dokanee_fontawesome_essentials', 'dokanee_set_font_awesome_essentia
 /**
  * Check to see if we should include the full Font Awesome library or not.
  *
- * @since 2.0
+ * @since 1.0.0
  *
  * @param bool $essentials
  * @return bool
@@ -298,7 +298,7 @@ add_filter( 'dokanee_dynamic_css_skip_cache', 'dokanee_skip_dynamic_css_cache' )
 /**
  * Skips caching of the dynamic CSS if set to false.
  *
- * @since 2.0
+ * @since 1.0.0
  *
  * @param bool $cache
  * @return bool

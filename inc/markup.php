@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_body_schema' ) ) {
 	/**
 	 * Figure out which schema tags to apply to the <body> element.
 	 *
-	 * @since 1.3.15
+	 * @since 1.0.0
 	 */
 	function dokanee_body_schema() {
 		// Set up blog variable
@@ -40,7 +40,7 @@ if ( ! function_exists( 'dokanee_article_schema' ) ) {
 	/**
 	 * Figure out which schema tags to apply to the <article> element
 	 * The function determines the itemtype: dokanee_article_schema( 'BlogPosting' )
-	 * @since 1.3.15
+	 * @since 1.0.0
 	 */
 	function dokanee_article_schema( $type = 'CreativeWork' ) {
 		// Get the itemtype
@@ -55,7 +55,7 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 	add_filter( 'body_class', 'dokanee_body_classes' );
 	/**
 	 * Adds custom classes to the array of body classes.
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_body_classes( $classes ) {
 
@@ -162,7 +162,7 @@ if ( ! function_exists( 'dokanee_top_bar_classes' ) ) {
 	/**
 	 * Adds custom classes to the header.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_top_bar_classes( $classes ) {
 		$classes[] = 'top-bar';
@@ -183,7 +183,7 @@ if ( ! function_exists( 'dokanee_right_sidebar_classes' ) ) {
 	/**
 	 * Adds custom classes to the right sidebar.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_right_sidebar_classes( $classes ) {
 		$right_sidebar_width = apply_filters( 'dokanee_right_sidebar_width', '25' );
@@ -222,7 +222,7 @@ if ( ! function_exists( 'dokanee_left_sidebar_classes' ) ) {
 	/**
 	 * Adds custom classes to the left sidebar.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_left_sidebar_classes( $classes ) {
 		$right_sidebar_width = apply_filters( 'dokanee_right_sidebar_width', '25' );
@@ -267,7 +267,7 @@ if ( ! function_exists( 'dokanee_content_classes' ) ) {
 	/**
 	 * Adds custom classes to the content container.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_content_classes( $classes ) {
 		$right_sidebar_width = apply_filters( 'dokanee_right_sidebar_width', '25' );
@@ -345,7 +345,7 @@ if ( ! function_exists( 'dokanee_header_classes' ) ) {
 	/**
 	 * Adds custom classes to the header.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_header_classes( $classes ) {
 		$classes[] = 'site-header';
@@ -371,7 +371,7 @@ if ( ! function_exists( 'dokanee_inside_header_classes' ) ) {
 	/**
 	 * Adds custom classes to inside the header.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_inside_header_classes( $classes ) {
 		$classes[] = 'inside-header';
@@ -391,7 +391,7 @@ if ( ! function_exists( 'dokanee_navigation_classes' ) ) {
 	/**
 	 * Adds custom classes to the navigation.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_navigation_classes( $classes ) {
 		$classes[] = 'main-navigation';
@@ -417,7 +417,7 @@ if ( ! function_exists( 'dokanee_inside_navigation_classes' ) ) {
 	/**
 	 * Adds custom classes to the inner navigation.
 	 *
-	 * @since 1.3.41
+	 * @since 1.0.0
 	 */
 	function dokanee_inside_navigation_classes( $classes ) {
 		$classes[] = 'inside-navigation';
@@ -437,7 +437,7 @@ if ( ! function_exists( 'dokanee_menu_classes' ) ) {
 	/**
 	 * Adds custom classes to the menu.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_menu_classes( $classes ) {
 		$classes[] = 'menu';
@@ -451,7 +451,7 @@ if ( ! function_exists( 'dokanee_footer_classes' ) ) {
 	/**
 	 * Adds custom classes to the footer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_footer_classes( $classes ) {
 		$classes[] = 'site-footer';
@@ -481,7 +481,7 @@ if ( ! function_exists( 'dokanee_inside_footer_classes' ) ) {
 	/**
 	 * Adds custom classes to the footer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_inside_footer_classes( $classes ) {
 		$classes[] = 'footer-widgets-container';
@@ -500,7 +500,7 @@ if ( ! function_exists( 'dokanee_main_classes' ) ) {
 	add_filter( 'dokanee_main_class', 'dokanee_main_classes' );
 	/**
 	 * Adds custom classes to the <main> element
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 */
 	function dokanee_main_classes( $classes ) {
 		$classes[] = 'site-main';
@@ -514,7 +514,7 @@ if ( ! function_exists( 'dokanee_post_classes' ) ) {
 	 * Adds custom classes to the <article> element.
 	 * Remove .hentry class from pages to comply with structural data guidelines.
 	 *
-	 * @since 1.3.39
+	 * @since 1.0.0
 	 */
 	function dokanee_post_classes( $classes ) {
 		if ( 'page' == get_post_type() ) {

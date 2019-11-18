@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_base_css' ) ) {
 	/**
 	 * Generate the CSS in the <head> section using the Theme Customizer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_base_css() {
 		// Get our settings
@@ -81,7 +81,7 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 	/**
 	 * Generate the CSS in the <head> section using the Theme Customizer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_advanced_css() {
 		// Get our settings
@@ -413,7 +413,7 @@ if ( ! function_exists( 'dokanee_font_css' ) ) {
 	/**
 	 * Generate the CSS in the <head> section using the Theme Customizer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_font_css() {
 
@@ -578,7 +578,7 @@ if ( ! function_exists( 'dokanee_spacing_css' ) ) {
 	/**
 	 * Write our dynamic CSS.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_spacing_css() {
 		$spacing_settings = wp_parse_args(
@@ -761,7 +761,7 @@ if ( ! function_exists( 'dokanee_spacing_css' ) ) {
 /**
  * Generates any CSS that can't be cached (can change from page to page).
  *
- * @since 2.0
+ * @since 1.0.0
  */
 function dokanee_no_cache_dynamic_css() {
 	// Initiate our class.
@@ -774,7 +774,7 @@ add_action( 'wp_enqueue_scripts', 'dokanee_enqueue_dynamic_css', 50 );
 /**
  * Enqueue our dynamic CSS.
  *
- * @since 2.0
+ * @since 1.0.0
  */
 function dokanee_enqueue_dynamic_css() {
 	if ( ! get_option( 'dokanee_dynamic_css_output', false ) || is_customize_preview() || apply_filters( 'dokanee_dynamic_css_skip_cache', false ) ) {
@@ -794,7 +794,7 @@ add_action( 'init', 'dokanee_set_dynamic_css_cache' );
  *
  * If the theme version changed, bust the cache.
  *
- * @since 2.0
+ * @since 1.0.0
  */
 function dokanee_set_dynamic_css_cache() {
 	if ( apply_filters( 'dokanee_dynamic_css_skip_cache', false ) ) {
@@ -816,7 +816,7 @@ add_action( 'customize_save_after', 'dokanee_update_dynamic_css_cache' );
 /**
  * Update our CSS cache when done saving Customizer options.
  *
- * @since 2.0
+ * @since 1.0.0
  */
 function dokanee_update_dynamic_css_cache() {
 	if ( apply_filters( 'dokanee_dynamic_css_skip_cache', false ) ) {

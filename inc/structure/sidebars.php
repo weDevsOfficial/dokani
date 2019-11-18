@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_construct_sidebars' ) ) {
 	/**
 	 * Construct the sidebars.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_construct_sidebars() {
 		$layout = dokanee_get_layout();

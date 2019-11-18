@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_sanitize_typography' ) ) {
 	/**
 	 * Sanitize typography dropdown.
 	 *
-	 * @since 1.1.10
+	 * @since 1.0.0
 	 * @deprecated 1.3.45
 	 */
 	function dokanee_sanitize_typography( $input ) {
@@ -45,7 +45,7 @@ if ( ! function_exists( 'dokanee_sanitize_font_weight' ) ) {
 	/**
 	 * Sanitize font weight.
 	 *
-	 * @since 1.1.10
+	 * @since 1.0.0
 	 * @deprecated 1.3.40
 	 */
 	function dokanee_sanitize_font_weight( $input ) {
@@ -76,7 +76,7 @@ if ( ! function_exists( 'dokanee_sanitize_text_transform' ) ) {
 	/**
 	 * Sanitize text transform.
 	 *
-	 * @since 1.1.10
+	 * @since 1.0.0
 	 * @deprecated 1.3.40
 	 */
 	function dokanee_sanitize_text_transform( $input ) {
@@ -99,7 +99,7 @@ if ( ! function_exists( 'dokanee_sanitize_text_transform' ) ) {
 if ( ! function_exists( 'dokanee_typography_customize_preview_css' ) ) {
 	/**
 	 * Hide the hidden input control
-	 * @since 1.3.40
+	 * @since 1.0.0
 	 */
 	function dokanee_typography_customize_preview_css() {
 		?>

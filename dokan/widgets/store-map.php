@@ -2,7 +2,7 @@
 /**
  * Dokan Seller Widget Map Content
  *
- * @since 2.4
+ * @since 1.0.0
  *
  * @package Dokanee
  */

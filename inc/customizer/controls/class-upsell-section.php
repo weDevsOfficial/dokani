@@ -45,7 +45,7 @@ if ( ! function_exists( 'dokanee_customizer_controls_css' ) ) {
 	/**
 	 * Add CSS for our controls
 	 *
-	 * @since 1.3.41
+	 * @since 1.0.0
 	 */
 	function dokanee_customizer_controls_css() {
 		wp_enqueue_style( 'dokanee-customizer-controls-css', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/css/upsell-customizer.css', array(), GENERATE_VERSION );

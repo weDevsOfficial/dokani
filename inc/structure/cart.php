@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_cart_position' ) ) {
 	/**
 	 * Build the cart.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_cart_position() {
 	    $cart = '';

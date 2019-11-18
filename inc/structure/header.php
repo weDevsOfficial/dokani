@@ -14,7 +14,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 	/**
 	 * Build the header.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 */
 	function dokanee_construct_header() {
 		?>
@@ -24,7 +24,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 				/**
 				 * dokanee_before_header_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 */
 				do_action( 'dokanee_before_header_content' );
 
@@ -40,7 +40,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
                     /**
                      * dokanee_after_header_left hook.
                      *
-                     * @since 0.1
+                     * @since 1.0.0
                      *
                      * @hooked dokanee_responsive_nav - 5
                      */
@@ -56,7 +56,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
                     /**
                      * dokanee_after_header_right hook.
                      *
-                     * @since 0.1
+                     * @since 1.0.0
                      *
                      * @hooked dokanee_add_navigation_float_right - 5
                      * @hooked dokanee_add_cart_menu_after_search - 10
@@ -68,7 +68,7 @@ if ( ! function_exists( 'dokanee_construct_header' ) ) {
 				/**
 				 * dokanee_after_header_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 *
 				 * @hooked dokanee_add_navigation_float_right - 5
 				 */
@@ -108,7 +108,7 @@ if ( ! function_exists( 'dokanee_header_items' ) ) {
 	 * Build the header contents.
 	 * Wrapping this into a function allows us to customize the order.
 	 *
-	 * @since 1.2.9.7
+	 * @since 1.0.0
 	 */
 	function dokanee_header_items() {
 		dokanee_construct_site_title();
@@ -120,7 +120,7 @@ if ( ! function_exists( 'dokanee_construct_logo' ) ) {
 	/**
 	 * Build the logo
 	 *
-	 * @since 1.3.28
+	 * @since 1.0.0
 	 */
 	function dokanee_construct_logo() {
 		$logo_url = ( function_exists( 'the_custom_logo' ) && get_theme_mod( 'custom_logo' ) ) ? wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' ) : false;
@@ -137,7 +137,7 @@ if ( ! function_exists( 'dokanee_construct_logo' ) ) {
 		/**
 		 * dokanee_before_logo hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 */
 		do_action( 'dokanee_before_logo' );
 
@@ -184,7 +184,7 @@ if ( ! function_exists( 'dokanee_construct_logo' ) ) {
 		/**
 		 * dokanee_after_logo hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 */
 		do_action( 'dokanee_after_logo' );
 	}
@@ -194,7 +194,7 @@ if ( ! function_exists( 'dokanee_construct_site_title' ) ) {
 	/**
 	 * Build the site title and tagline.
 	 *
-	 * @since 1.3.28
+	 * @since 1.0.0
 	 */
 	function dokanee_construct_site_title() {
 		$dokanee_settings = wp_parse_args(
@@ -250,7 +250,7 @@ if ( ! function_exists( 'dokanee_construct_header_widget' ) ) {
 	/**
 	 * Build the header widget.
 	 *
-	 * @since 1.3.28
+	 * @since 1.0.0
 	 */
 	function dokanee_construct_header_widget() {
 		if ( is_active_sidebar('header') ) : ?>
@@ -266,7 +266,7 @@ if ( ! function_exists( 'dokanee_top_bar' ) ) {
 	/**
 	 * Build our top bar.
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 */
 	function dokanee_top_bar() {
 	    if ( get_theme_mod( 'show_topbar' ) === 'disabled' ) return false;
@@ -317,7 +317,7 @@ if ( ! function_exists( 'dokanee_pingback_header' ) ) {
 	/**
 	 * Add a pingback url auto-discovery header for singularly identifiable articles.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 */
 	function dokanee_pingback_header() {
 		if ( is_singular() && pings_open() ) {
@@ -331,7 +331,7 @@ if ( ! function_exists( 'dokanee_add_viewport' ) ) {
 	/**
 	 * Add viewport to wp_head.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 */
 	function dokanee_add_viewport() {
 		echo apply_filters( 'dokanee_meta_viewport', '<meta name="viewport" content="width=device-width, initial-scale=1">' ); // WPCS: XSS ok.
@@ -342,7 +342,7 @@ add_action( 'dokanee_before_header', 'dokanee_do_skip_to_content_link', 2 );
 /**
  * Add skip to content link before the header.
  *
- * @since 2.0
+ * @since 1.0.0
  */
 function dokanee_do_skip_to_content_link() {
 	printf( '<a class="screen-reader-text skip-link" href="#content" title="%1$s">%2$s</a>',
@@ -357,7 +357,7 @@ if ( ! function_exists( 'dokanee_responsive_nav' ) ) {
 	/**
 	 * Build responsive menu.
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 */
 	function dokanee_responsive_nav() {
 	    echo '<div class="responsive-nav">';
@@ -374,7 +374,7 @@ if ( ! function_exists( 'dokanee_responsive_user_menu' ) ) {
 	/**
 	 * Build responsive user menu.
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 */
 	function dokanee_responsive_user_menu() {
 	    echo '<ul class="responsive-user-menu no-list-style">';

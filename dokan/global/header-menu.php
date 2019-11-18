@@ -2,7 +2,7 @@
 /**
  * Dokanee Header Menu Template
  *
- * @since 2.4
+ * @since 1.0.0
  *
  * @package Dokanee
  */

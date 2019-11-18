@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_navigation_position' ) ) {
 	/**
 	 * Build the navigation.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_navigation_position() {
 		?>
@@ -23,7 +23,7 @@ if ( ! function_exists( 'dokanee_navigation_position' ) ) {
 				/**
 				 * dokanee_inside_navigation hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 *
 				 * @hooked dokanee_responsive_user_menu - 5
 				 * @hooked dokanee_navigation_search - 10
@@ -82,7 +82,7 @@ if ( ! function_exists( 'dokanee_menu_fallback' ) ) {
 	/**
 	 * Menu fallback.
 	 *
-	 * @since 1.1.4
+	 * @since 1.0.0
 	 *
 	 * @param  array $args
 	 * @return string
@@ -122,7 +122,7 @@ if ( ! function_exists( 'dokanee_menu_fallback' ) ) {
  * are kept this way to maintain backward compatibility for people
  * un-hooking and moving the navigation/changing the priority.
  *
- * @since 0.1
+ * @since 1.0.0
  */
 
 if ( ! function_exists( 'dokanee_add_navigation_after_header' ) ) {
@@ -148,7 +148,7 @@ if ( ! class_exists( 'Dokanee_Page_Walker' ) && class_exists( 'Walker_Page' ) ) 
 	 * Add current-menu-item to the current item if no theme location is set
 	 * This means we don't have to duplicate CSS properties for current_page_item and current-menu-item
 	 *
-	 * @since 1.3.21
+	 * @since 1.0.0
 	 */
 	class Dokanee_Page_Walker extends Walker_Page {
 		function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
@@ -197,7 +197,7 @@ if ( ! function_exists( 'dokanee_dropdown_icon_to_menu_link' ) ) {
 	/**
 	 * Add dropdown icon if menu item has children.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 *
 	 * @param string $title The menu item title.
 	 * @param WP_Post $item All of our menu item data.
@@ -234,7 +234,7 @@ if ( ! function_exists( 'dokanee_menu_cart' ) ) {
 	/**
 	 * Add cart to primary menu if set
 	 *
-	 * @since 1.2.9.7
+	 * @since 1.0.0
 	 *
 	 * @param string $nav The HTML list content for the menu items.
 	 * @param stdClass $args An object containing wp_nav_menu() arguments.
@@ -270,7 +270,7 @@ add_action( 'wp_footer', 'dokanee_clone_sidebar_navigation' );
  * We're not using wp_add_inline_script() as this needs to happens
  * before menu.js is enqueued.
  *
- * @since 2.0
+ * @since 1.0.0
  */
 function dokanee_clone_sidebar_navigation() {
 	if ( 'nav-left-sidebar' !== dokanee_get_navigation_location() && 'nav-right-sidebar' !== dokanee_get_navigation_location() ) {
@@ -302,7 +302,7 @@ if ( ! function_exists( 'dokanee_menu_responsive_search' ) ) {
 	/**
 	 * Build responsive search
 	 *
-	 * @since 1.2.9.7
+	 * @since 1.0.0
 	 */
 	function dokanee_menu_responsive_search( $nav, $args ) {
 
@@ -319,7 +319,7 @@ if ( ! function_exists( 'dokanee_responsive_vendor_menu' ) ) {
 	/**
 	 * Build responsive vendor menu
 	 *
-	 * @since 1.2.9.7
+	 * @since 1.0.0
 	 */
 	function dokanee_responsive_vendor_menu( $nav, $args ) {
 		global $current_user;

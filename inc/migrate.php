@@ -14,7 +14,7 @@ add_action( 'admin_init', 'dokanee_do_db_updates' );
  * Process database updates if necessary.
  * There's nothing in here yet, but we're setting the version to use later.
  *
- * @since 2.1
+ * @since 1.0.0
  */
 function dokanee_do_db_updates() {
 	// Get the current version.
@@ -33,7 +33,7 @@ if ( ! function_exists( 'dokanee_update_logo_setting' ) ) {
 	/**
 	 * Migrate the old logo database entry to the new custom_logo theme mod (WordPress 4.5)
 	 *
-	 * @since 1.3.29
+	 * @since 1.0.0
 	 */
 	function dokanee_update_logo_setting() {
 		// If we're not running WordPress 4.5, bail.
@@ -84,7 +84,7 @@ if ( ! function_exists( 'dokanee_typography_convert_values' ) ) {
 	/**
 	 * Take the old body font value and strip it of variants
 	 * This should only run once
-	 * @since 1.3.0
+	 * @since 1.0.0
 	 */
 	function dokanee_typography_convert_values() {
 		// Don't run this if Typography add-on is activated
@@ -139,7 +139,7 @@ if ( ! function_exists( 'dokanee_typography_set_font_data' ) ) {
 	 * Generally, set_theme_mod isn't best practice, but this is here for migration purposes for a set amount of time only
 	 * Any time a user saves a font in the Customizer from now on, the category and variants are saved as theme_mods, so this function won't be necessary.
 	 *
-	 * @since 1.3.40
+	 * @since 1.0.0
 	 */
 	function dokanee_typography_set_font_data() {
 		// Get our defaults
@@ -213,7 +213,7 @@ add_action( 'admin_init', 'dokanee_migrate_existing_settings', 1 );
  * We run this right away in the Dashboard to avoid other migration functions from
  * setting options and causing these functions to run on fresh installs.
  *
- * @since 2.0
+ * @since 1.0.0
  */
 function dokanee_migrate_existing_settings() {
 	// Existing settings with no defaults.

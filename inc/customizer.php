@@ -2822,7 +2822,7 @@ if ( ! function_exists( 'dokanee_customizer_live_preview' ) ) {
 	/**
 	 * Add our live preview scripts
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_customizer_live_preview() {
 		wp_enqueue_script( 'dokanee-themecustomizer', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/customizer-live-preview.js', array( 'customize-preview' ), GENERATE_VERSION, true );

@@ -16,7 +16,7 @@ define( 'GENERATE_DIR', get_template_directory() );
 if ( ! function_exists( 'dokanee_paging_nav' ) ) {
 	/**
 	 * Build the pagination links
-	 * @since 1.3.35
+	 * @since 1.0.0
 	 * @deprecated 1.3.45
 	 */
 	function dokanee_paging_nav() {
@@ -54,7 +54,7 @@ if ( ! function_exists( 'dokanee_mobile_search_spacing_fallback_css' ) ) {
 if ( ! function_exists( 'dokanee_addons_available' ) ) {
 	/**
 	 * Check to see if there's any addons not already activated
-	 * @since 1.0.9
+	 * @since 1.0.0
 	 * @deprecated 1.3.47
 	 */
 	function dokanee_addons_available() {
@@ -67,7 +67,7 @@ if ( ! function_exists( 'dokanee_addons_available' ) ) {
 if ( ! function_exists( 'dokanee_no_addons' ) ) {
 	/**
 	 * Check to see if no addons are activated
-	 * @since 1.0.9
+	 * @since 1.0.0
 	 * @deprecated 1.3.47
 	 */
 	function dokanee_no_addons() {
@@ -80,7 +80,7 @@ if ( ! function_exists( 'dokanee_no_addons' ) ) {
 if ( ! function_exists( 'dokanee_get_min_suffix' ) ) {
 	/**
 	 * Figure out if we should use minified scripts or not
-	 * @since 1.3.29
+	 * @since 1.0.0
 	 * @deprecated 2.0
 	 */
 	function dokanee_get_min_suffix() {

@@ -14,7 +14,7 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 	/**
 	 * Build the archive title
 	 *
-	 * @since 1.3.24
+	 * @since 1.0.0
 	 */
 	function dokanee_archive_title() {
 		if ( ! function_exists( 'the_archive_title' ) ) {
@@ -26,7 +26,7 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 			/**
 			 * dokanee_before_archive_title hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 */
 			do_action( 'dokanee_before_archive_title' );
 			?>
@@ -39,7 +39,7 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 			/**
 			 * dokanee_after_archive_title hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 */
 			do_action( 'dokanee_after_archive_title' );
 
@@ -56,7 +56,7 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 			/**
 			 * dokanee_after_archive_description hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 */
 			do_action( 'dokanee_after_archive_description' ); ?>
 			</header><!-- .page-header -->
@@ -69,7 +69,7 @@ if ( ! function_exists( 'dokanee_filter_the_archive_title' ) ) {
 	/**
 	 * Alter the_archive_title() function to match our original archive title function
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 *
 	 * @param string $title The archive title
 	 * @return string The altered archive title

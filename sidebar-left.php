@@ -35,7 +35,7 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 		/**
 		 * dokanee_before_left_sidebar_content hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 */
 		do_action( 'dokanee_before_left_sidebar_content' );
 
@@ -176,7 +176,7 @@ if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
 		/**
 		 * dokanee_after_left_sidebar_content hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 */
 		do_action( 'dokanee_after_left_sidebar_content' );
 		?>

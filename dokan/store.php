@@ -28,7 +28,7 @@ get_header(); ?>
 				/**
 				 * dokanee_before_main_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 */
 				do_action( 'dokanee_before_main_content' );
 
@@ -62,7 +62,7 @@ get_header(); ?>
 				/**
 				 * dokanee_after_main_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 */
 				do_action( 'dokanee_after_main_content' );
 
@@ -77,7 +77,7 @@ get_header(); ?>
 		/**
 		 * dokanee_after_primary_content_area hook.
 		 *
-		 * @since 2.0
+		 * @since 1.0.0
 		 */
 		do_action( 'dokanee_after_primary_content_area' );
 

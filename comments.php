@@ -26,7 +26,7 @@ if ( post_password_required() ) {
 /**
  * dokanee_before_comments hook.
  *
- * @since 0.1
+ * @since 1.0.0
  */
 do_action( 'dokanee_before_comments' );
 ?>
@@ -36,7 +36,7 @@ do_action( 'dokanee_before_comments' );
 	/**
 	 * dokanee_inside_comments hook.
 	 *
-	 * @since 1.3.47
+	 * @since 1.0.0
 	 */
 	do_action( 'dokanee_inside_comments' );
 
@@ -71,7 +71,7 @@ do_action( 'dokanee_before_comments' );
 		/**
 		 * dokanee_below_comments_title hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 */
 		do_action( 'dokanee_below_comments_title' );
 

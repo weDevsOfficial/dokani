@@ -78,7 +78,7 @@ add_filter( 'comment_form_default_fields', 'dokanee_filter_comment_fields' );
 /**
  * Customizes the existing comment fields.
  *
- * @since 2.1.2
+ * @since 1.0.0
  * @param array $fields
  * @return array
  */

@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * dokanee_before_header hook.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @hooked dokanee_do_skip_to_content_link - 2
 	 * @hooked dokanee_top_bar - 5
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * dokanee_header hook.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 *
 	 * @hooked dokanee_construct_header - 10
 	 */
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * dokanee_after_header hook.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @hooked dokanee_featured_page_header - 10
 	 */
@@ -56,6 +56,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			/**
 			 * dokanee_inside_container hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 */
 			do_action( 'dokanee_inside_container' );

@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Customi
 	 * Create our in-section upsell controls.
 	 * Escape your URL in the Customizer using esc_url().
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	class Generate_Customize_Misc_Control extends WP_Customize_Control {
 		public $description = '';

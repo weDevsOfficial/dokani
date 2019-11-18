@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_content_nav' ) ) {
 	/**
 	 * Display navigation to next/previous pages when applicable.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @param string $nav_id The id of our navigation.
 	 */
@@ -71,7 +71,7 @@ if ( ! function_exists( 'dokanee_content_nav' ) ) {
 				/**
 				 * dokanee_paging_navigation hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 */
 				do_action( 'dokanee_paging_navigation' );
 
@@ -87,7 +87,7 @@ if ( ! function_exists( 'dokanee_modify_posts_pagination_template' ) ) {
 	 * Remove the container and screen reader text from the_posts_pagination()
 	 * We add this in ourselves in dokanee_content_nav()
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 *
 	 * @param string $template The default template.
 	 * @param string $class The class passed by the calling function.
@@ -106,7 +106,7 @@ if ( ! function_exists( 'dokanee_posted_on' ) ) {
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_posted_on() {
 		$date = apply_filters( 'dokanee_post_date', true );
@@ -154,7 +154,7 @@ if ( ! function_exists( 'dokanee_entry_meta' ) ) {
 	/**
 	 * Prints HTML with meta information for the categories, tags.
 	 *
-	 * @since 1.2.5
+	 * @since 1.0.0
 	 */
 	function dokanee_entry_meta() {
 		$is_show_categories = get_theme_mod( 'blog_single_show_category' );
@@ -190,7 +190,7 @@ if ( ! function_exists( 'dokanee_excerpt_more' ) ) {
 	/**
 	 * Prints the read more HTML to post excerpts.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @param string $more The string shown within the more link.
 	 * @return string The HTML for the more link.
@@ -241,7 +241,7 @@ if ( ! function_exists( 'dokanee_content_more' ) ) {
 	/**
 	 * Prints the read more HTML to post content using the more tag.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @param string $more The string shown within the more link.
 	 * @return string The HTML for the more link
@@ -261,7 +261,7 @@ if ( ! function_exists( 'dokanee_post_meta' ) ) {
 	/**
 	 * Build the post meta.
 	 *
-	 * @since 1.3.29
+	 * @since 1.0.0
 	 */
 	function dokanee_post_meta() {
 		if ( 'post' == get_post_type() ) : ?>
@@ -277,7 +277,7 @@ if ( ! function_exists( 'dokanee_get_post_nav' ) ) {
 	/**
 	 * Build the footer post meta.
 	 *
-	 * @since 1.3.30
+	 * @since 1.0.0
 	 */
 	function dokanee_get_post_nav() {
 		if ( 'post' == get_post_type() ) : ?>
@@ -307,7 +307,7 @@ if ( ! function_exists( 'dokane_get_post_meta' ) ) {
 	/**
 	 * Build the footer post meta.
 	 *
-	 * @since 1.3.30
+	 * @since 1.0.0
 	 */
 	function dokane_get_post_meta() {
 		if ( 'post' == get_post_type() && is_single() ) {

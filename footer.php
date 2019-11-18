@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * dokanee_before_footer hook.
  *
- * @since 0.1
+ * @since 1.0.0
  */
 do_action( 'dokanee_before_footer' );
 ?>
@@ -25,7 +25,7 @@ do_action( 'dokanee_before_footer' );
 /**
  * Trust Factors Section.
  *
- * @since 0.1
+ * @since 1.0.0
  */
 
 if( ( get_theme_mod( 'show_trusted_factors_section', 'on' ) == 'on' ) && class_exists( 'WooCommerce' ) ) {
@@ -39,14 +39,14 @@ if( ( get_theme_mod( 'show_trusted_factors_section', 'on' ) == 'on' ) && class_e
 	/**
 	 * dokanee_before_footer_content hook.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	do_action( 'dokanee_before_footer_content' );
 
 	/**
 	 * dokanee_footer hook.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 *
 	 * @hooked dokanee_construct_footer_widgets - 5
 	 * @hooked dokanee_construct_footer - 10
@@ -57,7 +57,7 @@ if( ( get_theme_mod( 'show_trusted_factors_section', 'on' ) == 'on' ) && class_e
 	/**
 	 * dokanee_after_footer_content hook.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	do_action( 'dokanee_after_footer_content' );
 	?>
@@ -67,7 +67,7 @@ if( ( get_theme_mod( 'show_trusted_factors_section', 'on' ) == 'on' ) && class_e
 /**
  * dokanee_after_footer hook.
  *
- * @since 2.1
+ * @since 1.0.0
  */
 do_action( 'dokanee_after_footer' );
 

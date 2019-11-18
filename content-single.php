@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**
 		 * dokanee_before_content hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 *
 		 * @hooked dokanee_featured_page_header_inside_single - 10
 		 */
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			/**
 			 * dokanee_before_entry_title hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 */
 			do_action( 'dokanee_before_entry_title' );
 
@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			/**
 			 * dokanee_after_entry_title hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 *
 			 * @hooked dokanee_post_meta - 10
 			 */
@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**
 		 * dokanee_after_entry_header hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 *
 		 * @hooked dokanee_post_image - 10
 		 */
@@ -71,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**
 		 * dokanee_after_entry_content hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 *
 		 * @hooked dokanee_footer_meta - 10
 		 */
@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**
 		 * dokanee_after_content hook.
 		 *
-		 * @since 0.1
+		 * @since 1.0.0
 		 */
 		do_action( 'dokanee_after_content' );
 		?>
@@ -89,7 +89,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * dokane_post_meta hook.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @hooked dokane_post_meta - 10
 	 */
@@ -98,7 +98,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * dokanee_post_nav hook.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @hooked dokanee_post_nav - 10
 	 */
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * dokanee_post_author_profile hook.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @hooked dokanee_post_author_profile - 10
 	 */

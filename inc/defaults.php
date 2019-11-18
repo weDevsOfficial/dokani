@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_get_defaults' ) ) {
 	/**
 	 * Set default options
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
 	function dokanee_get_defaults() {
 		$dokanee_defaults = array(
@@ -168,7 +168,7 @@ if ( ! function_exists( 'dokanee_get_default_fonts' ) ) {
 	 * @param  bool  $filter  Whether to return the filtered values or original values.
 	 *
 	 * @return array Option defaults.
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 */
 	function dokanee_get_default_fonts( $filter = true ) {
@@ -292,7 +292,7 @@ if ( ! function_exists( 'dokanee_spacing_get_defaults' ) ) {
 	 * @param  bool  $filter  Whether to return the filtered values or original values.
 	 *
 	 * @return array Option defaults.
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 */
 	function dokanee_spacing_get_defaults( $filter = true ) {
@@ -346,7 +346,7 @@ if ( ! function_exists( 'dokanee_typography_default_fonts' ) ) {
 	/**
 	 * Set the default system fonts.
 	 *
-	 * @since 1.3.40
+	 * @since 1.0.0
 	 */
 	function dokanee_typography_default_fonts() {
 		$fonts = array(

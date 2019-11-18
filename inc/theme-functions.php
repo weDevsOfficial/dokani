@@ -13,7 +13,7 @@ if ( ! function_exists( 'dokanee_get_setting' ) ) {
 	/**
 	 * A wrapper function to get our settings.
 	 *
-	 * @since 1.3.40
+	 * @since 1.0.0
 	 *
 	 * @param string $option The option name to look up.
 	 * @return string The option value.
@@ -63,7 +63,7 @@ if ( ! function_exists( 'dokanee_get_layout' ) ) {
 	/**
 	 * Get the layout for the current page.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @return string The sidebar layout location.
 	 */
@@ -132,7 +132,7 @@ if ( ! function_exists( 'dokanee_get_footer_widgets' ) ) {
 	/**
 	 * Get the footer widgets for the current page
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @return int The number of footer widgets.
 	 */
@@ -162,7 +162,7 @@ if ( ! function_exists( 'dokanee_get_footer_widgets' ) ) {
 if ( ! function_exists( 'dokanee_show_excerpt' ) ) {
 	/**
 	 * Figure out if we should show the blog excerpts or full posts
-	 * @since 1.3.15
+	 * @since 1.0.0
 	 */
 	function dokanee_show_excerpt() {
 		// Get current post
@@ -201,7 +201,7 @@ if ( ! function_exists( 'dokanee_padding_css' ) ) {
 	/**
 	 * Shorten our padding/margin values into shorthand form.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 *
 	 * @param int $top Top spacing.
 	 * @param int $right Right spacing.
@@ -230,7 +230,7 @@ if ( ! function_exists( 'dokanee_get_link_url' ) ) {
 	 *
 	 * Falls back to the post permalink if no URL is found in the post.
 	 *
-	 * @since 1.2.5
+	 * @since 1.0.0
 	 *
 	 * @see get_url_in_content()
 	 * @return string The Link format URL.
@@ -246,7 +246,7 @@ if ( ! function_exists( 'dokanee_get_navigation_location' ) ) {
 	/**
 	 * Get the location of the navigation and filter it.
 	 *
-	 * @since 1.3.41
+	 * @since 1.0.0
 	 *
 	 * @return string The primary menu location.
 	 */

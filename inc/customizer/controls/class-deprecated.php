@@ -22,7 +22,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Customi
 if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'GenerateLabelControl' ) ) {
 	/**
 	 * Heading area
-	 * @since 0.1
+	 * @since 1.0.0
 	 * @depreceted 1.3.41
 	 **/
 	class GenerateLabelControl extends WP_Customize_Control {
