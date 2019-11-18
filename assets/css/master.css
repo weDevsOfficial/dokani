@@ -1755,7 +1755,7 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  background: #f2624d;
+  opacity: .9;
 }
 .button {
   padding: 10px 20px;
@@ -4530,7 +4530,6 @@ a.dokan-btn,
   display: none;
 }
 #dokan-seller-listing-wrap ul.dokan-seller-list li .store-footer .dokan-btn {
-  border: 1px solid #EAECF4;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
@@ -4540,7 +4539,7 @@ a.dokan-btn,
   -o-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.07);
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.07);
   color: #fff;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.2em;
   padding: 9px 21px;
 }
@@ -5244,7 +5243,7 @@ body.dokanee-template-front-page .site-footer {
   padding: 2px 5px 10px 5px;
 }
 .store-section {
-  padding: 59px 20px 37px;
+  padding: 60px 0;
   background-color: #f0f1fa;
 }
 .store-section .store-wrapper .tabs {

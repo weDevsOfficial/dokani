@@ -70,6 +70,11 @@ if ( ! function_exists( 'dokanee_base_css' ) ) {
 		// Container width
 		$css->set_selector( 'body .grid-container' )->add_property( 'max-width', absint( $dokanee_settings['container_width'] ), false, 'px' );
 
+		// store buttons
+		$css->set_selector( 'div#dokan-seller-listing-wrap ul.dokan-seller-list li .store-footer .dokan-btn:hover' );
+		$css->add_property( 'background-color', esc_attr( $dokanee_settings['theme_color'] ) );
+		$css->add_property( 'border-color', esc_attr( $dokanee_settings['theme_color'] ) );
+
 		// Allow us to hook CSS into our output
 		do_action( 'dokanee_base_css', $css );
 
@@ -276,8 +281,7 @@ if ( ! function_exists( 'dokanee_advanced_css' ) ) {
 
 		// Form button on hover
 		$css->set_selector( 'button:hover,html input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover,a.button:hover,button:focus,html input[type="button"]:focus,input[type="reset"]:focus,input[type="submit"]:focus,a.button:focus' );
-		$css->add_property( 'color', esc_attr( $dokanee_settings[ 'form_button_text_color_hover' ] ) );
-		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'form_button_background_color_hover' ] ) );
+		$css->add_property( 'background-color', esc_attr( $dokanee_settings[ 'theme_color' ] ) );
 
 		// Back to top button
 		$css->set_selector( '.dokanee-back-to-top,.dokanee-back-to-top:visited' );
