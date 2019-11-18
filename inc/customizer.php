@@ -1557,25 +1557,27 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 			)
 		);
 
-		// Show product category menu
-		$wp_customize->add_setting(
-			'show_product_cateogry_menu',
-			array(
-				'default'           => 'on',
-				'sanitize_callback' => 'dokani_sanitize_checkbox',
-				'transport'         => 'refresh'
-			)
-		);
+		if ( function_exists( 'dokan' ) ) {
+			// Show product category menu
+			$wp_customize->add_setting(
+				'show_product_cateogry_menu',
+				array(
+					'default'           => 'on',
+					'sanitize_callback' => 'dokani_sanitize_checkbox',
+					'transport'         => 'refresh'
+				)
+			);
 
-		// Add Header Layout control
-		$wp_customize->add_control(
-			'show_product_cateogry_menu',
-			array(
-				'type'     => 'checkbox',
-				'label'    => __( 'Show Product Category menu', 'dokani' ),
-				'section'  => 'dokani_layout_header',
-			)
-		);
+			// Add Header Layout control
+			$wp_customize->add_control(
+				'show_product_cateogry_menu',
+				array(
+					'type'     => 'checkbox',
+					'label'    => __( 'Show Product Category menu', 'dokani' ),
+					'section'  => 'dokani_layout_header',
+				)
+			);
+		}
 
 		// Add Header Layout setting
 		$wp_customize->add_setting(
@@ -2133,159 +2135,163 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 			)
 		);
 
-		// Setting - Shop Layout
-		$wp_customize->add_setting(
-			'dokani_settings[shop_layout_setting]',
-			array(
-				'default'           => $defaults['shop_layout_setting'],
-				'type'              => 'option',
-				'sanitize_callback' => 'dokani_sanitize_choices',
-				'transport'         => 'refresh',
-			)
-		);
-
-		$wp_customize->add_control(
-			new dokani_Customize_Control_Radio_Image(
-				$wp_customize,
+		if ( class_exists( 'WooCommerce' ) ) {
+			// Setting - Shop Layout
+			$wp_customize->add_setting(
 				'dokani_settings[shop_layout_setting]',
 				array(
-					'label'    => esc_html__( 'Shop Sidebar Layout', 'dokani' ),
-					'section'  => 'dokani_layout_sidebars',
-					'choices'  => array(
-						'left-sidebar' => array(
-							'label' => esc_html__( 'Left Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
-						),
-						'no-sidebar' => array(
-							'label' => esc_html__( 'No Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
-						),
-						'right-sidebar' => array(
-							'label' => esc_html__( 'Right Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
-						),
-					),
-					'settings' => 'dokani_settings[shop_layout_setting]',
-					'priority' => 37,
+					'default'           => $defaults['shop_layout_setting'],
+					'type'              => 'option',
+					'sanitize_callback' => 'dokani_sanitize_choices',
+					'transport'         => 'refresh',
 				)
-			)
-		);
+			);
+
+			$wp_customize->add_control(
+				new dokani_Customize_Control_Radio_Image(
+					$wp_customize,
+					'dokani_settings[shop_layout_setting]',
+					array(
+						'label'    => esc_html__( 'Shop Sidebar Layout', 'dokani' ),
+						'section'  => 'dokani_layout_sidebars',
+						'choices'  => array(
+							'left-sidebar' => array(
+								'label' => esc_html__( 'Left Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+							),
+							'no-sidebar' => array(
+								'label' => esc_html__( 'No Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+							),
+							'right-sidebar' => array(
+								'label' => esc_html__( 'Right Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+							),
+						),
+						'settings' => 'dokani_settings[shop_layout_setting]',
+						'priority' => 37,
+					)
+				)
+			);
 
 
 
-		// Setting - Single Product Layout
-		$wp_customize->add_setting(
-			'dokani_settings[single_product_layout_setting]',
-			array(
-				'default'           => $defaults['single_product_layout_setting'],
-				'type'              => 'option',
-				'sanitize_callback' => 'dokani_sanitize_choices',
-				'transport'         => 'refresh',
-			)
-		);
-
-		$wp_customize->add_control(
-			new dokani_Customize_Control_Radio_Image(
-				$wp_customize,
+			// Setting - Single Product Layout
+			$wp_customize->add_setting(
 				'dokani_settings[single_product_layout_setting]',
 				array(
-					'label'    => esc_html__( 'Single Product Sidebar Layout', 'dokani' ),
-					'section'  => 'dokani_layout_sidebars',
-					'choices'  => array(
-						'left-sidebar' => array(
-							'label' => esc_html__( 'Left Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
-						),
-						'no-sidebar' => array(
-							'label' => esc_html__( 'No Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
-						),
-						'right-sidebar' => array(
-							'label' => esc_html__( 'Right Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
-						),
-					),
-					'settings' => 'dokani_settings[single_product_layout_setting]',
-					'priority' => 38,
+					'default'           => $defaults['single_product_layout_setting'],
+					'type'              => 'option',
+					'sanitize_callback' => 'dokani_sanitize_choices',
+					'transport'         => 'refresh',
 				)
-			)
-		);
+			);
 
-		// Setting - Store List Layout
-		$wp_customize->add_setting(
-			'dokani_settings[store_list_layout_setting]',
-			array(
-				'default'           => $defaults['store_list_layout_setting'],
-				'type'              => 'option',
-				'sanitize_callback' => 'dokani_sanitize_choices',
-				'transport'         => 'refresh',
-			)
-		);
+			$wp_customize->add_control(
+				new dokani_Customize_Control_Radio_Image(
+					$wp_customize,
+					'dokani_settings[single_product_layout_setting]',
+					array(
+						'label'    => esc_html__( 'Single Product Sidebar Layout', 'dokani' ),
+						'section'  => 'dokani_layout_sidebars',
+						'choices'  => array(
+							'left-sidebar' => array(
+								'label' => esc_html__( 'Left Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+							),
+							'no-sidebar' => array(
+								'label' => esc_html__( 'No Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+							),
+							'right-sidebar' => array(
+								'label' => esc_html__( 'Right Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+							),
+						),
+						'settings' => 'dokani_settings[single_product_layout_setting]',
+						'priority' => 38,
+					)
+				)
+			);
+		}
 
-		$wp_customize->add_control(
-			new dokani_Customize_Control_Radio_Image(
-				$wp_customize,
+		if ( function_exists( 'dokan' ) ) {
+			// Setting - Store List Layout
+			$wp_customize->add_setting(
 				'dokani_settings[store_list_layout_setting]',
 				array(
-					'label'    => esc_html__( 'Store List Sidebar Layout', 'dokani' ),
-					'section'  => 'dokani_layout_sidebars',
-					'choices'  => array(
-						'left-sidebar' => array(
-							'label' => esc_html__( 'Left Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
-						),
-						'no-sidebar' => array(
-							'label' => esc_html__( 'No Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
-						),
-						'right-sidebar' => array(
-							'label' => esc_html__( 'Right Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
-						),
-					),
-					'settings' => 'dokani_settings[store_list_layout_setting]',
-					'priority' => 39,
+					'default'           => $defaults['store_list_layout_setting'],
+					'type'              => 'option',
+					'sanitize_callback' => 'dokani_sanitize_choices',
+					'transport'         => 'refresh',
 				)
-			)
-		);
+			);
 
-		// Setting - Store Layout
-		$wp_customize->add_setting(
-			'dokani_settings[store_layout_setting]',
-			array(
-				'default'           => $defaults['store_layout_setting'],
-				'type'              => 'option',
-				'sanitize_callback' => 'dokani_sanitize_choices',
-				'transport'         => 'refresh',
-			)
-		);
+			$wp_customize->add_control(
+				new dokani_Customize_Control_Radio_Image(
+					$wp_customize,
+					'dokani_settings[store_list_layout_setting]',
+					array(
+						'label'    => esc_html__( 'Store List Sidebar Layout', 'dokani' ),
+						'section'  => 'dokani_layout_sidebars',
+						'choices'  => array(
+							'left-sidebar' => array(
+								'label' => esc_html__( 'Left Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+							),
+							'no-sidebar' => array(
+								'label' => esc_html__( 'No Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+							),
+							'right-sidebar' => array(
+								'label' => esc_html__( 'Right Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+							),
+						),
+						'settings' => 'dokani_settings[store_list_layout_setting]',
+						'priority' => 39,
+					)
+				)
+			);
 
-		$wp_customize->add_control(
-			new dokani_Customize_Control_Radio_Image(
-				$wp_customize,
+			// Setting - Store Layout
+			$wp_customize->add_setting(
 				'dokani_settings[store_layout_setting]',
 				array(
-					'label'    => esc_html__( 'Store Sidebar Layout', 'dokani' ),
-					'section'  => 'dokani_layout_sidebars',
-					'choices'  => array(
-						'left-sidebar' => array(
-							'label' => esc_html__( 'Left Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/left-sidebar.svg',
-						),
-						'no-sidebar' => array(
-							'label' => esc_html__( 'No Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/no-sidebar.svg',
-						),
-						'right-sidebar' => array(
-							'label' => esc_html__( 'Right Sidebar', 'dokani' ),
-							'url'   => '%s/assets/images/customizer/right-sidebar.svg',
-						),
-					),
-					'settings' => 'dokani_settings[store_layout_setting]',
-					'priority' => 40,
+					'default'           => $defaults['store_layout_setting'],
+					'type'              => 'option',
+					'sanitize_callback' => 'dokani_sanitize_choices',
+					'transport'         => 'refresh',
 				)
-			)
-		);
+			);
+
+			$wp_customize->add_control(
+				new dokani_Customize_Control_Radio_Image(
+					$wp_customize,
+					'dokani_settings[store_layout_setting]',
+					array(
+						'label'    => esc_html__( 'Store Sidebar Layout', 'dokani' ),
+						'section'  => 'dokani_layout_sidebars',
+						'choices'  => array(
+							'left-sidebar' => array(
+								'label' => esc_html__( 'Left Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/left-sidebar.svg',
+							),
+							'no-sidebar' => array(
+								'label' => esc_html__( 'No Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/no-sidebar.svg',
+							),
+							'right-sidebar' => array(
+								'label' => esc_html__( 'Right Sidebar', 'dokani' ),
+								'url'   => '%s/assets/images/customizer/right-sidebar.svg',
+							),
+						),
+						'settings' => 'dokani_settings[store_layout_setting]',
+						'priority' => 40,
+					)
+				)
+			);
+		}
 
 
 		// Add widget list border color setting
