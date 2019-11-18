@@ -1095,7 +1095,7 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 		);
 
 		$wp_customize->add_setting( 'dokani_footer_bar_section1_content', array(
-			'default'           => __( 'Copyright 2018 | dokani by weDevs', 'dokani' ),
+			'default'           => __( 'Copyright 2019 | dokani by weDevs', 'dokani' ),
 			'sanitize_callback' => 'wp_kses_post',
 		) );
 
@@ -1136,7 +1136,7 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 
 
 		$wp_customize->add_setting( 'dokani_footer_bar_section2_content', array(
-			'default'           => __( 'Copyright 2018 | dokani by weDevs', 'dokani' ),
+			'default'           => __( 'Copyright 2019 | dokani by weDevs', 'dokani' ),
 			'sanitize_callback' => 'wp_kses_post',
 		) );
 
