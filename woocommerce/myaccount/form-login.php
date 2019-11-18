@@ -34,18 +34,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php endif; ?>
 
-        <h2><?php _e( 'Login', 'dokanee' ); ?></h2>
+        <h2><?php _e( 'Login', 'dokani' ); ?></h2>
 
         <form method="post" class="login">
 
             <?php do_action( 'woocommerce_login_form_start' ); ?>
 
             <p class="form-row form-row-wide">
-                <label for="username"><?php _e( 'Username or email address', 'dokanee' ); ?> <span class="required">*</span></label>
+                <label for="username"><?php _e( 'Username or email address', 'dokani' ); ?> <span class="required">*</span></label>
                 <input type="text" class="input-text form-control" name="username" id="username" />
             </p>
             <p class="form-row form-row-wide">
-                <label for="password"><?php _e( 'Password', 'dokanee' ); ?> <span class="required">*</span></label>
+                <label for="password"><?php _e( 'Password', 'dokani' ); ?> <span class="required">*</span></label>
                 <input class="input-text form-control" type="password" name="password" id="password" />
             </p>
 
@@ -53,16 +53,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <p class="form-row">
                 <label for="rememberme" class="inline">
-                    <input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'dokanee' ); ?>
+                    <input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'dokani' ); ?>
                 </label>
             </p>
 
             <p class="form-row">
                 <?php wp_nonce_field( 'woocommerce-login' ); ?>
-                <button type="submit" class="dokan-btn dokan-btn-theme" name="login" value="<?php _e( 'Login', 'dokanee' ); ?>"> <?php _e( 'Login', 'dokanee' ); ?> </button>
+                <button type="submit" class="dokan-btn dokan-btn-theme" name="login" value="<?php _e( 'Login', 'dokani' ); ?>"> <?php _e( 'Login', 'dokani' ); ?> </button>
             </p>
             <p class="lost_password">
-                <a href="<?php echo esc_url( wc_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'dokanee' ); ?></a>
+                <a href="<?php echo esc_url( wc_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'dokani' ); ?></a>
             </p>
 
             <?php do_action( 'woocommerce_login_form_end' ); ?>
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <div class="grid-50 tablet-grid-50 reg-form">
 
-        <h2><?php _e( 'Register', 'dokanee' ); ?></h2>
+        <h2><?php _e( 'Register', 'dokani' ); ?></h2>
 
         <form id="register" method="post" class="register">
             <?php do_action( 'woocommerce_register_form_start' ); ?>
@@ -83,35 +83,35 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
 
                 <p class="form-row form-group form-row-wide">
-                    <label for="reg_username"><?php _e( 'Username', 'dokanee' ); ?> <span class="required">*</span></label>
+                    <label for="reg_username"><?php _e( 'Username', 'dokani' ); ?> <span class="required">*</span></label>
                     <input type="text" class="input-text form-control" name="username" id="reg_username" value="<?php if ( ! empty( $_POST['username'] ) ) esc_attr( $_POST['username'] ); ?>" required="required" />
                 </p>
 
             <?php endif; ?>
 
             <p class="form-row form-group form-row-wide">
-                <label for="reg_email"><?php _e( 'Email address', 'dokanee' ); ?> <span class="required">*</span></label>
+                <label for="reg_email"><?php _e( 'Email address', 'dokani' ); ?> <span class="required">*</span></label>
                 <input type="email" class="input-text form-control" name="email" id="reg_email" value="<?php if ( ! empty( $_POST['email'] ) ) esc_attr($_POST['email']); ?>" required="required" />
             </p>
 
             <?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
 
                 <p class="form-row form-group form-row-wide">
-                    <label for="reg_password"><?php _e( 'Password', 'dokanee' ); ?> <span class="required">*</span></label>
+                    <label for="reg_password"><?php _e( 'Password', 'dokani' ); ?> <span class="required">*</span></label>
                     <input type="password" class="input-text form-control" name="password" id="reg_password" value="<?php if ( ! empty( $_POST['password'] ) ) esc_attr( $_POST['password'] ); ?>" required="required" minlength="6" />
                 </p>
 
             <?php endif; ?>
 
             <!-- Spam Trap -->
-            <div style="left:-999em; position:absolute;"><label for="trap"><?php _e( 'Anti-spam', 'dokanee' ); ?></label><input type="text" name="email_2" id="trap" tabindex="-1" /></div>
+            <div style="left:-999em; position:absolute;"><label for="trap"><?php _e( 'Anti-spam', 'dokani' ); ?></label><input type="text" name="email_2" id="trap" tabindex="-1" /></div>
 
             <?php do_action( 'woocommerce_register_form' ); ?>
             <?php do_action( 'register_form' ); ?>
 
             <p class="form-row">
                 <?php wp_nonce_field( 'woocommerce-register', '_wpnonce' ); ?>
-                <button type="submit" class="dokan-btn dokan-btn-theme" name="register" value="<?php _e( 'Register', 'dokanee' ); ?>"> <?php _e( 'Register', 'dokanee' ); ?> </button>
+                <button type="submit" class="dokan-btn dokan-btn-theme" name="register" value="<?php _e( 'Register', 'dokani' ); ?>"> <?php _e( 'Register', 'dokani' ); ?> </button>
             </p>
 
             <?php do_action( 'woocommerce_register_form_end' ); ?>

@@ -2,21 +2,21 @@
 /**
  * Sets all of our theme defaults.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_get_defaults' ) ) {
+if ( ! function_exists( 'dokani_get_defaults' ) ) {
 	/**
 	 * Set default options
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_get_defaults() {
-		$dokanee_defaults = array(
+	function dokani_get_defaults() {
+		$dokani_defaults = array(
 			'hide_title'                    => '',
 			'hide_tagline'                  => '',
 			'logo'                          => '',
@@ -60,16 +60,16 @@ if ( ! function_exists( 'dokanee_get_defaults' ) ) {
 			'dynamic_css_cache'             => true,
 		);
 
-		return apply_filters( 'dokanee_option_defaults', $dokanee_defaults );
+		return apply_filters( 'dokani_option_defaults', $dokani_defaults );
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_color_defaults' ) ) {
+if ( ! function_exists( 'dokani_get_color_defaults' ) ) {
 	/**
 	 * Set default options
 	 */
-	function dokanee_get_color_defaults() {
-		$dokanee_color_defaults = array(
+	function dokani_get_color_defaults() {
+		$dokani_color_defaults = array(
 			'theme_color'                            => '#f2624d',
 			'heading_color'                          => '#222222',
 			'top_bar_background_color'               => '#ffffff',
@@ -157,11 +157,11 @@ if ( ! function_exists( 'dokanee_get_color_defaults' ) ) {
 			'store_header_link_hover_color'          => '#f2624d',
 		);
 
-		return apply_filters( 'dokanee_color_option_defaults', $dokanee_color_defaults );
+		return apply_filters( 'dokani_color_option_defaults', $dokani_color_defaults );
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_default_fonts' ) ) {
+if ( ! function_exists( 'dokani_get_default_fonts' ) ) {
 	/**
 	 * Set default options.
 	 *
@@ -171,8 +171,8 @@ if ( ! function_exists( 'dokanee_get_default_fonts' ) ) {
 	 * @since 1.0.0
 	 *
 	 */
-	function dokanee_get_default_fonts( $filter = true ) {
-		$dokanee_font_defaults = array(
+	function dokani_get_default_fonts( $filter = true ) {
+		$dokani_font_defaults = array(
 			'font_body'                   => 'Open Sans',
 			'font_body_category'          => '',
 			'font_body_variants'          => '',
@@ -278,14 +278,14 @@ if ( ! function_exists( 'dokanee_get_default_fonts' ) ) {
 		);
 
 		if ( $filter ) {
-			return apply_filters( 'dokanee_font_option_defaults', $dokanee_font_defaults );
+			return apply_filters( 'dokani_font_option_defaults', $dokani_font_defaults );
 		}
 
-		return $dokanee_font_defaults;
+		return $dokani_font_defaults;
 	}
 }
 
-if ( ! function_exists( 'dokanee_spacing_get_defaults' ) ) {
+if ( ! function_exists( 'dokani_spacing_get_defaults' ) ) {
 	/**
 	 * Set the default options.
 	 *
@@ -295,8 +295,8 @@ if ( ! function_exists( 'dokanee_spacing_get_defaults' ) ) {
 	 * @since 1.0.0
 	 *
 	 */
-	function dokanee_spacing_get_defaults( $filter = true ) {
-		$dokanee_spacing_defaults = array(
+	function dokani_spacing_get_defaults( $filter = true ) {
+		$dokani_spacing_defaults = array(
 			'top_bar_top'                    => '10',
 			'top_bar_right'                  => '10',
 			'top_bar_bottom'                 => '10',
@@ -335,20 +335,20 @@ if ( ! function_exists( 'dokanee_spacing_get_defaults' ) ) {
 		);
 
 		if ( $filter ) {
-			return apply_filters( 'dokanee_spacing_option_defaults', $dokanee_spacing_defaults );
+			return apply_filters( 'dokani_spacing_option_defaults', $dokani_spacing_defaults );
 		}
 
-		return $dokanee_spacing_defaults;
+		return $dokani_spacing_defaults;
 	}
 }
 
-if ( ! function_exists( 'dokanee_typography_default_fonts' ) ) {
+if ( ! function_exists( 'dokani_typography_default_fonts' ) ) {
 	/**
 	 * Set the default system fonts.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_typography_default_fonts() {
+	function dokani_typography_default_fonts() {
 		$fonts = array(
 			'inherit',
 			'System Stack',
@@ -368,6 +368,6 @@ if ( ! function_exists( 'dokanee_typography_default_fonts' ) ) {
 			'Verdana, Geneva, sans-serif',
 		);
 
-		return apply_filters( 'dokanee_typography_default_fonts', $fonts );
+		return apply_filters( 'dokani_typography_default_fonts', $fonts );
 	}
 }

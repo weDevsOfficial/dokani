@@ -11,11 +11,11 @@
 	margin-top: 10px;
 }
 
-li#accordion-section-dokanee_upsell_section {
+li#accordion-section-dokani_upsell_section {
 	border-top: 1px solid #D54E21;
 	border-bottom: 1px solid #D54E21;
 }
-.dokanee-upsell-accordion-section a {
+.dokani-upsell-accordion-section a {
 	background: #FFF;
 	display: block;
 	padding: 10px 10px 11px 14px;
@@ -24,16 +24,16 @@ li#accordion-section-dokanee_upsell_section {
 	text-decoration: none;
 }
 
-.dokanee-upsell-accordion-section a:hover {
+.dokani-upsell-accordion-section a:hover {
 	background:#FAFAFA;
 }
 
-.dokanee-upsell-accordion-section h3 {
+.dokani-upsell-accordion-section h3 {
 	margin: 0;
 	position: relative;
 }
 
-.dokanee-upsell-accordion-section h3 a:after {
+.dokani-upsell-accordion-section h3 a:after {
 	content: "\f345";
 	color: #D54E21;
 	position: absolute;

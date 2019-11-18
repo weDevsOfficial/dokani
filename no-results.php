@@ -2,7 +2,7 @@
 /**
  * The template part for displaying a message that posts cannot be found.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,28 +14,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="inside-article">
 		<?php
 		/**
-		 * dokanee_before_content hook.
+		 * dokani_before_content hook.
 		 *
 		 * @since 1.0.0
 		 *
-		 * @hooked dokanee_featured_page_header_inside_single - 10
+		 * @hooked dokani_featured_page_header_inside_single - 10
 		 */
-		do_action( 'dokanee_before_content' );
+		do_action( 'dokani_before_content' );
 		?>
 
 		<header class="entry-header">
-			<h1 class="entry-title"><?php _e( 'Nothing Found', 'dokanee' ); // WPCS: XSS OK. ?></h1>
+			<h1 class="entry-title"><?php _e( 'Nothing Found', 'dokani' ); // WPCS: XSS OK. ?></h1>
 		</header><!-- .entry-header -->
 
 		<?php
 		/**
-		 * dokanee_after_entry_header hook.
+		 * dokani_after_entry_header hook.
 		 *
 		 * @since 1.0.0
 		 *
-		 * @hooked dokanee_post_image - 10
+		 * @hooked dokani_post_image - 10
 		 */
-		do_action( 'dokanee_after_entry_header' );
+		do_action( 'dokani_after_entry_header' );
 		?>
 
 		<div class="entry-content">
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php
 						printf( // WPCS: XSS ok.
 							/* translators: 1: Admin URL */
-							__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'dokanee' ),
+							__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'dokani' ),
 							esc_url( admin_url( 'post-new.php' ) )
 						);
 						?>
@@ -54,12 +54,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<?php elseif ( is_search() ) : ?>
 
-					<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'dokanee' ); // WPCS: XSS OK. ?></p>
+					<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'dokani' ); // WPCS: XSS OK. ?></p>
 					<?php get_search_form(); ?>
 
 				<?php else : ?>
 
-					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'dokanee' ); // WPCS: XSS OK. ?></p>
+					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'dokani' ); // WPCS: XSS OK. ?></p>
 					<?php get_search_form(); ?>
 
 				<?php endif; ?>
@@ -68,11 +68,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php
 		/**
-		 * dokanee_after_content hook.
+		 * dokani_after_content hook.
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'dokanee_after_content' );
+		do_action( 'dokani_after_content' );
 		?>
 	</div><!-- .inside-article -->
 </div><!-- .no-results -->

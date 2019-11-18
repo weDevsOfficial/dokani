@@ -2,21 +2,21 @@
 /**
  * Builds our dynamic CSS.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Dokanee_CSS' ) ) {
+if ( ! class_exists( 'dokani_CSS' ) ) {
 	/**
 	 * Creates minified css via PHP.
 	 *
 	 * @author  Carlos Rios
-	 * Modified by Tom Usborne for Dokanee
+	 * Modified by Tom Usborne for dokani
 	 */
-	class Dokanee_CSS {
+	class dokani_CSS {
 
 		/**
 		 * The css selector that you're currently adding rules to

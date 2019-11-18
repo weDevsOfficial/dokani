@@ -5,7 +5,7 @@
  *
  * @since  1.0.0
  */
-class Dokanee_Customize_Control_Radio_Image extends WP_Customize_Control {
+class dokani_Customize_Control_Radio_Image extends WP_Customize_Control {
 
 	/**
 	 * The type of customize control being rendered.
@@ -25,8 +25,8 @@ class Dokanee_Customize_Control_Radio_Image extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 		wp_enqueue_script( 'jquery-ui-button' );
-		wp_enqueue_script( 'dokanee-customize-radio-controls-script', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/radio-control.js', array( 'jquery' ) );
-		wp_enqueue_style(  'dokanee-customize-radio-controls-style', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/css/radio-control.css' );
+		wp_enqueue_script( 'dokani-customize-radio-controls-script', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/radio-control.js', array( 'jquery' ) );
+		wp_enqueue_style(  'dokani-customize-radio-controls-style', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/css/radio-control.css' );
 	}
 
 	/**

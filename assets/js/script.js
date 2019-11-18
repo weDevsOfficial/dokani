@@ -15,7 +15,7 @@ jQuery(function ($) {
     });
 
     // Products list/grid view
-    $('.dokanee-products-view.buttons > button').on('click', function (e) {
+    $('.dokani-products-view.buttons > button').on('click', function (e) {
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
 

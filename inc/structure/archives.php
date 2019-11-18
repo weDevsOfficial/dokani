@@ -2,21 +2,21 @@
 /**
  * Archive elements.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_archive_title' ) ) {
-	add_action( 'dokanee_archive_title', 'dokanee_archive_title' );
+if ( ! function_exists( 'dokani_archive_title' ) ) {
+	add_action( 'dokani_archive_title', 'dokani_archive_title' );
 	/**
 	 * Build the archive title
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_archive_title() {
+	function dokani_archive_title() {
 		if ( ! function_exists( 'the_archive_title' ) ) {
 			return;
 		}
@@ -24,11 +24,11 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 		<header class="page-header<?php if ( is_author() ) echo ' clearfix';?>">
 			<?php
 			/**
-			 * dokanee_before_archive_title hook.
+			 * dokani_before_archive_title hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_before_archive_title' );
+			do_action( 'dokani_before_archive_title' );
 			?>
 
 			<h1 class="page-title">
@@ -37,11 +37,11 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 
 			<?php
 			/**
-			 * dokanee_after_archive_title hook.
+			 * dokani_after_archive_title hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_after_archive_title' );
+			do_action( 'dokani_after_archive_title' );
 
 			// Show an optional term description.
 			$term_description = term_description();
@@ -54,18 +54,18 @@ if ( ! function_exists( 'dokanee_archive_title' ) ) {
 			}
 
 			/**
-			 * dokanee_after_archive_description hook.
+			 * dokani_after_archive_description hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_after_archive_description' ); ?>
+			do_action( 'dokani_after_archive_description' ); ?>
 			</header><!-- .page-header -->
 		<?php
 	}
 }
 
-if ( ! function_exists( 'dokanee_filter_the_archive_title' ) ) {
-	add_filter( 'get_the_archive_title', 'dokanee_filter_the_archive_title' );
+if ( ! function_exists( 'dokani_filter_the_archive_title' ) ) {
+	add_filter( 'get_the_archive_title', 'dokani_filter_the_archive_title' );
 	/**
 	 * Alter the_archive_title() function to match our original archive title function
 	 *
@@ -74,7 +74,7 @@ if ( ! function_exists( 'dokanee_filter_the_archive_title' ) ) {
 	 * @param string $title The archive title
 	 * @return string The altered archive title
 	 */
-	function dokanee_filter_the_archive_title( $title ) {
+	function dokani_filter_the_archive_title( $title ) {
 		if ( is_category() ) {
 			$title = single_cat_title( '', false );
 		} elseif ( is_tag() ) {

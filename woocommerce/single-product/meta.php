@@ -29,15 +29,15 @@ global $product;
 	<?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
 
 		<div class="sku_wrapper">
-            <span class="meta-title"><?php esc_html_e( 'SKU:', 'dokanee' ); ?></span>
-            <span class="sku meta-content"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'dokanee' ); ?></span>
+            <span class="meta-title"><?php esc_html_e( 'SKU:', 'dokani' ); ?></span>
+            <span class="sku meta-content"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'dokani' ); ?></span>
         </div>
 
 	<?php endif; ?>
 
 	<?php
     echo '<div class="posted_in">';
-    echo '<span class="meta-title">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'dokanee' ) . '</span>';
+    echo '<span class="meta-title">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'dokani' ) . '</span>';
 
 	echo wc_get_product_category_list( $product->get_id(), ' ', '<span class="meta-content">', '</span>' );
     echo '</div>';
@@ -45,7 +45,7 @@ global $product;
 
     <?php
     echo '<div class="tagged_as">';
-    echo '<span class="meta-title">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'dokanee' ) . '</span>';
+    echo '<span class="meta-title">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'dokani' ) . '</span>';
 
 	echo wc_get_product_tag_list( $product->get_id(), ' ', '<span class="meta-content">', '</span>' );
     echo '</div>';

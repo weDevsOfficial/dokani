@@ -1,14 +1,14 @@
 /*
-Theme Name: Dokanee
-Theme URI: https://wedevs.com/themes/dokanee/
+Theme Name: dokani
+Theme URI: https://wedevs.com/themes/dokani/
 Author: weDevs, LLC
 Author URI: https://wedevs.com
 Description: An eCommerce theme for Dokan
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: dokanee
-Tags: dokanee-theme, woocommerce-theme, dokan-theme, flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: dokani
+Tags: dokani-theme, woocommerce-theme, dokan-theme, flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready
 */
 
 /* =Reset
@@ -990,13 +990,13 @@ footer.entry-meta .byline {
 }
 
 /* Back to top icon */
-.dokanee-back-to-top:before {
+.dokani-back-to-top:before {
 	content: "\f106";
 	font-family: GeneratePress;
 }
 
-.dokanee-back-to-top,
-.dokanee-back-to-top:visited {
+.dokani-back-to-top,
+.dokani-back-to-top:visited {
 	font-size: 20px;
 	border-radius: 3px;
 	position: fixed;
@@ -1009,7 +1009,7 @@ footer.entry-meta .byline {
 	transition: opacity 300ms ease-in-out;
 }
 
-.dokanee-back-to-top .screen-reader-text {
+.dokani-back-to-top .screen-reader-text {
 	left: 0;
 }
 
@@ -1216,7 +1216,7 @@ footer.entry-meta .posted-on:before,
 .comments-link:before,
 .nav-previous .prev:before,
 .nav-next .next:before,
-.dokanee-back-to-top:before {
+.dokani-back-to-top:before {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-style: normal;

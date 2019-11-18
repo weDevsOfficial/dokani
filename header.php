@@ -2,7 +2,7 @@
 /**
  * The template for displaying the header.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,44 +18,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php wp_head(); ?>
 </head>
 
-<body <?php dokanee_body_schema();?> <?php body_class( 'woocommerce' ); ?>>
+<body <?php dokani_body_schema();?> <?php body_class( 'woocommerce' ); ?>>
 	<?php
 	/**
-	 * dokanee_before_header hook.
+	 * dokani_before_header hook.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @hooked dokanee_do_skip_to_content_link - 2
-	 * @hooked dokanee_top_bar - 5
-	 * @hooked dokanee_add_navigation_before_header - 5
+	 * @hooked dokani_do_skip_to_content_link - 2
+	 * @hooked dokani_top_bar - 5
+	 * @hooked dokani_add_navigation_before_header - 5
 	 */
-	 do_action( 'dokanee_before_header' );
+	 do_action( 'dokani_before_header' );
 
 	/**
-	 * dokanee_header hook.
+	 * dokani_header hook.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @hooked dokanee_construct_header - 10
+	 * @hooked dokani_construct_header - 10
 	 */
-	do_action( 'dokanee_header' );
+	do_action( 'dokani_header' );
 
 	/**
-	 * dokanee_after_header hook.
+	 * dokani_after_header hook.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @hooked dokanee_featured_page_header - 10
+	 * @hooked dokani_featured_page_header - 10
 	 */
-	do_action( 'dokanee_after_header' );
+	do_action( 'dokani_after_header' );
 	?>
 
 	<div id="page" class="hfeed site grid-container container grid-parent">
 		<div id="content" class="site-content">
 			<?php
 			/**
-			 * dokanee_inside_container hook.
+			 * dokani_inside_container hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_inside_container' );
+			do_action( 'dokani_inside_container' );

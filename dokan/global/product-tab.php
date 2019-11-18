@@ -2,11 +2,11 @@
 /**
  * Dokan Seller Single product tab Template
  * 
- * @package Dokanee
+ * @package dokani
  */
 ?>
 
-<h2><?php _e( 'Vendor Info', 'dokanee' ); ?></h2>
+<h2><?php _e( 'Vendor Info', 'dokani' ); ?></h2>
 
 <div class="store-info-wrapper">
     <div class="store-banner">
@@ -39,7 +39,7 @@
         </li>
 
         <li class="seller-name">
-            <span class="title"><?php _e( 'Vendor:', 'dokanee' ); ?></span>
+            <span class="title"><?php _e( 'Vendor:', 'dokani' ); ?></span>
 
             <span class="details">
                 <?php printf( '<a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $author->display_name ); ?>
@@ -47,7 +47,7 @@
         </li>
 		<?php if ( !empty( $store_info['address'] ) ) { ?>
             <li class="store-address">
-                <span class="title"><?php _e( 'Address:', 'dokanee' ); ?></span>
+                <span class="title"><?php _e( 'Address:', 'dokani' ); ?></span>
                 <span class="details">
                     <?php echo dokan_get_seller_address( $author->ID ) ?>
                 </span>

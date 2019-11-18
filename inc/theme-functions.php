@@ -2,14 +2,14 @@
 /**
  * Main theme functions.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_get_setting' ) ) {
+if ( ! function_exists( 'dokani_get_setting' ) ) {
 	/**
 	 * A wrapper function to get our settings.
 	 *
@@ -19,17 +19,17 @@ if ( ! function_exists( 'dokanee_get_setting' ) ) {
 	 * @return string The option value.
 	 * @todo Ability to specify different option name and defaults.
 	 */
-	function dokanee_get_setting( $setting ) {
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+	function dokani_get_setting( $setting ) {
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
 
-		return $dokanee_settings[ $setting ];
+		return $dokani_settings[ $setting ];
 	}
 }
 
-if ( ! function_exists( 'dokanee_add_store_header_template' ) ) {
+if ( ! function_exists( 'dokani_add_store_header_template' ) ) {
 	/**
 	 * Add store header template for single store
 	 *
@@ -39,16 +39,16 @@ if ( ! function_exists( 'dokanee_add_store_header_template' ) ) {
 	 * @return array.
 	 */
 	if ( function_exists( 'dokan' ) ) {
-		add_filter( 'dokan_settings_fields', 'dokanee_add_store_header_template' );
-		add_filter( 'dokan_admin_localize_script', 'dokanee_admin_localize_script' );
+		add_filter( 'dokan_settings_fields', 'dokani_add_store_header_template' );
+		add_filter( 'dokan_admin_localize_script', 'dokani_admin_localize_script' );
 	}
 
-	function dokanee_add_store_header_template( $settings ) {
-		$settings['dokan_appearance']['store_header_template']['options']['layout3'] =  get_template_directory_uri() . '/assets/images/dokanee-store-header-template.png';
+	function dokani_add_store_header_template( $settings ) {
+		$settings['dokan_appearance']['store_header_template']['options']['layout3'] =  get_template_directory_uri() . '/assets/images/dokani-store-header-template.png';
 		return $settings;
 	}
 
-	function dokanee_admin_localize_script( $args ) {
+	function dokani_admin_localize_script( $args ) {
 		$args['store_banner_dimension']['width']  = 1920;
 		$args['store_banner_dimension']['height'] = 470;
 		return $args;
@@ -59,7 +59,7 @@ if ( ! function_exists( 'dokanee_add_store_header_template' ) ) {
 
 
 
-if ( ! function_exists( 'dokanee_get_layout' ) ) {
+if ( ! function_exists( 'dokani_get_layout' ) ) {
 	/**
 	 * Get the layout for the current page.
 	 *
@@ -67,18 +67,18 @@ if ( ! function_exists( 'dokanee_get_layout' ) ) {
 	 *
 	 * @return string The sidebar layout location.
 	 */
-	function dokanee_get_layout() {
+	function dokani_get_layout() {
 		// Get current post
 		global $post;
 
 		// Get Customizer options
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
 
 		// Set up the layout variable for pages
-		$layout = $dokanee_settings['layout_setting'];
+		$layout = $dokani_settings['layout_setting'];
 
 		// Set up BuddyPress variable
 		$buddypress = false;
@@ -90,45 +90,45 @@ if ( ! function_exists( 'dokanee_get_layout' ) ) {
 		// And if we're not on a BuddyPress page - fixes a bug where BP thinks is_single() is true
 		if ( is_single() && ! $buddypress ) {
 			$layout = null;
-			$layout = $dokanee_settings['single_layout_setting'];
+			$layout = $dokani_settings['single_layout_setting'];
 		}
 
 		// If we're on the blog, archive, attachment etc..
 		if ( is_home() || is_archive() || is_search() || is_tax() ) {
 			$layout = null;
-			$layout = $dokanee_settings['blog_layout_setting'];
+			$layout = $dokani_settings['blog_layout_setting'];
 		}
 
 		// If we're on the shop page
 		if ( is_archive( 'product' ) ) {
 			$layout = null;
-			$layout = $dokanee_settings['shop_layout_setting'];
+			$layout = $dokani_settings['shop_layout_setting'];
 		}
 
 		// If we're on the single product page
 		if ( function_exists( 'is_product' ) && is_product() ) {
 			$layout = null;
-			$layout = $dokanee_settings['single_product_layout_setting'];
+			$layout = $dokani_settings['single_product_layout_setting'];
 		}
 
 		// If we're on the store list page
 		if ( is_page_template( 'page-template/store-list.php' ) ) {
 			$layout = null;
-			$layout = $dokanee_settings['store_list_layout_setting'];
+			$layout = $dokani_settings['store_list_layout_setting'];
 		}
 
 		// If we're on the store page
 		if ( function_exists('dokan_is_store_page') && dokan_is_store_page() ) {
 			$layout = null;
-			$layout = $dokanee_settings['store_layout_setting'];
+			$layout = $dokani_settings['store_layout_setting'];
 		}
 
 		// Finally, return the layout
-		return apply_filters( 'dokanee_sidebar_layout', $layout );
+		return apply_filters( 'dokani_sidebar_layout', $layout );
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_footer_widgets' ) ) {
+if ( ! function_exists( 'dokani_get_footer_widgets' ) ) {
 	/**
 	 * Get the footer widgets for the current page
 	 *
@@ -136,18 +136,18 @@ if ( ! function_exists( 'dokanee_get_footer_widgets' ) ) {
 	 *
 	 * @return int The number of footer widgets.
 	 */
-	function dokanee_get_footer_widgets() {
+	function dokani_get_footer_widgets() {
 		// Get current post
 		global $post;
 
 		// Get Customizer options
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
 
 		// Set up the footer widget variable
-		$widgets = $dokanee_settings['footer_widget_setting'];
+		$widgets = $dokani_settings['footer_widget_setting'];
 
 		// If we're not on a single page or post, the metabox hasn't been set
 		if ( ! is_singular() ) {
@@ -155,33 +155,33 @@ if ( ! function_exists( 'dokanee_get_footer_widgets' ) ) {
 		}
 
 		// Finally, return the layout
-		return apply_filters( 'dokanee_footer_widgets', $widgets );
+		return apply_filters( 'dokani_footer_widgets', $widgets );
 	}
 }
 
-if ( ! function_exists( 'dokanee_show_excerpt' ) ) {
+if ( ! function_exists( 'dokani_show_excerpt' ) ) {
 	/**
 	 * Figure out if we should show the blog excerpts or full posts
 	 * @since 1.0.0
 	 */
-	function dokanee_show_excerpt() {
+	function dokani_show_excerpt() {
 		// Get current post
 		global $post;
 
 		// Get Customizer settings
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
 
 		// Check to see if the more tag is being used
-		$more_tag = apply_filters( 'dokanee_more_tag', strpos( $post->post_content, '<!--more-->' ) );
+		$more_tag = apply_filters( 'dokani_more_tag', strpos( $post->post_content, '<!--more-->' ) );
 
 		// Check the post format
 		$format = ( false !== get_post_format() ) ? get_post_format() : 'standard';
 
 		// Get the excerpt setting from the Customizer
-		$show_excerpt = ( 'excerpt' == $dokanee_settings['post_content'] ) ? true : false;
+		$show_excerpt = ( 'excerpt' == $dokani_settings['post_content'] ) ? true : false;
 
 		// If our post format isn't standard, show the full content
 		$show_excerpt = ( 'standard' !== $format ) ? false : $show_excerpt;
@@ -193,11 +193,11 @@ if ( ! function_exists( 'dokanee_show_excerpt' ) ) {
 		$show_excerpt = ( is_search() ) ? true : $show_excerpt;
 
 		// Return our value
-		return apply_filters( 'dokanee_show_excerpt', $show_excerpt );
+		return apply_filters( 'dokani_show_excerpt', $show_excerpt );
 	}
 }
 
-if ( ! function_exists( 'dokanee_padding_css' ) ) {
+if ( ! function_exists( 'dokani_padding_css' ) ) {
 	/**
 	 * Shorten our padding/margin values into shorthand form.
 	 *
@@ -209,7 +209,7 @@ if ( ! function_exists( 'dokanee_padding_css' ) ) {
 	 * @param int $left Left spacing.
 	 * @return string Element spacing values.
 	 */
-	function dokanee_padding_css( $top, $right, $bottom, $left ) {
+	function dokani_padding_css( $top, $right, $bottom, $left ) {
 		$padding_top = ( isset( $top ) && '' !== $top ) ? absint( $top ) . 'px ' : '0px ';
 		$padding_right = ( isset( $right ) && '' !== $right ) ? absint( $right ) . 'px ' : '0px ';
 		$padding_bottom = ( isset( $bottom ) && '' !== $bottom ) ? absint( $bottom ) . 'px ' : '0px ';
@@ -224,7 +224,7 @@ if ( ! function_exists( 'dokanee_padding_css' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_link_url' ) ) {
+if ( ! function_exists( 'dokani_get_link_url' ) ) {
 	/**
 	 * Return the post URL.
 	 *
@@ -235,14 +235,14 @@ if ( ! function_exists( 'dokanee_get_link_url' ) ) {
 	 * @see get_url_in_content()
 	 * @return string The Link format URL.
 	 */
-	function dokanee_get_link_url() {
+	function dokani_get_link_url() {
 		$has_url = get_url_in_content( get_the_content() );
 
 		return $has_url ? $has_url : apply_filters( 'the_permalink', get_permalink() );
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_navigation_location' ) ) {
+if ( ! function_exists( 'dokani_get_navigation_location' ) ) {
 	/**
 	 * Get the location of the navigation and filter it.
 	 *
@@ -250,7 +250,7 @@ if ( ! function_exists( 'dokanee_get_navigation_location' ) ) {
 	 *
 	 * @return string The primary menu location.
 	 */
-	function dokanee_get_navigation_location() {
-		return apply_filters( 'dokanee_navigation_location', dokanee_get_setting( 'nav_position_setting' ) );
+	function dokani_get_navigation_location() {
+		return apply_filters( 'dokani_navigation_location', dokani_get_setting( 'nav_position_setting' ) );
 	}
 }

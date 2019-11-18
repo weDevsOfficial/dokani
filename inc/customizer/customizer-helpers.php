@@ -2,7 +2,7 @@
 /**
  * Load necessary Customizer controls and functions.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

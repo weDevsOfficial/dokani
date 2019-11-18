@@ -2,7 +2,7 @@
 /**
  * Where old Customizer controls retire.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -38,21 +38,21 @@ if ( ! class_exists( 'Generate_Google_Font_Dropdown_Custom_Control' ) ) {
 		public $type = 'gp-customizer-fonts';
 
 		public function enqueue() {
-			wp_enqueue_script( 'dokanee-customizer-fonts', trailingslashit( get_template_directory_uri() ) . 'inc/js/typography-controls.js', array( 'customize-controls' ), GENERATE_VERSION, true );
-			wp_localize_script( 'dokanee-customizer-fonts', 'gp_customize', array( 'nonce' => wp_create_nonce( 'gp_customize_nonce' ) ) );
+			wp_enqueue_script( 'dokani-customizer-fonts', trailingslashit( get_template_directory_uri() ) . 'inc/js/typography-controls.js', array( 'customize-controls' ), GENERATE_VERSION, true );
+			wp_localize_script( 'dokani-customizer-fonts', 'gp_customize', array( 'nonce' => wp_create_nonce( 'gp_customize_nonce' ) ) );
 		}
 
 		public function to_json() {
 			parent::to_json();
 
-			$number_of_fonts = apply_filters( 'dokanee_number_of_fonts', 200 );
+			$number_of_fonts = apply_filters( 'dokani_number_of_fonts', 200 );
 			$this->json[ 'link' ] = $this->get_link();
 			$this->json[ 'value' ] = $this->value();
-			$this->json[ 'default_fonts_title'] = __( 'Default fonts', 'dokanee' );
-			$this->json[ 'google_fonts_title'] = __( 'Google fonts', 'dokanee' );
-			$this->json[ 'description' ] = __( 'Font family','dokanee' );
-			$this->json[ 'google_fonts' ] = apply_filters( 'dokanee_typography_customize_list', dokanee_get_all_google_fonts( $number_of_fonts ) );
-			$this->json[ 'default_fonts' ] = dokanee_typography_default_fonts();
+			$this->json[ 'default_fonts_title'] = __( 'Default fonts', 'dokani' );
+			$this->json[ 'google_fonts_title'] = __( 'Google fonts', 'dokani' );
+			$this->json[ 'description' ] = __( 'Font family','dokani' );
+			$this->json[ 'google_fonts' ] = apply_filters( 'dokani_typography_customize_list', dokani_get_all_google_fonts( $number_of_fonts ) );
+			$this->json[ 'default_fonts' ] = dokani_typography_default_fonts();
 		}
 
 		public function content_template() {

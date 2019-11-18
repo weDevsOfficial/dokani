@@ -2,32 +2,32 @@
 /**
  * Footer elements.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_construct_footer' ) ) {
-	 add_action( 'dokanee_footer', 'dokanee_construct_footer' );
+if ( ! function_exists( 'dokani_construct_footer' ) ) {
+	 add_action( 'dokani_footer', 'dokani_construct_footer' );
 	/**
 	 * Build our footer.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_construct_footer() {
+	function dokani_construct_footer() {
 	    $footer_bar_layout = get_theme_mod( 'footer_bar_layout', 'layout-2' );
 	    if ( $footer_bar_layout !== 'disabled' ) {
 		?>
 		<footer class="site-info <?php echo $footer_bar_layout; ?>" itemtype="https://schema.org/WPFooter" itemscope="itemscope">
-			<div class="inside-site-info <?php if ( 'full-width' !== dokanee_get_setting( 'footer_inner_width' ) ) : ?>grid-container grid-parent<?php endif; ?>">
+			<div class="inside-site-info <?php if ( 'full-width' !== dokani_get_setting( 'footer_inner_width' ) ) : ?>grid-container grid-parent<?php endif; ?>">
                 <div class="footer-bar-row">
                     <div class="footer-bar-column footer-bar-section1">
                         <?php
-                        $section_1_type = get_theme_mod( 'dokanee_footer_bar_section1_type', 'text' );
+                        $section_1_type = get_theme_mod( 'dokani_footer_bar_section1_type', 'text' );
                         if ( $section_1_type === 'text' ) {
-                            echo get_theme_mod( 'dokanee_footer_bar_section1_content', 'Add Custom Content' );
+                            echo get_theme_mod( 'dokani_footer_bar_section1_content', 'Add Custom Content' );
                         } elseif ( $section_1_type === 'widget' ) {
 
                             $section_1_widget = dynamic_sidebar( 'footer-bar-1' );
@@ -37,7 +37,7 @@ if ( ! function_exists( 'dokanee_construct_footer' ) ) {
                             } else {
                                 printf( // WPCS: XSS ok.
                                 /* translators: 1: admin URL */
-                                    __( 'Add widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokanee' ),
+                                    __( 'Add widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokani' ),
                                     esc_url( admin_url( 'widgets.php' ) )
                                 );
                             }
@@ -52,11 +52,11 @@ if ( ! function_exists( 'dokanee_construct_footer' ) ) {
                                         'container_class' => 'footer-menu',
                                         'container_id' => 'footer-menu',
                                         'menu_class' => '',
-                                        'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
+                                        'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
                                     )
                                 );
                             } else {
-                                echo '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Footer Menu', 'dokanee' ) . '</a>';
+                                echo '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Footer Menu', 'dokani' ) . '</a>';
                             }
 
                         }
@@ -64,9 +64,9 @@ if ( ! function_exists( 'dokanee_construct_footer' ) ) {
                     </div>
                     <div class="footer-bar-column footer-bar-section2">
 					<?php
-					$section_2_type = get_theme_mod( 'dokanee_footer_bar_section2_type', 'text' );
+					$section_2_type = get_theme_mod( 'dokani_footer_bar_section2_type', 'text' );
 					if ( $section_2_type === 'text' ) {
-						echo get_theme_mod( 'dokanee_footer_bar_section2_content', 'Add Custom Content' );
+						echo get_theme_mod( 'dokani_footer_bar_section2_content', 'Add Custom Content' );
 					} elseif ( $section_2_type === 'widget' ) {
 
 						$section_2_widget = dynamic_sidebar( 'footer-bar-2' );
@@ -76,7 +76,7 @@ if ( ! function_exists( 'dokanee_construct_footer' ) ) {
 						} else {
 							printf( // WPCS: XSS ok.
 							/* translators: 1: admin URL */
-								__( 'Add widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokanee' ),
+								__( 'Add widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokani' ),
 								esc_url( admin_url( 'widgets.php' ) )
 							);
 						}
@@ -91,11 +91,11 @@ if ( ! function_exists( 'dokanee_construct_footer' ) ) {
 									'container_class' => 'footer-menu',
 									'container_id' => 'footer-menu',
 									'menu_class' => '',
-									'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
+									'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
 								)
 							);
 						} else {
-							echo '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Footer Menu', 'dokanee' ) . '</a>';
+							echo '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Footer Menu', 'dokani' ) . '</a>';
 						}
 
 					}
@@ -109,14 +109,14 @@ if ( ! function_exists( 'dokanee_construct_footer' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_footer_bar' ) ) {
-	add_action( 'dokanee_before_copyright', 'dokanee_footer_bar', 15 );
+if ( ! function_exists( 'dokani_footer_bar' ) ) {
+	add_action( 'dokani_before_copyright', 'dokani_footer_bar', 15 );
 	/**
 	 * Build our footer bar
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_footer_bar() {
+	function dokani_footer_bar() {
 		if ( ! is_active_sidebar( 'footer-bar' ) ) {
 			return;
 		}
@@ -128,21 +128,21 @@ if ( ! function_exists( 'dokanee_footer_bar' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_add_footer_info' ) ) {
-	add_action( 'dokanee_credits', 'dokanee_add_footer_info' );
+if ( ! function_exists( 'dokani_add_footer_info' ) ) {
+	add_action( 'dokani_credits', 'dokani_add_footer_info' );
 	/**
 	 * Add the copyright to the footer
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_add_footer_info() {
+	function dokani_add_footer_info() {
 		$copyright = sprintf( '<span class="copyright">&copy; %1$s</span> &bull; <a href="%2$s" target="_blank" itemprop="url">%3$s</a>',
 			date( 'Y' ),
 			esc_url( 'https://wedevs.com' ),
-			__( 'Dokanee', 'dokanee' )
+			__( 'dokani', 'dokani' )
 		);
 
-		echo apply_filters( 'dokanee_copyright', $copyright ); // WPCS: XSS ok.
+		echo apply_filters( 'dokani_copyright', $copyright ); // WPCS: XSS ok.
 	}
 }
 
@@ -155,20 +155,20 @@ if ( ! function_exists( 'dokanee_add_footer_info' ) ) {
  * @param int $widget_width The width class of our widget.
  * @param int $widget The ID of our widget.
  */
-function dokanee_do_footer_widget( $widget_width, $widget ) {
-	$widget_width = apply_filters( "dokanee_footer_widget_{$widget}_width", $widget_width );
-	$tablet_widget_width = apply_filters( "dokanee_footer_widget_{$widget}_tablet_width", '50' );
+function dokani_do_footer_widget( $widget_width, $widget ) {
+	$widget_width = apply_filters( "dokani_footer_widget_{$widget}_width", $widget_width );
+	$tablet_widget_width = apply_filters( "dokani_footer_widget_{$widget}_tablet_width", '50' );
 	?>
 	<div class="footer-widget-<?php echo absint( $widget ); ?> grid-parent grid-<?php echo absint( $widget_width ); ?> tablet-grid-<?php echo absint( $tablet_widget_width ); ?> mobile-grid-100">
 		<?php if ( ! dynamic_sidebar( 'footer-' . absint( $widget ) ) ) : ?>
 			<aside class="widget inner-padding widget_text">
-				<h4 class="widget-title"><?php esc_html_e( 'Footer Widget', 'dokanee' );?></h4>
+				<h4 class="widget-title"><?php esc_html_e( 'Footer Widget', 'dokani' );?></h4>
 				<div class="textwidget">
 					<p>
 						<?php
 						printf( // WPCS: XSS ok.
 							/* translators: 1: admin URL */
-							__( 'Replace this widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokanee' ),
+							__( 'Replace this widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokani' ),
 							esc_url( admin_url( 'widgets.php' ) )
 						);
 						?>
@@ -177,7 +177,7 @@ function dokanee_do_footer_widget( $widget_width, $widget ) {
 						<?php
 						printf( // WPCS: XSS ok.
 							/* translators: 1: admin URL */
-							__( 'To remove or choose the number of footer widgets, go to <a href="%1$s"><strong>Appearance / Customize / Layout / Footer Widgets</strong></a>.', 'dokanee' ),
+							__( 'To remove or choose the number of footer widgets, go to <a href="%1$s"><strong>Appearance / Customize / Layout / Footer Widgets</strong></a>.', 'dokani' ),
 							esc_url( admin_url( 'customize.php' ) )
 						);
 						?>
@@ -189,8 +189,8 @@ function dokanee_do_footer_widget( $widget_width, $widget ) {
 	<?php
 }
 
-if ( ! function_exists( 'dokanee_construct_footer_widgets' ) ) {
-	add_action( 'dokanee_footer', 'dokanee_construct_footer_widgets', 5 );
+if ( ! function_exists( 'dokani_construct_footer_widgets' ) ) {
+	add_action( 'dokani_footer', 'dokani_construct_footer_widgets', 5 );
 
 
 	/**
@@ -198,9 +198,9 @@ if ( ! function_exists( 'dokanee_construct_footer_widgets' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_construct_footer_widgets() {
+	function dokani_construct_footer_widgets() {
 		// Get how many widgets to show.
-		$widgets = dokanee_get_footer_widgets();
+		$widgets = dokani_get_footer_widgets();
 
 		if ( ! empty( $widgets ) && 0 !== $widgets && get_theme_mod('footer_widget_layout') !== 'disabled' ) :
 
@@ -227,27 +227,27 @@ if ( ! function_exists( 'dokanee_construct_footer_widgets' ) ) {
 			}
 			?>
 			<div id="footer-widgets" class="site footer-widgets">
-				<div <?php dokanee_inside_footer_class(); ?>>
+				<div <?php dokani_inside_footer_class(); ?>>
 					<div class="inside-footer-widgets">
 						<?php
 						if ( $widgets >= 1 ) {
-							dokanee_do_footer_widget( $widget_width, 1 );
+							dokani_do_footer_widget( $widget_width, 1 );
 						}
 
 						if ( $widgets >= 2 ) {
-							dokanee_do_footer_widget( $widget_width, 2 );
+							dokani_do_footer_widget( $widget_width, 2 );
 						}
 
 						if ( $widgets >= 3 ) {
-							dokanee_do_footer_widget( $widget_width, 3 );
+							dokani_do_footer_widget( $widget_width, 3 );
 						}
 
 						if ( $widgets >= 4 ) {
-							dokanee_do_footer_widget( $widget_width, 4 );
+							dokani_do_footer_widget( $widget_width, 4 );
 						}
 
 						if ( $widgets >= 5 ) {
-							dokanee_do_footer_widget( $widget_width, 5 );
+							dokani_do_footer_widget( $widget_width, 5 );
 						}
 						?>
 					</div>
@@ -257,41 +257,41 @@ if ( ! function_exists( 'dokanee_construct_footer_widgets' ) ) {
 		endif;
 
 		/**
-		 * dokanee_after_footer_widgets hook.
+		 * dokani_after_footer_widgets hook.
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'dokanee_after_footer_widgets' );
+		do_action( 'dokani_after_footer_widgets' );
 
 	}
 }
 
-if ( ! function_exists( 'dokanee_back_to_top' ) ) {
-	add_action( 'dokanee_after_footer', 'dokanee_back_to_top' );
+if ( ! function_exists( 'dokani_back_to_top' ) ) {
+	add_action( 'dokani_after_footer', 'dokani_back_to_top' );
 	/**
 	 * Build the back to top button
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_back_to_top() {
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+	function dokani_back_to_top() {
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
 
-		if ( 'enable' !== $dokanee_settings[ 'back_to_top' ] ) {
+		if ( 'enable' !== $dokani_settings[ 'back_to_top' ] ) {
 			return;
 		}
 
-		echo apply_filters( 'dokanee_back_to_top_output', sprintf( // WPCS: XSS ok.
-			'<a title="%1$s" rel="nofollow" href="#" class="dokanee-back-to-top" style="opacity:0;visibility:hidden;" data-scroll-speed="%2$s" data-start-scroll="%3$s">
+		echo apply_filters( 'dokani_back_to_top_output', sprintf( // WPCS: XSS ok.
+			'<a title="%1$s" rel="nofollow" href="#" class="dokani-back-to-top" style="opacity:0;visibility:hidden;" data-scroll-speed="%2$s" data-start-scroll="%3$s">
 				<span class="screen-reader-text">%5$s</span>
 			</a>',
-			esc_attr__( 'Scroll back to top', 'dokanee' ),
-			absint( apply_filters( 'dokanee_back_to_top_scroll_speed', 400 ) ),
-			absint( apply_filters( 'dokanee_back_to_top_start_scroll', 300 ) ),
-			esc_attr( apply_filters( 'dokanee_back_to_top_icon', 'fa-angle-up' ) ),
-			esc_html__( 'Scroll back to top', 'dokanee' )
+			esc_attr__( 'Scroll back to top', 'dokani' ),
+			absint( apply_filters( 'dokani_back_to_top_scroll_speed', 400 ) ),
+			absint( apply_filters( 'dokani_back_to_top_start_scroll', 300 ) ),
+			esc_attr( apply_filters( 'dokani_back_to_top_icon', 'fa-angle-up' ) ),
+			esc_html__( 'Scroll back to top', 'dokani' )
 		) );
 	}
 }

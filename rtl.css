@@ -78,8 +78,8 @@ nav ul ul .menu-item-has-children .dropdown-menu-toggle {
 .slideout-navigation .menu-item-has-children .dropdown-menu-toggle {
     float: left;
 }
-.dropdown-click #dokanee-slideout-menu .slideout-menu .menu-item-has-children>a:first-child,
-.slideout-desktop.dropdown-hover #dokanee-slideout-menu .slideout-menu .menu-item-has-children>a:first-child {
+.dropdown-click #dokani-slideout-menu .slideout-menu .menu-item-has-children>a:first-child,
+.slideout-desktop.dropdown-hover #dokani-slideout-menu .slideout-menu .menu-item-has-children>a:first-child {
     padding-left: 0;
 }
 .comment .children {

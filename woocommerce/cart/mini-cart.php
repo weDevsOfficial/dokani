@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
 								'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
 								esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-								__( 'Remove this item', 'dokanee' ),
+								__( 'Remove this item', 'dokani' ),
 								esc_attr( $product_id ),
 								esc_attr( $_product->get_sku() )
 							), $cart_item_key );
@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php else : ?>
 
-		<li class="empty"><?php _e( 'No products in the cart.', 'dokanee' ); ?></li>
+		<li class="empty"><?php _e( 'No products in the cart.', 'dokani' ); ?></li>
 
 	<?php endif; ?>
 
@@ -89,7 +89,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! WC()->cart->is_empty() ) : ?>
 
-	<p class="total"><strong><?php _e( 'Subtotal', 'dokanee' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+	<p class="total"><strong><?php _e( 'Subtotal', 'dokani' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
@@ -98,8 +98,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( version_compare( WC_VERSION, '2.7', '>' ) ) : ?>
 			<?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?>
 		<?php else: ?>
-			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="button wc-forward"><?php _e( 'View Cart', 'dokanee' ); ?></a>
-			<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="button checkout wc-forward"><?php _e( 'Checkout', 'dokanee' ); ?></a>
+			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="button wc-forward"><?php _e( 'View Cart', 'dokani' ); ?></a>
+			<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="button checkout wc-forward"><?php _e( 'Checkout', 'dokani' ); ?></a>
 		<?php endif; ?>
 	</p>
 

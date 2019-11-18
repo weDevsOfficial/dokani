@@ -2,7 +2,7 @@
 /**
  * The Template for displaying single vendor.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,18 +19,18 @@ get_header(); ?>
 
     <div class="grid-container">
 
-        <div id="primary" <?php dokanee_content_class(); ?>>
+        <div id="primary" <?php dokani_content_class(); ?>>
 
-            <main id="main" <?php dokanee_main_class(); ?>>
+            <main id="main" <?php dokani_main_class(); ?>>
 
 				<?php
 
 				/**
-				 * dokanee_before_main_content hook.
+				 * dokani_before_main_content hook.
 				 *
 				 * @since 1.0.0
 				 */
-				do_action( 'dokanee_before_main_content' );
+				do_action( 'dokani_before_main_content' );
 
 				?>
 
@@ -55,16 +55,16 @@ get_header(); ?>
 
 				<?php } else { ?>
 
-                    <p class="dokan-info"><?php _e( 'No products were found of this vendor!', 'dokanee' ); ?></p>
+                    <p class="dokan-info"><?php _e( 'No products were found of this vendor!', 'dokani' ); ?></p>
 
 				<?php }
 
 				/**
-				 * dokanee_after_main_content hook.
+				 * dokani_after_main_content hook.
 				 *
 				 * @since 1.0.0
 				 */
-				do_action( 'dokanee_after_main_content' );
+				do_action( 'dokani_after_main_content' );
 
 				?>
 
@@ -75,13 +75,13 @@ get_header(); ?>
 		<?php
 
 		/**
-		 * dokanee_after_primary_content_area hook.
+		 * dokani_after_primary_content_area hook.
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'dokanee_after_primary_content_area' );
+		do_action( 'dokani_after_primary_content_area' );
 
-		dokanee_construct_sidebars();
+		dokani_construct_sidebars();
 
 		?>
 

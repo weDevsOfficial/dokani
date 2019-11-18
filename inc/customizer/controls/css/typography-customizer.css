@@ -1,22 +1,22 @@
-.dokanee-font-weight,
-.dokanee-font-transform {
+.dokani-font-weight,
+.dokani-font-transform {
     float: left;
     width: 48%
 }
 
-.dokanee-font-transform {
+.dokani-font-transform {
 	float: right;
 }
 
-.customize-control-dokanee-range-slider .dokanee-slider {
+.customize-control-dokani-range-slider .dokani-slider {
 	margin-top: 9px;
 }
 
-.dokanee-range-slider-control {
+.dokani-range-slider-control {
 	margin-bottom: 15px;
 }
 
-.dokanee-range-slider-control .gp-range-title-area,
+.dokani-range-slider-control .gp-range-title-area,
 .customize-control-title {
 	display: flex;
 	justify-content: space-between;
@@ -44,13 +44,13 @@
 	min-height: 20px;
 }
 
-.dokanee-range-slider-control .gp-range-title-area .description {
+.dokani-range-slider-control .gp-range-title-area .description {
 	color: #1e8cbe !important;
 	font-style: normal;
 	margin: 0;
 }
 
-.dokanee-font-weight select {
+.dokani-font-weight select {
     border-right: 0;
 }
 

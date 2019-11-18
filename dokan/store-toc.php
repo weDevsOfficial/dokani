@@ -15,16 +15,16 @@ get_header();
 <?php dokan_get_template_part( 'store-header' ); ?>
 
 <div class="grid-container">
-	<div id="primary" <?php dokanee_content_class(); ?>>
-		<main id="dokan-content" <?php dokanee_main_class(); ?>>
+	<div id="primary" <?php dokani_content_class(); ?>>
+		<main id="dokan-content" <?php dokani_main_class(); ?>>
 			<?php
 
 			/**
-			 * dokanee_before_main_content hook.
+			 * dokani_before_main_content hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_before_main_content' );
+			do_action( 'dokani_before_main_content' );
 
 			?>
 
@@ -32,7 +32,7 @@ get_header();
 			<div id="store-toc-wrapper">
 				<div id="store-toc">
 					<?php if ( ! empty( $vendor->get_store_tnc() ) ): ?>
-						<h2 class="headline"><?php esc_html_e( 'Terms And Conditions', 'dokanee' ); ?></h2>
+						<h2 class="headline"><?php esc_html_e( 'Terms And Conditions', 'dokani' ); ?></h2>
 						<div>
 							<?php echo wp_kses_post( nl2br( $vendor->get_store_tnc() ) ); ?>
 						</div>
@@ -43,11 +43,11 @@ get_header();
 			<?php
 
 			/**
-			 * dokanee_after_main_content hook.
+			 * dokani_after_main_content hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_after_main_content' );
+			do_action( 'dokani_after_main_content' );
 
 			?>
 
@@ -57,13 +57,13 @@ get_header();
 	<?php
 
 	/**
-	 * dokanee_after_primary_content_area hook.
+	 * dokani_after_primary_content_area hook.
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'dokanee_after_primary_content_area' );
+	do_action( 'dokani_after_primary_content_area' );
 
-	dokanee_construct_sidebars();
+	dokani_construct_sidebars();
 
 	?>
 </div>

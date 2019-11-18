@@ -2,23 +2,23 @@
 /**
  * Cart elements.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_cart_position' ) ) {
+if ( ! function_exists( 'dokani_cart_position' ) ) {
 	/**
 	 * Build the cart.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_cart_position() {
+	function dokani_cart_position() {
 	    $cart = '';
         $cart .= '<li id="dokane-menu-cart-wrapper">';
-            $cart .= '<a href="#" class="dropdown-toggle dokanee-menu-cart" data-toggle="dropdown">' . sprintf( __( 'Cart %s', 'dokanee' ), '<span class="dokan-cart-amount-top">(' . WC()->cart->get_cart_total() . ')</span>' ) .'<b class="caret"></b></a>';
+            $cart .= '<a href="#" class="dropdown-toggle dokani-menu-cart" data-toggle="dropdown">' . sprintf( __( 'Cart %s', 'dokani' ), '<span class="dokan-cart-amount-top">(' . WC()->cart->get_cart_total() . ')</span>' ) .'<b class="caret"></b></a>';
 
             $cart .= '<ul class="dropdown-menu">';
                 $cart .= '<li>';
@@ -28,7 +28,7 @@ if ( ! function_exists( 'dokanee_cart_position' ) ) {
         $cart .= '</li>';
         if ( ! function_exists( 'dokan' ) ) {
 	        $cart .= '<li>';
-	        $cart .= '<a class="dokanee-menu-user" href="' . wc_get_page_permalink( 'myaccount' ) . '">' . __( 'My Account', 'dokanee' ) . '</a>';
+	        $cart .= '<a class="dokani-menu-user" href="' . wc_get_page_permalink( 'myaccount' ) . '">' . __( 'My Account', 'dokani' ) . '</a>';
 	        $cart .= '</li>';
         }
 
@@ -37,14 +37,14 @@ if ( ! function_exists( 'dokanee_cart_position' ) ) {
 }
 
 
-if ( ! function_exists( 'dokanee_add_cart_menu_after_search' ) ) {
-	add_action( 'dokanee_after_header_right', 'dokanee_add_cart_menu_after_search', 10 );
-	function dokanee_add_cart_menu_after_search() {
-		$cart_topbar = dokanee_get_setting( 'cart_position_setting' );
+if ( ! function_exists( 'dokani_add_cart_menu_after_search' ) ) {
+	add_action( 'dokani_after_header_right', 'dokani_add_cart_menu_after_search', 10 );
+	function dokani_add_cart_menu_after_search() {
+		$cart_topbar = dokani_get_setting( 'cart_position_setting' );
 
 		if( 'cart-search' == $cart_topbar ) {
 			echo '<ul class="header-cart-menu no-list-style m-0">';
-			echo dokanee_cart_position();
+			echo dokani_cart_position();
 			echo '</ul>';
 		}
 	}

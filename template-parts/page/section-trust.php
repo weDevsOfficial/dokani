@@ -2,7 +2,7 @@
 /**
  * Display trust factors content
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,47 +16,47 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="factor-wrapper">
 
 			<?php
-			$dokanee_trusted_fact_1      = get_theme_mod( 'dokanee_trusted_fact_1', 'Fast & Free Delivery' );
-			$dokanee_trusted_fact_1_icon = get_theme_mod( 'dokanee_trusted_fact_1_icon',
+			$dokani_trusted_fact_1      = get_theme_mod( 'dokani_trusted_fact_1', 'Fast & Free Delivery' );
+			$dokani_trusted_fact_1_icon = get_theme_mod( 'dokani_trusted_fact_1_icon',
 				'flaticon flaticon-transport' );
 
-			$dokanee_trusted_fact_2      = get_theme_mod( 'dokanee_trusted_fact_2', 'Safe & Secure Payment' );
-			$dokanee_trusted_fact_2_icon = get_theme_mod( 'dokanee_trusted_fact_2_icon',
+			$dokani_trusted_fact_2      = get_theme_mod( 'dokani_trusted_fact_2', 'Safe & Secure Payment' );
+			$dokani_trusted_fact_2_icon = get_theme_mod( 'dokani_trusted_fact_2_icon',
 				'flaticon flaticon-business-2' );
 
-			$dokanee_trusted_fact_3      = get_theme_mod( 'dokanee_trusted_fact_3', '100% Money Back Guarantee' );
-			$dokanee_trusted_fact_3_icon = get_theme_mod( 'dokanee_trusted_fact_3_icon',
+			$dokani_trusted_fact_3      = get_theme_mod( 'dokani_trusted_fact_3', '100% Money Back Guarantee' );
+			$dokani_trusted_fact_3_icon = get_theme_mod( 'dokani_trusted_fact_3_icon',
 				'flaticon flaticon-technology' );
 
-			if ( $dokanee_trusted_fact_1 || $dokanee_trusted_fact_1_icon ) { ?>
+			if ( $dokani_trusted_fact_1 || $dokani_trusted_fact_1_icon ) { ?>
 
                 <div class="factor-box">
                     <div class="factor-icon">
-                        <i class="<?php echo esc_attr( $dokanee_trusted_fact_1_icon ); ?>"></i>
+                        <i class="<?php echo esc_attr( $dokani_trusted_fact_1_icon ); ?>"></i>
                     </div>
-                    <div class="factor-info"><?php echo $dokanee_trusted_fact_1; ?></div>
+                    <div class="factor-info"><?php echo $dokani_trusted_fact_1; ?></div>
                 </div>
 
 			<?php }
 
-			if ( $dokanee_trusted_fact_2 || $dokanee_trusted_fact_2_icon ) { ?>
+			if ( $dokani_trusted_fact_2 || $dokani_trusted_fact_2_icon ) { ?>
 
                 <div class="factor-box">
                     <div class="factor-icon">
-                        <i class="<?php echo esc_attr( $dokanee_trusted_fact_2_icon ); ?>"></i>
+                        <i class="<?php echo esc_attr( $dokani_trusted_fact_2_icon ); ?>"></i>
                     </div>
-                    <div class="factor-info"><?php echo $dokanee_trusted_fact_2; ?></div>
+                    <div class="factor-info"><?php echo $dokani_trusted_fact_2; ?></div>
                 </div>
 
 			<?php }
 
-			if ( $dokanee_trusted_fact_3 || $dokanee_trusted_fact_3_icon ) { ?>
+			if ( $dokani_trusted_fact_3 || $dokani_trusted_fact_3_icon ) { ?>
 
                 <div class="factor-box">
                     <div class="factor-icon">
-                        <i class="<?php echo esc_attr( $dokanee_trusted_fact_3_icon ); ?>"></i>
+                        <i class="<?php echo esc_attr( $dokani_trusted_fact_3_icon ); ?>"></i>
                     </div>
-                    <div class="factor-info"><?php echo $dokanee_trusted_fact_3; ?></div>
+                    <div class="factor-info"><?php echo $dokani_trusted_fact_3; ?></div>
                 </div>
 
 			<?php } ?>

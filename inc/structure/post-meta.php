@@ -2,14 +2,14 @@
 /**
  * Post meta elements.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_content_nav' ) ) {
+if ( ! function_exists( 'dokani_content_nav' ) ) {
 	/**
 	 * Display navigation to next/previous pages when applicable.
 	 *
@@ -17,8 +17,8 @@ if ( ! function_exists( 'dokanee_content_nav' ) ) {
 	 *
 	 * @param string $nav_id The id of our navigation.
 	 */
-	function dokanee_content_nav( $nav_id ) {
-		if ( ! apply_filters( 'dokanee_show_post_navigation', true ) ) {
+	function dokani_content_nav( $nav_id ) {
+		if ( ! apply_filters( 'dokani_show_post_navigation', true ) ) {
 			return;
 		}
 
@@ -40,40 +40,40 @@ if ( ! function_exists( 'dokanee_content_nav' ) ) {
 		}
 
 		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
-		$category_specific = apply_filters( 'dokanee_category_post_navigation', false );
+		$category_specific = apply_filters( 'dokani_category_post_navigation', false );
 		?>
 		<nav id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo esc_attr( $nav_class ); ?>">
-			<span class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'dokanee' ); ?></span>
+			<span class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'dokani' ); ?></span>
 
 			<?php if ( is_single() ) : // navigation links for single posts.
 
-				previous_post_link( '<div class="nav-previous"><span class="prev" title="' . esc_attr__( 'Previous', 'dokanee' ) . '">%link</span></div>', '%title', $category_specific );
-				next_post_link( '<div class="nav-next"><span class="next" title="' . esc_attr__( 'Next', 'dokanee' ) . '">%link</span></div>', '%title', $category_specific );
+				previous_post_link( '<div class="nav-previous"><span class="prev" title="' . esc_attr__( 'Previous', 'dokani' ) . '">%link</span></div>', '%title', $category_specific );
+				next_post_link( '<div class="nav-next"><span class="next" title="' . esc_attr__( 'Next', 'dokani' ) . '">%link</span></div>', '%title', $category_specific );
 
 			elseif ( is_home() || is_archive() || is_search() ) : // navigation links for home, archive, and search pages.
 
 				if ( get_next_posts_link() ) : ?>
-					<div class="nav-previous"><span class="prev" title="<?php esc_attr_e( 'Previous', 'dokanee' );?>"><?php next_posts_link( __( 'Older posts', 'dokanee' ) ); ?></span></div>
+					<div class="nav-previous"><span class="prev" title="<?php esc_attr_e( 'Previous', 'dokani' );?>"><?php next_posts_link( __( 'Older posts', 'dokani' ) ); ?></span></div>
 				<?php endif;
 
 				if ( get_previous_posts_link() ) : ?>
-					<div class="nav-next"><span class="next" title="<?php esc_attr_e( 'Next', 'dokanee' );?>"><?php previous_posts_link( __( 'Newer posts', 'dokanee' ) ); ?></span></div>
+					<div class="nav-next"><span class="next" title="<?php esc_attr_e( 'Next', 'dokani' );?>"><?php previous_posts_link( __( 'Newer posts', 'dokani' ) ); ?></span></div>
 				<?php endif;
 
 				if ( function_exists( 'the_posts_pagination' ) ) {
 					the_posts_pagination( array(
-						'mid_size' => apply_filters( 'dokanee_pagination_mid_size', 1 ),
-						'prev_text' => apply_filters( 'dokanee_previous_link_text', __( '&larr;', 'dokanee' ) ),
-						'next_text' => apply_filters( 'dokanee_next_link_text', __( '&rarr;', 'dokanee' ) ),
+						'mid_size' => apply_filters( 'dokani_pagination_mid_size', 1 ),
+						'prev_text' => apply_filters( 'dokani_previous_link_text', __( '&larr;', 'dokani' ) ),
+						'next_text' => apply_filters( 'dokani_next_link_text', __( '&rarr;', 'dokani' ) ),
 					) );
 				}
 
 				/**
-				 * dokanee_paging_navigation hook.
+				 * dokani_paging_navigation hook.
 				 *
 				 * @since 1.0.0
 				 */
-				do_action( 'dokanee_paging_navigation' );
+				do_action( 'dokani_paging_navigation' );
 
 			endif; ?>
 		</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
@@ -81,11 +81,11 @@ if ( ! function_exists( 'dokanee_content_nav' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_modify_posts_pagination_template' ) ) {
-	add_filter( 'navigation_markup_template', 'dokanee_modify_posts_pagination_template', 10, 2 );
+if ( ! function_exists( 'dokani_modify_posts_pagination_template' ) ) {
+	add_filter( 'navigation_markup_template', 'dokani_modify_posts_pagination_template', 10, 2 );
 	/**
 	 * Remove the container and screen reader text from the_posts_pagination()
-	 * We add this in ourselves in dokanee_content_nav()
+	 * We add this in ourselves in dokani_content_nav()
 	 *
 	 * @since 1.0.0
 	 *
@@ -93,7 +93,7 @@ if ( ! function_exists( 'dokanee_modify_posts_pagination_template' ) ) {
 	 * @param string $class The class passed by the calling function.
 	 * @return string The HTML for the post navigation.
 	 */
-	function dokanee_modify_posts_pagination_template( $template, $class ) {
+	function dokani_modify_posts_pagination_template( $template, $class ) {
 	    if ( ! empty( $class ) && false !== strpos( $class, 'pagination' ) ) {
 	        $template = '<div class="nav-links">%3$s</div>';
 	    }
@@ -102,15 +102,15 @@ if ( ! function_exists( 'dokanee_modify_posts_pagination_template' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_posted_on' ) ) {
+if ( ! function_exists( 'dokani_posted_on' ) ) {
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_posted_on() {
-		$date = apply_filters( 'dokanee_post_date', true );
-		$author = apply_filters( 'dokanee_post_author', true );
+	function dokani_posted_on() {
+		$date = apply_filters( 'dokani_post_date', true );
+		$author = apply_filters( 'dokani_post_author', true );
 
 		$time_string = '<time class="entry-date published" datetime="%1$s" itemprop="datePublished">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -126,7 +126,7 @@ if ( ! function_exists( 'dokanee_posted_on' ) ) {
 
 		// If our date is enabled, show it.
 		if ( $date ) {
-			echo apply_filters( 'dokanee_post_date_output', sprintf( '<span class="posted-on">%1$s</span>', // WPCS: XSS ok, sanitization ok.
+			echo apply_filters( 'dokani_post_date_output', sprintf( '<span class="posted-on">%1$s</span>', // WPCS: XSS ok, sanitization ok.
 				sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
 					esc_url( get_permalink() ),
 					esc_attr( get_the_time() ),
@@ -137,12 +137,12 @@ if ( ! function_exists( 'dokanee_posted_on' ) ) {
 
 		// If our author is enabled, show it.
 		if ( $author ) {
-			echo apply_filters( 'dokanee_post_author_output', sprintf( ' <span class="byline">%1$s</span>', // WPCS: XSS ok, sanitization ok.
+			echo apply_filters( 'dokani_post_author_output', sprintf( ' <span class="byline">%1$s</span>', // WPCS: XSS ok, sanitization ok.
 				sprintf( '<span class="author vcard" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">%1$s <a class="url fn n" href="%2$s" title="%3$s" rel="author" itemprop="url"><span class="author-name" itemprop="name">%4$s</span></a></span>',
-					__( 'by','dokanee'),
+					__( 'by','dokani'),
 					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 					/* translators: 1: Author name */
-					esc_attr( sprintf( __( 'View all posts by %s', 'dokanee' ), get_the_author() ) ),
+					esc_attr( sprintf( __( 'View all posts by %s', 'dokani' ), get_the_author() ) ),
 					esc_html( get_the_author() )
 				)
 			) );
@@ -150,43 +150,43 @@ if ( ! function_exists( 'dokanee_posted_on' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_entry_meta' ) ) {
+if ( ! function_exists( 'dokani_entry_meta' ) ) {
 	/**
 	 * Prints HTML with meta information for the categories, tags.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_entry_meta() {
+	function dokani_entry_meta() {
 		$is_show_categories = get_theme_mod( 'blog_single_show_category' );
 		$is_show_tags = get_theme_mod( 'blog_single_show_tag' );
-		$comments = apply_filters( 'dokanee_show_comments', true );
+		$comments = apply_filters( 'dokani_show_comments', true );
 
-		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'dokanee' ) );
+		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'dokani' ) );
 		if ( $categories_list && $is_show_categories ) {
-			echo apply_filters( 'dokanee_category_list_output', sprintf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>', // WPCS: XSS ok, sanitization ok.
-				esc_html_x( 'Categories', 'Used before category names.', 'dokanee' ),
+			echo apply_filters( 'dokani_category_list_output', sprintf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>', // WPCS: XSS ok, sanitization ok.
+				esc_html_x( 'Categories', 'Used before category names.', 'dokani' ),
 				$categories_list
 			) );
 		}
 
-		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'dokanee' ) );
+		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'dokani' ) );
 		if ( $tags_list && $is_show_tags ) {
-			echo apply_filters( 'dokanee_tag_list_output', sprintf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>', // WPCS: XSS ok, sanitization ok.
-				esc_html_x( 'Tags', 'Used before tag names.', 'dokanee' ),
+			echo apply_filters( 'dokani_tag_list_output', sprintf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>', // WPCS: XSS ok, sanitization ok.
+				esc_html_x( 'Tags', 'Used before tag names.', 'dokani' ),
 				$tags_list
 			) );
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) && $comments ) {
 			echo '<span class="comments-link">';
-				comments_popup_link( __( 'Leave a comment', 'dokanee' ), __( '1 Comment', 'dokanee' ), __( '% Comments', 'dokanee' ) );
+				comments_popup_link( __( 'Leave a comment', 'dokani' ), __( '1 Comment', 'dokani' ), __( '% Comments', 'dokani' ) );
 			echo '</span>';
 		}
 	}
 }
 
-if ( ! function_exists( 'dokanee_excerpt_more' ) ) {
-	add_filter( 'excerpt_more', 'dokanee_excerpt_more' );
+if ( ! function_exists( 'dokani_excerpt_more' ) ) {
+	add_filter( 'excerpt_more', 'dokani_excerpt_more' );
 	/**
 	 * Prints the read more HTML to post excerpts.
 	 *
@@ -195,21 +195,21 @@ if ( ! function_exists( 'dokanee_excerpt_more' ) ) {
 	 * @param string $more The string shown within the more link.
 	 * @return string The HTML for the more link.
 	 */
-	function dokanee_excerpt_more( $more ) {
-		return apply_filters( 'dokanee_excerpt_more_output', sprintf( ' ... <a title="%1$s" class="read-more" href="%2$s">%3$s%4$s</a>',
+	function dokani_excerpt_more( $more ) {
+		return apply_filters( 'dokani_excerpt_more_output', sprintf( ' ... <a title="%1$s" class="read-more" href="%2$s">%3$s%4$s</a>',
 			the_title_attribute( 'echo=0' ),
 			esc_url( get_permalink( get_the_ID() ) ),
-			__( 'Read more', 'dokanee' ),
+			__( 'Read more', 'dokani' ),
 			'<span class="screen-reader-text">' . get_the_title() . '</span>'
 		) );
 	}
 }
 
-if ( ! function_exists( 'dokanee_author_profile' ) ) {
+if ( ! function_exists( 'dokani_author_profile' ) ) {
 	/**
 	 * Prints the author profile.
 	 */
-	function dokanee_author_profile() {
+	function dokani_author_profile() {
 	    $author_id = get_the_author_meta( 'ID' );
 	    $author_name = get_the_author_meta( 'display_name' );
 	    $author_email = get_the_author_meta( 'user_email' );
@@ -225,7 +225,7 @@ if ( ! function_exists( 'dokanee_author_profile' ) ) {
             </div>
             <div class="author-bio">
                 <h3>
-                    <span><?php echo _e( 'About', 'dokanee' ); ?></span>
+                    <span><?php echo _e( 'About', 'dokani' ); ?></span>
                     <a href="<?php echo $author_url; ?>"><?php echo $author_name; ?></a>
                 </h3>
                 <div class="author-description">
@@ -236,8 +236,8 @@ if ( ! function_exists( 'dokanee_author_profile' ) ) {
 	<?php }
 }
 
-if ( ! function_exists( 'dokanee_content_more' ) ) {
-	add_filter( 'the_content_more_link', 'dokanee_content_more' );
+if ( ! function_exists( 'dokani_content_more' ) ) {
+	add_filter( 'the_content_more_link', 'dokani_content_more' );
 	/**
 	 * Prints the read more HTML to post content using the more tag.
 	 *
@@ -246,58 +246,58 @@ if ( ! function_exists( 'dokanee_content_more' ) ) {
 	 * @param string $more The string shown within the more link.
 	 * @return string The HTML for the more link
 	 */
-	function dokanee_content_more( $more ) {
-		return apply_filters( 'dokanee_content_more_link_output', sprintf( '<p class="read-more-container"><a title="%1$s" class="read-more content-read-more" href="%2$s">%3$s%4$s</a></p>',
+	function dokani_content_more( $more ) {
+		return apply_filters( 'dokani_content_more_link_output', sprintf( '<p class="read-more-container"><a title="%1$s" class="read-more content-read-more" href="%2$s">%3$s%4$s</a></p>',
 			the_title_attribute( 'echo=0' ),
-			esc_url( get_permalink( get_the_ID() ) . apply_filters( 'dokanee_more_jump','#more-' . get_the_ID() ) ),
-			__( 'Read more', 'dokanee' ),
+			esc_url( get_permalink( get_the_ID() ) . apply_filters( 'dokani_more_jump','#more-' . get_the_ID() ) ),
+			__( 'Read more', 'dokani' ),
 			'<span class="screen-reader-text">' . get_the_title() . '</span>'
 		) );
 	}
 }
 
-if ( ! function_exists( 'dokanee_post_meta' ) ) {
-	add_action( 'dokanee_after_entry_title', 'dokanee_post_meta' );
+if ( ! function_exists( 'dokani_post_meta' ) ) {
+	add_action( 'dokani_after_entry_title', 'dokani_post_meta' );
 	/**
 	 * Build the post meta.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_post_meta() {
+	function dokani_post_meta() {
 		if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">
-				<?php dokanee_posted_on(); ?>
+				<?php dokani_posted_on(); ?>
 			</div><!-- .entry-meta -->
 		<?php endif;
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_post_nav' ) ) {
-	add_action( 'dokanee_post_nav', 'dokanee_get_post_nav' );
+if ( ! function_exists( 'dokani_get_post_nav' ) ) {
+	add_action( 'dokani_post_nav', 'dokani_get_post_nav' );
 	/**
 	 * Build the footer post meta.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_get_post_nav() {
+	function dokani_get_post_nav() {
 		if ( 'post' == get_post_type() ) : ?>
 			<footer class="entry-meta">
-				<?php if ( is_single() && get_theme_mod( 'show_post_nav' ) ) dokanee_content_nav( 'nav-below' ); ?>
+				<?php if ( is_single() && get_theme_mod( 'show_post_nav' ) ) dokani_content_nav( 'nav-below' ); ?>
 			</footer><!-- .entry-meta -->
 		<?php endif;
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_author_profile' ) ) {
-	add_action( 'dokanee_post_author_profile', 'dokanee_get_author_profile' );
+if ( ! function_exists( 'dokani_get_author_profile' ) ) {
+	add_action( 'dokani_post_author_profile', 'dokani_get_author_profile' );
 	/**
 	 * Build the author profile.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_get_author_profile() {
+	function dokani_get_author_profile() {
 		if ( 'post' == get_post_type() && is_single() && get_theme_mod( 'blog_single_show_author_profile' ) ) {
-			dokanee_author_profile();
+			dokani_author_profile();
         }
 	}
 }
@@ -312,8 +312,8 @@ if ( ! function_exists( 'dokane_get_post_meta' ) ) {
 	function dokane_get_post_meta() {
 		if ( 'post' == get_post_type() && is_single() ) {
 		    ?>
-            <div class="dokanee-entry-meta-wrap">
-                <?php dokanee_entry_meta(); ?>
+            <div class="dokani-entry-meta-wrap">
+                <?php dokani_entry_meta(); ?>
             </div>
             <?php
         }

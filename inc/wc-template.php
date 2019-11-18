@@ -10,14 +10,14 @@ remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_pr
 remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 20 );
 
-add_action( 'woocommerce_before_quantity_input_field', 'dokanee_quantity_label' );
+add_action( 'woocommerce_before_quantity_input_field', 'dokani_quantity_label' );
 
 /*
  *
  *
  */
-function dokanee_quantity_label() {
-    echo "<label class='quantity_label'>" . __( 'Quantity', 'dokanee' ) . " :</label>";
+function dokani_quantity_label() {
+    echo "<label class='quantity_label'>" . __( 'Quantity', 'dokani' ) . " :</label>";
 }
 
 /**
@@ -32,7 +32,7 @@ add_action( 'woocommerce_before_shop_loop', 'woocommerce_pagination', 40 );
  *
  * @global WC_Product $product
  */
-function dokanee_product_loop_price() {
+function dokani_product_loop_price() {
     global $product;
 	global $post;
 
@@ -67,7 +67,7 @@ function dokanee_product_loop_price() {
     <?php
 }
 
-add_action( 'woocommerce_after_shop_loop_item', 'dokanee_product_loop_price' );
+add_action( 'woocommerce_after_shop_loop_item', 'dokani_product_loop_price' );
 
 
 /**
@@ -83,7 +83,7 @@ function dokan_woo_breadcrumb( $args ) {
         'wrap_after'  => '</nav>',
         'before'      => '<li>',
         'after'       => '</li>',
-        'home'        => _x( 'Home', 'breadcrumb', 'dokanee' ),
+        'home'        => _x( 'Home', 'breadcrumb', 'dokani' ),
     );
 }
 
@@ -179,7 +179,7 @@ if ( !class_exists( 'Dokan_Category_Widget' ) ) :
          * @return void
          * */
         public function __construct() {
-            $widget_ops = array( 'classname' => 'dokan-category-menu', 'description' => __( 'Dokan product category menu', 'dokanee' ) );
+            $widget_ops = array( 'classname' => 'dokan-category-menu', 'description' => __( 'Dokan product category menu', 'dokani' ) );
             parent::__construct( 'dokan-category-menu', 'Dokan: Product Category', $widget_ops );
         }
 
@@ -275,13 +275,13 @@ if ( !class_exists( 'Dokan_Category_Widget' ) ) :
          * */
         function form( $instance ) {
             $instance = wp_parse_args( (array) $instance, array(
-                'title' => __( 'Product Category', 'dokanee' )
+                'title' => __( 'Product Category', 'dokani' )
             ) );
 
             $title = $instance['title'];
             ?>
             <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'dokanee' ); ?></label>
+                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'dokani' ); ?></label>
                 <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
             </p>
             <?php
@@ -296,10 +296,10 @@ endif;
 /**
  * Product display views [ List/Grid]
  */
-function dokanee_products_view_type() {
+function dokani_products_view_type() {
 	?>
 
-    <div class="dokanee-products-view buttons box-shadow">
+    <div class="dokani-products-view buttons box-shadow">
         <button class="list"><i class="fa fa-bars"></i></button>
         <button class="grid active"><i class="fa fa-th-large"></i></button>
     </div>
@@ -307,29 +307,29 @@ function dokanee_products_view_type() {
 	<?php
 }
 
-add_action( 'woocommerce_before_shop_loop', 'dokanee_products_view_type' );
+add_action( 'woocommerce_before_shop_loop', 'dokani_products_view_type' );
 
 /**
  * Rename Additional Information tab
  */
-function dokanee_woo_rename_tabs( $tabs ) {
+function dokani_woo_rename_tabs( $tabs ) {
 
 	global $product;
 
 	if( $product->has_attributes() || $product->has_dimensions() || $product->has_weight() ) { // Check if product has attributes, dimensions or weight
-		$tabs['additional_information']['title'] = __( 'Additional Info', 'dokanee' );	// Rename the additional information tab
+		$tabs['additional_information']['title'] = __( 'Additional Info', 'dokani' );	// Rename the additional information tab
 	}
 
 	return $tabs;
 
 }
 
-add_filter( 'woocommerce_product_tabs', 'dokanee_woo_rename_tabs', 98 );
+add_filter( 'woocommerce_product_tabs', 'dokani_woo_rename_tabs', 98 );
 
 /**
  * Display product vendor name
  */
-function dokanee_vendor_name() {
+function dokani_vendor_name() {
 	global $post;
 
 	$store_info = dokan_get_store_info( $post->post_author );
@@ -338,12 +338,12 @@ function dokanee_vendor_name() {
 	echo '<div class="vendor-name"><span>Sold by </span><a href="' . $url . '">' . $store_info['store_name'] . '</a></div>';
 }
 
-add_action('woocommerce_single_product_summary', 'dokanee_vendor_name', 7);
+add_action('woocommerce_single_product_summary', 'dokani_vendor_name', 7);
 
 /**
  * Display woo breadcrumb
  */
-function dokanee_woo_breadcrumb() {
+function dokani_woo_breadcrumb() {
 
     if ( class_exists('WooCommerce' ) && is_woocommerce() ) {
 	    woocommerce_breadcrumb();
@@ -351,17 +351,17 @@ function dokanee_woo_breadcrumb() {
 
 }
 
-add_action( 'dokanee_inside_container', 'dokanee_woo_breadcrumb', 5 );
+add_action( 'dokani_inside_container', 'dokani_woo_breadcrumb', 5 );
 
 /**
  * Output the related products.
  */
-function dokanee_woo_related_products_args( $args ) {
+function dokani_woo_related_products_args( $args ) {
 	$args['posts_per_page'] = 3; // 4 related products
 	$args['columns'] = 3; // arranged in 2 columns
 	return $args;
 }
-add_filter( 'woocommerce_output_related_products_args', 'dokanee_woo_related_products_args' );
+add_filter( 'woocommerce_output_related_products_args', 'dokani_woo_related_products_args' );
 
 /**
  * Change the placeholder image

@@ -2,27 +2,27 @@
 /**
  * Comment structure.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_comment' ) ) {
+if ( ! function_exists( 'dokani_comment' ) ) {
 	/**
 	 * Template for comments and pingbacks.
 	 *
 	 * Used as a callback by wp_list_comments() for displaying the comments.
 	 */
-	function dokanee_comment( $comment, $args, $depth ) {
-		$args['avatar_size'] = apply_filters( 'dokanee_comment_avatar_size', 50 );
+	function dokani_comment( $comment, $args, $depth ) {
+		$args['avatar_size'] = apply_filters( 'dokani_comment_avatar_size', 50 );
 
 		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
 
 		<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<div class="comment-body">
-				<?php _e( 'Pingback:', 'dokanee' ); // WPCS: XSS OK. ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'dokanee' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php _e( 'Pingback:', 'dokani' ); // WPCS: XSS OK. ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'dokani' ), '<span class="edit-link">', '</span>' ); ?>
 			</div>
 
 		<?php else : ?>
@@ -41,13 +41,13 @@ if ( ! function_exists( 'dokanee_comment' ) ) {
 								<time datetime="<?php comment_time( 'c' ); ?>" itemprop="datePublished">
 									<?php printf( // WPCS: XSS OK.
 										/* translators: 1: date, 2: time */
-										_x( '%1$s at %2$s', '1: date, 2: time', 'dokanee' ),
+										_x( '%1$s at %2$s', '1: date, 2: time', 'dokani' ),
 										get_comment_date(),
 										get_comment_time()
 									); ?>
 								</time>
 							</a>
-							<?php edit_comment_link( __( 'Edit', 'dokanee' ), '<span class="edit-link">| ', '</span>' ); ?>
+							<?php edit_comment_link( __( 'Edit', 'dokani' ), '<span class="edit-link">| ', '</span>' ); ?>
 							<?php
 							comment_reply_link( array_merge( $args, array(
 								'add_below' => 'div-comment',
@@ -61,7 +61,7 @@ if ( ! function_exists( 'dokanee_comment' ) ) {
 					</div><!-- .comment-author-info -->
 
 					<?php if ( '0' == $comment->comment_approved ) : ?>
-						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'dokanee' ); // WPCS: XSS OK. ?></p>
+						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'dokani' ); // WPCS: XSS OK. ?></p>
 					<?php endif; ?>
 				</footer><!-- .comment-meta -->
 
@@ -74,7 +74,7 @@ if ( ! function_exists( 'dokanee_comment' ) ) {
 	}
 }
 
-add_filter( 'comment_form_default_fields', 'dokanee_filter_comment_fields' );
+add_filter( 'comment_form_default_fields', 'dokani_filter_comment_fields' );
 /**
  * Customizes the existing comment fields.
  *
@@ -82,12 +82,12 @@ add_filter( 'comment_form_default_fields', 'dokanee_filter_comment_fields' );
  * @param array $fields
  * @return array
  */
-function dokanee_filter_comment_fields( $fields ) {
+function dokani_filter_comment_fields( $fields ) {
 	$commenter = wp_get_current_commenter();
 
-	$fields['author'] = '<label for="author" class="screen-reader-text">' . esc_html__( 'Name', 'dokanee' ) . '</label><input placeholder="' . esc_attr__( 'Name', 'dokanee' ) . ' *" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" />';
-	$fields['email'] = '<label for="email" class="screen-reader-text">' . esc_html__( 'Email', 'dokanee' ) . '</label><input placeholder="' . esc_attr__( 'Email', 'dokanee' ) . ' *" id="email" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" />';
-	$fields['url'] = '<label for="url" class="screen-reader-text">' . esc_html__( 'Website', 'dokanee' ) . '</label><input placeholder="' . esc_attr__( 'Website', 'dokanee' ) . '" id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" />';
+	$fields['author'] = '<label for="author" class="screen-reader-text">' . esc_html__( 'Name', 'dokani' ) . '</label><input placeholder="' . esc_attr__( 'Name', 'dokani' ) . ' *" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" />';
+	$fields['email'] = '<label for="email" class="screen-reader-text">' . esc_html__( 'Email', 'dokani' ) . '</label><input placeholder="' . esc_attr__( 'Email', 'dokani' ) . ' *" id="email" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" />';
+	$fields['url'] = '<label for="url" class="screen-reader-text">' . esc_html__( 'Website', 'dokani' ) . '</label><input placeholder="' . esc_attr__( 'Website', 'dokani' ) . '" id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" />';
 
 	return $fields;
 }

@@ -2,38 +2,38 @@
 /**
  * Navigation elements.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_navigation_position' ) ) {
+if ( ! function_exists( 'dokani_navigation_position' ) ) {
 	/**
 	 * Build the navigation.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_navigation_position() {
+	function dokani_navigation_position() {
 		?>
-		<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" <?php dokanee_navigation_class(); ?>>
-			<div <?php dokanee_inside_navigation_class(); ?>>
+		<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" <?php dokani_navigation_class(); ?>>
+			<div <?php dokani_inside_navigation_class(); ?>>
 				<?php
 				/**
-				 * dokanee_inside_navigation hook.
+				 * dokani_inside_navigation hook.
 				 *
 				 * @since 1.0.0
 				 *
-				 * @hooked dokanee_responsive_user_menu - 5
-				 * @hooked dokanee_navigation_search - 10
-				 * @hooked dokanee_mobile_menu_search_icon - 10
+				 * @hooked dokani_responsive_user_menu - 5
+				 * @hooked dokani_navigation_search - 10
+				 * @hooked dokani_mobile_menu_search_icon - 10
 				 */
-				do_action( 'dokanee_inside_navigation' );
+				do_action( 'dokani_inside_navigation' );
 				?>
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<?php  do_action( 'dokanee_inside_mobile_menu' ); ?>
-					<span class="mobile-menu screen-reader-text"><?php echo apply_filters( 'dokanee_mobile_menu_label', __( 'Menu', 'dokanee' ) ); // WPCS: XSS ok. ?></span>
+					<?php  do_action( 'dokani_inside_mobile_menu' ); ?>
+					<span class="mobile-menu screen-reader-text"><?php echo apply_filters( 'dokani_mobile_menu_label', __( 'Menu', 'dokani' ) ); // WPCS: XSS ok. ?></span>
 				</button>
 
                 <?php
@@ -45,8 +45,8 @@ if ( ! function_exists( 'dokanee_navigation_position' ) ) {
                             'container_class' => 'main-nav',
                             'container_id' => 'primary-menu',
                             'menu_class' => '',
-                            'fallback_cb' => 'dokanee_menu_fallback',
-                            'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
+                            'fallback_cb' => 'dokani_menu_fallback',
+                            'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
                         )
                     );
 
@@ -58,15 +58,15 @@ if ( ! function_exists( 'dokanee_navigation_position' ) ) {
 				                'container_class' => 'main-nav',
 				                'container_id' => 'responsive-menu',
 				                'menu_class' => '',
-				                'fallback_cb' => 'dokanee_menu_fallback',
-				                'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokanee_get_menu_class() ) . '">%3$s</ul>'
+				                'fallback_cb' => 'dokani_menu_fallback',
+				                'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
 			                )
 		                );
                     }
 
                 } else { ?>
 
-                    <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php _e( 'Home', 'dokanee' ); ?></a>
+                    <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php _e( 'Home', 'dokani' ); ?></a>
 
                 <?php }
 
@@ -78,7 +78,7 @@ if ( ! function_exists( 'dokanee_navigation_position' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_menu_fallback' ) ) {
+if ( ! function_exists( 'dokani_menu_fallback' ) ) {
 	/**
 	 * Menu fallback.
 	 *
@@ -87,25 +87,25 @@ if ( ! function_exists( 'dokanee_menu_fallback' ) ) {
 	 * @param  array $args
 	 * @return string
 	 */
-	function dokanee_menu_fallback( $args ) {
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+	function dokani_menu_fallback( $args ) {
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
 		?>
 		<div id="primary-menu" class="main-nav">
-			<ul <?php dokanee_menu_class(); ?>>
+			<ul <?php dokani_menu_class(); ?>>
 				<?php
 				$args = array(
 					'sort_column' => 'menu_order',
 					'title_li' => '',
-					'walker' => new Dokanee_Page_Walker()
+					'walker' => new dokani_Page_Walker()
 				);
 
 				wp_list_pages( $args );
 
-				if ( 'cart-nav' == $dokanee_settings['cart_position_setting'] ){
-					echo dokanee_cart_position();
+				if ( 'cart-nav' == $dokani_settings['cart_position_setting'] ){
+					echo dokani_cart_position();
 				}
 
 				?>
@@ -125,32 +125,32 @@ if ( ! function_exists( 'dokanee_menu_fallback' ) ) {
  * @since 1.0.0
  */
 
-if ( ! function_exists( 'dokanee_add_navigation_after_header' ) ) {
-	add_action( 'dokanee_after_header', 'dokanee_add_navigation_after_header', 5 );
-	function dokanee_add_navigation_after_header() {
-		if ( 'nav-below-header' == dokanee_get_navigation_location() ) {
-			dokanee_navigation_position();
+if ( ! function_exists( 'dokani_add_navigation_after_header' ) ) {
+	add_action( 'dokani_after_header', 'dokani_add_navigation_after_header', 5 );
+	function dokani_add_navigation_after_header() {
+		if ( 'nav-below-header' == dokani_get_navigation_location() ) {
+			dokani_navigation_position();
 		}
 	}
 }
 
-if ( ! function_exists( 'dokanee_add_navigation_float_right' ) ) {
-	add_action( 'dokanee_after_header_right', 'dokanee_add_navigation_float_right', 5 );
-	function dokanee_add_navigation_float_right() {
-		if ( 'nav-float-right' == dokanee_get_navigation_location() ) {
-			dokanee_navigation_position();
+if ( ! function_exists( 'dokani_add_navigation_float_right' ) ) {
+	add_action( 'dokani_after_header_right', 'dokani_add_navigation_float_right', 5 );
+	function dokani_add_navigation_float_right() {
+		if ( 'nav-float-right' == dokani_get_navigation_location() ) {
+			dokani_navigation_position();
 		}
 	}
 }
 
-if ( ! class_exists( 'Dokanee_Page_Walker' ) && class_exists( 'Walker_Page' ) ) {
+if ( ! class_exists( 'dokani_Page_Walker' ) && class_exists( 'Walker_Page' ) ) {
 	/**
 	 * Add current-menu-item to the current item if no theme location is set
 	 * This means we don't have to duplicate CSS properties for current_page_item and current-menu-item
 	 *
 	 * @since 1.0.0
 	 */
-	class Dokanee_Page_Walker extends Walker_Page {
+	class dokani_Page_Walker extends Walker_Page {
 		function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
 			$css_class = array( 'page_item', 'page-item-' . $page->ID );
 			$button = '';
@@ -192,8 +192,8 @@ if ( ! class_exists( 'Dokanee_Page_Walker' ) && class_exists( 'Walker_Page' ) ) 
 	}
 }
 
-if ( ! function_exists( 'dokanee_dropdown_icon_to_menu_link' ) ) {
-	add_filter( 'nav_menu_item_title', 'dokanee_dropdown_icon_to_menu_link', 10, 4 );
+if ( ! function_exists( 'dokani_dropdown_icon_to_menu_link' ) ) {
+	add_filter( 'nav_menu_item_title', 'dokani_dropdown_icon_to_menu_link', 10, 4 );
 	/**
 	 * Add dropdown icon if menu item has children.
 	 *
@@ -205,12 +205,12 @@ if ( ! function_exists( 'dokanee_dropdown_icon_to_menu_link' ) ) {
 	 * @param int $dept Depth of menu item.
 	 * @return string The menu item.
 	 */
-	function dokanee_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
+	function dokani_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 
 		$role = 'presentation';
 		$tabindex = '';
 
-		if ( 'click-arrow' === dokanee_get_setting( 'nav_dropdown_type' ) ) {
+		if ( 'click-arrow' === dokani_get_setting( 'nav_dropdown_type' ) ) {
 			$role = 'button';
 			$tabindex = ' tabindex="0"';
 		}
@@ -229,8 +229,8 @@ if ( ! function_exists( 'dokanee_dropdown_icon_to_menu_link' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_menu_cart' ) ) {
-	add_filter( 'wp_nav_menu_items', 'dokanee_menu_cart', 5, 2 );
+if ( ! function_exists( 'dokani_menu_cart' ) ) {
+	add_filter( 'wp_nav_menu_items', 'dokani_menu_cart', 5, 2 );
 	/**
 	 * Add cart to primary menu if set
 	 *
@@ -240,29 +240,29 @@ if ( ! function_exists( 'dokanee_menu_cart' ) ) {
 	 * @param stdClass $args An object containing wp_nav_menu() arguments.
 	 * @return string The cart menu item.
 	 */
-	function dokanee_menu_cart( $nav, $args ) {
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+	function dokani_menu_cart( $nav, $args ) {
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
 
 		// If the cart isn't enabled, return the regular nav.
-		if ( 'cart-nav' !== $dokanee_settings['cart_position_setting'] ) {
+		if ( 'cart-nav' !== $dokani_settings['cart_position_setting'] ) {
 			return $nav;
 		}
 
 		// If our primary menu is set, add the cart.
 		if ( $args->theme_location == 'primary' ) {
-			return $nav . dokanee_cart_position();
+			return $nav . dokani_cart_position();
 		}
 
 		// Our primary menu isn't set, return the regular nav.
-		// In this case, the cart is added to the dokanee_menu_fallback() function in navigation.php.
+		// In this case, the cart is added to the dokani_menu_fallback() function in navigation.php.
 		return $nav;
 	}
 }
 
-add_action( 'wp_footer', 'dokanee_clone_sidebar_navigation' );
+add_action( 'wp_footer', 'dokani_clone_sidebar_navigation' );
 /**
  * Clone our sidebar navigation and place it below the header.
  * This places our mobile menu in a more user-friendly location.
@@ -272,8 +272,8 @@ add_action( 'wp_footer', 'dokanee_clone_sidebar_navigation' );
  *
  * @since 1.0.0
  */
-function dokanee_clone_sidebar_navigation() {
-	if ( 'nav-left-sidebar' !== dokanee_get_navigation_location() && 'nav-right-sidebar' !== dokanee_get_navigation_location() ) {
+function dokani_clone_sidebar_navigation() {
+	if ( 'nav-left-sidebar' !== dokani_get_navigation_location() && 'nav-right-sidebar' !== dokani_get_navigation_location() ) {
 		return;
 	}
 	?>
@@ -283,7 +283,7 @@ function dokanee_clone_sidebar_navigation() {
 		if ( nav ) {
 			clone = nav.cloneNode( true );
 			clone.className += ' sidebar-nav-mobile';
-			clone.setAttribute( 'aria-label', '<?php esc_attr_e( 'Mobile Menu', 'dokanee' ); ?>' );
+			clone.setAttribute( 'aria-label', '<?php esc_attr_e( 'Mobile Menu', 'dokani' ); ?>' );
 			target = document.getElementById( 'masthead' );
 			if ( target ) {
 				target.insertAdjacentHTML( 'afterend', clone.outerHTML );
@@ -295,16 +295,16 @@ function dokanee_clone_sidebar_navigation() {
 	<?php
 }
 
-if ( ! function_exists( 'dokanee_menu_responsive_search' ) ) {
+if ( ! function_exists( 'dokani_menu_responsive_search' ) ) {
     if ( function_exists( 'dokan_pro' ) ) {
-	    add_filter( 'wp_nav_menu_items', 'dokanee_menu_responsive_search', 10, 2 );
+	    add_filter( 'wp_nav_menu_items', 'dokani_menu_responsive_search', 10, 2 );
     }
 	/**
 	 * Build responsive search
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_menu_responsive_search( $nav, $args ) {
+	function dokani_menu_responsive_search( $nav, $args ) {
 
 		if ( $args->theme_location == 'responsive_menu' ) {
 			return $nav . '<li class="menu-item">' . the_widget( 'Dokan_Live_Search_Widget' ) . '</li>';
@@ -314,14 +314,14 @@ if ( ! function_exists( 'dokanee_menu_responsive_search' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_responsive_vendor_menu' ) ) {
-	add_filter( 'wp_nav_menu_items', 'dokanee_responsive_vendor_menu', 5, 2 );
+if ( ! function_exists( 'dokani_responsive_vendor_menu' ) ) {
+	add_filter( 'wp_nav_menu_items', 'dokani_responsive_vendor_menu', 5, 2 );
 	/**
 	 * Build responsive vendor menu
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_responsive_vendor_menu( $nav, $args ) {
+	function dokani_responsive_vendor_menu( $nav, $args ) {
 		global $current_user;
 		$user_id = $current_user->ID;
 		$nav_urls = function_exists( 'dokan_get_dashboard_nav' ) ? dokan_get_dashboard_nav() : false;
@@ -330,9 +330,9 @@ if ( ! function_exists( 'dokanee_responsive_vendor_menu' ) ) {
 
             if ( function_exists( 'dokan_is_user_seller' ) && dokan_is_user_seller( $user_id ) ) {
                 $vendor = '';
-                $vendor .= '<li class="menu-item menu-item-has-children"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'. __( 'Vendor Dashboard', 'dokanee' ) .'<span role="presentation" class="dropdown-menu-toggle" aria-expanded="false"></span></a>';
+                $vendor .= '<li class="menu-item menu-item-has-children"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'. __( 'Vendor Dashboard', 'dokani' ) .'<span role="presentation" class="dropdown-menu-toggle" aria-expanded="false"></span></a>';
 
-                $vendor .= '<ul class="sub-menu"><li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank">'. __( 'Visit your store', 'dokanee' ) .'<i class="fa fa-external-link"></i></a></li>
+                $vendor .= '<ul class="sub-menu"><li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank">'. __( 'Visit your store', 'dokani' ) .'<i class="fa fa-external-link"></i></a></li>
                             <li class="divider"></li>';
                            foreach ( $nav_urls as $key => $item ) {;
                                 $vendor .= '<li><a href="'.$item['url'].'">'.$item['icon'].' &nbsp;'.$item['title'].'</a></li>';

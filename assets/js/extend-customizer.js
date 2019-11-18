@@ -9,7 +9,7 @@
         api.section.each( function( section ) {
 
             if (
-                'dokanee_section' !== section.params.type ||
+                'dokani_section' !== section.params.type ||
                 'undefined' === typeof section.params.section
             ) {
 
@@ -37,7 +37,7 @@
         api.panel.each( function( panel ) {
 
             if (
-                'dokanee_panel' !== panel.params.type ||
+                'dokani_panel' !== panel.params.type ||
                 'undefined' === typeof panel.params.panel
             ) {
 
@@ -71,7 +71,7 @@
         attachEvents: function() {
 
             if (
-                'dokanee_panel' !== this.params.type ||
+                'dokani_panel' !== this.params.type ||
                 'undefined' === typeof this.params.panel
             ) {
 
@@ -125,7 +125,7 @@
         embed: function() {
 
             if (
-                'dokanee_panel' !== this.params.type ||
+                'dokani_panel' !== this.params.type ||
                 'undefined' === typeof this.params.panel
             ) {
 
@@ -146,7 +146,7 @@
         isContextuallyActive: function() {
 
             if (
-                'dokanee_panel' !== this.params.type
+                'dokani_panel' !== this.params.type
             ) {
 
                 return _panelIsContextuallyActive.call( this );
@@ -204,7 +204,7 @@
         attachEvents: function() {
 
             if (
-                'dokanee_section' !== this.params.type ||
+                'dokani_section' !== this.params.type ||
                 'undefined' === typeof this.params.section
             ) {
 
@@ -258,7 +258,7 @@
         embed: function() {
 
             if (
-                'dokanee_section' !== this.params.type ||
+                'dokani_section' !== this.params.type ||
                 'undefined' === typeof this.params.section
             ) {
 
@@ -279,7 +279,7 @@
         isContextuallyActive: function() {
 
             if (
-                'dokanee_section' !== this.params.type
+                'dokani_section' !== this.params.type
             ) {
 
                 return _sectionIsContextuallyActive.call( this );

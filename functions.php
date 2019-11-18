@@ -1,10 +1,10 @@
 <?php
 /**
- * Dokanee.
+ * dokani.
  *
  * Please do not make any edits to this file. All edits should be done in a child theme.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,16 +14,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Set our theme version.
 define( 'GENERATE_VERSION', '1.0.0' );
 
-if ( ! function_exists( 'dokanee_setup' ) ) {
-	add_action( 'after_setup_theme', 'dokanee_setup' );
+if ( ! function_exists( 'dokani_setup' ) ) {
+	add_action( 'after_setup_theme', 'dokani_setup' );
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
 	 * @since 1.0.0
 	 */
-	function dokanee_setup() {
+	function dokani_setup() {
 		// Make theme available for translation.
-		load_theme_textdomain( 'dokanee' );
+		load_theme_textdomain( 'dokani' );
 
 		// Add theme support for various features.
 		add_theme_support( 'automatic-feed-links' );
@@ -44,15 +44,15 @@ if ( ! function_exists( 'dokanee_setup' ) ) {
 
 		// Register primary menu.
 		register_nav_menus( array(
-			'primary'         => __( 'Primary Menu', 'dokanee' ),
-			'top'             => __( 'Top Menu', 'dokanee' ),
-			'responsive_menu' => __( 'Responsive Menu', 'dokanee' ),
-			'footer_menu'     => __( 'Footer Menu', 'dokanee' ),
+			'primary'         => __( 'Primary Menu', 'dokani' ),
+			'top'             => __( 'Top Menu', 'dokani' ),
+			'responsive_menu' => __( 'Responsive Menu', 'dokani' ),
+			'footer_menu'     => __( 'Footer Menu', 'dokani' ),
 		) );
 
 		/**
 		 * Set the content width to something large
-		 * We set a more accurate width in dokanee_smart_content_width()
+		 * We set a more accurate width in dokani_smart_content_width()
 		 */
 		global $content_width;
 		if ( ! isset( $content_width ) ) {

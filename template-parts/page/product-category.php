@@ -2,7 +2,7 @@
 /**
  * The template for displaying all product categories.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -11,19 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<div id="primary" <?php dokanee_content_class(); ?>>
-		<main id="main" <?php dokanee_main_class(); ?>>
+	<div id="primary" <?php dokani_content_class(); ?>>
+		<main id="main" <?php dokani_main_class(); ?>>
 
 			<?php
 
 			/**
-			 * dokanee_before_main_content hook.
+			 * dokani_before_main_content hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_before_main_content' ); ?>
+			do_action( 'dokani_before_main_content' ); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php dokanee_article_schema( 'CreativeWork' ); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php dokani_article_schema( 'CreativeWork' ); ?>>
 				<div class="inside-article">
 					<?php
 
@@ -69,23 +69,23 @@ get_header(); ?>
 
 			<?php
 			/**
-			 * dokanee_after_main_content hook.
+			 * dokani_after_main_content hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_after_main_content' );
+			do_action( 'dokani_after_main_content' );
 			?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
 /**
- * dokanee_after_primary_content_area hook.
+ * dokani_after_primary_content_area hook.
  *
  * @since 1.0.0
  */
-do_action( 'dokanee_after_primary_content_area' );
+do_action( 'dokani_after_primary_content_area' );
 
-dokanee_construct_sidebars();
+dokani_construct_sidebars();
 
 get_footer();

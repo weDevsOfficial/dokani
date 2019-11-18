@@ -6,7 +6,7 @@
                 foreach ( $sellers['users'] as $seller ) {
                     $store_info = dokan_get_store_info( $seller->ID );
                     $banner_id  = isset( $store_info['banner'] ) ? $store_info['banner'] : 0;
-                    $store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokanee' );
+                    $store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokani' );
                     $store_url  = dokan_get_store_url( $seller->ID );
                     $store_address  = dokan_get_seller_short_address( $seller->ID );
                     $seller_rating  = dokan_get_seller_rating( $seller->ID );
@@ -18,7 +18,7 @@
                         <div class="store-content">
                             <div class="featured-favourite">
                                 <?php if ( ! empty( $featured_seller ) && 'yes' == $featured_seller ): ?>
-                                    <span class="featured-label"><?php _e( 'Featured', 'dokanee' ); ?></span>
+                                    <span class="featured-label"><?php _e( 'Featured', 'dokani' ); ?></span>
                                 <?php endif ?>
 
                                 <?php do_action( 'dokan_seller_listing_after_featured', $seller, $store_info ); ?>
@@ -45,7 +45,7 @@
                                 <h2><a href="<?php echo esc_url( $store_url ); ?>"><?php echo $store_name; ?></a></h2>
 
                                 <?php if ( !empty( $seller_rating['count'] ) ): ?>
-                                    <div class="star-rating dokan-seller-rating" title="<?php echo sprintf( __( 'Rated %s out of 5', 'dokanee' ), $seller_rating['rating'] ) ?>">
+                                    <div class="star-rating dokan-seller-rating" title="<?php echo sprintf( __( 'Rated %s out of 5', 'dokani' ), $seller_rating['rating'] ) ?>">
                                         <span style="width: <?php echo ( ( $seller_rating['rating']/5 ) * 100 - 1 ); ?>%">
                                             <strong class="rating"><?php echo $seller_rating['rating']; ?></strong> out of 5
                                         </span>
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="store-buttons">
-                                <a href="<?php echo esc_url( $store_url ); ?>" class="dokan-btn dokan-btn-theme"><?php _e( 'Visit Store', 'dokanee' ); ?></a>
+                                <a href="<?php echo esc_url( $store_url ); ?>" class="dokan-btn dokan-btn-theme"><?php _e( 'Visit Store', 'dokani' ); ?></a>
 
 	                            <?php do_action( 'dokan_seller_listing_footer_content', $seller->data, $store_info ); ?>
                             </div>
@@ -85,8 +85,8 @@
                     'total'     => $num_of_pages,
                     'base'      => $pagination_base,
                     'type'      => 'array',
-                    'prev_text' => __( '&larr;', 'dokanee' ),
-                    'next_text' => __( '&rarr;', 'dokanee' ),
+                    'prev_text' => __( '&larr;', 'dokani' ),
+                    'next_text' => __( '&rarr;', 'dokani' ),
                 );
 
                 if ( ! empty( $search_query ) ) {
@@ -112,7 +112,7 @@
             ?>
 
         <?php else:  ?>
-            <p class="dokan-error"><?php _e( 'No vendor found!', 'dokanee' ); ?></p>
+            <p class="dokan-error"><?php _e( 'No vendor found!', 'dokani' ); ?></p>
         <?php endif; ?>
     </div>
 </div>

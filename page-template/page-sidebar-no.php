@@ -4,7 +4,7 @@
  *
  * Template Name: No Sidebar Page
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,15 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<div id="primary" <?php dokanee_content_class();?>>
-		<main id="main" <?php dokanee_main_class(); ?>>
+	<div id="primary" <?php dokani_content_class();?>>
+		<main id="main" <?php dokani_main_class(); ?>>
 			<?php
 			/**
-			 * dokanee_before_main_content hook.
+			 * dokani_before_main_content hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_before_main_content' );
+			do_action( 'dokani_before_main_content' );
 
 			while ( have_posts() ) : the_post();
 
@@ -39,21 +39,21 @@ get_header(); ?>
 			endwhile;
 
 			/**
-			 * dokanee_after_main_content hook.
+			 * dokani_after_main_content hook.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_after_main_content' );
+			do_action( 'dokani_after_main_content' );
 			?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 	<?php
 	/**
-	 * dokanee_after_primary_content_area hook.
+	 * dokani_after_primary_content_area hook.
 	 *
 	 * @since 1.0.0
 	 */
-	 do_action( 'dokanee_after_primary_content_area' );
+	 do_action( 'dokani_after_primary_content_area' );
 
 get_footer();

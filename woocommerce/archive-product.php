@@ -2,7 +2,7 @@
 /**
  * The template for displaying Product Archive pages.
  *
- * @package Dokanee
+ * @package dokani
  * @subpackage WooCommerce/Templates
  */
 
@@ -97,12 +97,12 @@ get_header(); ?>
 
 	<?php
 	/**
-	 * dokanee_after_primary_content_area hook.
+	 * dokani_after_primary_content_area hook.
 	 *
 	 * @since 1.0.0
 	 */
-	 do_action( 'dokanee_after_primary_content_area' );
+	 do_action( 'dokani_after_primary_content_area' );
 
-	 dokanee_construct_sidebars();
+	 dokani_construct_sidebars();
 
 get_footer();

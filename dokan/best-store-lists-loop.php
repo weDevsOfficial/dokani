@@ -7,7 +7,7 @@
 	                $seller_info = dokan()->vendor->get( $seller->seller_id );
                     $store_info = dokan_get_store_info( $seller->seller_id );
                     $banner_id  = isset( $store_info['banner'] ) ? $store_info['banner'] : 0;
-                    $store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokanee' );
+                    $store_name = isset( $store_info['store_name'] ) ? esc_html( $store_info['store_name'] ) : __( 'N/A', 'dokani' );
                     $store_url  = dokan_get_store_url( $seller->seller_id );
                     $store_address  = dokan_get_seller_short_address( $seller->seller_id );
                     $seller_rating  = dokan_get_seller_rating( $seller->seller_id );
@@ -19,7 +19,7 @@
                         <div class="store-content">
                             <div class="featured-favourite">
 				                <?php if ( ! empty( $featured_seller ) && 'yes' == $featured_seller ): ?>
-                                    <span class="featured-label"><?php _e( 'Featured', 'dokanee' ); ?></span>
+                                    <span class="featured-label"><?php _e( 'Featured', 'dokani' ); ?></span>
 				                <?php endif ?>
 
 				                <?php do_action( 'dokan_seller_listing_after_featured', $seller, $store_info ); ?>
@@ -60,7 +60,7 @@
                 <div class="dokan-clearfix"></div>
             </ul> <!-- .dokan-seller-wrap -->
         <?php else:  ?>
-            <p class="dokan-error"><?php _e( 'No vendor found!', 'dokanee' ); ?></p>
+            <p class="dokan-error"><?php _e( 'No vendor found!', 'dokani' ); ?></p>
         <?php endif; ?>
     </div>
 </div>
