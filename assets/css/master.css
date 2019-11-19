@@ -115,6 +115,9 @@
   font-size: 14px;
   top: 0;
 }
+.top-bar .dokani-user-menu ul li a.dokani-menu-vendor-dashboard + .dropdown-menu {
+  text-align: left;
+}
 .top-bar .dokani-user-menu ul li a .fa-angle-down {
   margin-left: 8px;
   font-size: 18px;
@@ -1589,13 +1592,17 @@ span.search-item.close-search a:before {
 }
 .nav-float-right .inside-header .site-branding {
   display: inline-block;
-  max-width: 45%;
 }
-.nav-float-right .inside-header .site-branding .site-description {
-  max-width: 90%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@media only screen and (max-width: 767px) {
+  .nav-float-right .inside-header .site-branding {
+    max-width: 45%;
+  }
+  .nav-float-right .inside-header .site-branding .site-description {
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 .nav-float-right .main-navigation .main-nav ul ul li a {
   line-height: normal;
@@ -4856,6 +4863,9 @@ a.dokan-btn,
 .grid-container .grid-container {
   padding: 0;
 }
+.site-main > .dokan-dashboard-wrap {
+  margin: 30px 0 !important;
+}
 .dokan-store-tab-wrapper {
   position: relative;
   padding: 0 15px;
@@ -4899,7 +4909,7 @@ a.dokan-btn,
 }
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li.dokan-right .dokan-btn.dokan-share-btn {
   font-size: 0;
-  color: #9b59b6;
+  color: #fff;
   padding: 7px 10px !important;
   margin-right: -10px;
 }
@@ -4913,7 +4923,7 @@ a.dokan-btn,
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li.dokan-right .dokan-btn:hover,
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li.dokan-right .dokan-btn:active,
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li.dokan-right .dokan-btn:focus {
-  color: #f2624d;
+  opacity: .9;
 }
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li a {
   color: #333e48;

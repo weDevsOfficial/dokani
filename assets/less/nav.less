@@ -487,12 +487,14 @@ span.search-item.close-search {
         }
         .site-branding {
             display: inline-block;
-            max-width: 45%;
-            .site-description {
-                max-width: 90%;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            @media @media-screen-xs {
+                max-width: 45%;
+                .site-description {
+                    max-width: 90%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
             }
         }
     }
