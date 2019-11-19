@@ -139,6 +139,10 @@ if ( ! function_exists( 'dokani_body_classes' ) ) {
 			$classes[] = 'dokani-product-single-template';
         }
 
+		if ( get_query_var( 'edit' ) ) {
+			$classes[] = 'dokani-dahsboard-edit-template';
+        }
+
         if ( is_front_page() && is_page_template( 'page-template/page-home.php' ) ) {
 			$classes[] = 'dokani-template-front-page';
         }

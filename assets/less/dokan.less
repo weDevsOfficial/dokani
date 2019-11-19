@@ -841,8 +841,27 @@ input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn {
     padding: 0;
 }
 
-.site-main > .dokan-dashboard-wrap {
+.page-template-page-full-width .dokan-dashboard-wrap,
+.dokani-dahsboard-edit-template .dokan-dashboard-wrap {
     margin: 30px 0 !important;
+    .dokan-listing-filter {
+        display: flex;
+        margin-bottom: 0;
+    }
+}
+
+.page-template-default {
+    table {
+        display: block;
+        max-width: 100%;
+        overflow: auto;
+    }
+}
+
+.dokan-dashboard-wrap {
+    .dokan-product-listing .dokan-product-listing-area {
+        padding: 0;
+    }
 }
 
 .dokan-store-tab-wrapper {
