@@ -34,13 +34,14 @@ if ( ! function_exists( 'dokani_setup' ) ) {
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		add_theme_support( 'custom-logo', array(
-			'height' => 70,
-			'width' => 350,
+			'height'      => 70,
+			'width'       => 350,
 			'flex-height' => true,
-			'flex-width' => true
+			'flex-width'  => true
 		) );
 
 		add_image_size( 'single-vendor-thumb', 270, 160, true );
+		add_image_size( 'dokanee-featured-post-thumbnail', 870, 370, true );
 
 		// Register primary menu.
 		register_nav_menus( array(

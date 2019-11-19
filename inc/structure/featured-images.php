@@ -31,7 +31,7 @@ if ( ! function_exists( 'dokani_post_image' ) ) {
 				esc_url( get_permalink() ),
 				get_the_post_thumbnail(
 					get_the_ID(),
-					apply_filters( 'dokani_page_header_default_size', 'full' ),
+					apply_filters( 'dokani_page_header_default_size', 'dokanee-featured-post-thumbnail' ),
 					array(
 						'itemprop' => 'image',
 					)
@@ -60,7 +60,7 @@ if ( ! function_exists( 'dokani_featured_page_header_area' ) ) {
 			return;
 		}
 		?>
-		<div class="<?php echo esc_attr( $class ); ?> grid-container grid-parent">
+		<div class="<?php echo esc_attr( $class ); ?> post-image grid-container grid-parent">
 			<?php the_post_thumbnail(
 				apply_filters( 'dokani_page_header_default_size', 'full' ),
 				array(
@@ -105,7 +105,7 @@ if ( ! function_exists( 'dokani_featured_page_header_inside_single' ) ) {
 		}
 
 		if ( is_single() ) {
-			dokani_featured_page_header_area( 'page-header-image-single' );
+			 dokani_featured_page_header_area( 'page-header-image-single' );
 		}
 	}
 }

@@ -11,7 +11,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php dokani_article_schema( 'CreativeWork' ); ?>>
-	<div class="inside-article">
+    <?php
+    $is_fluid_content = get_theme_mod( 'fluid_featured_image', 'on' );
+    ?>
+	<div class="inside-article <?php echo ( $is_fluid_content ) ? 'is-fluid-content' : ''; ?>">
 		<?php
 		/**
 		 * dokani_before_content hook.
