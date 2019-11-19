@@ -344,12 +344,11 @@ add_action('woocommerce_single_product_summary', 'dokani_vendor_name', 7);
  * Display woo breadcrumb
  */
 function dokani_woo_breadcrumb() {
-
-    if ( class_exists('WooCommerce' ) && is_woocommerce() ) {
-	    woocommerce_breadcrumb();
+    if ( class_exists('WooCommerce' ) && is_woocommerce() && ! is_product() && ! get_query_var( 'edit' ) ) {
+        woocommerce_breadcrumb();
     }
-
 }
+
 
 add_action( 'dokani_inside_container', 'dokani_woo_breadcrumb', 5 );
 
