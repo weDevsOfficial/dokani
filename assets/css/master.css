@@ -2259,6 +2259,11 @@ input[type="file"] {
 .dokan-widget-area .widget img {
   vertical-align: top;
 }
+.widget-area .widget a,
+.dokan-widget-area .widget a {
+  display: inline-block;
+  max-width: 100%;
+}
 .widget-area .widget.widget_media_image img,
 .dokan-widget-area .widget.widget_media_image img {
   width: 100%;
