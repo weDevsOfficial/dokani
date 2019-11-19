@@ -53,23 +53,24 @@ if ( ! function_exists( 'dokani_navigation_position' ) ) {
 	                if ( has_nav_menu( 'responsive_menu' ) ) {
 		                wp_nav_menu(
 			                array(
-				                'theme_location' => 'responsive_menu',
-				                'container' => 'div',
+				                'theme_location'  => 'responsive_menu',
+				                'container'       => 'div',
 				                'container_class' => 'main-nav',
-				                'container_id' => 'responsive-menu',
-				                'menu_class' => '',
-				                'fallback_cb' => 'dokani_menu_fallback',
-				                'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
+				                'container_id'    => 'responsive-menu',
+				                'menu_class'      => '',
+				                'fallback_cb'     => 'dokani_menu_fallback',
+				                'items_wrap'      => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
 			                )
 		                );
+                    } else {
+	                    echo '<div id="responsive-menu" class="main-nav"><ul class=" menu sf-menu"><li class="menu-item">';
+		                echo '<li><a class="add_responsive_menu_label" href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Responsive Menu', 'dokani' ) . '</a></li>';
+                        echo '</ul></div>';
                     }
 
-                } else { ?>
-
-                    <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php _e( 'Home', 'dokani' ); ?></a>
-
-                <?php }
-
+                } else {
+                    echo '<a class="add_primary_menu_label" href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Primary Menu', 'dokani' ) . '</a>';
+                }
                 ?>
 
 			</div><!-- .inside-navigation -->

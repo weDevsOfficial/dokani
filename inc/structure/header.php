@@ -287,7 +287,7 @@ if ( ! function_exists( 'dokani_top_bar' ) ) {
 						)
 					);
 				} else {
-                    echo '<a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a>';
+                    echo '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Top Menu', 'dokani' ) . '</a>';
 				} ?>
 
                 <div class="dokani-user-menu">

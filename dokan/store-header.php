@@ -64,11 +64,7 @@ if ( 'layout3' === $profile_layout ) {
                                 <span class="featured-label"><?php _e( 'Featured', 'dokani' ); ?></span>
                             <?php endif ?>
 
-                            <?php if ( ! empty( $store_user->get_shop_name() ) && 'default' === $profile_layout ) { ?>
-                                <h1 class="store-name"><?php echo esc_html( $store_user->get_shop_name() ); ?></h1>
-                            <?php } ?>
-
-                            <?php if ( ! empty( $store_user->get_shop_name() ) && 'default' !== $profile_layout ) { ?>
+                            <?php if ( ! empty( $store_user->get_shop_name() ) ) { ?>
                                 <h1 class="store-name"><?php echo esc_html( $store_user->get_shop_name() ); ?></h1>
                             <?php } ?>
 
@@ -77,16 +73,13 @@ if ( 'layout3' === $profile_layout ) {
 
                                     <?php if ( ! empty( $seller_rating['count'] ) ): ?>
                                         <div class="star-rating dokan-seller-rating" title="<?php echo sprintf( __( 'Rated %s out of 5', 'dokani' ), $seller_rating['rating'] ) ?>">
-                                            <span style="width: <?php echo ( ( $seller_rating['rating']/5 ) * 100 - 1 ); ?>%">
-                                                <strong class="rating"><?php echo $seller_rating['rating']; ?></strong> out of 5
+                                            <span style="width: <?php echo ( ( $seller_rating['rating'] / 5 ) * 100 - 1 ); ?>%">
+                                                <strong class="rating"><?php echo $seller_rating['rating']; ?></strong> <?php echo __( 'out of 5', 'dokani' ); ?>
                                             </span>
                                         </div>
-                                    <?php else: ?>
-
-                                        <i class="fa fa-star"></i>
-                                        <?php echo $seller_rating['rating']; ?>
-
-                                    <?php endif ?>
+                                    <?php else:
+                                        echo __( 'No Rating Found', 'dokani' );
+                                    endif ?>
 
                                 </li>
 

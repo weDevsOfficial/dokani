@@ -487,6 +487,13 @@ span.search-item.close-search {
         }
         .site-branding {
             display: inline-block;
+            max-width: 45%;
+            .site-description {
+                max-width: 90%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         }
     }
     .main-navigation {
@@ -532,6 +539,7 @@ span.search-item.close-search {
 .site-header {
     .header-image {
         vertical-align: middle;
+        padding: 15px 0;
     }
 }
 
@@ -632,8 +640,8 @@ nav {
 }
 .dropdown-menu-toggle {
     &:before {
-        content: "\f107";
-        font-family: GeneratePress;
+        content: "\f105";
+        font-family: FontAwesome;
     }
 }
 .dropdown-hover.both-right {
@@ -745,5 +753,11 @@ nav {
                 }
             }
         }
+    }
+}
+
+@media @media-screen-xs {
+    .main-navigation a.add_primary_menu_label {
+        display: none;
     }
 }

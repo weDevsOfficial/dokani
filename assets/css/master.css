@@ -1589,6 +1589,13 @@ span.search-item.close-search a:before {
 }
 .nav-float-right .inside-header .site-branding {
   display: inline-block;
+  max-width: 45%;
+}
+.nav-float-right .inside-header .site-branding .site-description {
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .nav-float-right .main-navigation .main-nav ul ul li a {
   line-height: normal;
@@ -1607,6 +1614,7 @@ span.search-item.close-search a:before {
 }
 .site-header .header-image {
   vertical-align: middle;
+  padding: 15px 0;
 }
 .rtl .main-navigation li.search-item {
   float: left;
@@ -1661,8 +1669,8 @@ nav ul ul .menu-item-has-children .dropdown-menu-toggle {
   float: right;
 }
 .dropdown-menu-toggle:before {
-  content: "\f107";
-  font-family: GeneratePress;
+  content: "\f105";
+  font-family: FontAwesome;
 }
 .dropdown-hover.both-right .inside-left-sidebar .dropdown-menu-toggle:before {
   content: "\f104";
@@ -1706,6 +1714,11 @@ nav ul ul .menu-item-has-children .dropdown-menu-toggle {
 }
 .slideout-navigation .sfHover > a .dropdown-menu-toggle:before {
   content: "\f106" !important;
+}
+@media only screen and (max-width: 767px) {
+  .main-navigation a.add_primary_menu_label {
+    display: none;
+  }
 }
 html {
   box-sizing: border-box;
@@ -2242,9 +2255,26 @@ input[type="file"] {
   color: #333e48;
   line-height: 1.5em;
 }
+.widget-area .widget img,
+.dokan-widget-area .widget img {
+  vertical-align: top;
+}
+.widget-area .widget.widget_media_image img,
+.dokan-widget-area .widget.widget_media_image img {
+  width: 100%;
+}
 .widget-area .widget > *:not(.widget-title),
 .dokan-widget-area .widget > *:not(.widget-title) {
-  padding: 20px 30px 30px;
+  padding: 30px;
+}
+.widget-area .widget .widget-title + div,
+.dokan-widget-area .widget .widget-title + div {
+  padding-top: 20px;
+}
+.widget-area .widget .textwidget > *:last-child,
+.dokan-widget-area .widget .textwidget > *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .widget-area .widget:last-child,
 .dokan-widget-area .widget:last-child {
@@ -5237,7 +5267,7 @@ body.dokani-template-front-page .site-footer {
   padding: 2px 5px 10px 5px;
 }
 .store-section {
-  padding: 60px 0;
+  padding: 60px 20px;
   background-color: #f0f1fa;
 }
 .store-section .store-wrapper .tabs {

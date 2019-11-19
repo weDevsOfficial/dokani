@@ -7,8 +7,25 @@
         color: @sidebar-content-color;
         line-height: 1.5em;
 
+        img {
+            vertical-align: top;
+        }
+
+        &.widget_media_image img {
+            width: 100%;
+        }
+
         > *:not(.widget-title) {
-            padding: 20px 30px 30px;
+            padding: 30px;
+        }
+
+        .widget-title + div {
+            padding-top: 20px;
+        }
+
+        .textwidget > *:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         &:last-child {
