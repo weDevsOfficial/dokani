@@ -4,6 +4,7 @@
  *
  * @package dokani
  * @subpackage WooCommerce/Templates
+ * @version 3.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
