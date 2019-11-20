@@ -323,6 +323,14 @@ if ( ! function_exists( 'dokani_advanced_css' ) ) {
 		$css->set_selector( '.woocommerce div.product .product_meta > div a:hover, #dokane-menu-cart-wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list li a, .woocommerce ul.cart_list li .woocommerce-Price-amount, .woocommerce ul.product_list_widget li .woocommerce-Price-amount' );
 		$css->add_property( 'color', esc_attr( $dokani_settings['theme_color'] ) );
 
+		$css->set_selector( '#dokane-menu-cart-wrapper .widget_shopping_cart_content p.buttons a.button:nth-child(2)' );
+		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) );
+		$css->add_property( 'color', esc_attr( $dokani_settings['theme_color'] ) );
+
+		$css->set_selector( '#dokane-menu-cart-wrapper .widget_shopping_cart_content p.buttons a.button:nth-child(2):hover' );
+		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) );
+		$css->add_property( 'color', '#fff' );
+
 
 
 		$css->set_selector( '.woocommerce div.product .woocommerce-tabs ul.tabs li:active a, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a' );

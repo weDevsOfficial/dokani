@@ -556,10 +556,10 @@
         }
 
         p.buttons {
-            width: 100%;
+            width: ~'calc(100% + 20px)';
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin: 0 -10px 10px -10px;
 
             &:before,
             &:after {
@@ -567,15 +567,20 @@
             }
 
             a.button {
-                width: 47%;
                 white-space: nowrap;
-                margin-right: 10px;
                 height: 33px;
                 box-sizing: border-box;
                 text-align: center;
                 color: @white;
                 font-size: 14px;
                 line-height: 1em !important;
+                margin: 0 10px;
+
+                &:nth-child(2){
+                    background: transparent;
+                    border-width: 1px;
+                    border-style: solid;
+                }
             }
             .wcppec-cart-widget-button {
                 display: flex;
