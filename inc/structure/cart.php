@@ -18,7 +18,7 @@ if ( ! function_exists( 'dokani_cart_position' ) ) {
 	function dokani_cart_position() {
 	    $cart = '';
         $cart .= '<li id="dokane-menu-cart-wrapper">';
-            $cart .= '<a href="#" class="dropdown-toggle dokani-menu-cart" data-toggle="dropdown">' . sprintf( __( 'Cart %s', 'dokani' ), '<span class="dokan-cart-amount-top">(' . WC()->cart->get_cart_total() . ')</span>' ) .'<b class="caret"></b></a>';
+            $cart .= '<a href="' . wc_get_cart_url() . '" class="dropdown-toggle dokani-menu-cart" data-toggle="dropdown">' . sprintf( __( 'Cart %s', 'dokani' ), '<span class="dokan-cart-amount-top">(' . WC()->cart->get_cart_total() . ')</span>' ) .'<b class="caret"></b></a>';
 
             $cart .= '<ul class="dropdown-menu">';
                 $cart .= '<li>';
