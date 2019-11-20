@@ -93,7 +93,6 @@
   position: absolute;
   font-family: "Flaticon";
   content: '\f07a';
-  top: -1px;
   left: -25px;
   font-size: 15px;
 }
@@ -4279,7 +4278,10 @@ ol.comment-list {
 input[type="submit"].dokan-btn,
 a.dokan-btn,
 .dokan-btn {
-  padding: 9px 21px !important;
+  padding: 9px 21px;
+}
+body.dokan-dashboard .dokan-table td.diviader {
+  display: none;
 }
 /* = Dokan Widgets
 ----------------------------------------------- */
@@ -4877,7 +4879,6 @@ a.dokan-btn,
   margin-bottom: 0;
 }
 .page-template-default table {
-  display: block;
   max-width: 100%;
   overflow: auto;
 }

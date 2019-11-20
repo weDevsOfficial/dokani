@@ -331,8 +331,6 @@ if ( ! function_exists( 'dokani_advanced_css' ) ) {
 		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) );
 		$css->add_property( 'color', '#fff' );
 
-
-
 		$css->set_selector( '.woocommerce div.product .woocommerce-tabs ul.tabs li:active a, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a' );
 		$css->add_property( 'border-bottom-color', esc_attr( $dokani_settings['theme_color'] ) );
 		$css->add_property( 'border-bottom-width', '2px' );
@@ -347,6 +345,9 @@ if ( ! function_exists( 'dokani_advanced_css' ) ) {
 		$css->set_selector( '.product-cat-section .product-cat-wrapper .product-cat-box .btn:hover, .product-cat-section .product-cat-wrapper .product-cat-box .btn:focus, .product-cat-section .product-cat-wrapper .product-cat-box .btn:active' );
 		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) );
 
+		// woocommerce my account styles
+		$css->set_selector( '.woocommerce-MyAccount-navigation li a:hover, .woocommerce-MyAccount-navigation li a:focus, .woocommerce-MyAccount-navigation li a:focus, .woocommerce-MyAccount-navigation li.is-active a' );
+		$css->add_property( 'color', esc_attr( $dokani_settings['theme_color'] ) );
 
 		// footer widget styles
 		$css->set_selector( '#footer-widgets.footer-widgets .widget-title' );
