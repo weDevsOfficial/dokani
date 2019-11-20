@@ -49,7 +49,7 @@ if ( ! function_exists( 'dokani_get_defaults' ) ) {
 			'footer_bar_alignment'          => 'right',
 			'back_to_top'                   => '',
 			'background_color'              => '#efefef',
-			'text_color'                    => '#3a3a3a',
+			'text_color'                    => '#6d6d6d',
 			'link_color'                    => '#000000',
 			'link_color_hover'              => '#f2624d',
 			'link_color_visited'            => '',

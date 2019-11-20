@@ -4161,6 +4161,163 @@ ol.comment-list {
 .dokan-support-topics-list .dokan-error {
   margin-top: 40px;
 }
+.select2-container .select2-dropdown {
+  border-color: #ECEDEF;
+}
+.select2-container .select2-dropdown .select2-search__field {
+  border-color: #ECEDEF;
+}
+.select2-container .select2-selection--single {
+  height: 40px;
+  border-color: #ECEDEF;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+  line-height: 38px;
+}
+.select2-container .select2-selection--single .select2-selection__arrow {
+  height: 38px;
+}
+form.checkout {
+  position: static !important;
+}
+@media (min-width: 768px) {
+  form.checkout .col2-set {
+    width: 55%;
+    float: left;
+    margin-right: 3%;
+  }
+}
+form.checkout .col2-set .col-1,
+form.checkout .col2-set .col-2 {
+  float: none;
+  width: 100%;
+}
+form.checkout label {
+  font-size: 90%;
+}
+form.checkout .woocommerce-additional-fields h3 {
+  margin: 25px 0 10px;
+  padding: 0 5px;
+}
+@media (min-width: 768px) {
+  form.checkout #order_review_heading,
+  form.checkout #order_review {
+    width: 41%;
+    float: right;
+    margin-right: 0;
+    clear: right;
+  }
+}
+form.checkout .woocommerce-checkout-review-order-table th,
+form.checkout .woocommerce-checkout-review-order-table dt,
+form.checkout .woocommerce-checkout-review-order-table strong,
+form.checkout .woocommerce-checkout-review-order-table b {
+  font-weight: 500 !important;
+}
+form.checkout .woocommerce-checkout-review-order-table thead th {
+  border-bottom: 0;
+  background: #f6f7fb;
+}
+form.checkout .woocommerce-checkout-review-order-table thead th:last-child {
+  border-right: 0;
+}
+form.checkout .woocommerce-checkout-review-order-table tbody td,
+form.checkout .woocommerce-checkout-review-order-table tfoot th,
+form.checkout .woocommerce-checkout-review-order-table tfoot td {
+  border-top: 0;
+}
+form.checkout .woocommerce-checkout-review-order-table tbody td:last-child,
+form.checkout .woocommerce-checkout-review-order-table tfoot th:last-child,
+form.checkout .woocommerce-checkout-review-order-table tfoot td:last-child {
+  border-right: 0;
+}
+form.checkout .woocommerce-checkout-review-order-table tfoot th,
+form.checkout .woocommerce-checkout-review-order-table tfoot td {
+  background: #f6f7fb;
+  font-weight: 500 !important;
+}
+form.checkout #payment {
+  background: transparent;
+}
+form.checkout .place-order {
+  border-radius: 5px;
+  background-color: #f6f7fb;
+  padding: 1.41575em !important;
+  margin-top: 2.617924em;
+  border: 1px solid #ECEDEF;
+}
+form.checkout .place-order button#place_order {
+  width: 100%;
+  padding: 20px;
+  font-size: 115%;
+}
+form.checkout #payment .payment_methods {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 5px;
+  overflow: hidden;
+}
+form.checkout #payment .payment_methods > li:not(.woocommerce-notice) {
+  background-color: #f6f7fb;
+}
+form.checkout #payment .payment_methods > li:not(.woocommerce-notice):hover {
+  background-color: #f0f0f0;
+}
+form.checkout #payment .payment_methods > li .payment_box,
+form.checkout #payment .payment_methods #payment .place-order {
+  background-color: #fafafa;
+  padding: 1.41575em;
+  margin: 0;
+}
+form.checkout #payment .payment_methods > li .payment_box:before,
+form.checkout #payment .payment_methods #payment .place-order:before {
+  display: none;
+}
+form.checkout #payment .payment_methods input[type=radio]:first-child:checked + label:before {
+  color: #96588a;
+  content: "\f192";
+}
+form.checkout #payment .payment_methods li.woocommerce-PaymentMethod > input[type=radio]:first-child,
+form.checkout #payment .payment_methods li.wc_payment_method > input[type=radio]:first-child {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+form.checkout #payment .payment_methods li.woocommerce-PaymentMethod > label,
+form.checkout #payment .payment_methods li.wc_payment_method > label {
+  display: flex;
+  align-items: center;
+  padding: 1.41575em;
+  cursor: pointer;
+}
+form.checkout #payment .payment_methods li.woocommerce-PaymentMethod > label img,
+form.checkout #payment .payment_methods li.wc_payment_method > label img {
+  margin-left: auto;
+}
+form.checkout #payment .payment_methods li.woocommerce-PaymentMethod > label:before,
+form.checkout #payment .payment_methods li.wc_payment_method > label:before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-family: 'FontAwesome';
+  font-weight: 900;
+  line-height: inherit;
+  vertical-align: baseline;
+  content: "\f111";
+  margin-right: 0.5407911001em;
+  -webkit-transition: color, ease, 0.2s;
+  transition: color, ease, 0.2s;
+}
 /* = Dokan Common Styles
 ----------------------------------------------- */
 .dokan-info {

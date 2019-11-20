@@ -1559,3 +1559,186 @@
         margin-top: 40px;
     }
 }
+
+
+// select2 styles
+.select2-container {
+    .select2-dropdown {
+        border-color: @border-color;
+        .select2-search__field {
+            border-color: @border-color;
+        }
+    }
+    .select2-selection--single {
+        height: 40px;
+        border-color: @border-color;
+
+        .select2-selection__rendered {
+            line-height: 38px;
+        }
+
+        .select2-selection__arrow {
+            height: 38px;
+        }
+    }
+}
+
+
+// checkout form styles
+form.checkout {
+    position: static !important;
+
+    .col2-set {
+        @media (min-width: 768px) {
+            width: 55%;
+            float: left;
+            margin-right: 3%;
+        }
+
+        .col-1,
+        .col-2 {
+            float: none;
+            width: 100%;
+        }
+    }
+
+    label {
+        font-size: 90%;
+    }
+
+    .woocommerce-additional-fields {
+        h3 {
+            margin: 25px 0 10px;
+            padding: 0 5px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        #order_review_heading, #order_review {
+            width: 41%;
+            float: right;
+            margin-right: 0;
+            clear: right;
+        }
+    }
+
+    .woocommerce-checkout-review-order-table {
+        th, dt, strong, b {
+            font-weight: 500 !important;
+        }
+
+        thead th {
+            border-bottom: 0;
+            background: @light-gray;
+            &:last-child {
+                border-right: 0;
+            }
+        }
+
+        tbody td, tfoot th, tfoot td {
+            border-top: 0;
+            &:last-child {
+                border-right: 0;
+            }
+        }
+
+        tfoot th, tfoot td {
+            background: @light-gray;
+            font-weight: 500 !important;
+        }
+    }
+
+    #payment {
+        background: transparent;
+    }
+
+    .place-order {
+        border-radius: 5px;
+        background-color: @light-gray;
+        padding: 1.41575em !important;
+        margin-top: 2.617924em;
+        border: 1px solid @border-color;
+        button#place_order {
+            width: 100%;
+            padding: 20px;
+            font-size: 115%;
+        }
+    }
+
+    #payment .payment_methods {
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 5px;
+        overflow: hidden;
+
+        > li:not(.woocommerce-notice) {
+            background-color: @light-gray;
+            &:hover {
+                background-color: #f0f0f0;
+            }
+        }
+
+        > li .payment_box, #payment .place-order {
+            background-color: #fafafa;
+            padding: 1.41575em;
+            margin: 0;
+
+            &:before {
+                display: none;
+            }
+        }
+
+        input[type=radio]:first-child:checked+label:before {
+            color: #96588a;
+            content: "\f192";
+        }
+
+        li.woocommerce-PaymentMethod,
+        li.wc_payment_method {
+            > input[type=radio]:first-child {
+                border: 0;
+                clip: rect(1px, 1px, 1px, 1px);
+                -webkit-clip-path: inset(50%);
+                clip-path: inset(50%);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+                word-wrap: normal !important;
+            }
+
+            > label {
+                display: flex;
+                align-items: center;
+                padding: 1.41575em;
+                cursor: pointer;
+
+                img {
+                    margin-left: auto;
+                }
+
+                &:before {
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    line-height: 1;
+                    font-family: 'FontAwesome';
+                    font-weight: 900;
+                    line-height: inherit;
+                    vertical-align: baseline;
+                    content: "\f111";
+                    margin-right: 0.5407911001em;
+                    -webkit-transition: color, ease, 0.2s;
+                    transition: color, ease, 0.2s;
+                }
+            }
+        }
+
+    }
+
+
+}
+
