@@ -74,7 +74,7 @@ if ( ! function_exists( 'dokani_get_layout' ) ) {
 		// Get Customizer options
 		$dokani_settings = wp_parse_args(
 			get_option( 'dokani_settings', array() ),
-			dokani_get_defaults()
+			 dokani_get_defaults()
 		);
 
 		// Set up the layout variable for pages

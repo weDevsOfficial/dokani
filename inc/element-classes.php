@@ -53,7 +53,7 @@ if ( ! function_exists( 'dokani_left_sidebar_class' ) ) {
 	 * @since 1.0.0
 	 * @param string|array $class One or more classes to add to the class list.
 	 */
-	function dokani_left_sidebar_class( $class = '' ) {
+	function dokani_left_sidebar_class( $class = 'pull-75' ) {
 		// Separates classes with a single space, collates classes for post DIV
 		echo 'class="' . join( ' ', dokani_get_left_sidebar_class( $class ) ) . '"'; // WPCS: XSS ok, sanitization ok.
 	}
@@ -67,19 +67,19 @@ if ( ! function_exists( 'dokani_get_left_sidebar_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
-	function dokani_get_left_sidebar_class( $class = '' ) {
+	function dokani_get_left_sidebar_class( $class ) {
 
 		$classes = array();
 
-		if ( !empty($class) ) {
-			if ( !is_array( $class ) )
-				$class = preg_split('#\s+#', $class);
-			$classes = array_merge($classes, $class);
+		if ( ! empty( $class ) ) {
+			if ( ! is_array( $class ) )
+				$class = preg_split('#\s+#', $class );
+			$classes = array_merge ( $classes, $class );
 		}
 
-		$classes = array_map('esc_attr', $classes);
+		$classes = array_map('esc_attr', $classes );
 
-		return apply_filters('dokani_left_sidebar_class', $classes, $class);
+		return apply_filters( 'dokani_left_sidebar_class', $classes, $class );
 	}
 }
 

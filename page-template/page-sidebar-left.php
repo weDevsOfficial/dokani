@@ -56,6 +56,6 @@ get_header(); ?>
 	 */
 	 do_action( 'dokani_after_primary_content_area' );
 
-	 dokani_construct_sidebars();
+	  dokani_construct_sidebars( 'left-sidebar' );
 
 get_footer();

@@ -191,7 +191,7 @@ body.dokan-dashboard {
                 }
             }
         }
-        
+
         .dokan-store-phone {
             i {
                 color: #00c828;
@@ -867,6 +867,13 @@ body.dokan-dashboard {
     .dokan-product-listing .dokan-product-listing-area {
         padding: 0;
     }
+
+    .dokan-dashboard-content .product-listing-top {
+        padding-bottom: 15px;
+        li {
+            margin-right: 10px;
+        }
+    }
 }
 
 .dokan-store-tab-wrapper {
@@ -879,7 +886,7 @@ body.dokan-dashboard {
         .dokan-list-inline {
             margin: 0;
             list-style: none;
-            
+
             li {
                 display: inline-block;
                 padding: 0 25px;
@@ -1091,9 +1098,23 @@ body.dokan-dashboard {
     padding: 4px 15px;
 }
 
+div.dokan-orders-content .dokan-orders-area .dokan-order-filter-serach {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .dokan-order-filter-serach {
     .datepicker.hasDatepicker {
-        padding: 4px 15px;
+        padding: 7px 15px !important;
+        width: auto !important;
+        height: 32px;
+        font-size: 90%;
+    }
+    .select2-container .select2-selection--single {
+        margin-top: -1px;
+        height: 32px;
+        font-size: 90%;
+        border-radius: 5px;
     }
 }
 
@@ -1152,4 +1173,31 @@ body.dokan-dashboard {
     }
 }
 
+/* = dokan table design
+----------------------------------------------- */
+.dokan-dashboard table.dokan-table {
 
+    border: 0;
+    td, th {
+        border: 0;
+        padding: 8px;
+        line-height: 1.42;
+        border-top: 1px solid #EDEDED;
+    }
+    thead {
+        th {
+            font-weight: 600;
+            background-color: #f8f8f8;
+            border-bottom: 2px solid #EDEDED;
+        }
+    }
+
+    tbody {
+        td {
+            background-color: #fdfdfd;
+        }
+        tr:nth-child(2n) td {
+            background-color: #fbfbfb;
+        }
+    }
+}

@@ -5042,6 +5042,12 @@ body.dokan-dashboard .dokan-table td.diviader {
 .dokan-dashboard-wrap .dokan-product-listing .dokan-product-listing-area {
   padding: 0;
 }
+.dokan-dashboard-wrap .dokan-dashboard-content .product-listing-top {
+  padding-bottom: 15px;
+}
+.dokan-dashboard-wrap .dokan-dashboard-content .product-listing-top li {
+  margin-right: 10px;
+}
 .dokan-store-tab-wrapper {
   position: relative;
   padding: 0 15px;
@@ -5225,8 +5231,21 @@ body.dokan-dashboard .dokan-table td.diviader {
 .dokan-product-search-form .dokan-form-control {
   padding: 4px 15px;
 }
+div.dokan-orders-content .dokan-orders-area .dokan-order-filter-serach {
+  padding-left: 0;
+  padding-right: 0;
+}
 .dokan-order-filter-serach .datepicker.hasDatepicker {
-  padding: 4px 15px;
+  padding: 7px 15px !important;
+  width: auto !important;
+  height: 32px;
+  font-size: 90%;
+}
+.dokan-order-filter-serach .select2-container .select2-selection--single {
+  margin-top: -1px;
+  height: 32px;
+  font-size: 90%;
+  border-radius: 5px;
 }
 .dokan-comments-wrap select {
   height: 35px;
@@ -5264,6 +5283,29 @@ body.dokan-dashboard .dokan-table td.diviader {
   width: 33%;
   padding: 3px 10px 3px 0px;
   box-sizing: border-box;
+}
+/* = dokan table design
+----------------------------------------------- */
+.dokan-dashboard table.dokan-table {
+  border: 0;
+}
+.dokan-dashboard table.dokan-table td,
+.dokan-dashboard table.dokan-table th {
+  border: 0;
+  padding: 8px;
+  line-height: 1.42;
+  border-top: 1px solid #EDEDED;
+}
+.dokan-dashboard table.dokan-table thead th {
+  font-weight: 600;
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #EDEDED;
+}
+.dokan-dashboard table.dokan-table tbody td {
+  background-color: #fdfdfd;
+}
+.dokan-dashboard table.dokan-table tbody tr:nth-child(2n) td {
+  background-color: #fbfbfb;
 }
 /* = Welcome page
 ----------------------------------------------- */

@@ -15,7 +15,18 @@ if ( ! function_exists( 'dokani_construct_sidebars' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function dokani_construct_sidebars() {
+	function dokani_construct_sidebars( $sidebar_template = '' ) {
+
+	    if ( $sidebar_template === 'left-sidebar' ) {
+            get_sidebar( 'left' );
+            return;
+        }
+
+        if ( $sidebar_template === 'right-sidebar' ) {
+            get_sidebar();
+            return;
+        }
+
 		$layout = dokani_get_layout();
 
 		// When to show the right sidebar.
@@ -30,7 +41,7 @@ if ( ! function_exists( 'dokani_construct_sidebars' ) ) {
 		}
 
 		// If right sidebar, show it.
-		if ( in_array( $layout, $rs ) ) {
+		if ( in_array( $layout, $rs ) || $sidebar_template === 'right-sidebar' ) {
 			get_sidebar();
 		}
 	}

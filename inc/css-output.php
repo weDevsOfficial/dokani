@@ -414,6 +414,10 @@ if ( ! function_exists( 'dokani_advanced_css' ) ) {
 			$css->add_property( 'color', esc_attr( $dokani_settings['store_header_link_hover_color'] ) );
 		}
 
+		// dokan dashboard styles
+        $css->set_selector( '.dokan-dashboard div.dokan-dash-sidebar ul.dokan-dashboard-menu li.active:after' );
+        $css->add_property( 'border-color', 'transparent ' . esc_attr( $dokani_settings['background_color'] ) . ' transparent transparent' );
+
 		// Allow us to hook CSS into our output
 		do_action( 'dokani_colors_css', $css );
 
@@ -459,7 +463,7 @@ if ( ! function_exists( 'dokani_font_css' ) ) {
 		$css->add_property( 'font-weight', esc_attr( $dokani_settings[ 'body_font_weight' ] ), $og_defaults[ 'body_font_weight' ] );
 		$css->add_property( 'text-transform', esc_attr( $dokani_settings[ 'body_font_transform' ] ), $og_defaults[ 'body_font_transform' ] );
 
-		$css->set_selector( 'html, body' );
+		$css->set_selector( 'html, body, table' );
 		$css->add_property( 'font-size', absint( $dokani_settings[ 'body_font_size' ] ), $og_defaults[ 'body_font_size' ], 'px' );
 
 		// Line hieght
