@@ -21,8 +21,8 @@
                 $def_long = isset( $locations[1] ) ? $locations[1] : 23.709921;
                 ?>
 
-                var def_longval = <?php echo $def_long; ?>;
-                var def_latval = <?php echo $def_lat; ?>;
+                var def_longval = <?php echo esc_html( $def_long ); ?>;
+                var def_latval = <?php echo esc_html( $def_lat ); ?>;
 
                 var curpoint = new google.maps.LatLng(def_latval, def_longval),
                     $map_area = $('#dokan-store-location');
@@ -48,7 +48,7 @@
 
     if ( isset( $store_address ) && ! empty( $store_address ) ) { ?>
         <div class="dokan-store-address"><i class="fa fa-map-marker"></i>
-			<?php echo $store_address; ?>
+			<?php echo wp_kses_post( $store_address ); ?>
         </div>
 	<?php } ?>
 

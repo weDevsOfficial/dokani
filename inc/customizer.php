@@ -71,8 +71,7 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 		$defaults_color = dokani_get_color_defaults();
 
 		// Load helpers
-		require_once trailingslashit( get_template_directory() ) . 'inc/customizer/customizer-helpers.php';
-		require_once trailingslashit( get_template_directory() ) . 'inc/customizer/controls/class-radio-control.php';
+        do_action( 'load_customizer_files' );
 
 		$wp_customize->register_panel_type( 'dokani_WP_Customize_Panel' );
 		$wp_customize->register_section_type( 'dokani_WP_Customize_Section' );

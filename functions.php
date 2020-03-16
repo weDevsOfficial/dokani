@@ -90,7 +90,9 @@ if ( ! function_exists( 'dokani_setup' ) ) {
 /**
  * Get all necessary theme files
  */
-require get_template_directory() . '/inc/theme-functions.php';
+
+//require_once trailingslashit( get_template_directory() ) . 'inc/customizer/customizer-helpers.php';
+require_once get_template_directory() . '/inc/theme-functions.php';
 require get_template_directory() . '/inc/defaults.php';
 require get_template_directory() . '/inc/class-css.php';
 require get_template_directory() . '/inc/css-output.php';
@@ -117,3 +119,19 @@ require get_template_directory() . '/inc/structure/navigation.php';
 require get_template_directory() . '/inc/structure/cart.php';
 require get_template_directory() . '/inc/structure/post-meta.php';
 require get_template_directory() . '/inc/structure/sidebars.php';
+
+add_action( 'load_customizer_files', function() {
+    require_once get_template_directory() . '/inc/customizer/controls/class-range-control.php';
+    require_once get_template_directory() . '/inc/customizer/controls/class-typography-control.php';
+    require_once get_template_directory() . '/inc/customizer/controls/class-upsell-section.php';
+    require_once get_template_directory() . '/inc/customizer/controls/class-upsell-control.php';
+    require_once get_template_directory() . '/inc/customizer/controls/class-deprecated.php';
+
+    // Helper functions
+    require_once get_template_directory() . '/inc/customizer/helpers.php';
+
+    // Deprecated
+    require_once get_template_directory() . '/inc/customizer/deprecated.php';
+
+    require_once get_template_directory() . '/inc/customizer/controls/class-radio-control.php';
+} );

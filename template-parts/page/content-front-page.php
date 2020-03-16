@@ -26,20 +26,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
         <section class="product-cat-section">
             <div class="grid-container">
-                <h2 class="section-title"><?php _e( 'Products Category', 'dokani' ); ?></h2>
+                <h2 class="section-title"><?php esc_html_e( 'Products Category', 'dokani' ); ?></h2>
 
                 <div class="product-cat-wrapper">
 
 					<?php
 					$i = 0;
 
-					foreach ( $terms as $term ) {
+					foreach ( $terms as $product_term ) {
 
 						if ( $i < $visible_item ) {
 							echo '<div class="product-cat-box">';
-							woocommerce_subcategory_thumbnail( $term );
-							echo '<h3 itemprop="name" class="product-title entry-title">' . $term->name . '</h3>';
-							echo '<a href="' . esc_url( get_term_link( $term->term_id ) ) . '" class="btn btn-border btn-default">' . __( 'Show More',
+							woocommerce_subcategory_thumbnail( $product_term );
+							echo '<h3 itemprop="name" class="product-title entry-title">' . esc_html( $product_term->name ) . '</h3>';
+							echo '<a href="' . esc_url( get_term_link( $product_term->term_id ) ) . '" class="btn btn-border btn-default">' . esc_html__( 'Show More',
 									'dokani' ) . '<i class="flaticon flaticon-right"></i></a>';
 							echo '</div>';
 						}
@@ -54,12 +54,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                             <h3 itemprop="name" class="product-title entry-title">
 								<?php
-								echo $total_cat - $visible_item . '+';
+								echo esc_html( $total_cat - $visible_item . '+' );
 								?>
                             </h3>
 
                             <a href="<?php site_url( '/' ); ?>product-category"
-                               class="btn btn-border btn-default"><?php _e( 'Show More', 'dokani' ); ?><i
+                               class="btn btn-border btn-default"><?php esc_html_e( 'Show More', 'dokani' ); ?><i
                                         class="flaticon flaticon-right"></i></a>
                         </div>
 
@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <?php if ( get_theme_mod( 'show_featured', 'on' ) == 'on' ) { ?>
                 <div class="slider-container woocommerce">
-                    <h2 class="slider-heading"><?php _e( 'Featured Products', 'dokani' ); ?></h2>
+                    <h2 class="slider-heading"><?php esc_html_e( 'Featured Products', 'dokani' ); ?></h2>
 
                     <?php
                     if ( function_exists( 'dokan' ) ) {
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             if ( $show_latest === true || $show_latest == 'on' ) {
                 ?>
                 <div class="slider-container woocommerce">
-                    <h2 class="slider-heading"><?php _e( 'Latest Products', 'dokani' ); ?></h2>
+                    <h2 class="slider-heading"><?php esc_html_e( 'Latest Products', 'dokani' ); ?></h2>
 
                     <?php
                     if ( function_exists( 'dokan' ) ) {
@@ -167,7 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <?php if ( get_theme_mod( 'show_best_selling', 'on' ) == 'on' ) { ?>
                 <div class="slider-container woocommerce">
-                    <h2 class="slider-heading"><?php _e( 'Best Selling Products', 'dokani' ); ?></h2>
+                    <h2 class="slider-heading"><?php esc_html_e( 'Best Selling Products', 'dokani' ); ?></h2>
 
                     <?php
                     $args = array(
@@ -225,12 +225,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( get_theme_mod( 'show_store_list', 'on' ) == 'on' && function_exists( 'dokan' ) ) { ?>
     <section class="store-section">
         <div class="grid-container">
-            <h2 class="section-title"><?php _e( 'Store List', 'dokani' ); ?></h2>
+            <h2 class="section-title"><?php esc_html_e( 'Store List', 'dokani' ); ?></h2>
 
             <div class="store-wrapper">
                 <div class="tabs">
                     <input type="radio" name="tabs" id="all-store" checked="checked">
-                    <label for="all-store"><?php _e( 'All', 'dokani' ); ?></label>
+                    <label for="all-store"><?php esc_html_e( 'All', 'dokani' ); ?></label>
                     <div class="tab">
 						<?php
 						$new_sellers = dokan()->vendor->all( array( 'number' => 8 ) );
@@ -251,7 +251,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					if ( $best_sellers ) { ?>
                         <input type="radio" name="tabs" id="best-seller">
-                        <label for="best-seller"><?php _e( 'Best seller', 'dokani' ); ?></label>
+                        <label for="best-seller"><?php esc_html_e( 'Best seller', 'dokani' ); ?></label>
                         <div class="tab">
 							<?php
 							$image_size    = 'single-vendor-thumb';
@@ -271,7 +271,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					if ( $feature_sellers ) { ?>
                         <input type="radio" name="tabs" id="featured-store">
-                        <label for="featured-store"><?php _e( 'Featured', 'dokani' ); ?></label>
+                        <label for="featured-store"><?php esc_html_e( 'Featured', 'dokani' ); ?></label>
                         <div class="tab">
 							<?php
 							$image_size    = 'single-vendor-thumb';
@@ -291,7 +291,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					if ( $new_sellers ) { ?>
                         <input type="radio" name="tabs" id="latest-store">
-                        <label for="latest-store"><?php _e( 'New', 'dokani' ); ?></label>
+                        <label for="latest-store"><?php esc_html_e( 'New', 'dokani' ); ?></label>
 
                         <div class="tab">
 							<?php

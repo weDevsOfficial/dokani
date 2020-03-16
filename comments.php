@@ -48,10 +48,10 @@ do_action( 'dokani_before_comments' );
 				printf(
 					/* translators: %s: post title */
 					esc_html_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'dokani' ),
-					'<span>' . get_the_title() . '</span>'
+					'<span>' . esc_html( get_the_title() ) . '</span>'
 				);
 			} else {
-				printf( // WPCS: XSS OK.
+				printf(
 					/* translators: 1: number of comments, 2: post title */
 					esc_html( _nx(
 						'%1$s thought on &ldquo;%2$s&rdquo;',
@@ -60,8 +60,8 @@ do_action( 'dokani_before_comments' );
 						'comments title',
 						'dokani'
 					) ),
-					number_format_i18n( $comments_number ),
-					'<span>' . get_the_title() . '</span>'
+                    esc_html( number_format_i18n( $comments_number ) ),
+					'<span>' . esc_html( get_the_title() ) . '</span>'
 				);
 			}
 			?>
@@ -110,7 +110,7 @@ do_action( 'dokani_before_comments' );
 
 	// If comments are closed and there are comments, let's leave a little note, shall we?
 	if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'dokani' ); // WPCS: XSS OK. ?></p>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'dokani' ); ?></p>
 	<?php endif;
 
 	$defaults = array(

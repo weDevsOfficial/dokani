@@ -33,7 +33,7 @@ if ( ! function_exists( 'dokani_navigation_position' ) ) {
 				?>
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 					<?php  do_action( 'dokani_inside_mobile_menu' ); ?>
-					<span class="mobile-menu screen-reader-text"><?php echo apply_filters( 'dokani_mobile_menu_label', __( 'Menu', 'dokani' ) ); // WPCS: XSS ok. ?></span>
+					<span class="mobile-menu screen-reader-text"><?php echo esc_html( apply_filters( 'dokani_mobile_menu_label', __( 'Menu', 'dokani' ) ) ); ?></span>
 				</button>
 
                 <?php
@@ -64,12 +64,12 @@ if ( ! function_exists( 'dokani_navigation_position' ) ) {
 		                );
                     } else {
 	                    echo '<div id="responsive-menu" class="main-nav"><ul class=" menu sf-menu"><li class="menu-item">';
-		                echo '<li><a class="add_responsive_menu_label" href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Responsive Menu', 'dokani' ) . '</a></li>';
+		                echo '<li><a class="add_responsive_menu_label" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add Responsive Menu', 'dokani' ) . '</a></li>';
                         echo '</ul></div>';
                     }
 
                 } else {
-                    echo '<a class="add_primary_menu_label" href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Primary Menu', 'dokani' ) . '</a>';
+                    echo '<a class="add_primary_menu_label" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add Primary Menu', 'dokani' ) . '</a>';
                 }
                 ?>
 
@@ -106,7 +106,7 @@ if ( ! function_exists( 'dokani_menu_fallback' ) ) {
 				wp_list_pages( $args );
 
 				if ( 'cart-nav' == $dokani_settings['cart_position_setting'] ){
-					echo dokani_cart_position();
+					echo wp_kses_post( dokani_cart_position() );
 				}
 
 				?>

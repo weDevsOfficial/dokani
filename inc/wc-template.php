@@ -17,7 +17,7 @@ add_action( 'woocommerce_before_quantity_input_field', 'dokani_quantity_label' )
  *
  */
 function dokani_quantity_label() {
-    echo "<label class='quantity_label'>" . __( 'Quantity', 'dokani' ) . " :</label>";
+    echo "<label class='quantity_label'>" . esc_html__( 'Quantity', 'dokani' ) . " :</label>";
 }
 
 /**
@@ -46,7 +46,7 @@ function dokani_product_loop_price() {
 	        <?php woocommerce_template_loop_product_title(); ?>
 	        <?php woocommerce_template_loop_product_link_close(); ?>
 	        <?php
-	        echo '<div class="item-vendor"><span>Sold by </span><a href="' . $url . '">' . $store_info['store_name'] . '</a></div>';
+	        echo '<div class="item-vendor"><span>' . esc_html__( 'Sold by', 'dokani' ) . ' </span><a href="' . esc_url( $url ) . '">' . esc_html( $store_info['store_name'] ) . '</a></div>';
 	        ?>
 	        <?php woocommerce_template_loop_rating(); ?>
         </div>
@@ -74,7 +74,7 @@ add_action( 'woocommerce_after_shop_loop_item', 'dokani_product_loop_price' );
  * Filters WC breadcrumb parameters
  *
  * @param type $args
- * @return type
+ * @return array
  */
 function dokan_woo_breadcrumb( $args ) {
     return array(
@@ -96,8 +96,7 @@ add_filter( 'woocommerce_breadcrumb_defaults', 'dokan_woo_breadcrumb' );
  * @return array
  */
 function dokan_add_to_cart_fragments( $fragment ) {
-    $fragment['dokan_cart_amount'] = WC()->cart->get_cart_total();
-
+    $fragment['.dokan-cart-amount'] = "<span class='dokan-cart-amount'>" . WC()->cart->get_cart_total() . "</span>";
     return $fragment;
 }
 
@@ -164,11 +163,11 @@ if ( ! class_exists( 'Dokan_Category_Walker' ) ) {
 
 }
 
-if ( !class_exists( 'Dokan_Category_Widget' ) ) :
+if ( ! class_exists( 'Dokan_Category_Widget' ) ) :
 
     /**
      * new WordPress Widget format
-     * Wordpress 2.8 and above
+     * WordPress 2.8 and above
      * @see http://codex.wordpress.org/Widgets_API#Developing_Widgets
      */
     class Dokan_Category_Widget extends WP_Widget {
@@ -195,10 +194,10 @@ if ( !class_exists( 'Dokan_Category_Widget' ) ) :
 
             $title = apply_filters( 'widget_title', $instance['title'] );
 
-            echo $before_widget;
+            echo wp_kses_post( $before_widget );
 
-            if ( !empty( $title ) )
-                echo $args['before_title'] . $title . $args['after_title'];
+            if ( ! empty( $title ) )
+                echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
             ?>
             <div id="cat-drop-stack">
                 <?php
@@ -217,7 +216,7 @@ if ( !class_exists( 'Dokan_Category_Widget' ) ) :
 
                 $walker = new Dokan_Category_Walker();
                 echo "<ul>";
-                echo call_user_func_array( array( &$walker, 'walk' ), array( $categories, 0, array() ) );
+                echo wp_kses_post( call_user_func_array( array( &$walker, 'walk' ), array( $categories, 0, array() ) ) );
                 echo "</ul>";
                 ?>
             </div>
@@ -249,7 +248,7 @@ if ( !class_exists( 'Dokan_Category_Widget' ) ) :
                     } )( jQuery );
             </script>
             <?php
-            echo $after_widget;
+            echo wp_kses_post( $after_widget );
         }
 
         /**
@@ -281,8 +280,8 @@ if ( !class_exists( 'Dokan_Category_Widget' ) ) :
             $title = $instance['title'];
             ?>
             <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'dokani' ); ?></label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+                <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dokani' ); ?></label>
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
             </p>
             <?php
         }
@@ -332,10 +331,12 @@ add_filter( 'woocommerce_product_tabs', 'dokani_woo_rename_tabs', 98 );
 function dokani_vendor_name() {
 	global $post;
 
-	$store_info = dokan_get_store_info( $post->post_author );
-	$url = dokan_get_store_url( $post->post_author );
+	if ( function_exists( 'dokan' ) ) {
+        $store_info = dokan_get_store_info( $post->post_author );
+        $url = dokan_get_store_url( $post->post_author );
 
-	echo '<div class="vendor-name"><span>Sold by </span><a href="' . $url . '">' . $store_info['store_name'] . '</a></div>';
+        echo '<div class="vendor-name"><span>' . esc_html__( 'Sold by', 'dokani' ) . ' </span><a href="' . esc_url( $url ) . '">' . esc_html( $store_info['store_name'] ) . '</a></div>';
+    }
 }
 
 add_action('woocommerce_single_product_summary', 'dokani_vendor_name', 7);
@@ -368,7 +369,7 @@ add_filter( 'woocommerce_output_related_products_args', 'dokani_woo_related_prod
 add_filter('woocommerce_placeholder_img_src', 'dokan_woo_placeholder_img_src');
 
 function dokan_woo_placeholder_img_src( $src ) {
-	$src = get_template_directory_uri() . '/assets/images/placeholder.png';;
+	$src = get_template_directory_uri() . '/assets/images/placeholder.png';
 
 	return $src;
 }

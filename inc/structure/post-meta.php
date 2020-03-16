@@ -126,26 +126,26 @@ if ( ! function_exists( 'dokani_posted_on' ) ) {
 
 		// If our date is enabled, show it.
 		if ( $date ) {
-			echo apply_filters( 'dokani_post_date_output', sprintf( '<span class="posted-on">%1$s</span>', // WPCS: XSS ok, sanitization ok.
-				sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
-					esc_url( get_permalink() ),
-					esc_attr( get_the_time() ),
-					$time_string
-				)
-			), $time_string );
+			echo wp_kses_post( apply_filters( 'dokani_post_date_output', sprintf( '<span class="posted-on">%1$s</span>',
+                sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
+                    esc_url( get_permalink() ),
+                    esc_attr( get_the_time() ),
+                    wp_kses_post( $time_string )
+                )
+            ), $time_string ) );
 		}
 
 		// If our author is enabled, show it.
 		if ( $author ) {
-			echo apply_filters( 'dokani_post_author_output', sprintf( ' <span class="byline">%1$s</span>', // WPCS: XSS ok, sanitization ok.
-				sprintf( '<span class="author vcard" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">%1$s <a class="url fn n" href="%2$s" title="%3$s" rel="author" itemprop="url"><span class="author-name" itemprop="name">%4$s</span></a></span>',
-					__( 'by','dokani'),
-					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-					/* translators: 1: Author name */
-					esc_attr( sprintf( __( 'View all posts by %s', 'dokani' ), get_the_author() ) ),
-					esc_html( get_the_author() )
-				)
-			) );
+			echo wp_kses_post( apply_filters( 'dokani_post_author_output', sprintf( ' <span class="byline">%1$s</span>',
+                sprintf( '<span class="author vcard" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">%1$s <a class="url fn n" href="%2$s" title="%3$s" rel="author" itemprop="url"><span class="author-name" itemprop="name">%4$s</span></a></span>',
+                    __( 'by','dokani'),
+                    esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+                    /* translators: 1: Author name */
+                    esc_attr( sprintf( __( 'View all posts by %s', 'dokani' ), esc_html( get_the_author() ) ) ),
+                    esc_html( get_the_author() )
+                )
+            ) ) );
 		}
 	}
 }
@@ -163,23 +163,23 @@ if ( ! function_exists( 'dokani_entry_meta' ) ) {
 
 		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'dokani' ) );
 		if ( $categories_list && $is_show_categories ) {
-			echo apply_filters( 'dokani_category_list_output', sprintf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>', // WPCS: XSS ok, sanitization ok.
-				esc_html_x( 'Categories', 'Used before category names.', 'dokani' ),
-				$categories_list
-			) );
+			echo wp_kses_post( apply_filters( 'dokani_category_list_output', sprintf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+                esc_html_x( 'Categories', 'Used before category names.', 'dokani' ),
+                $categories_list
+            ) ) );
 		}
 
 		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'dokani' ) );
 		if ( $tags_list && $is_show_tags ) {
-			echo apply_filters( 'dokani_tag_list_output', sprintf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>', // WPCS: XSS ok, sanitization ok.
-				esc_html_x( 'Tags', 'Used before tag names.', 'dokani' ),
-				$tags_list
-			) );
+			echo wp_kses_post( apply_filters( 'dokani_tag_list_output', sprintf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+                esc_html_x( 'Tags', 'Used before tag names.', 'dokani' ),
+                $tags_list
+            ) ) );
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) && $comments ) {
 			echo '<span class="comments-link">';
-				comments_popup_link( __( 'Leave a comment', 'dokani' ), __( '1 Comment', 'dokani' ), __( '% Comments', 'dokani' ) );
+				comments_popup_link( esc_html__( 'Leave a comment', 'dokani' ), esc_html__( '1 Comment', 'dokani' ), esc_html__( '% Comments', 'dokani' ) );
 			echo '</span>';
 		}
 	}
@@ -220,16 +220,16 @@ if ( ! function_exists( 'dokani_author_profile' ) ) {
         <div class="author-profile">
             <div class="author-thumb">
                 <?php
-                echo $author_avatar;
+                echo wp_kses_post( $author_avatar );
                 ?>
             </div>
             <div class="author-bio">
                 <h3>
-                    <span><?php echo _e( 'About', 'dokani' ); ?></span>
-                    <a href="<?php echo $author_url; ?>"><?php echo $author_name; ?></a>
+                    <span><?php echo esc_html_e( 'About', 'dokani' ); ?></span>
+                    <a href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $author_name ); ?></a>
                 </h3>
                 <div class="author-description">
-                    <?php echo $author_description; ?>
+                    <?php echo wp_kses_post( $author_description ); ?>
                 </div>
             </div>
         </div>
@@ -251,7 +251,7 @@ if ( ! function_exists( 'dokani_content_more' ) ) {
 			the_title_attribute( 'echo=0' ),
 			esc_url( get_permalink( get_the_ID() ) . apply_filters( 'dokani_more_jump','#more-' . get_the_ID() ) ),
 			__( 'Read more', 'dokani' ),
-			'<span class="screen-reader-text">' . get_the_title() . '</span>'
+			'<span class="screen-reader-text">' . esc_html( get_the_title() ) . '</span>'
 		) );
 	}
 }

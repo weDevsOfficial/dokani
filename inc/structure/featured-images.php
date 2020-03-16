@@ -22,21 +22,21 @@ if ( ! function_exists( 'dokani_post_image' ) ) {
 
 		// If we're not on any single post/page or the 404 template, we must be showing excerpts.
 		if ( ! is_singular() && ! is_404() ) {
-			echo apply_filters( 'dokani_featured_image_output', sprintf( // WPCS: XSS ok.
-				'<div class="post-image">
+			echo wp_kses_post( apply_filters( 'dokani_featured_image_output', sprintf(
+                '<div class="post-image">
 					<a href="%1$s">
 						%2$s
 					</a>
 				</div>',
-				esc_url( get_permalink() ),
-				get_the_post_thumbnail(
-					get_the_ID(),
-					apply_filters( 'dokani_page_header_default_size', 'dokanee-featured-post-thumbnail' ),
-					array(
-						'itemprop' => 'image',
-					)
-				)
-			) );
+                esc_url( get_permalink() ),
+                get_the_post_thumbnail(
+                    get_the_ID(),
+                    apply_filters( 'dokani_page_header_default_size', 'dokanee-featured-post-thumbnail' ),
+                    array(
+                        'itemprop' => 'image',
+                    )
+                )
+            ) ) );
 		}
 	}
 }

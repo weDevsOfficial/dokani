@@ -30,24 +30,24 @@ global $product;
 
 		<div class="sku_wrapper">
             <span class="meta-title"><?php esc_html_e( 'SKU:', 'dokani' ); ?></span>
-            <span class="sku meta-content"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'dokani' ); ?></span>
+            <span class="sku meta-content"><?php echo esc_html( ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'dokani' ) ); ?></span>
         </div>
 
 	<?php endif; ?>
 
 	<?php
     echo '<div class="posted_in">';
-    echo '<span class="meta-title">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'dokani' ) . '</span>';
+    echo '<span class="meta-title">' . esc_html( _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'dokani' ) ) . '</span>';
 
-	echo wc_get_product_category_list( $product->get_id(), ' ', '<span class="meta-content">', '</span>' );
+	echo wp_kses_post( wc_get_product_category_list( $product->get_id(), ' ', '<span class="meta-content">', '</span>' ) );
     echo '</div>';
 	?>
 
     <?php
     echo '<div class="tagged_as">';
-    echo '<span class="meta-title">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'dokani' ) . '</span>';
+    echo '<span class="meta-title">' . esc_html( _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'dokani' ) ) . '</span>';
 
-	echo wc_get_product_tag_list( $product->get_id(), ' ', '<span class="meta-content">', '</span>' );
+	echo wp_kses_post( wc_get_product_tag_list( $product->get_id(), ' ', '<span class="meta-content">', '</span>' ) );
     echo '</div>';
 	?>
 

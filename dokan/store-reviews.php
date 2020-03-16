@@ -38,11 +38,11 @@ get_header();
 
 					<?php
 					$dokan_template_reviews = Dokan_Pro_Reviews::init();
-					$id                     = $store_user->ID;
-					$post_type              = 'product';
-					$limit                  = 20;
-					$status                 = '1';
-					$comments               = $dokan_template_reviews->comment_query( $id, $post_type, $limit, $status );
+					$store_user_id          = $store_user->ID;
+					$review_post_type       = 'product';
+					$review_limit           = 20;
+					$review_status          = '1';
+					$store_comments         = $dokan_template_reviews->comment_query( $store_user_id, $review_post_type, $review_limit, $review_status );
 					?>
 
                     <div id="reviews">
@@ -50,17 +50,17 @@ get_header();
 
 							<?php do_action( 'dokan_review_tab_before_comments' ); ?>
 
-                            <h2 class="headline"><?php _e( 'Vendor Review', 'dokani' ); ?></h2>
+                            <h2 class="headline"><?php esc_html_e( 'Vendor Review', 'dokani' ); ?></h2>
 
                             <ol class="commentlist">
-								<?php echo $dokan_template_reviews->render_store_tab_comment_list( $comments, $store_user->ID ); ?>
+								<?php echo wp_kses_post( $dokan_template_reviews->render_store_tab_comment_list( $store_comments, $store_user->ID ) ); ?>
                             </ol>
 
                         </div>
                     </div>
 
 					<?php
-					echo $dokan_template_reviews->review_pagination( $id, $post_type, $limit, $status );
+					echo wp_kses_post( $dokan_template_reviews->review_pagination( $store_user_id, $review_post_type, $review_limit, $review_status ) );
 					?>
 
                 </div><!-- #content .site-content -->

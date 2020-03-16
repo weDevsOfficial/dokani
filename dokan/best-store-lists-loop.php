@@ -1,7 +1,7 @@
 <div id="dokan-seller-listing-wrap">
     <div class="seller-listing-content">
         <?php if ( $sellers ) : ?>
-            <ul class="dokan-seller-list column-<?php echo $per_row; ?>">
+            <ul class="dokan-seller-list column-<?php echo esc_attr( $per_row ); ?>">
                 <?php
                 foreach ( $sellers as $seller ) {
 	                $seller_info = dokan()->vendor->get( $seller->seller_id );
@@ -19,7 +19,7 @@
                         <div class="store-content">
                             <div class="featured-favourite">
 				                <?php if ( ! empty( $featured_seller ) && 'yes' == $featured_seller ): ?>
-                                    <span class="featured-label"><?php _e( 'Featured', 'dokani' ); ?></span>
+                                    <span class="featured-label"><?php esc_html_e( 'Featured', 'dokani' ); ?></span>
 				                <?php endif ?>
 
 				                <?php do_action( 'dokan_seller_listing_after_featured', $seller, $store_info ); ?>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="store-footer">
                             <div class="store-data">
-                                <h2><a href="<?php echo esc_url( $store_url ); ?>"><?php echo $store_name; ?></a></h2>
+                                <h2><a href="<?php echo esc_url( $store_url ); ?>"><?php echo esc_html( $store_name ); ?></a></h2>
 
 				                <?php do_action( 'dokan_seller_listing_after_store_data', $seller, $store_info ); ?>
 
@@ -60,7 +60,7 @@
                 <div class="dokan-clearfix"></div>
             </ul> <!-- .dokan-seller-wrap -->
         <?php else:  ?>
-            <p class="dokan-error"><?php _e( 'No vendor found!', 'dokani' ); ?></p>
+            <p class="dokan-error"><?php esc_html_e( 'No vendor found!', 'dokani' ); ?></p>
         <?php endif; ?>
     </div>
 </div>

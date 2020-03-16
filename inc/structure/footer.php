@@ -20,14 +20,14 @@ if ( ! function_exists( 'dokani_construct_footer' ) ) {
 	    $footer_bar_layout = get_theme_mod( 'footer_bar_layout', 'layout-2' );
 	    if ( $footer_bar_layout !== 'disabled' ) {
 		?>
-		<footer class="site-info <?php echo $footer_bar_layout; ?>" itemtype="https://schema.org/WPFooter" itemscope="itemscope">
+		<footer class="site-info <?php echo esc_attr( $footer_bar_layout ); ?>" itemtype="https://schema.org/WPFooter" itemscope="itemscope">
 			<div class="inside-site-info <?php if ( 'full-width' !== dokani_get_setting( 'footer_inner_width' ) ) : ?>grid-container grid-parent<?php endif; ?>">
                 <div class="footer-bar-row">
                     <div class="footer-bar-column footer-bar-section1">
                         <?php
                         $section_1_type = get_theme_mod( 'dokani_footer_bar_section1_type', 'text' );
                         if ( $section_1_type === 'text' ) {
-                            echo get_theme_mod( 'dokani_footer_bar_section1_content', 'Add Custom Content' );
+                            echo wp_kses_post( get_theme_mod( 'dokani_footer_bar_section1_content', 'Add Custom Content' ) );
                         } elseif ( $section_1_type === 'widget' ) {
 
                             $section_1_widget = dynamic_sidebar( 'footer-bar-1' );
@@ -35,9 +35,9 @@ if ( ! function_exists( 'dokani_construct_footer' ) ) {
                             if ( $section_1_widget ) {
                                 $section_1_widget;
                             } else {
-                                printf( // WPCS: XSS ok.
+                                printf(
                                 /* translators: 1: admin URL */
-                                    __( 'Add widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokani' ),
+                                    wp_kses_post( __( 'Add widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokani'  ) ),
                                     esc_url( admin_url( 'widgets.php' ) )
                                 );
                             }
@@ -52,11 +52,11 @@ if ( ! function_exists( 'dokani_construct_footer' ) ) {
                                         'container_class' => 'footer-menu',
                                         'container_id' => 'footer-menu',
                                         'menu_class' => '',
-                                        'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
+                                        'items_wrap' => '<ul id="%1$s" class="%2$s ' . esc_attr( join( ' ', dokani_get_menu_class() ) ) . '">%3$s</ul>'
                                     )
                                 );
                             } else {
-                                echo '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Footer Menu', 'dokani' ) . '</a>';
+                                echo '<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add Footer Menu', 'dokani' ) . '</a>';
                             }
 
                         }
@@ -66,7 +66,7 @@ if ( ! function_exists( 'dokani_construct_footer' ) ) {
 					<?php
 					$section_2_type = get_theme_mod( 'dokani_footer_bar_section2_type', 'text' );
 					if ( $section_2_type === 'text' ) {
-						echo get_theme_mod( 'dokani_footer_bar_section2_content', 'Add Custom Content' );
+						echo wp_kses_post( get_theme_mod( 'dokani_footer_bar_section2_content', 'Add Custom Content' ) );
 					} elseif ( $section_2_type === 'widget' ) {
 
 						$section_2_widget = dynamic_sidebar( 'footer-bar-2' );
@@ -74,9 +74,9 @@ if ( ! function_exists( 'dokani_construct_footer' ) ) {
 						if ( $section_2_widget ) {
 							$section_2_widget;
 						} else {
-							printf( // WPCS: XSS ok.
+							printf(
 							/* translators: 1: admin URL */
-								__( 'Add widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokani' ),
+								wp_kses_post( __( 'Add widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokani' ) ),
 								esc_url( admin_url( 'widgets.php' ) )
 							);
 						}
@@ -86,16 +86,16 @@ if ( ! function_exists( 'dokani_construct_footer' ) ) {
 						if ( has_nav_menu( 'footer_menu' ) ) {
 							wp_nav_menu(
 								array(
-									'theme_location' => 'footer_menu',
-									'container' => 'div',
+									'theme_location'  => 'footer_menu',
+									'container'       => 'div',
 									'container_class' => 'footer-menu',
-									'container_id' => 'footer-menu',
-									'menu_class' => '',
-									'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
+									'container_id'    => 'footer-menu',
+									'menu_class'      => '',
+									'items_wrap'      => '<ul id="%1$s" class="%2$s ' . esc_attr( join( ' ', dokani_get_menu_class() ) ) . '">%3$s</ul>'
 								)
 							);
 						} else {
-							echo '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Footer Menu', 'dokani' ) . '</a>';
+							echo '<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add Footer Menu', 'dokani' ) . '</a>';
 						}
 
 					}
@@ -139,10 +139,10 @@ if ( ! function_exists( 'dokani_add_footer_info' ) ) {
 		$copyright = sprintf( '<span class="copyright">&copy; %1$s</span> &bull; <a href="%2$s" target="_blank" itemprop="url">%3$s</a>',
 			date( 'Y' ),
 			esc_url( 'https://wedevs.com' ),
-			__( 'dokani', 'dokani' )
+			esc_html__( 'dokani', 'dokani' )
 		);
 
-		echo apply_filters( 'dokani_copyright', $copyright ); // WPCS: XSS ok.
+		echo wp_kses_post( apply_filters( 'dokani_copyright', 'dokani' ), $copyright );
 	}
 }
 
@@ -166,18 +166,18 @@ function dokani_do_footer_widget( $widget_width, $widget ) {
 				<div class="textwidget">
 					<p>
 						<?php
-						printf( // WPCS: XSS ok.
+						printf(
 							/* translators: 1: admin URL */
-							__( 'Replace this widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokani' ),
+							wp_kses_post( __( 'Replace this widget content by going to <a href="%1$s"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area.', 'dokani' ) ),
 							esc_url( admin_url( 'widgets.php' ) )
 						);
 						?>
 					</p>
 					<p>
 						<?php
-						printf( // WPCS: XSS ok.
+						printf(
 							/* translators: 1: admin URL */
-							__( 'To remove or choose the number of footer widgets, go to <a href="%1$s"><strong>Appearance / Customize / Layout / Footer Widgets</strong></a>.', 'dokani' ),
+							wp_kses_post( __( 'To remove or choose the number of footer widgets, go to <a href="%1$s"><strong>Appearance / Customize / Layout / Footer Widgets</strong></a>.', 'dokani' ) ),
 							esc_url( admin_url( 'customize.php' ) )
 						);
 						?>
@@ -283,15 +283,15 @@ if ( ! function_exists( 'dokani_back_to_top' ) ) {
 			return;
 		}
 
-		echo apply_filters( 'dokani_back_to_top_output', sprintf( // WPCS: XSS ok.
-			'<a title="%1$s" rel="nofollow" href="#" class="dokani-back-to-top" style="opacity:0;visibility:hidden;" data-scroll-speed="%2$s" data-start-scroll="%3$s">
+		echo wp_kses_post( apply_filters( 'dokani_back_to_top_output', sprintf(
+            '<a title="%1$s" rel="nofollow" href="#" class="dokani-back-to-top" style="opacity:0;visibility:hidden;" data-scroll-speed="%2$s" data-start-scroll="%3$s">
 				<span class="screen-reader-text">%5$s</span>
 			</a>',
-			esc_attr__( 'Scroll back to top', 'dokani' ),
-			absint( apply_filters( 'dokani_back_to_top_scroll_speed', 400 ) ),
-			absint( apply_filters( 'dokani_back_to_top_start_scroll', 300 ) ),
-			esc_attr( apply_filters( 'dokani_back_to_top_icon', 'fa-angle-up' ) ),
-			esc_html__( 'Scroll back to top', 'dokani' )
-		) );
+            esc_attr__( 'Scroll back to top', 'dokani' ),
+            esc_attr( absint( apply_filters( 'dokani_back_to_top_scroll_speed', 400 ) ) ),
+            esc_attr( absint( apply_filters( 'dokani_back_to_top_start_scroll', 300 ) ) ),
+            esc_attr( apply_filters( 'dokani_back_to_top_icon', 'fa-angle-up' ) ),
+            esc_html__( 'Scroll back to top', 'dokani' )
+        )  ) );
 	}
 }

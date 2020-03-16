@@ -40,7 +40,7 @@ get_header(); ?>
             <div class="grid-container home-template-without-wc">
 			    <div class="woocommerce-notices-wrapper"><div class="woocommerce-message" role="alert">
                     <?php
-                    echo __( 'Looks like you are using Homepage template without WooCommerce, This template is designed for WooCommerce so for using this page-template please install WooCommerce First!', 'dokani' );
+                    echo esc_html__( 'Looks like you are using Homepage template without WooCommerce, This template is designed for WooCommerce so for using this page-template please install WooCommerce First!', 'dokani' );
                     ?>
                 </div>
             </div>

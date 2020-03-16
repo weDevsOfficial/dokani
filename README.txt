@@ -7,8 +7,8 @@ WC requires at least: 3.0
 WC tested up to: 3.9.0
 Requires PHP: 5.6
 Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/license-list.html#GPLv2
 
 Our dokani theme is designed to show off the power of WooCommerce and Dokan.
 
@@ -19,7 +19,7 @@ Dokani is a lightweight, well-crafted, and modern-looking free WordPress theme. 
 == Installation ==
 
 1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
-2. Type in dokani in the search form and press the 'Enter' key on your keyboard.
+2. Type 'dokani' in the search form and press the 'Enter' key on your keyboard.
 3. Click on the 'Activate' button to use your new theme right away.
 4. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
@@ -27,6 +27,16 @@ Dokani is a lightweight, well-crafted, and modern-looking free WordPress theme. 
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
+
+Dokani is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+
+FontAwesome License: SIL OFL 1.1 - http://scripts.sil.org/OFL
+Images License: GNU General Public License v2 or later
+FlexSlider License: GNU General Public License v2 or later
+
+Dokani serves fonts via the hosted Google Fonts service. Dokani does not share any data with Google directly.
+To the best of our knowledge, Google doesn’t track nor share end user data.
+Privacy Policy for the Google Fonts API: https://developers.google.com/fonts/faq#what_does_using_the_google_fonts_api_mean_for_the_privacy_of_my_users
 
 == Changelog ==
 

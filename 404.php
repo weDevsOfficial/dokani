@@ -46,15 +46,15 @@ get_header(); ?>
 				do_action( 'dokani_after_entry_header' );
 				?>
 
-				<div class="entry-content" itemprop="text">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/404_illustration@2x.png" alt="<?php _e( 'Not Found', 'dokani' ); ?>" class="not-found-thumb">
-                    <h2><?php _e( 'Page Not Found', 'dokani' ); ?></h2>
-					<?php
-					echo '<p>' . apply_filters( 'dokani_404_text', __( 'For Some Reason The Page You Requested Could Not Be Found On Our Server', 'dokani' ) ) . '</p>'; // WPCS: XSS OK.
-
-					get_search_form();
-					?>
-				</div><!-- .entry-content -->
+                <div class="entry-content" itemprop="text">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/404_illustration@2x.png' ); ?>" alt="<?php esc_attr_e( 'Not Found', 'dokani' ); ?>" class="not-found-thumb">
+                    <h2><?php esc_html_e( 'Page Not Found', 'dokani' ); ?></h2>
+                    <?php
+                    $text_404 = apply_filters( 'dokani_404_text', __( 'For Some Reason The Page You Requested Could Not Be Found On Our Server', 'dokani' ) );
+                    echo esc_html( $text_404 );
+                    get_search_form();
+                    ?>
+                </div><!-- .entry-content -->
 
 				<?php
 				/**

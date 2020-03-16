@@ -26,10 +26,10 @@ get_header(); ?>
 				<header class="page-header">
 					<h1 class="page-title">
 						<?php
-						printf( // WPCS: XSS ok.
+						printf(
 							/* translators: 1: Search query name */
-							__( 'Search Results for: %s', 'dokani' ),
-							'<span>' . get_search_query() . '</span>'
+							wp_kses_post( __( 'Search Results for: %s', 'dokani' ) ),
+							'<span>' . esc_html( get_search_query() ) . '</span>'
 						);
 						?>
 					</h1>

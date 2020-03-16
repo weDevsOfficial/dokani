@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 		<header class="entry-header">
-			<h1 class="entry-title"><?php _e( 'Nothing Found', 'dokani' ); // WPCS: XSS OK. ?></h1>
+			<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'dokani' ); ?></h1>
 		</header><!-- .entry-header -->
 
 		<?php
@@ -44,9 +44,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<p>
 						<?php
-						printf( // WPCS: XSS ok.
+						printf(
 							/* translators: 1: Admin URL */
-							__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'dokani' ),
+							wp_kses_post( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'dokani' ) ),
 							esc_url( admin_url( 'post-new.php' ) )
 						);
 						?>
@@ -54,12 +54,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<?php elseif ( is_search() ) : ?>
 
-					<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'dokani' ); // WPCS: XSS OK. ?></p>
+					<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'dokani' ); // WPCS: XSS OK. ?></p>
 					<?php get_search_form(); ?>
 
 				<?php else : ?>
 
-					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'dokani' ); // WPCS: XSS OK. ?></p>
+					<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'dokani' ); // WPCS: XSS OK. ?></p>
 					<?php get_search_form(); ?>
 
 				<?php endif; ?>

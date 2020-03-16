@@ -13,7 +13,7 @@
     $cart_topbar = dokani_get_setting( 'cart_position_setting' );
 
     if ( 'cart-topbar' == $cart_topbar){
-        echo dokani_cart_position();
+        echo wp_kses_post( dokani_cart_position() );
     }
     ?>
 
@@ -24,14 +24,14 @@
         if ( dokan_is_user_seller( $user_id ) ) {
             ?>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle dokani-menu-vendor-dashboard" data-toggle="dropdown"><?php _e( 'Vendor Dashboard', 'dokani' ); ?> <i class="fa fa-angle-down"></i></a>
+                <a href="#" class="dropdown-toggle dokani-menu-vendor-dashboard" data-toggle="dropdown"><?php esc_html_e( 'Vendor Dashboard', 'dokani' ); ?> <i class="fa fa-angle-down"></i></a>
 
                 <ul class="dropdown-menu">
-                    <li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank"><?php _e( 'Visit your store', 'dokani' ); ?> <i class="fa fa-external-link"></i></a></li>
+                    <li><a href="<?php echo esc_url( dokan_get_store_url( $user_id ) ); ?>" target="_blank"><?php esc_html_e( 'Visit your store', 'dokani' ); ?> <i class="fa fa-external-link"></i></a></li>
                     <li class="divider"></li>
                     <?php
                     foreach ( $nav_urls as $key => $item ) {
-                        printf( '<li><a href="%s">%s &nbsp;%s</a></li>', $item['url'], $item['icon'], $item['title'] );
+                        printf( '<li><a href="%s">%s &nbsp;%s</a></li>', esc_url( $item['url'] ), wp_kses_post( $item['icon'] ), esc_html( $item['title'] ) );
                     }
                     ?>
                 </ul>
@@ -41,17 +41,17 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle dokani-menu-user" data-toggle="dropdown"><?php echo esc_html( $current_user->display_name ); ?> <i class="fa fa-angle-down"></i></a>
             <ul class="dropdown-menu">
-                <li><a href="<?php echo dokan_get_page_url( 'my_orders' ); ?>"><?php _e( 'My Orders', 'dokani' ); ?></a></li>
-                <li><a href="<?php echo dokan_get_page_url( 'myaccount', 'woocommerce' ); ?>"><?php _e( 'My Account', 'dokani' ); ?></a></li>
-                <li><a href="<?php echo wc_customer_edit_account_url(); ?>"><?php _e( 'Edit Account', 'dokani' ); ?></a></li>
+                <li><a href="<?php echo esc_url( dokan_get_page_url( 'my_orders' ) ); ?>"><?php esc_html_e( 'My Orders', 'dokani' ); ?></a></li>
+                <li><a href="<?php echo esc_url( dokan_get_page_url( 'myaccount', 'woocommerce' ) ); ?>"><?php esc_html_e( 'My Account', 'dokani' ); ?></a></li>
+                <li><a href="<?php echo esc_url(  wc_customer_edit_account_url() ); ?>"><?php esc_html_e( 'Edit Account', 'dokani' ); ?></a></li>
                 <li class="divider"></li>
-                <li><a href="<?php echo wc_get_endpoint_url( 'edit-address', 'billing', get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>"><?php _e( 'Billing Address', 'dokani' ); ?></a></li>
-                <li><a href="<?php echo wc_get_endpoint_url( 'edit-address', 'shipping', get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>"><?php _e( 'Shipping Address', 'dokani' ); ?></a></li>
+                <li><a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', 'billing', get_permalink( wc_get_page_id( 'myaccount' ) ) ) ); ?>"><?php esc_html_e( 'Billing Address', 'dokani' ); ?></a></li>
+                <li><a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', 'shipping', get_permalink( wc_get_page_id( 'myaccount' ) ) ) ); ?>"><?php esc_html_e( 'Shipping Address', 'dokani' ); ?></a></li>
                 <li><?php wp_loginout( home_url() ); ?></li>
             </ul>
         </li>
 
     <?php } else { ?>
-        <li><a href="<?php echo dokan_get_page_url( 'myaccount', 'woocommerce' ); ?>" class="dokani-menu-login"><?php _e( 'Login / Register', 'dokani' ); ?></a></li>
+        <li><a href="<?php echo esc_url( dokan_get_page_url( 'myaccount', 'woocommerce' ) ); ?>" class="dokani-menu-login"><?php esc_html_e( 'Login / Register', 'dokani' ); ?></a></li>
     <?php } ?>
 </ul>

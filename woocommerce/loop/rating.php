@@ -29,8 +29,8 @@ if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
 $rating = wc_get_rating_html( $product->get_average_rating() );
 
 if ( $rating ) {
-	echo $rating;
+	echo wp_kses_post( $rating );
 } else {
-	echo '<span class="rating-blank"></span>';
+	echo wp_kses_post( '<span class="rating-blank"></span>' );
 }
 

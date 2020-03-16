@@ -32,7 +32,7 @@ if ( ! function_exists( 'dokani_body_schema' ) ) {
 		$result = esc_html( apply_filters( 'dokani_body_itemtype', $itemtype ) );
 
 		// Return our HTML
-		echo "itemtype='https://schema.org/$result' itemscope='itemscope'"; // WPCS: XSS ok, sanitization ok.
+		echo wp_kses_post( "itemtype='https://schema.org/$result' itemscope='itemscope'" );
 	}
 }
 
@@ -47,7 +47,7 @@ if ( ! function_exists( 'dokani_article_schema' ) ) {
 		$itemtype = esc_html( apply_filters( 'dokani_article_itemtype', $type ) );
 
 		// Print the results
-		echo "itemtype='https://schema.org/$itemtype' itemscope='itemscope'"; // WPCS: XSS ok, sanitization ok.
+		echo wp_kses_post( "itemtype='https://schema.org/$itemtype' itemscope='itemscope'" );
 	}
 }
 

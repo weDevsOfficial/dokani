@@ -170,16 +170,16 @@ if ( ! function_exists( 'dokani_construct_logo' ) ) {
 		}
 
 		// Print our HTML.
-		echo apply_filters( 'dokani_logo_output', sprintf( // WPCS: XSS ok, sanitization ok.
-			'<div class="site-logo">
+		echo wp_kses_post( apply_filters( 'dokani_logo_output', sprintf(
+            '<div class="site-logo">
 				<a href="%1$s" title="%2$s" rel="home">
 					<img %3$s />
 				</a>
 			</div>',
-			esc_url( apply_filters( 'dokani_logo_href' , home_url( '/' ) ) ),
-			esc_attr( apply_filters( 'dokani_logo_title', get_bloginfo( 'name', 'display' ) ) ),
-			$html_attr
-		), $logo_url, $html_attr );
+            esc_url( apply_filters( 'dokani_logo_href' , home_url( '/' ) ) ),
+            esc_attr( apply_filters( 'dokani_logo_title', get_bloginfo( 'name', 'display' ) ) ),
+            $html_attr
+        ), $logo_url, $html_attr ) );
 
 		/**
 		 * dokani_after_logo hook.
@@ -234,14 +234,14 @@ if ( ! function_exists( 'dokani_construct_site_title' ) ) {
 
 		// Site title and tagline.
 		if ( false == $disable_title || false == $disable_tagline ) {
-			echo apply_filters( 'dokani_site_branding_output', sprintf( // WPCS: XSS ok, sanitization ok.
-				'<div class="site-branding">
+			echo wp_kses_post( apply_filters( 'dokani_site_branding_output', sprintf(
+                '<div class="site-branding">
 					%1$s
 					%2$s
 				</div>',
-				( ! $disable_title ) ? $site_title : '',
-				( ! $disable_tagline ) ? $site_tagline : ''
-			) );
+                ( ! $disable_title ) ? $site_title : '',
+                ( ! $disable_tagline ) ? $site_tagline : ''
+            ) ) );
 		}
 	}
 }
@@ -287,7 +287,7 @@ if ( ! function_exists( 'dokani_top_bar' ) ) {
 						)
 					);
 				} else {
-                    echo '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Add Top Menu', 'dokani' ) . '</a>';
+                    echo '<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add Top Menu', 'dokani' ) . '</a>';
 				} ?>
 
                 <div class="dokani-user-menu">
@@ -300,7 +300,7 @@ if ( ! function_exists( 'dokani_top_bar' ) ) {
 		                    $cart_topbar = dokani_get_setting( 'cart_position_setting' );
 
 		                    if ( 'cart-topbar' == $cart_topbar){
-			                    echo dokani_cart_position();
+			                    echo wp_kses_post( dokani_cart_position() );
 		                    }
 		                    ?>
                         </ul>
@@ -334,7 +334,7 @@ if ( ! function_exists( 'dokani_add_viewport' ) ) {
 	 * @since 1.0.0
 	 */
 	function dokani_add_viewport() {
-		echo apply_filters( 'dokani_meta_viewport', '<meta name="viewport" content="width=device-width, initial-scale=1">' ); // WPCS: XSS ok.
+		echo wp_kses_post( apply_filters( 'dokani_meta_viewport', '<meta name="viewport" content="width=device-width, initial-scale=1">' ) );
 	}
 }
 
@@ -393,8 +393,8 @@ if ( ! function_exists( 'dokan_responsive_user_menu' ) ) :
 		<li id="dokane-menu-cart-wrapper">
             <a href="#" class="dropdown-toggle dokani-menu-cart" data-toggle="dropdown">
                 <i class="flaticon flaticon-commerce-1"></i>
-                <span class="screen-reader-text"><?php _e( 'Cart', 'dokani' )?></span>
-                <span class="dokan-cart-amount-top"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                <span class="screen-reader-text"><?php esc_html_e( 'Cart', 'dokani' )?></span>
+                <span class="dokan-cart-amount-top"><?php echo wp_kses_post( WC()->cart->get_cart_contents_count() ); ?></span>
             </a>
 
             <ul class="dropdown-menu">
@@ -416,19 +416,19 @@ if ( ! function_exists( 'dokan_responsive_user_menu' ) ) :
                 </a>
                 <ul class="dropdown-menu">
                     <?php if ( function_exists( 'dokan_get_page_url' ) ) { ?>
-                    <li><a href="<?php echo dokan_get_page_url( 'my_orders' ); ?>"><?php _e( 'My Orders', 'dokani' ); ?></a></li>
-                    <li><a href="<?php echo dokan_get_page_url( 'myaccount', 'woocommerce' ); ?>"><?php _e( 'My Account', 'dokani' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( dokan_get_page_url( 'my_orders' ) ); ?>"><?php esc_html_e( 'My Orders', 'dokani' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( 'myaccount', 'woocommerce' ); ?>"><?php esc_html_e( 'My Account', 'dokani' ); ?></a></li>
                     <?php } ?>
-                    <li><a href="<?php echo wc_customer_edit_account_url(); ?>"><?php _e( 'Edit Account', 'dokani' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( wc_customer_edit_account_url() ); ?>"><?php esc_html_e( 'Edit Account', 'dokani' ); ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo wc_get_endpoint_url( 'edit-address', 'billing', get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>"><?php _e( 'Billing Address', 'dokani' ); ?></a></li>
-                    <li><a href="<?php echo wc_get_endpoint_url( 'edit-address', 'shipping', get_permalink( wc_get_page_id( 'myaccount' ) ) ); ?>"><?php _e( 'Shipping Address', 'dokani' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', 'billing', get_permalink( wc_get_page_id( 'myaccount' ) ) ) ); ?>"><?php esc_html_e( 'Billing Address', 'dokani' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', 'shipping', get_permalink( wc_get_page_id( 'myaccount' ) ) ) ); ?>"><?php esc_html_e( 'Shipping Address', 'dokani' ); ?></a></li>
                     <li><?php wp_loginout( home_url() ); ?></li>
                 </ul>
             </li>
 
         <?php } else { ?>
-            <li><a href="<?php echo wc_get_page_permalink( 'myaccount', 'woocommerce' ); ?>" class="dokani-menu-login"><?php _e( 'Login / Register', 'dokani' ); ?></a></li>
+            <li><a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount', 'woocommerce' ) ); ?>" class="dokani-menu-login"><?php esc_html_e( 'Login / Register', 'dokani' ); ?></a></li>
         <?php }
 	}
 

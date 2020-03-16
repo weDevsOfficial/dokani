@@ -22,7 +22,7 @@ if ( ! function_exists( 'dokani_comment' ) ) {
 
 		<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<div class="comment-body">
-				<?php _e( 'Pingback:', 'dokani' ); // WPCS: XSS OK. ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'dokani' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php esc_html_e( 'Pingback:', 'dokani' ); ?> <?php esc_url( comment_author_link() ); ?> <?php esc_url( edit_comment_link( __( 'Edit', 'dokani' ) ), '<span class="edit-link">', '</span>' ); ?>
 			</div>
 
 		<?php else : ?>
@@ -38,12 +38,12 @@ if ( ! function_exists( 'dokani_comment' ) ) {
 
 						<div class="entry-meta comment-metadata">
 							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-								<time datetime="<?php comment_time( 'c' ); ?>" itemprop="datePublished">
-									<?php printf( // WPCS: XSS OK.
+								<time datetime="<?php esc_attr( comment_time( 'c' ) ); ?>" itemprop="datePublished">
+									<?php printf(
 										/* translators: 1: date, 2: time */
-										_x( '%1$s at %2$s', '1: date, 2: time', 'dokani' ),
-										get_comment_date(),
-										get_comment_time()
+										esc_html_x( '%1$s at %2$s', '1: date, 2: time', 'dokani' ),
+										esc_html( get_comment_date() ),
+										esc_html( get_comment_time() )
 									); ?>
 								</time>
 							</a>
@@ -61,7 +61,7 @@ if ( ! function_exists( 'dokani_comment' ) ) {
 					</div><!-- .comment-author-info -->
 
 					<?php if ( '0' == $comment->comment_approved ) : ?>
-						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'dokani' ); // WPCS: XSS OK. ?></p>
+						<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'dokani' ); ?></p>
 					<?php endif; ?>
 				</footer><!-- .comment-meta -->
 

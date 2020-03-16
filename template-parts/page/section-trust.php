@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="factor-icon">
                         <i class="<?php echo esc_attr( $dokani_trusted_fact_1_icon ); ?>"></i>
                     </div>
-                    <div class="factor-info"><?php echo $dokani_trusted_fact_1; ?></div>
+                    <div class="factor-info"><?php echo wp_kses_post( $dokani_trusted_fact_1 ); ?></div>
                 </div>
 
 			<?php }
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="factor-icon">
                         <i class="<?php echo esc_attr( $dokani_trusted_fact_2_icon ); ?>"></i>
                     </div>
-                    <div class="factor-info"><?php echo $dokani_trusted_fact_2; ?></div>
+                    <div class="factor-info"><?php echo wp_kses_post( $dokani_trusted_fact_2 ); ?></div>
                 </div>
 
 			<?php }
@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="factor-icon">
                         <i class="<?php echo esc_attr( $dokani_trusted_fact_3_icon ); ?>"></i>
                     </div>
-                    <div class="factor-info"><?php echo $dokani_trusted_fact_3; ?></div>
+                    <div class="factor-info"><?php echo wp_kses_post( $dokani_trusted_fact_3 ); ?></div>
                 </div>
 
 			<?php } ?>

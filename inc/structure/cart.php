@@ -18,7 +18,8 @@ if ( ! function_exists( 'dokani_cart_position' ) ) {
 	function dokani_cart_position() {
 	    $cart = '';
         $cart .= '<li id="dokane-menu-cart-wrapper">';
-            $cart .= '<a href="' . wc_get_cart_url() . '" class="dropdown-toggle dokani-menu-cart" data-toggle="dropdown">' . sprintf( __( 'Cart %s', 'dokani' ), '<span class="dokan-cart-amount-top">(' . WC()->cart->get_cart_total() . ')</span>' ) .'<b class="caret"></b></a>';
+        /* translators: %s: search term */
+        $cart .= '<a href="' . esc_url( wc_get_cart_url() ) . '" class="dropdown-toggle dokani-menu-cart" data-toggle="dropdown">' . sprintf( esc_html__( 'Cart %s', 'dokani' ), '<span class="dokan-cart-amount-top dokan-cart-amount">(' . wp_kses_post( WC()->cart->get_cart_total() ) . ')</span>' ) .'<b class="caret"></b></a>';
 
             $cart .= '<ul class="dropdown-menu">';
                 $cart .= '<li>';
@@ -28,7 +29,7 @@ if ( ! function_exists( 'dokani_cart_position' ) ) {
         $cart .= '</li>';
         if ( ! function_exists( 'dokan' ) ) {
 	        $cart .= '<li>';
-	        $cart .= '<a class="dokani-menu-user" href="' . wc_get_page_permalink( 'myaccount' ) . '">' . __( 'My Account', 'dokani' ) . '</a>';
+	        $cart .= '<a class="dokani-menu-user" href="' . esc_url( wc_get_page_permalink( 'myaccount' ) ) . '">' . esc_html__( 'My Account', 'dokani' ) . '</a>';
 	        $cart .= '</li>';
         }
 
@@ -44,7 +45,7 @@ if ( ! function_exists( 'dokani_add_cart_menu_after_search' ) ) {
 
 		if( 'cart-search' == $cart_topbar ) {
 			echo '<ul class="header-cart-menu no-list-style m-0">';
-			echo dokani_cart_position();
+			echo wp_kses_post( dokani_cart_position() );
 			echo '</ul>';
 		}
 	}

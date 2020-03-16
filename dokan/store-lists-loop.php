@@ -14,11 +14,11 @@
                     $featured_seller = get_user_meta( $seller->ID, 'dokan_feature_seller', true );
                     ?>
 
-                    <li class="dokan-single-seller woocommerce coloum-<?php echo $per_row; ?> <?php echo ( ! $banner_id ) ? 'no-banner-img' : ''; ?>">
+                    <li class="dokan-single-seller woocommerce coloum-<?php echo esc_attr( $per_row ); ?> <?php echo ( ! $banner_id ) ? esc_html__( 'no-banner-img', 'dokani' ) : ''; ?>">
                         <div class="store-content">
                             <div class="featured-favourite">
                                 <?php if ( ! empty( $featured_seller ) && 'yes' == $featured_seller ): ?>
-                                    <span class="featured-label"><?php _e( 'Featured', 'dokani' ); ?></span>
+                                    <span class="featured-label"><?php esc_html_e( 'Featured', 'dokani' ); ?></span>
                                 <?php endif ?>
 
                                 <?php do_action( 'dokan_seller_listing_after_featured', $seller, $store_info ); ?>
@@ -42,18 +42,18 @@
                         </div>
                         <div class="store-footer">
                             <div class="store-data">
-                                <h2><a href="<?php echo esc_url( $store_url ); ?>"><?php echo $store_name; ?></a></h2>
+                                <h2><a href="<?php echo esc_url( $store_url ); ?>"><?php echo esc_html( $store_name ); ?></a></h2>
 
-                                <?php if ( !empty( $seller_rating['count'] ) ): ?>
-                                    <div class="star-rating dokan-seller-rating" title="<?php echo sprintf( __( 'Rated %s out of 5', 'dokani' ), $seller_rating['rating'] ) ?>">
-                                        <span style="width: <?php echo ( ( $seller_rating['rating']/5 ) * 100 - 1 ); ?>%">
-                                            <strong class="rating"><?php echo $seller_rating['rating']; ?></strong> out of 5
+                                <?php if ( ! empty( $seller_rating['count'] ) ): ?>
+                                    <div class="star-rating dokan-seller-rating" title="<?php echo esc_attr( 'Rated ' . $seller_rating['rating'] . ' out of 5' ); ?>">
+                                        <span style="width: <?php echo esc_attr( ( ( $seller_rating['rating'] / 5 ) * 100 - 1 ) ); ?>%">
+                                            <strong class="rating"><?php echo esc_html( $seller_rating['rating'] ); ?></strong> <?php esc_html_e( 'out of 5', 'dokani' ); ?>
                                         </span>
                                     </div>
                                 <?php endif ?>
 
                                 <?php if ( $store_address ) : ?>
-                                    <p class="store-address"><?php echo $store_address; ?></p>
+                                    <p class="store-address"><?php echo esc_html( $store_address ); ?></p>
                                 <?php endif ?>
 
                                 <?php do_action( 'dokan_seller_listing_after_store_data', $seller, $store_info ); ?>
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="store-buttons">
-                                <a href="<?php echo esc_url( $store_url ); ?>" class="dokan-btn dokan-btn-theme"><?php _e( 'Visit Store', 'dokani' ); ?></a>
+                                <a href="<?php echo esc_url( $store_url ); ?>" class="dokan-btn dokan-btn-theme"><?php esc_html_e( 'Visit Store', 'dokani' ); ?></a>
 
 	                            <?php do_action( 'dokan_seller_listing_footer_content', $seller->data, $store_info ); ?>
                             </div>
@@ -104,7 +104,7 @@
                     $pagination_links .= "</li>\n</ul>\n";
                     $pagination_links .= '</div>';
 
-                    echo $pagination_links;
+                    echo esc_html( $pagination_links );
                 }
 
                 echo '</div>';
@@ -112,7 +112,7 @@
             ?>
 
         <?php else:  ?>
-            <p class="dokan-error"><?php _e( 'No vendor found!', 'dokani' ); ?></p>
+            <p class="dokan-error"><?php esc_html_e( 'No vendor found!', 'dokani' ); ?></p>
         <?php endif; ?>
     </div>
 </div>

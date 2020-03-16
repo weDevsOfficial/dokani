@@ -37,13 +37,13 @@ get_header(); ?>
 
 					if ( $categories ) {
 
-						foreach ( $categories as $cat ) {
-							if($cat->category_parent == 0) {
+						foreach ( $categories as $product_cat ) {
+							if($product_cat->category_parent == 0) {
 								echo '<div class="cat-wrapper">';
-								echo '<h3 class="cat-title"><a href="' . get_category_link( $cat->cat_ID ) . '">' . $cat->name . '</a></h3>';
+								echo '<h3 class="cat-title"><a href="' . esc_url( get_category_link( $product_cat->cat_ID ) ) . '">' . esc_html( $product_cat->name ) . '</a></h3>';
 
 								$args = array(
-									'child_of'   => $cat->cat_ID,
+									'child_of'   => $product_cat->cat_ID,
 								);
 
 								$sub_cats = get_terms( 'product_cat', $args );
@@ -51,7 +51,7 @@ get_header(); ?>
 								if($sub_cats){
 									echo '<ul>';
 									foreach ( $sub_cats as $sub_cat ) {
-										echo '<li><a href="' . get_category_link( $sub_cat->term_id ) . '">' . $sub_cat->name . '</a></li>';
+										echo '<li><a href="' . esc_url( get_category_link( $sub_cat->term_id ) ) . '">' . esc_html( $sub_cat->name ) . '</a></li>';
 									}
 									echo '</ul>';
 								}
@@ -60,7 +60,7 @@ get_header(); ?>
 						}
 
 					} else {
-						echo "No category found";
+						echo esc_html__( "No category found", "dokani" );
 					}
 
 					?>
