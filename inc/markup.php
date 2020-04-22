@@ -70,11 +70,11 @@ if ( ! function_exists( 'dokani_body_classes' ) ) {
 		// Get the layout
 		$layout = dokani_get_layout();
 
-		if ( is_page_template('page-template/page-sidebar-no.php') || is_page_template('page-template/page-full-width.php') ){
+		if ( is_page_template('page-template/template-sidebar-no.php') || is_page_template('page-template/template-full-width.php') ){
 			$layout = 'no-sidebar';
-		} elseif ( is_page_template('page-template/page-sidebar-left.php') ){
+		} elseif ( is_page_template('page-template/template-sidebar-left.php') ){
 			$layout = 'left-sidebar';
-		} elseif ( is_page_template('page-template/page-sidebar-right.php') ){
+		} elseif ( is_page_template('page-template/template-sidebar-right.php') ){
 			$layout = 'right-sidebar';
 		} else {
 			$layout;
@@ -143,7 +143,7 @@ if ( ! function_exists( 'dokani_body_classes' ) ) {
 			$classes[] = 'dokani-dahsboard-edit-template';
         }
 
-        if ( is_front_page() && is_page_template( 'page-template/page-home.php' ) ) {
+        if ( is_front_page() && is_page_template( 'page-template/template-home.php' ) ) {
 			$classes[] = 'dokani-template-front-page';
         }
 
@@ -289,11 +289,11 @@ if ( ! function_exists( 'dokani_content_classes' ) ) {
 		// Get the layout
 		$layout = dokani_get_layout();
 
-		if ( is_page_template('page-template/page-sidebar-no.php') || is_page_template('page-template/page-full-width.php') ){
+		if ( is_page_template('page-template/template-sidebar-no.php') || is_page_template('page-template/template-full-width.php') ){
 			$layout = 'no-sidebar';
-		} elseif ( is_page_template('page-template/page-sidebar-left.php') ){
+		} elseif ( is_page_template('page-template/template-sidebar-left.php') ){
 			$layout = 'left-sidebar';
-		} elseif ( is_page_template('page-template/page-sidebar-right.php') ){
+		} elseif ( is_page_template('page-template/template-sidebar-right.php') ){
 			$layout = 'right-sidebar';
 		} else {
 			$layout;
