@@ -49,7 +49,7 @@
             <li class="store-address">
                 <span class="title"><?php esc_html_e( 'Address:', 'dokani' ); ?></span>
                 <span class="details">
-                    <?php echo esc_html( dokan_get_seller_address( $author->ID ) ); ?>
+                    <?php echo wp_kses_post( dokan_get_seller_address( $author->ID ) ); ?>
                 </span>
             </li>
 		<?php } ?>
