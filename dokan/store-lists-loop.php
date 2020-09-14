@@ -1,7 +1,7 @@
 <div id="dokan-seller-listing-wrap">
     <div class="seller-listing-content">
         <?php if ( $sellers['users'] ) : ?>
-            <ul class="dokan-seller-list grid">
+            <ul class="dokan-seller-list">
                 <?php
                 foreach ( $sellers['users'] as $seller ) {
                     $store_info = dokan_get_store_info( $seller->ID );

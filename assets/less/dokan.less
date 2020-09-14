@@ -277,41 +277,23 @@ body.dokan-dashboard {
 #dokan-seller-listing-wrap {
     padding: 0 15px;
 
-    ul.dokan-seller-list {
-        display: grid;
-        grid-gap: 33px;
-        grid-template-columns: repeat(3, 1fr);
-        list-style: none;
-        margin: 0;
-
-
-        &.column-4 {
-            grid-template-columns: repeat(4, 1fr);
-
-            @media (max-width: @screen-sm-max) {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            @media (max-width: @screen-xs-min) {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-
-        &.grid {
-            .store-footer {
-                .store-data {
-                    .dokan-seller-rating,
-                    .store-address {
-                        display: none;
-                    }
-                }
-
-                .dokan-btn {
+    &.grid-view {
+        .store-footer {
+            .store-data {
+                .dokan-seller-rating,
+                .store-address {
                     display: none;
                 }
             }
-        }
 
-        &.list {
+            .dokan-btn {
+                display: none;
+            }
+        }
+    }
+
+    &.list-view {
+        .dokan-seller-list {
             display: block;
 
             li {
@@ -392,6 +374,26 @@ body.dokan-dashboard {
                         //.translateY(-50%);
                     }
                 }
+            }
+        }
+    }
+
+    ul.dokan-seller-list {
+        display: grid;
+        grid-gap: 33px;
+        grid-template-columns: repeat(3, 1fr);
+        list-style: none;
+        margin: 0;
+
+
+        &.column-4 {
+            grid-template-columns: repeat(4, 1fr);
+
+            @media (max-width: @screen-sm-max) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @media (max-width: @screen-xs-min) {
+                grid-template-columns: repeat(1, 1fr);
             }
         }
 
