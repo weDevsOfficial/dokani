@@ -31,7 +31,7 @@
                     <li class="divider"></li>
                     <?php
                     foreach ( $nav_urls as $key => $item ) {
-                        printf( '<li><a href="%s">%s &nbsp;%s</a></li>', esc_url( $item['url'] ), wp_kses_post( $item['icon'] ), esc_html( $item['title'] ) );
+                        printf( '<li><a href="%s">%s &nbsp;%s</a></li>', esc_url( $item['url'] ), wp_kses_post( $item['icon'] ), esc_html( strip_tags( $item['title'] ) ) );
                     }
                     ?>
                 </ul>
