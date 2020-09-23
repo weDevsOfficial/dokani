@@ -1,6 +1,6 @@
 === dokani ===
 Contributors: tareq1988, wedevs, nizamuddinbabu, sk.shaikat, mehidi258
-Tags: starter-theme, woocommerce-theme, dokan-theme, custom-background, custom-menu, featured-images, pre-made-layout, translation-ready, marketplace-compatible
+Tags: blog, e-commerce, grid-layout, three-columns, custom-colors, custom-menu, editor-style, featured-images, post-formats, theme-options, translation-ready
 Requires at least: 4.4
 Tested up to: 5.2.3
 WC requires at least: 3.0

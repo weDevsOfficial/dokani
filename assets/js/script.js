@@ -3,16 +3,16 @@ jQuery(function ($) {
     // $('a.button').removeClass('button').addClass('btn btn-danger');
 
     // store list/grid view
-    $('.dokan-seller-view.buttons > button').on('click', function (e) {
-        $(this).siblings().removeClass('active');
-        $(this).addClass('active');
-
-        if ($(this).hasClass('grid')) {
-            $('.seller-listing-content ul.dokan-seller-list').removeClass('list').addClass('grid');
-        } else if ($(this).hasClass('list')) {
-            $('.seller-listing-content ul.dokan-seller-list').removeClass('grid active').addClass('list active');
-        }
-    });
+    // $('.dokan-seller-view.buttons > button').on('click', function (e) {
+    //     $(this).siblings().removeClass('active');
+    //     $(this).addClass('active');
+    //
+    //     if ($(this).hasClass('grid')) {
+    //         $('.seller-listing-content ul.dokan-seller-list').removeClass('list').addClass('grid');
+    //     } else if ($(this).hasClass('list')) {
+    //         $('.seller-listing-content ul.dokan-seller-list').removeClass('grid active').addClass('list active');
+    //     }
+    // });
 
     // Products list/grid view
     $('.dokani-products-view.buttons > button').on('click', function (e) {

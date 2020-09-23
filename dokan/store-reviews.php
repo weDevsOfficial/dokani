@@ -37,7 +37,7 @@ get_header();
                 <div class="store-review-wrap woocommerce">
 
 					<?php
-					$dokan_template_reviews = Dokan_Pro_Reviews::init();
+					$dokan_template_reviews = dokan_pro()->review;
 					$store_user_id          = $store_user->ID;
 					$review_post_type       = 'product';
 					$review_limit           = 20;

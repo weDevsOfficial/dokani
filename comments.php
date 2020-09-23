@@ -114,7 +114,7 @@ do_action( 'dokani_before_comments' );
 	<?php endif;
 
 	$defaults = array(
-		'comment_field' => '<p class="comment-form-comment"><label for="comment" class="screen-reader-text">' . esc_html__( 'Comment', 'dokani' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+		'comment_field'        => '<p class="comment-form-comment"><label for="comment" class="screen-reader-text">' . esc_html__( 'Comment', 'dokani' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 		'comment_notes_before' => null,
 		'comment_notes_after'  => null,
 		'id_form'              => 'commentform',
