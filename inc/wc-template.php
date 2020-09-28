@@ -9,6 +9,7 @@ remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_ad
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 10 );
 remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 20 );
+remove_action( 'dokan_seller_listing_footer_content', array( Dokan_Geolocation_Vendor_View::class, 'seller_listing_footer_content' ) );
 
 add_action( 'woocommerce_before_quantity_input_field', 'dokani_quantity_label' );
 
