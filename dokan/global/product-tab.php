@@ -16,7 +16,7 @@
 
         if( $banner_id ) { ?>
             <a href="<?php echo esc_url( dokan_get_store_url( $author->ID ) ); ?>">
-                <?php echo esc_html( $banner_url ); ?>
+                <?php echo wp_kses_post( $banner_url ); ?>
             </a>
         <?php } else { ?>
             <a href="<?php echo esc_url( dokan_get_store_url( $author->ID ) ); ?>">
@@ -49,7 +49,7 @@
             <li class="store-address">
                 <span class="title"><?php esc_html_e( 'Address:', 'dokani' ); ?></span>
                 <span class="details">
-                    <?php echo esc_html( dokan_get_seller_address( $author->ID ) ); ?>
+                    <?php echo wp_kses_post( dokan_get_seller_address( $author->ID ) ); ?>
                 </span>
             </li>
 		<?php } ?>

@@ -92,7 +92,7 @@ if ( 'layout3' === $profile_layout ) {
 		                        <?php if ( ! empty( $store_address ) ) { ?>
                                     <li>
                                         <i class="fa fa-map-marker"></i>
-				                        <?php echo esc_html( $store_address ); ?>
+				                        <?php echo wp_kses_post( $store_address ); ?>
                                     </li>
 		                        <?php } ?>
 
