@@ -4,6 +4,10 @@
     color: @white;
 }
 
+body {
+    background-color: #fafafa;
+}
+
 // featured label
 .featured-label {
     font-size: 12px;
@@ -309,6 +313,23 @@ body.dokan-dashboard {
     }
 
     &.list-view {
+        .dokan-seller-rating[class] {
+            float: none !important;
+            left: 0 !important;
+            top: 0 !important;
+
+            p {
+                margin-bottom: 0;
+            }
+            
+        }
+
+        .store-data {
+            h2 {
+                margin-bottom: 5px !important;
+            }
+        }
+
         .dokan-seller-list {
             display: block;
 
@@ -388,6 +409,24 @@ body.dokan-dashboard {
                         //right: 25px;
                         //top: 50%;
                         //.translateY(-50%);
+                    }
+                }
+            }
+        }
+
+        .dokan-seller-wrap {
+            .dokan-single-seller {
+                .store-wrapper[class]{
+                    .store-header {
+                        flex-basis: 30%;
+                    }
+
+                    .store-content {
+                        flex-basis: 50%;
+                    }
+
+                    .store-footer[class] {
+                        flex-basis: 18%;
                     }
                 }
             }
@@ -817,11 +856,34 @@ body.dokan-dashboard {
         }
     }
 
+    &.layout3{
+        .profile-info-img-wrapper{
+            img {
+
+                position: initial;
+                transform: none;
+            }
+
+            &:before {
+
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background: #000;
+                opacity: .6;
+            }
+        }
+    }
+
     &.layout1:not(.default) {
         .store-banner .profile-info-box {
+
             @media (min-width: 1120px) {
                 transform: none;
-                bottom: -82px;
+                bottom: 0;
             }
             @media (max-width: 1119px) {
                 left: 20px;
@@ -836,7 +898,6 @@ body.dokan-dashboard {
                 justify-content: center;
             }
             .profile-info-summery {
-                background: transparent;
                 text-align: center;
                 align-items: center;
 
@@ -899,6 +960,7 @@ body.dokan-dashboard {
     padding: 0 15px;
     background-color: @white;
     .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.03));
+    margin-bottom: 30px;
 
     .dokan-store-tabs{
         .dokan-list-inline {
@@ -969,6 +1031,28 @@ body.dokan-dashboard {
                     //    border-color: @theme-color;
                     //}
                 }
+            }
+
+            .dokan-right {
+
+                .dokan-share-btn.dokan-btn-theme[class]  {
+                    color: #9b59b6 !important;
+                }
+
+                .dokan-btn-theme[class] {
+
+                    background: none !important;
+                    border: 0 !important;
+                    color: #222 !important;
+                    font-weight: 400;
+
+                    &:hover {
+                        background: #f2624d !important;
+                        color: #fff !important;
+                    }
+
+                }
+                
             }
         }
     }
@@ -1072,7 +1156,7 @@ body.dokan-dashboard {
             input,
             textarea {
                 .rounded(3px);
-                border: 2px solid @border-color;
+                border: 2px solid #ecf1f5;
                 background-color: transparent;
                 padding: 9px 15px;
             }
@@ -1248,6 +1332,7 @@ Product Style
                 img {
                     border-bottom: 0px;
                     display: inline-block;
+                    // width: auto;
 
                     @media (max-width: 767px) {
                        height: auto !important;
@@ -1296,4 +1381,98 @@ Product Style
         }
         
     }
+}
+
+.single-product {
+    @media (max-width: 767px) {
+        .woocommerce-product-gallery {
+            width: 100% !important;
+            padding: 0 12px;
+        }
+
+        .summary {
+            width: 100% !important;
+            padding: 0 12px;
+        }
+    }
+}
+
+.woocommerce {
+    .product {
+        div.images .flex-control-thumbs[class] {
+            margin: 12px 0;
+            display: flex;
+            padding: 0 0px 0 0;
+        
+            img {
+                width: 80px;
+                display: inline-block;
+            }
+        }
+        
+        .price[class] {
+            del {
+                color: #dee0ee;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.quantity[class] {
+
+    .meta-title {
+        font-size: 1rem;
+        line-height: 1.2em;
+        font-weight: 500;
+        color: #333e48;
+        margin-top: 5px;
+        margin-right: 20px;
+
+    }
+
+    .quantity_wrap[class] {
+        display: inline-flex;
+        background: #fff;
+        align-items: center;
+        padding: 0 18px 0 3px;
+        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+        width: 176px;
+        height: 50px;
+        justify-content: space-between;
+        border-radius: 5px;
+        margin-bottom: 12px;
+
+        input {
+            box-shadow: none;
+            margin-right: 8px;
+        }
+
+        .quantity-btn {
+            line-height: 100%;
+            margin-top: 2px;
+
+
+            span {
+                border: 2px solid #edf2f5;
+                padding: 0px 11px;
+                margin-left: -5px;
+                cursor: pointer;
+                color: #ee624c;
+                font-size: 20px;
+                line-height: 0;
+                font-weight: 600;
+
+                &.plus {
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                }
+                &.minus {
+                    border-top-right-radius: 4px;
+                    border-bottom-right-radius: 4px;
+                }
+            }
+        }
+    }
+    
 }
