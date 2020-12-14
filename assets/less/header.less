@@ -690,6 +690,11 @@
 /* = Site Header
 ----------------------------------------------- */
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .nav-below-header {
     .inside-navigation {
         //padding: 0 40px;
@@ -732,6 +737,21 @@
     }
 }
 
+.header-right {
+    .header-widget {
+        form {
+            position: relative;
+        }
+        
+        .search-submit {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+
 .site-header {
     position:relative;
     .box-shadow(-0.559px 0.829px 10px 0px rgba(202, 210, 240, 0.3));
@@ -752,9 +772,18 @@
         .header-left {
             display: flex;
             align-items: center;
-            width: 25%;
+            width: 20%;
             padding-right: 2%;
             box-sizing: border-box;
+
+            img {
+                max-height: 71px;
+
+            }
+
+            a {
+                display: block
+            }
         }
 
         .header-right {

@@ -111,6 +111,24 @@ jQuery(function ($) {
         }
     } )
 
+    // quantity product single page
+    $(document).on('click', '.quantity-btn .plus', function(e) {
+        $input = $(this).parents('.quantity_wrap').children('input.qty');
+        var val = parseInt($input.val());
+        var step = $input.attr('step');
+        step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
+        $input.val( val + step ).change();
+    });
+    $(document).on('click', '.quantity-btn .minus', function(e) {
+        $input = $(this).parents('.quantity_wrap').children('input.qty');
+        var val = parseInt($input.val());
+        var step = $input.attr('step');
+        step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
+        if (val > 0) {
+            $input.val( val - step ).change();
+        } 
+    });
+
 });
 
 

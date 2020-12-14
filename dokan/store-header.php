@@ -49,7 +49,7 @@ if ( 'layout3' === $profile_layout ) {
             <?php endif; ?>
         </div> <!-- .profile-info-img-wrapper -->
 
-        <div class="profile-info-box profile-layout-<?php echo esc_attr( $profile_layout ); ?>" style="background-image: url('<?php echo esc_url( $store_user->get_banner() ); ?>')">
+        <div class="profile-info-box profile-layout-<?php echo esc_attr( $profile_layout ); ?>">
             <div class="grid-container">
                 <div class="profile-info-summery">
                     <div class="profile-info-head">
@@ -92,7 +92,7 @@ if ( 'layout3' === $profile_layout ) {
 		                        <?php if ( ! empty( $store_address ) ) { ?>
                                     <li>
                                         <i class="fa fa-map-marker"></i>
-				                        <?php echo esc_html( $store_address ); ?>
+				                        <?php echo wp_kses_post( $store_address ); ?>
                                     </li>
 		                        <?php } ?>
 
