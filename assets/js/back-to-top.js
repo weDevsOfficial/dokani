@@ -4,7 +4,7 @@
     // Feature Test
 	if ( 'querySelector' in document && 'addEventListener' in window ) {
 
-		var goTopBtn = document.querySelector( '.dokanee-back-to-top' );
+		var goTopBtn = document.querySelector( '.dokani-back-to-top' );
 
 		var trackScroll = function() {
 			var scrolled = window.pageYOffset;

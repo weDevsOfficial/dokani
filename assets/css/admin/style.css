@@ -1,14 +1,14 @@
-.js .dokanee-metabox.postbox .hndle {
+.js .dokani-metabox.postbox .hndle {
 	cursor: inherit;
 }
 
-.dokanee-metabox .clear {
+.dokani-metabox .clear {
 	padding-top: 10px;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #DDD;
 }
 
-.dokanee-metabox .clear:after {
+.dokani-metabox .clear:after {
   content: "";
   display: table;
   clear: both;
@@ -101,12 +101,12 @@
 	text-decoration: none;
 }
 
-.appearance_page_dokanee-options #wpcontent,
-.appearance_page_dokanee-options #wpbody-content .metabox-holder {
+.appearance_page_dokani-options #wpcontent,
+.appearance_page_dokani-options #wpbody-content .metabox-holder {
 	padding: 0;
 }
 
-.appearance_page_dokanee-options .wrap {
+.appearance_page_dokani-options .wrap {
 	margin-top: 0;
 	margin-left: 0;
 	margin-right: 0;

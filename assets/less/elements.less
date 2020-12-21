@@ -1,0 +1,140 @@
+
+
+.social-follow-list {
+    list-style: none;
+    margin-left: -3px;
+
+    li {
+        display: inline-block;
+        
+        a {
+            border-radius: 50%;
+            background-color: #c6c8d5;
+            color: @white !important;
+            width: 27px;
+            height: 27px;
+            text-align: center;
+            display: block;
+            line-height: 27px;
+            margin: 3px;
+
+            &:hover {
+                color: @theme-color !important;
+            }
+        }
+    }
+}
+
+/* = Page Header
+----------------------------------------------- */
+
+.page-header {
+    margin: 0 0 30px 0;
+
+    .page-title {
+        font-size: 35px;
+        line-height: 1.3em;
+        font-weight: 400;
+
+        a {
+            color: @post-title-color;
+
+            &:hover {
+                color: @theme-color;
+            }
+        }
+    }
+}
+
+/* = Section Trust Factors
+----------------------------------------------- */
+.trust-factors-section {
+    //#gradient>.directional(#FFAD6F, #FF7D90, 85deg);
+    padding: 47px 40px;
+
+    .grid-container {
+        padding: 0;
+
+        .factor-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px;
+
+            @media (max-width: @screen-md-max) {
+                grid-gap: 15px;
+            }
+            
+            @media (max-width: @screen-xs-max) {
+                display: block;
+            }
+
+            .factor-box {
+                font-size: 18px;
+                font-weight: 400;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+
+                @media (max-width: @screen-xs-max) {
+                    margin-bottom: 20px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .factor-icon {
+                    width: 64px;
+                    height: 64px;
+                    .rounded(50%);
+                    font-size: 25px;
+                    text-align: center;
+                    position: relative;
+                    margin-right: 28px;
+
+                    i {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        .translate(-50%, -50%);
+
+                        &:before {
+                            font-size: 21px;
+                            line-height: 1.5em;
+                        }
+
+                        &.flaticon-transport:before {
+                            font-size: 30px;
+                        }
+                        &.flaticon-business-2:before {
+                            font-size: 27px;
+                        }
+                    }
+                }
+
+                .factor-info {
+                    width: 42%;
+
+                    @media (max-width: @screen-sm-max) {
+                        font-size: 15px;
+                        width: 60%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* = Full Width Page Layout
+----------------------------------------------- */
+
+.page-template-page-full-width {
+
+    &.separate-containers .site-main {
+        margin: 0;
+
+        > * {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -2,40 +2,40 @@
 /**
  * Migrates old options on update.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_action( 'admin_init', 'dokanee_do_db_updates' );
+add_action( 'admin_init', 'dokani_do_db_updates' );
 /**
  * Process database updates if necessary.
  * There's nothing in here yet, but we're setting the version to use later.
  *
- * @since 2.1
+ * @since 1.0.0
  */
-function dokanee_do_db_updates() {
+function dokani_do_db_updates() {
 	// Get the current version.
-	$current_version = get_option( 'dokanee_db_version', false );
+	$current_version = get_option( 'dokani_db_version', false );
 
 	// Process future database updates here.
 
 	// Set the new database version.
 	if ( version_compare( $current_version, GENERATE_VERSION, '<' ) ) {
-		update_option( 'dokanee_db_version', GENERATE_VERSION, false );
+		update_option( 'dokani_db_version', GENERATE_VERSION, false );
 	}
 }
 
-if ( ! function_exists( 'dokanee_update_logo_setting' ) ) {
-	add_action( 'admin_init', 'dokanee_update_logo_setting' );
+if ( ! function_exists( 'dokani_update_logo_setting' ) ) {
+	add_action( 'admin_init', 'dokani_update_logo_setting' );
 	/**
 	 * Migrate the old logo database entry to the new custom_logo theme mod (WordPress 4.5)
 	 *
-	 * @since 1.3.29
+	 * @since 1.0.0
 	 */
-	function dokanee_update_logo_setting() {
+	function dokani_update_logo_setting() {
 		// If we're not running WordPress 4.5, bail.
 		if ( ! function_exists( 'the_custom_logo' ) ) {
 			return;
@@ -47,13 +47,13 @@ if ( ! function_exists( 'dokanee_update_logo_setting' ) ) {
 		}
 
 		// Get our settings.
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
 
 		// Get the old logo value.
-		$old_value = $dokanee_settings['logo'];
+		$old_value = $dokani_settings['logo'];
 
 		// If there's no old value, bail.
 		if ( empty( $old_value ) ) {
@@ -73,38 +73,38 @@ if ( ! function_exists( 'dokanee_update_logo_setting' ) ) {
 		// Got our custom logo? Time to delete the old value
 		if ( get_theme_mod( 'custom_logo' ) ) {
 			$new_settings[ 'logo' ] = '';
-			$update_settings = wp_parse_args( $new_settings, $dokanee_settings );
-			update_option( 'dokanee_settings', $update_settings );
+			$update_settings = wp_parse_args( $new_settings, $dokani_settings );
+			update_option( 'dokani_settings', $update_settings );
 		}
 	}
 }
 
-if ( ! function_exists( 'dokanee_typography_convert_values' ) ) {
-	add_action( 'admin_init', 'dokanee_typography_convert_values' );
+if ( ! function_exists( 'dokani_typography_convert_values' ) ) {
+	add_action( 'admin_init', 'dokani_typography_convert_values' );
 	/**
 	 * Take the old body font value and strip it of variants
 	 * This should only run once
-	 * @since 1.3.0
+	 * @since 1.0.0
 	 */
-	function dokanee_typography_convert_values() {
+	function dokani_typography_convert_values() {
 		// Don't run this if Typography add-on is activated
-		if ( function_exists( 'dokanee_fonts_customize_register' ) ) {
+		if ( function_exists( 'dokani_fonts_customize_register' ) ) {
 			return;
 		}
 
 		// If we've done this before, bail
-		if ( 'true' == get_option( 'dokanee_update_core_typography' ) || 'true' == get_option( 'dokanee_update_premium_typography' ) ) {
+		if ( 'true' == get_option( 'dokani_update_core_typography' ) || 'true' == get_option( 'dokani_update_premium_typography' ) ) {
 			return;
 		}
 
 		// Get all settings
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_default_fonts()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_default_fonts()
 		);
 
 		// Get our body font family setting
-		$value = $dokanee_settings[ 'font_body' ];
+		$value = $dokani_settings[ 'font_body' ];
 
 		// Create a new, empty array
 		$new_settings = array();
@@ -122,42 +122,42 @@ if ( ! function_exists( 'dokanee_typography_convert_values' ) ) {
 
 		// Update our options if our new array isn't empty
 		if ( ! empty( $new_settings ) ) {
-			$dokanee_new_typography_settings = wp_parse_args( $new_settings, $dokanee_settings );
-			update_option( 'dokanee_settings', $dokanee_new_typography_settings );
+			$dokani_new_typography_settings = wp_parse_args( $new_settings, $dokani_settings );
+			update_option( 'dokani_settings', $dokani_new_typography_settings );
 		}
 
 		// All done, set an option so we don't go through this again
-		update_option( 'dokanee_update_core_typography','true' );
+		update_option( 'dokani_update_core_typography','true' );
 	}
 }
 
-if ( ! function_exists( 'dokanee_typography_set_font_data' ) ) {
-	add_action( 'admin_init', 'dokanee_typography_set_font_data' );
+if ( ! function_exists( 'dokani_typography_set_font_data' ) ) {
+	add_action( 'admin_init', 'dokani_typography_set_font_data' );
 	/**
 	 * This function will check to see if your category and variants are saved
 	 * If not, it will set them for you
 	 * Generally, set_theme_mod isn't best practice, but this is here for migration purposes for a set amount of time only
 	 * Any time a user saves a font in the Customizer from now on, the category and variants are saved as theme_mods, so this function won't be necessary.
 	 *
-	 * @since 1.3.40
+	 * @since 1.0.0
 	 */
-	function dokanee_typography_set_font_data() {
+	function dokani_typography_set_font_data() {
 		// Get our defaults
-		$defaults = dokanee_get_default_fonts();
+		$defaults = dokani_get_default_fonts();
 
 		// Get our settings
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
 			$defaults
 		);
 
 		// We don't need to do this if we're using the default font, as these values have defaults already
-		if ( $defaults[ 'font_body' ] == $dokanee_settings[ 'font_body' ] ) {
+		if ( $defaults[ 'font_body' ] == $dokani_settings[ 'font_body' ] ) {
 			return;
 		}
 
 		// Don't need to continue if we're using a system font or our default font
-		if ( in_array( $dokanee_settings[ 'font_body' ], dokanee_typography_default_fonts() ) ) {
+		if ( in_array( $dokani_settings[ 'font_body' ], dokani_typography_default_fonts() ) ) {
 			return;
 		}
 
@@ -167,10 +167,10 @@ if ( ! function_exists( 'dokanee_typography_set_font_data' ) ) {
 		}
 
 		// Get all of our fonts
-		$fonts = dokanee_get_all_google_fonts();
+		$fonts = dokani_get_all_google_fonts();
 
 		// Get the ID from our font
-		$id = strtolower( str_replace( ' ', '_', $dokanee_settings[ 'font_body' ] ) );
+		$id = strtolower( str_replace( ' ', '_', $dokani_settings[ 'font_body' ] ) );
 
 		// If the ID doesn't exist within our fonts, we can bail
 		if ( ! array_key_exists( $id, $fonts ) ) {
@@ -203,7 +203,7 @@ if ( ! function_exists( 'dokanee_typography_set_font_data' ) ) {
 	}
 }
 
-add_action( 'admin_init', 'dokanee_migrate_existing_settings', 1 );
+add_action( 'admin_init', 'dokani_migrate_existing_settings', 1 );
 /**
  * Execute functions after existing sites update.
  *
@@ -213,11 +213,11 @@ add_action( 'admin_init', 'dokanee_migrate_existing_settings', 1 );
  * We run this right away in the Dashboard to avoid other migration functions from
  * setting options and causing these functions to run on fresh installs.
  *
- * @since 2.0
+ * @since 1.0.0
  */
-function dokanee_migrate_existing_settings() {
+function dokani_migrate_existing_settings() {
 	// Existing settings with no defaults.
-	$existing_settings = get_option( 'dokanee_settings' );
+	$existing_settings = get_option( 'dokani_settings' );
 
 	if ( get_theme_mod( 'font_body_variants', '' ) ) {
 		$existing_settings['font_body_variants'] = get_theme_mod( 'font_body_variants' );
@@ -229,8 +229,8 @@ function dokanee_migrate_existing_settings() {
 
 	// Existing settings with defaults.
 	$settings = wp_parse_args(
-		get_option( 'dokanee_settings', array() ),
-		dokanee_get_defaults()
+		get_option( 'dokani_settings', array() ),
+		dokani_get_defaults()
 	);
 
 	// Empty arrays to add data to.
@@ -238,7 +238,7 @@ function dokanee_migrate_existing_settings() {
 	$new_settings = array();
 
 	// An option to see what we've migrated.
-	$migration_settings = get_option( 'dokanee_migration_settings', array() );
+	$migration_settings = get_option( 'dokani_migration_settings', array() );
 
 	// We have settings, so this isn't a fresh install.
 	if ( ! empty( $existing_settings ) ) {
@@ -255,8 +255,8 @@ function dokanee_migrate_existing_settings() {
 
 		// Set our font family to Open Sans if we never saved a different font.
 		if ( ! isset( $migration_settings['default_font_updated'] ) || 'true' !== $migration_settings['default_font_updated'] ) {
-			$dokanee_settings = wp_parse_args(
-				get_option( 'dokanee_settings', array() ),
+			$dokani_settings = wp_parse_args(
+				get_option( 'dokani_settings', array() ),
 				array(
 					'font_body' => 'Open Sans',
 				)
@@ -265,7 +265,7 @@ function dokanee_migrate_existing_settings() {
 			$category = get_theme_mod( 'font_body_category', 'sans-serif' );
 			$variants = get_theme_mod( 'font_body_variants', '300,300italic,regular,italic,600,600italic,700,700italic,800,800italic' );
 
-			if ( 'Open Sans' == $dokanee_settings['font_body'] ) {
+			if ( 'Open Sans' == $dokani_settings['font_body'] ) {
 				$new_settings[ 'font_body' ] = 'Open Sans';
 				set_theme_mod( 'font_body_category', $category );
 				set_theme_mod( 'font_body_variants', $variants );
@@ -290,12 +290,12 @@ function dokanee_migrate_existing_settings() {
 	// Merge our new settings with our existing settings.
 	if ( ! empty( $new_settings ) ) {
 		$update_settings = wp_parse_args( $new_settings, $settings );
-		update_option( 'dokanee_settings', $update_settings );
+		update_option( 'dokani_settings', $update_settings );
 	}
 
 	// Set our migrated setting flags.
 	if ( ! empty( $migrated_flags ) ) {
 		$update_migration_flags = wp_parse_args( $migrated_flags, $migration_settings );
-		update_option( 'dokanee_migration_settings', $update_migration_flags );
+		update_option( 'dokani_migration_settings', $update_migration_flags );
 	}
 }

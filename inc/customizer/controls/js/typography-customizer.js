@@ -4,7 +4,7 @@
 		ready: function() {
 			var control = this;
 
-			control.container.on( 'change', '.dokanee-font-family select',
+			control.container.on( 'change', '.dokani-font-family select',
 				function() {
 					var _this = jQuery( this ),
 						_value = _this.val(),
@@ -20,12 +20,12 @@
 					}
 
 					setTimeout( function() {
-						// Send our request to the dokanee_get_all_google_fonts_ajax function
+						// Send our request to the dokani_get_all_google_fonts_ajax function
 						var response = jQuery.getJSON({
 							type: 'POST',
 							url: ajaxurl,
 							data: {
-								action: 'dokanee_get_all_google_fonts_ajax',
+								action: 'dokani_get_all_google_fonts_ajax',
 								gp_customize_nonce: gp_customize.nonce
 							},
 							async: false,
@@ -43,19 +43,19 @@
 
 							// Get existing variants if this font is already selected
 							var got_variants = false;
-							jQuery( '.dokanee-font-family select' ).not( _this ).each( function( key, select ) {
-								var parent = jQuery( this ).closest( '.dokanee-font-family' );
+							jQuery( '.dokani-font-family select' ).not( _this ).each( function( key, select ) {
+								var parent = jQuery( this ).closest( '.dokani-font-family' );
 
 								if ( _value == jQuery( select ).val() && _this.data( 'category' ) !== jQuery( select ).data( 'category' ) ) {
 									if ( ! got_variants ) {
-										updated_variants = jQuery( parent.next( '.dokanee-font-variant' ).find( 'select' ) ).val();
+										updated_variants = jQuery( parent.next( '.dokani-font-variant' ).find( 'select' ) ).val();
 										got_variants = true;
 									}
 								}
 							} );
 
 							// We're using a Google font, so show the variants field
-							_this.closest( '.dokanee-font-family' ).next( 'div' ).show();
+							_this.closest( '.dokani-font-family' ).next( 'div' ).show();
 
 							// Remove existing variants
 							jQuery( 'select[name="' + _variantsID + '"]' ).find( 'option' ).remove();
@@ -76,7 +76,7 @@
 							control.settings[ 'category' ].set( fonts[ id ].category );
 							jQuery( 'input[name="' + _categoryID + '"' ).val( fonts[ id ].category );
 						} else {
-							_this.closest( '.dokanee-font-family' ).next( 'div' ).hide();
+							_this.closest( '.dokani-font-family' ).next( 'div' ).hide();
 							control.settings[ 'category' ].set( '' )
 							control.settings[ 'variant' ].set( '' )
 							jQuery( 'input[name="' + _categoryID + '"' ).val( '' );
@@ -86,16 +86,16 @@
 				}
 			);
 
-			control.container.on( 'change', '.dokanee-font-variant select',
+			control.container.on( 'change', '.dokani-font-variant select',
 				function() {
 					var _this = jQuery( this );
 					var variants = _this.val();
 
 					control.settings['variant'].set( variants );
 
-					jQuery( '.dokanee-font-variant select' ).each( function( key, value ) {
+					jQuery( '.dokani-font-variant select' ).each( function( key, value ) {
 						var this_control = jQuery( this ).closest( 'li' ).attr( 'id' ).replace( 'customize-control-', '' );
-						var parent = jQuery( this ).closest( '.dokanee-font-variant' );
+						var parent = jQuery( this ).closest( '.dokani-font-variant' );
 						var font_val = api.control( this_control ).settings['family'].get();
 
 						if ( font_val == control.settings['family'].get() && _this.attr( 'name' ) !== jQuery( value ).attr( 'name' ) ) {
@@ -106,19 +106,19 @@
 				}
 			);
 
-			control.container.on( 'change', '.dokanee-font-category input',
+			control.container.on( 'change', '.dokani-font-category input',
 				function() {
 					control.settings['category'].set( jQuery( this ).val() );
 				}
 			);
 
-			control.container.on( 'change', '.dokanee-font-weight select',
+			control.container.on( 'change', '.dokani-font-weight select',
 				function() {
 					control.settings['weight'].set( jQuery( this ).val() );
 				}
 			);
 
-			control.container.on( 'change', '.dokanee-font-transform select',
+			control.container.on( 'change', '.dokani-font-transform select',
 				function() {
 					control.settings['transform'].set( jQuery( this ).val() );
 				}
@@ -131,8 +131,8 @@
 
 jQuery( document ).ready( function($) {
 
-	jQuery( '.dokanee-font-family select' ).selectWoo();
-	jQuery( '.dokanee-font-variant' ).each( function( key, value ) {
+	jQuery( '.dokani-font-family select' ).selectWoo();
+	jQuery( '.dokani-font-variant' ).each( function( key, value ) {
 		var _this = $( this );
 		var value = _this.data( 'saved-value' );
 		if ( value ) {
@@ -141,10 +141,10 @@ jQuery( document ).ready( function($) {
 		_this.find( 'select' ).selectWoo().val( value ).trigger( 'change.select2' );
 	} );
 
-	$( ".dokanee-font-family" ).each( function( key, value ) {
+	$( ".dokani-font-family" ).each( function( key, value ) {
 		var _this = $( this );
 		if ( $.inArray( _this.find( 'select' ).val(), typography_defaults ) !== -1 ) {
-			_this.next( '.dokanee-font-variant' ).hide();
+			_this.next( '.dokani-font-variant' ).hide();
 		}
 	});
 

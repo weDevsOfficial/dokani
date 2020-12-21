@@ -2,51 +2,39 @@
 /**
  * Typography related functions.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_enqueue_google_fonts' ) ) {
-	add_action( 'wp_enqueue_scripts', 'dokanee_enqueue_google_fonts', 0 );
+if ( ! function_exists( 'dokani_enqueue_google_fonts' ) ) {
+	add_action( 'wp_enqueue_scripts', 'dokani_enqueue_google_fonts', 0 );
 	/**
 	 * Add Google Fonts to wp_head if needed.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_enqueue_google_fonts() {
+	function dokani_enqueue_google_fonts() {
 
 		if ( is_admin() ) {
 			return;
 		}
 
 		// Grab our options
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_default_fonts()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_default_fonts()
 		);
 
 		// List our non-Google fonts
-		$not_google = str_replace( ' ', '+', dokanee_typography_default_fonts() );
+		$not_google = str_replace( ' ', '+', dokani_typography_default_fonts() );
 
 		// Grab our font family settings
 		$font_settings = array(
 			'font_body',
-			'font_top_bar',
-			'font_site_title',
-			'font_site_tagline',
-			'font_navigation',
-			'font_widget_title',
-			'font_buttons',
-			'font_heading_1',
-			'font_heading_2',
-			'font_heading_3',
-			'font_heading_4',
-			'font_heading_5',
-			'font_heading_6',
-			'font_footer',
+			'font_heading'
 		);
 
 		// Create our Google Fonts array
@@ -56,20 +44,20 @@ if ( ! function_exists( 'dokanee_enqueue_google_fonts' ) ) {
 			foreach ( $font_settings as $key ) {
 
 				// If the key isn't set, move on
-				if ( ! isset( $dokanee_settings[$key] ) ) {
+				if ( ! isset( $dokani_settings[$key] ) ) {
 					continue;
 				}
 
 				// If our value is still using the old format, fix it
-				if ( strpos( $dokanee_settings[$key], ':' ) !== false ) {
-					$dokanee_settings[$key] = current( explode( ':', $dokanee_settings[$key] ) );
+				if ( strpos( $dokani_settings[$key], ':' ) !== false ) {
+					$dokani_settings[$key] = current( explode( ':', $dokani_settings[$key] ) );
 				}
 
 				// Replace the spaces in the names with a plus
-				$value = str_replace( ' ', '+', $dokanee_settings[$key] );
+				$value = str_replace( ' ', '+', $dokani_settings[$key] );
 
 				// Grab the variants using the plain name
-				$variants = dokanee_get_google_font_variants( $dokanee_settings[$key], $key );
+				$variants = dokani_get_google_font_variants( $dokani_settings[$key], $key );
 
 				// If we have variants, add them to our value
 				$value = ! empty( $variants ) ? $value . ':' . $variants : $value;
@@ -90,10 +78,10 @@ if ( ! function_exists( 'dokanee_enqueue_google_fonts' ) ) {
 		$google_fonts = implode( '|', $google_fonts );
 
 		// Apply a filter to the output
-		$google_fonts = apply_filters( 'dokanee_typography_google_fonts', $google_fonts );
+		$google_fonts = apply_filters( 'dokani_typography_google_fonts', $google_fonts );
 
 		// Get the subset
-		$subset = apply_filters( 'dokanee_fonts_subset','' );
+		$subset = apply_filters( 'dokani_fonts_subset','' );
 
 		// Set up our arguments
 		$font_args = array();
@@ -107,46 +95,47 @@ if ( ! function_exists( 'dokanee_enqueue_google_fonts' ) ) {
 
 		// Enqueue our fonts
 		if ( $google_fonts ) {
-			wp_enqueue_style('dokanee-fonts', $fonts_url, array(), null, 'all' );
+			wp_enqueue_style('dokani-fonts', $fonts_url, array(), null, 'all' );
 		}
 	}
 }
 
-if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
-	add_action( 'customize_register', 'dokanee_default_fonts_customize_register' );
+if ( ! function_exists( 'dokani_default_fonts_customize_register' ) ) {
+	add_action( 'customize_register', 'dokani_default_fonts_customize_register' );
 	/**
 	 * Build our Typography options
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_default_fonts_customize_register( $wp_customize ) {
-		if ( function_exists( 'dokanee_fonts_customize_register' ) ) {
+	function dokani_default_fonts_customize_register( $wp_customize ) {
+		if ( function_exists( 'dokani_fonts_customize_register' ) ) {
 			// Bail if GP Premium is active
 			return;
 		}
 
-		// Load helpers
-		require_once trailingslashit( get_template_directory() ) . 'inc/customizer/customizer-helpers.php';
-
-		$defaults = dokanee_get_default_fonts();
+		$defaults = dokani_get_default_fonts();
 
 		if ( method_exists( $wp_customize,'register_control_type' ) ) {
 			$wp_customize->register_control_type( 'Generate_Typography_Customize_Control' );
 			$wp_customize->register_control_type( 'Generate_Range_Slider_Control' );
 		}
 
+		/**
+		 * Add Base Typography Section
+		 */
 		$wp_customize->add_section(
-			'font_section',
+			'base_typo_section',
 			array(
-				'title' => __( 'Typography', 'dokanee' ),
+				'title' => __( 'Base Typography', 'dokani' ),
 				'capability' => 'edit_theme_options',
 				'description' => '',
-				'priority' => 30
+				'priority' => 1,
+				'panel'      => $wp_customize->get_panel( 'dokani_typography_panel' ) ? 'dokani_typography_panel' : false,
 			)
 		);
 
 		$wp_customize->add_setting(
-			'dokanee_settings[font_body]',
+			'dokani_settings[font_body]',
 			array(
 				'default' => $defaults['font_body'],
 				'type' => 'option',
@@ -166,12 +155,12 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 			'font_body_variants',
 			array(
 				'default' => $defaults['font_body_variants'],
-				'sanitize_callback' => 'dokanee_sanitize_variants'
+				'sanitize_callback' => 'dokani_sanitize_variants'
 			)
 		);
 
 		$wp_customize->add_setting(
-			'dokanee_settings[body_font_weight]',
+			'dokani_settings[body_font_weight]',
 			array(
 				'default' => $defaults['body_font_weight'],
 				'type' => 'option',
@@ -181,7 +170,7 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 		);
 
 		$wp_customize->add_setting(
-			'dokanee_settings[body_font_transform]',
+			'dokani_settings[body_font_transform]',
 			array(
 				'default' => $defaults['body_font_transform'],
 				'type' => 'option',
@@ -196,25 +185,322 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 				$wp_customize,
 				'body_typography',
 				array(
-					'section' => 'font_section',
+					'section' => 'base_typo_section',
 					'priority' => 1,
 					'settings' => array(
-						'family' => 'dokanee_settings[font_body]',
+						'family' => 'dokani_settings[font_body]',
 						'variant' => 'font_body_variants',
 						'category' => 'font_body_category',
-						'weight' => 'dokanee_settings[body_font_weight]',
-						'transform' => 'dokanee_settings[body_font_transform]',
+						'weight' => 'dokani_settings[body_font_weight]',
+						'transform' => 'dokani_settings[body_font_transform]',
 					),
 				)
 			)
 		);
 
+
+		/**
+		 * Add Heading Typography Section
+		 */
+		$wp_customize->add_section(
+			'heading_typo_section',
+			array(
+				'title' => __( 'Headings', 'dokani' ),
+				'capability' => 'edit_theme_options',
+				'description' => '',
+				'priority' => 2,
+				'panel'      => $wp_customize->get_panel( 'dokani_typography_panel' ) ? 'dokani_typography_panel' : false,
+			)
+		);
+
 		$wp_customize->add_setting(
-			'dokanee_settings[body_font_size]',
+			'dokani_settings[font_heading]',
+			array(
+				'default' => $defaults['font_heading'],
+				'type' => 'option',
+				'sanitize_callback' => 'sanitize_text_field'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'font_heading_category',
+			array(
+				'default' => $defaults['font_heading_category'],
+				'sanitize_callback' => 'sanitize_text_field'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'font_heading_variants',
+			array(
+				'default' => $defaults['font_heading_variants'],
+				'sanitize_callback' => 'dokani_sanitize_variants'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokani_settings[heading_font_weight]',
+			array(
+				'default' => $defaults['heading_font_weight'],
+				'type' => 'option',
+				'sanitize_callback' => 'sanitize_key',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokani_settings[heading_font_transform]',
+			array(
+				'default' => $defaults['heading_font_transform'],
+				'type' => 'option',
+				'sanitize_callback' => 'sanitize_key',
+				'transport' => 'refresh'
+
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Typography_Customize_Control(
+				$wp_customize,
+				'heading_typography',
+				array(
+					'section'   => 'heading_typo_section',
+					'priority'  => 1,
+					'settings'  => array(
+						'family'    => 'dokani_settings[font_heading]',
+						'variant'   => 'font_heading_variants',
+						'category'  => 'font_heading_category',
+						'weight'    => 'dokani_settings[heading_font_weight]',
+						'transform' => 'dokani_settings[heading_font_transform]',
+					),
+				)
+			)
+		);
+
+
+		$wp_customize->add_setting(
+			'dokani_settings[heading_1_font_size]',
+			array(
+				'default' => $defaults['heading_1_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokani_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokani_settings[heading_1_font_size]',
+				array(
+					'type' => 'dokani-range-slider',
+					'description' => __( 'Heading 1 Font size', 'dokani' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokani_settings[heading_1_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 2,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokani_settings[heading_2_font_size]',
+			array(
+				'default' => $defaults['heading_2_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokani_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokani_settings[heading_2_font_size]',
+				array(
+					'type' => 'dokani-range-slider',
+					'description' => __( 'Heading 2 Font size', 'dokani' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokani_settings[heading_2_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 3,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokani_settings[heading_3_font_size]',
+			array(
+				'default' => $defaults['heading_3_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokani_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokani_settings[heading_3_font_size]',
+				array(
+					'type' => 'dokani-range-slider',
+					'description' => __( 'Heading 3 Font size', 'dokani' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokani_settings[heading_3_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 4,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokani_settings[heading_4_font_size]',
+			array(
+				'default' => $defaults['heading_4_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokani_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokani_settings[heading_4_font_size]',
+				array(
+					'type' => 'dokani-range-slider',
+					'description' => __( 'Heading 4 Font size', 'dokani' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokani_settings[heading_4_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 5,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokani_settings[heading_5_font_size]',
+			array(
+				'default' => $defaults['heading_5_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokani_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokani_settings[heading_5_font_size]',
+				array(
+					'type' => 'dokani-range-slider',
+					'description' => __( 'Heading 5 Font size', 'dokani' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokani_settings[heading_5_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 6,
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'dokani_settings[heading_6_font_size]',
+			array(
+				'default' => $defaults['heading_6_font_size'],
+				'type' => 'option',
+				'sanitize_callback' => 'dokani_sanitize_integer',
+				'transport' => 'refresh'
+			)
+		);
+
+		$wp_customize->add_control(
+			new Generate_Range_Slider_Control(
+				$wp_customize,
+				'dokani_settings[heading_6_font_size]',
+				array(
+					'type' => 'dokani-range-slider',
+					'description' => __( 'Heading 6 Font size', 'dokani' ),
+					'section' => 'heading_typo_section',
+					'settings' => array(
+						'desktop' => 'dokani_settings[heading_6_font_size]',
+					),
+					'choices' => array(
+						'desktop' => array(
+							'min' => 10,
+							'max' => 60,
+							'step' => 1,
+							'edit' => true,
+							'unit' => 'px',
+						),
+					),
+					'priority' => 6,
+				)
+			)
+		);
+
+
+
+
+
+
+
+
+		$wp_customize->add_setting(
+			'dokani_settings[body_font_size]',
 			array(
 				'default' => $defaults['body_font_size'],
 				'type' => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_integer',
+				'sanitize_callback' => 'dokani_sanitize_integer',
 				'transport' => 'postMessage'
 			)
 		);
@@ -222,13 +508,13 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 		$wp_customize->add_control(
 			new Generate_Range_Slider_Control(
 				$wp_customize,
-				'dokanee_settings[body_font_size]',
+				'dokani_settings[body_font_size]',
 				array(
-					'type' => 'dokanee-range-slider',
-					'description' => __( 'Font size', 'dokanee' ),
-					'section' => 'font_section',
+					'type' => 'dokani-range-slider',
+					'description' => __( 'Font size', 'dokani' ),
+					'section' => 'base_typo_section',
 					'settings' => array(
-						'desktop' => 'dokanee_settings[body_font_size]',
+						'desktop' => 'dokani_settings[body_font_size]',
 					),
 					'choices' => array(
 						'desktop' => array(
@@ -245,11 +531,11 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 		);
 
 		$wp_customize->add_setting(
-			'dokanee_settings[body_line_height]',
+			'dokani_settings[body_line_height]',
 			array(
 				'default' => $defaults['body_line_height'],
 				'type' => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_decimal_integer',
+				'sanitize_callback' => 'dokani_sanitize_decimal_integer',
 				'transport' => 'postMessage'
 			)
 		);
@@ -257,13 +543,13 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 		$wp_customize->add_control(
 			new Generate_Range_Slider_Control(
 				$wp_customize,
-				'dokanee_settings[body_line_height]',
+				'dokani_settings[body_line_height]',
 				array(
-					'type' => 'dokanee-range-slider',
-					'description' => __( 'Line height', 'dokanee' ),
-					'section' => 'font_section',
+					'type' => 'dokani-range-slider',
+					'description' => __( 'Line height', 'dokani' ),
+					'section' => 'base_typo_section',
 					'settings' => array(
-						'desktop' => 'dokanee_settings[body_line_height]',
+						'desktop' => 'dokani_settings[body_line_height]',
 					),
 					'choices' => array(
 						'desktop' => array(
@@ -280,11 +566,11 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 		);
 
 		$wp_customize->add_setting(
-			'dokanee_settings[paragraph_margin]',
+			'dokani_settings[paragraph_margin]',
 			array(
 				'default' => $defaults['paragraph_margin'],
 				'type' => 'option',
-				'sanitize_callback' => 'dokanee_sanitize_decimal_integer',
+				'sanitize_callback' => 'dokani_sanitize_decimal_integer',
 				'transport' => 'postMessage'
 			)
 		);
@@ -292,13 +578,13 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 		$wp_customize->add_control(
 			new Generate_Range_Slider_Control(
 				$wp_customize,
-				'dokanee_settings[paragraph_margin]',
+				'dokani_settings[paragraph_margin]',
 				array(
-					'type' => 'dokanee-range-slider',
-					'description' => __( 'Paragraph margin', 'dokanee' ),
-					'section' => 'font_section',
+					'type' => 'dokani-range-slider',
+					'description' => __( 'Paragraph margin', 'dokani' ),
+					'section' => 'base_typo_section',
 					'settings' => array(
-						'desktop' => 'dokanee_settings[paragraph_margin]',
+						'desktop' => 'dokani_settings[paragraph_margin]',
 					),
 					'choices' => array(
 						'desktop' => array(
@@ -313,36 +599,18 @@ if ( ! function_exists( 'dokanee_default_fonts_customize_register' ) ) {
 				)
 			)
 		);
-
-		if ( ! function_exists( 'dokanee_fonts_customize_register' ) && ! defined( 'GP_PREMIUM_VERSION' ) ) {
-			$wp_customize->add_control(
-				new Generate_Customize_Misc_Control(
-					$wp_customize,
-					'typography_get_addon_desc',
-					array(
-						'section' => 'font_section',
-						'type' => 'addon',
-						'label' => __( 'Learn more','dokanee' ),
-						'description' => __( 'More options are available for this section in our premium version.', 'dokanee' ),
-						'url' => dokanee_get_premium_url( 'https://generatepress.com/downloads/dokanee-typography/' ),
-						'priority' => 50,
-						'settings' => ( isset( $wp_customize->selective_refresh ) ) ? array() : 'blogname'
-					)
-				)
-			);
-		}
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_all_google_fonts' ) ) {
+if ( ! function_exists( 'dokani_get_all_google_fonts' ) ) {
 	/**
 	 * Return an array of all of our Google Fonts.
 	 *
-	 * @since 1.3.0
+	 * @since 1.0.0
 	 * @param string $amount How many fonts to return.
 	 * @return array The list of Google Fonts.
 	 */
-	function dokanee_get_all_google_fonts( $amount = 'all' ) {
+	function dokani_get_all_google_fonts( $amount = 'all' ) {
 		// Our big list Google Fonts
 		// We use json_decode to reduce PHP memory usage
 		// Adding them as a PHP array seems to use quite a bit more memory
@@ -371,23 +639,23 @@ if ( ! function_exists( 'dokanee_get_all_google_fonts' ) ) {
 		}
 
 		// Alphabetize our fonts
-		if ( apply_filters( 'dokanee_alphabetize_google_fonts', true ) ) {
+		if ( apply_filters( 'dokani_alphabetize_google_fonts', true ) ) {
 			asort( $fonts );
 		}
 
 		// Filter to allow us to modify the fonts array
-		return apply_filters( 'dokanee_google_fonts_array', $fonts );
+		return apply_filters( 'dokani_google_fonts_array', $fonts );
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_all_google_fonts_ajax' ) ) {
-	add_action( 'wp_ajax_dokanee_get_all_google_fonts_ajax', 'dokanee_get_all_google_fonts_ajax' );
+if ( ! function_exists( 'dokani_get_all_google_fonts_ajax' ) ) {
+	add_action( 'wp_ajax_dokani_get_all_google_fonts_ajax', 'dokani_get_all_google_fonts_ajax' );
 	/**
 	 * Return an array of all of our Google Fonts.
 	 *
-	 * @since 1.3.0
+	 * @since 1.0.0
 	 */
-	function dokanee_get_all_google_fonts_ajax() {
+	function dokani_get_all_google_fonts_ajax() {
 		// Bail if the nonce doesn't check out
 		if ( ! isset( $_POST[ 'gp_customize_nonce' ] ) || ! wp_verify_nonce( sanitize_key( $_POST[ 'gp_customize_nonce' ] ), 'gp_customize_nonce' ) ) {
 			wp_die();
@@ -402,7 +670,7 @@ if ( ! function_exists( 'dokanee_get_all_google_fonts_ajax' ) ) {
 		}
 
 		// Get all of our fonts
-		$fonts = dokanee_get_all_google_fonts();
+		$fonts = dokani_get_all_google_fonts();
 
 		// Send all of our fonts in JSON format
 		echo wp_json_encode( $fonts );
@@ -412,15 +680,15 @@ if ( ! function_exists( 'dokanee_get_all_google_fonts_ajax' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_google_font_variants' ) ) {
+if ( ! function_exists( 'dokani_get_google_font_variants' ) ) {
 	/**
 	 * Wrapper function to find variants for chosen Google Fonts
-	 * Example: dokanee_get_google_font_variation( 'Open Sans' )
-	 * @since 1.3.0
+	 * Example: dokani_get_google_font_variation( 'Open Sans' )
+	 * @since 1.0.0
 	 */
-	function dokanee_get_google_font_variants( $font, $key = '' ) {
+	function dokani_get_google_font_variants( $font, $key = '' ) {
 		// Don't need variants if we're using a system font
-		if ( in_array( $font, dokanee_typography_default_fonts() ) ) {
+		if ( in_array( $font, dokani_typography_default_fonts() ) ) {
 			return;
 		}
 
@@ -430,7 +698,7 @@ if ( ! function_exists( 'dokanee_get_google_font_variants' ) ) {
 		}
 
 		// Get our defaults
-		$defaults = dokanee_get_default_fonts();
+		$defaults = dokani_get_default_fonts();
 
 		// If our default font is selected and the category isn't saved, we already know the category
 		if ( $defaults[ $key ] == $font ) {
@@ -439,7 +707,7 @@ if ( ! function_exists( 'dokanee_get_google_font_variants' ) ) {
 
 		// Grab all of our fonts
 		// It's a big list, so hopefully we're not even still reading
-		$fonts = dokanee_get_all_google_fonts();
+		$fonts = dokani_get_all_google_fonts();
 
 		// Get the ID from our font
 		$id = strtolower( str_replace( ' ', '_', $font ) );
@@ -458,25 +726,25 @@ if ( ! function_exists( 'dokanee_get_google_font_variants' ) ) {
 			foreach ( $variants as $variant ) {
 				$output[] = $variant;
 			}
-			return implode(',', apply_filters( 'dokanee_typography_variants', $output ) );
+			return implode(',', apply_filters( 'dokani_typography_variants', $output ) );
 		}
 	}
 }
 
-if ( ! function_exists( 'dokanee_get_google_font_category' ) ) {
+if ( ! function_exists( 'dokani_get_google_font_category' ) ) {
 	/**
 	 * Wrapper function to find the category for chosen Google Font
-	 * Example: dokanee_get_google_font_category( 'Open Sans' )
+	 * Example: dokani_get_google_font_category( 'Open Sans' )
 	 *
-	 * @since 1.3.0
+	 * @since 1.0.0
 	 *
 	 * @param string $font The name of our font.
 	 * @param string $key The ID of the font setting.
 	 * @return string The category of our font.
 	 */
-	function dokanee_get_google_font_category( $font, $key = '' ) {
+	function dokani_get_google_font_category( $font, $key = '' ) {
 		// Don't need a category if we're using a system font
-		if ( in_array( $font, dokanee_typography_default_fonts() ) ) {
+		if ( in_array( $font, dokani_typography_default_fonts() ) ) {
 			return;
 		}
 
@@ -486,7 +754,7 @@ if ( ! function_exists( 'dokanee_get_google_font_category' ) ) {
 		}
 
 		// Get our defaults
-		$defaults = dokanee_get_default_fonts();
+		$defaults = dokani_get_default_fonts();
 
 		// If our default font is selected and the category isn't saved, we already know the category
 		if ( $defaults[ $key ] == $font ) {
@@ -495,7 +763,7 @@ if ( ! function_exists( 'dokanee_get_google_font_category' ) ) {
 
 		// Grab all of our fonts
 		// It's a big list, so hopefully we're not even still reading
-		$fonts = dokanee_get_all_google_fonts();
+		$fonts = dokani_get_all_google_fonts();
 
 		// Get the ID from our font
 		$id = strtolower( str_replace( ' ', '_', $font ) );
@@ -516,19 +784,19 @@ if ( ! function_exists( 'dokanee_get_google_font_category' ) ) {
 
 
 
-if ( ! function_exists( 'dokanee_get_font_family_css' ) ) {
+if ( ! function_exists( 'dokani_get_font_family_css' ) ) {
 	/**
 	 * Wrapper function to create font-family value for CSS.
 	 *
-	 * @since 1.3.0
+	 * @since 1.0.0
 	 *
 	 * @param string $font The name of our font.
 	 * @param string $settings The ID of the settings we're looking up.
 	 * @param array $default The defaults for our $settings.
 	 * @return string The CSS value for our font family.
 	 */
-	function dokanee_get_font_family_css( $font, $settings, $default ) {
-		$dokanee_settings = wp_parse_args(
+	function dokani_get_font_family_css( $font, $settings, $default ) {
+		$dokani_settings = wp_parse_args(
 			get_option( $settings, array() ),
 			$default
 		);
@@ -544,14 +812,14 @@ if ( ! function_exists( 'dokanee_get_font_family_css' ) ) {
 			'Tahoma, Geneva, sans-serif',
 			'Trebuchet MS, Helvetica, sans-serif',
 			'Verdana, Geneva, sans-serif',
-			apply_filters( 'dokanee_typography_system_stack', '-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"' )
+			apply_filters( 'dokani_typography_system_stack', '-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"' )
 		);
 
 		// Get our font
-		$font_family = $dokanee_settings[ $font ];
+		$font_family = $dokani_settings[ $font ];
 
 		if ( 'System Stack' == $font_family ) {
-			$font_family = apply_filters( 'dokanee_typography_system_stack', '-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"' );
+			$font_family = apply_filters( 'dokani_typography_system_stack', '-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"' );
 		}
 
 		// If our value is still using the old format, fix it
@@ -565,7 +833,7 @@ if ( ! function_exists( 'dokanee_get_font_family_css' ) ) {
 			$wrapper_end = null;
 		} else {
 			$wrapper_start = '"';
-			$wrapper_end = '"' . dokanee_get_google_font_category( $font_family, $font );
+			$wrapper_end = '"' . dokani_get_google_font_category( $font_family, $font );
 		}
 
 		// Output the CSS
@@ -574,24 +842,24 @@ if ( ! function_exists( 'dokanee_get_font_family_css' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_add_to_font_customizer_list' ) ) {
-	add_filter( 'dokanee_typography_customize_list', 'dokanee_add_to_font_customizer_list' );
+if ( ! function_exists( 'dokani_add_to_font_customizer_list' ) ) {
+	add_filter( 'dokani_typography_customize_list', 'dokani_add_to_font_customizer_list' );
 	/**
 	 * This function makes sure your selected typography option exists in the Customizer list
 	 * Why wouldn't it? Originally, all 800+ fonts were in each list. This has been reduced to 200.
 	 * This functions makes sure that if you were using a font that is now not included in the 200, you won't lose it.
 	 *
-	 * @since 1.3.40
+	 * @since 1.0.0
 	 */
-	function dokanee_add_to_font_customizer_list( $fonts ) {
+	function dokani_add_to_font_customizer_list( $fonts ) {
 		// Bail if we don't have our defaults
-		if ( ! function_exists( 'dokanee_get_default_fonts' ) ) {
+		if ( ! function_exists( 'dokani_get_default_fonts' ) ) {
 			return;
 		}
 
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_default_fonts()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_default_fonts()
 		);
 
 		$font_settings = array(
@@ -606,37 +874,37 @@ if ( ! function_exists( 'dokanee_add_to_font_customizer_list' ) ) {
 			'font_heading_3',
 		);
 
-		$all_fonts = dokanee_get_all_google_fonts();
-		$select_fonts = dokanee_get_all_google_fonts( apply_filters( 'dokanee_number_of_fonts', 200 ) );
+		$all_fonts = dokani_get_all_google_fonts();
+		$select_fonts = dokani_get_all_google_fonts( apply_filters( 'dokani_number_of_fonts', 200 ) );
 
 		foreach ( $font_settings as $setting ) {
 			// If we don't have a setting, keep going
-			if ( ! isset( $dokanee_settings[ $setting ] ) ) {
+			if ( ! isset( $dokani_settings[ $setting ] ) ) {
 				continue;
 			}
 
-			$id = strtolower( str_replace( ' ', '_', $dokanee_settings[ $setting ] ) );
+			$id = strtolower( str_replace( ' ', '_', $dokani_settings[ $setting ] ) );
 
-			if ( array_key_exists( $id, $select_fonts ) || in_array( $dokanee_settings[ $setting ], dokanee_typography_default_fonts() ) ) {
+			if ( array_key_exists( $id, $select_fonts ) || in_array( $dokani_settings[ $setting ], dokani_typography_default_fonts() ) ) {
 				continue;
 			}
 
-			$fonts[ strtolower( str_replace( ' ', '_', $dokanee_settings[ $setting ] ) ) ] = array(
-				'name' => $dokanee_settings[ $setting ],
+			$fonts[ strtolower( str_replace( ' ', '_', $dokani_settings[ $setting ] ) ) ] = array(
+				'name' => $dokani_settings[ $setting ],
 				'variants' => array_key_exists( $id, $all_fonts ) ? $all_fonts[$id]['variants'] : array(),
 				'category' => array_key_exists( $id, $all_fonts ) ? $all_fonts[$id]['category'] : 'sans-serif'
 			);
 		}
 
-		if ( function_exists( 'dokanee_secondary_nav_get_defaults' ) ) {
+		if ( function_exists( 'dokani_secondary_nav_get_defaults' ) ) {
 			$secondary_nav_settings = wp_parse_args(
-				get_option( 'dokanee_secondary_nav_settings', array() ),
-				dokanee_secondary_nav_get_defaults()
+				get_option( 'dokani_secondary_nav_settings', array() ),
+				dokani_secondary_nav_get_defaults()
 			);
 
 			$secondary_nav_id = strtolower( str_replace( ' ', '_', $secondary_nav_settings[ 'font_secondary_navigation' ] ) );
 
-			if ( ! array_key_exists( $secondary_nav_id, $select_fonts ) && ! in_array( $secondary_nav_settings[ 'font_secondary_navigation' ], dokanee_typography_default_fonts() ) ) {
+			if ( ! array_key_exists( $secondary_nav_id, $select_fonts ) && ! in_array( $secondary_nav_settings[ 'font_secondary_navigation' ], dokani_typography_default_fonts() ) ) {
 				$fonts[ strtolower( str_replace( ' ', '_', $secondary_nav_settings[ 'font_secondary_navigation' ] ) ) ] = array(
 					'name' => $secondary_nav_settings[ 'font_secondary_navigation' ],
 					'variants' => array_key_exists( $secondary_nav_id, $all_fonts ) ? $all_fonts[$secondary_nav_id]['variants'] : array(),

@@ -1,4 +1,4 @@
-wp.customize.controlConstructor['dokanee-range-slider'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['dokani-range-slider'] = wp.customize.Control.extend({
 
 	ready: function() {
 
@@ -9,11 +9,11 @@ wp.customize.controlConstructor['dokanee-range-slider'] = wp.customize.Control.e
 		    thisInput,
 		    inputDefault,
 		    changeAction,
-			controlClass = '.customize-control-dokanee-range-slider',
+			controlClass = '.customize-control-dokani-range-slider',
 			footerActions = jQuery( '#customize-footer-actions' );
 		
 		// Set up the sliders
-		jQuery( '.dokanee-slider' ).each( function() {
+		jQuery( '.dokani-slider' ).each( function() {
 			var _this = jQuery( this );
 			var _input = _this.closest( 'label' ).find( 'input[type="number"]' );
 			var _text = _input.next( '.value' );
@@ -35,15 +35,15 @@ wp.customize.controlConstructor['dokanee-range-slider'] = wp.customize.Control.e
 			if ( '' == value ) {
 				value = -1;
 			}
-			jQuery( this ).closest( 'label' ).find( '.dokanee-slider' ).slider( 'value', parseFloat(value)).change();
+			jQuery( this ).closest( 'label' ).find( '.dokani-slider' ).slider( 'value', parseFloat(value)).change();
 		});
 
 		// Handle the reset button
-		jQuery( controlClass + ' .dokanee-reset' ).on( 'click', function() {
+		jQuery( controlClass + ' .dokani-reset' ).on( 'click', function() {
 			var icon = jQuery( this ),
 				visible_area = icon.closest( '.gp-range-title-area' ).next( '.gp-range-slider-areas' ).children( 'label:visible' ),
 				input = visible_area.find( 'input[type=number]' ),
-				slider_value = visible_area.find( '.dokanee-slider' ),
+				slider_value = visible_area.find( '.dokani-slider' ),
 				visual_value = visible_area.find( '.gp_range_value' ),
 				reset_value = input.attr( 'data-reset_value' );
 			
@@ -59,7 +59,7 @@ wp.customize.controlConstructor['dokanee-range-slider'] = wp.customize.Control.e
 		});
 		
 		// Figure out which device icon to make active on load
-		jQuery( controlClass + ' .dokanee-range-slider-control' ).each( function() {
+		jQuery( controlClass + ' .dokani-range-slider-control' ).each( function() {
 			var _this = jQuery( this );
 			_this.find( '.gp-device-controls' ).children( 'span:first-child' ).addClass( 'selected' );
 			_this.find( '.range-option-area:first-child' ).show();

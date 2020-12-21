@@ -2,23 +2,23 @@
 /**
  * Where old Customizer functions retire.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_sanitize_typography' ) ) {
+if ( ! function_exists( 'dokani_sanitize_typography' ) ) {
 	/**
 	 * Sanitize typography dropdown.
 	 *
-	 * @since 1.1.10
+	 * @since 1.0.0
 	 * @deprecated 1.3.45
 	 */
-	function dokanee_sanitize_typography( $input ) {
+	function dokani_sanitize_typography( $input ) {
 		// Grab all of our fonts
-		$fonts = dokanee_get_all_google_fonts();
+		$fonts = dokani_get_all_google_fonts();
 
 		// Loop through all of them and grab their names
 		$font_names = array();
@@ -27,7 +27,7 @@ if ( ! function_exists( 'dokanee_sanitize_typography' ) ) {
 		}
 
 		// Get all non-Google font names
-		$not_google = dokanee_typography_default_fonts();
+		$not_google = dokani_typography_default_fonts();
 
 		// Merge them both into one array
 		$valid = array_merge( $font_names, $not_google );
@@ -41,14 +41,14 @@ if ( ! function_exists( 'dokanee_sanitize_typography' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_sanitize_font_weight' ) ) {
+if ( ! function_exists( 'dokani_sanitize_font_weight' ) ) {
 	/**
 	 * Sanitize font weight.
 	 *
-	 * @since 1.1.10
+	 * @since 1.0.0
 	 * @deprecated 1.3.40
 	 */
-	function dokanee_sanitize_font_weight( $input ) {
+	function dokani_sanitize_font_weight( $input ) {
 
 	    $valid = array(
 	        'normal',
@@ -72,14 +72,14 @@ if ( ! function_exists( 'dokanee_sanitize_font_weight' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_sanitize_text_transform' ) ) {
+if ( ! function_exists( 'dokani_sanitize_text_transform' ) ) {
 	/**
 	 * Sanitize text transform.
 	 *
-	 * @since 1.1.10
+	 * @since 1.0.0
 	 * @deprecated 1.3.40
 	 */
-	function dokanee_sanitize_text_transform( $input ) {
+	function dokani_sanitize_text_transform( $input ) {
 
 	    $valid = array(
 	        'none',
@@ -96,12 +96,12 @@ if ( ! function_exists( 'dokanee_sanitize_text_transform' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_typography_customize_preview_css' ) ) {
+if ( ! function_exists( 'dokani_typography_customize_preview_css' ) ) {
 	/**
 	 * Hide the hidden input control
-	 * @since 1.3.40
+	 * @since 1.0.0
 	 */
-	function dokanee_typography_customize_preview_css() {
+	function dokani_typography_customize_preview_css() {
 		?>
 		<style>
 			.customize-control-gp-hidden-input {display:none !important;}

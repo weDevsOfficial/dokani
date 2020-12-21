@@ -2,20 +2,21 @@
 /**
  * Add compatibility for some popular third party plugins.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_action( 'after_setup_theme', 'dokanee_setup_woocommerce' );
+add_action( 'after_setup_theme', 'dokani_setup_woocommerce' );
+
 /**
  * Set up WooCommerce
  *
- * @since 1.3.47
+ * @since 1.0.0
  */
-function dokanee_setup_woocommerce() {
+function dokani_setup_woocommerce() {
 	if ( ! class_exists( 'WooCommerce' ) ) {
 		return;
 	}
@@ -29,70 +30,63 @@ function dokanee_setup_woocommerce() {
 	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 	remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
-	add_action( 'woocommerce_sidebar', 'dokanee_construct_sidebars' );
+	add_action( 'woocommerce_sidebar', 'dokani_construct_sidebars' );
 }
 
-if ( ! function_exists( 'dokanee_woocommerce_start' ) ) {
-	add_action( 'woocommerce_before_main_content', 'dokanee_woocommerce_start', 10 );
+
+if ( ! function_exists( 'dokani_woocommerce_start' ) ) {
+
+	add_action( 'woocommerce_before_main_content', 'dokani_woocommerce_start', 10 );
+
 	/**
 	 * Add WooCommerce starting wrappers
 	 *
-	 * @since 1.3.22
+	 * @since 1.0.0
 	 */
-	function dokanee_woocommerce_start() { ?>
-		<div id="primary" <?php dokanee_content_class();?>>
-			<main id="main" <?php dokanee_main_class(); ?>>
+	function dokani_woocommerce_start() { ?>
+		<div id="primary" <?php dokani_content_class();?>>
+			<main id="main" <?php dokani_main_class(); ?>>
 				<?php
 				/**
-				 * dokanee_before_main_content hook.
+				 * dokani_before_main_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 */
-				do_action( 'dokanee_before_main_content' );
+				do_action( 'dokani_before_main_content' );
 				?>
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php dokanee_article_schema( 'CreativeWork' ); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php dokani_article_schema( 'CreativeWork' ); ?>>
 					<div class="inside-article">
-						<?php
-						/**
-						 * dokanee_before_content hook.
-						 *
-						 * @since 0.1
-						 *
-						 * @hooked dokanee_featured_page_header_inside_single - 10
-						 */
-						do_action( 'dokanee_before_content' );
-						?>
 						<div class="entry-content" itemprop="text">
 	<?php
 	}
 }
 
-if ( ! function_exists( 'dokanee_woocommerce_end' ) ) {
-	add_action( 'woocommerce_after_main_content', 'dokanee_woocommerce_end', 10 );
+if ( ! function_exists( 'dokani_woocommerce_end' ) ) {
+	add_action( 'woocommerce_after_main_content', 'dokani_woocommerce_end', 10 );
 	/**
 	 * Add WooCommerce ending wrappers
 	 *
-	 * @since 1.3.22
+	 * @since 1.0.0
 	 */
-	function dokanee_woocommerce_end() { ?>
+	function dokani_woocommerce_end() { ?>
 						</div><!-- .entry-content -->
 						<?php
 						/**
-						 * dokanee_after_content hook.
+						 * dokani_after_content hook.
 						 *
-						 * @since 0.1
+						 * @since 1.0.0
 						 */
-						do_action( 'dokanee_after_content' );
+						do_action( 'dokani_after_content' );
 						?>
 					</div><!-- .inside-article -->
 				</article><!-- #post-## -->
 				<?php
 				/**
-				 * dokanee_after_main_content hook.
+				 * dokani_after_main_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 */
-				do_action( 'dokanee_after_main_content' );
+				do_action( 'dokani_after_main_content' );
 				?>
 			</main><!-- #main -->
 		</div><!-- #primary -->
@@ -100,19 +94,19 @@ if ( ! function_exists( 'dokanee_woocommerce_end' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_woocommerce_css' ) ) {
-	add_action( 'wp_enqueue_scripts', 'dokanee_woocommerce_css', 100 );
+if ( ! function_exists( 'dokani_woocommerce_css' ) ) {
+	add_action( 'wp_enqueue_scripts', 'dokani_woocommerce_css', 100 );
 	/**
 	 * Add WooCommerce CSS
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 */
-	function dokanee_woocommerce_css() {
+	function dokani_woocommerce_css() {
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
 		}
 
-		$mobile = apply_filters( 'dokanee_mobile_media_query', '(max-width:768px)' );
+		$mobile = apply_filters( 'dokani_mobile_media_query', '(max-width:768px)' );
 		$css = '.woocommerce .page-header-image-single {
 			display: none;
 		}
@@ -156,14 +150,14 @@ if ( ! function_exists( 'dokanee_woocommerce_css' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_bbpress_css' ) ) {
-	add_action( 'wp_enqueue_scripts', 'dokanee_bbpress_css', 100 );
+if ( ! function_exists( 'dokani_bbpress_css' ) ) {
+	add_action( 'wp_enqueue_scripts', 'dokani_bbpress_css', 100 );
 	/**
 	 * Add bbPress CSS
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 */
-	function dokanee_bbpress_css() {
+	function dokani_bbpress_css() {
 		$css = '#bbpress-forums ul.bbp-lead-topic,
 		#bbpress-forums ul.bbp-topics,
 		#bbpress-forums ul.bbp-forums,
@@ -195,14 +189,14 @@ if ( ! function_exists( 'dokanee_bbpress_css' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_buddypress_css' ) ) {
-	add_action( 'wp_enqueue_scripts', 'dokanee_buddypress_css', 100 );
+if ( ! function_exists( 'dokani_buddypress_css' ) ) {
+	add_action( 'wp_enqueue_scripts', 'dokani_buddypress_css', 100 );
 	/**
 	 * Add BuddyPress CSS
 	 *
-	 * @since 1.3.45
+	 * @since 1.0.0
 	 */
-	function dokanee_buddypress_css() {
+	function dokani_buddypress_css() {
 		$css = '#buddypress form#whats-new-form #whats-new-options[style] {
 			min-height: 6rem;
 			overflow: visible;
@@ -213,45 +207,3 @@ if ( ! function_exists( 'dokanee_buddypress_css' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_beaver_builder_css' ) ) {
-	add_action( 'wp_enqueue_scripts', 'dokanee_beaver_builder_css', 100 );
-	/**
-	 * Add Beaver Builder CSS
-	 *
-	 * Beaver Builder pages set to no sidebar used to automatically be full width, however
-	 * now that we have the Page Builder Container meta box, we want to give the user
-	 * the option to set the page to full width or contained.
-	 *
-	 * We can't remove this CSS as people who are depending on it will lose their full
-	 * width layout when they update.
-	 *
-	 * So instead, we only apply this CSS to posts older than the date of this update.
-	 *
-	 * @since 1.3.45
-	 */
-	function dokanee_beaver_builder_css() {
-		// Check is Beaver Builder is active
-		// If we have the full-width-content class, we don't need to do anything else
-		if ( in_array( 'fl-builder', get_body_class() ) && ! in_array( 'full-width-content', get_body_class() ) && ! in_array( 'contained-content', get_body_class() ) ) {
-			global $post;
-
-			if ( ! isset( $post ) ) {
-				return;
-			}
-
-			$compare_date = strtotime( "2017-03-14" );
-			$post_date    = strtotime( $post->post_date );
-			if ( $post_date < $compare_date ) {
-				$css = '.fl-builder.no-sidebar .container.grid-container {
-					max-width: 100%;
-				}
-
-				.fl-builder.one-container.no-sidebar .site-content {
-					padding:0;
-				}';
-				$css = str_replace(array("\r", "\n", "\t"), '', $css);
-				wp_add_inline_style( 'dokanee-style', $css );
-			}
-		}
-	}
-}

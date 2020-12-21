@@ -2,20 +2,20 @@
 /**
  * Adds HTML markup.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_body_schema' ) ) {
+if ( ! function_exists( 'dokani_body_schema' ) ) {
 	/**
 	 * Figure out which schema tags to apply to the <body> element.
 	 *
-	 * @since 1.3.15
+	 * @since 1.0.0
 	 */
-	function dokanee_body_schema() {
+	function dokani_body_schema() {
 		// Set up blog variable
 		$blog = ( is_home() || is_archive() || is_attachment() || is_tax() || is_single() ) ? true : false;
 
@@ -29,58 +29,62 @@ if ( ! function_exists( 'dokanee_body_schema' ) ) {
 		$itemtype = ( is_search() ) ? 'SearchResultsPage' : $itemtype;
 
 		// Get the result
-		$result = esc_html( apply_filters( 'dokanee_body_itemtype', $itemtype ) );
+		$result = esc_html( apply_filters( 'dokani_body_itemtype', $itemtype ) );
 
 		// Return our HTML
-		echo "itemtype='https://schema.org/$result' itemscope='itemscope'"; // WPCS: XSS ok, sanitization ok.
+		echo wp_kses_post( "itemtype='https://schema.org/$result' itemscope='itemscope'" );
 	}
 }
 
-if ( ! function_exists( 'dokanee_article_schema' ) ) {
+if ( ! function_exists( 'dokani_article_schema' ) ) {
 	/**
 	 * Figure out which schema tags to apply to the <article> element
-	 * The function determines the itemtype: dokanee_article_schema( 'BlogPosting' )
-	 * @since 1.3.15
+	 * The function determines the itemtype: dokani_article_schema( 'BlogPosting' )
+	 * @since 1.0.0
 	 */
-	function dokanee_article_schema( $type = 'CreativeWork' ) {
+	function dokani_article_schema( $type = 'CreativeWork' ) {
 		// Get the itemtype
-		$itemtype = esc_html( apply_filters( 'dokanee_article_itemtype', $type ) );
+		$itemtype = esc_html( apply_filters( 'dokani_article_itemtype', $type ) );
 
 		// Print the results
-		echo "itemtype='https://schema.org/$itemtype' itemscope='itemscope'"; // WPCS: XSS ok, sanitization ok.
+		echo wp_kses_post( "itemtype='https://schema.org/$itemtype' itemscope='itemscope'" );
 	}
 }
 
-if ( ! function_exists( 'dokanee_body_classes' ) ) {
-	add_filter( 'body_class', 'dokanee_body_classes' );
+if ( ! function_exists( 'dokani_body_classes' ) ) {
+	add_filter( 'body_class', 'dokani_body_classes' );
 	/**
 	 * Adds custom classes to the array of body classes.
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_body_classes( $classes ) {
+	function dokani_body_classes( $classes ) {
+
+		global $wp;
+
 		// Get Customizer settings
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
 
 		// Get the layout
-		$layout = dokanee_get_layout();
+		$layout = dokani_get_layout();
+
+		if ( is_page_template('page-template/template-sidebar-no.php') || is_page_template('page-template/template-full-width.php') ){
+			$layout = 'no-sidebar';
+		} elseif ( is_page_template('page-template/template-sidebar-left.php') ){
+			$layout = 'left-sidebar';
+		} elseif ( is_page_template('page-template/template-sidebar-right.php') ){
+			$layout = 'right-sidebar';
+		} else {
+			$layout;
+		}
 
 		// Get the navigation location
-		$navigation_location = dokanee_get_navigation_location();
+		$navigation_location = dokani_get_navigation_location();
 
 		// Get the footer widgets
-		$widgets = dokanee_get_footer_widgets();
-
-		// Full width content
-		// Used for page builders, sets the content to full width and removes the padding
-		$full_width = get_post_meta( get_the_ID(), '_dokanee-full-width-content', true );
-		$classes[] = ( '' !== $full_width && false !== $full_width && is_singular() && 'true' == $full_width ) ? 'full-width-content' : '';
-
-		// Contained content
-		// Used for page builders, basically just removes the content padding
-		$classes[] = ( '' !== $full_width && false !== $full_width && is_singular() && 'contained' == $full_width ) ? 'contained-content' : '';
+		$widgets = dokani_get_footer_widgets();
 
 		// Let us know if a featured image is being used
 		if ( has_post_thumbnail() ) {
@@ -90,82 +94,107 @@ if ( ! function_exists( 'dokanee_body_classes' ) ) {
 		// Layout classes
 		$classes[] = ( $layout ) ? $layout : 'right-sidebar';
 		$classes[] = ( $navigation_location ) ? $navigation_location : 'nav-below-header';
-		$classes[] = ( $dokanee_settings['header_layout_setting'] ) ? $dokanee_settings['header_layout_setting'] : 'fluid-header';
-		$classes[] = ( $dokanee_settings['content_layout_setting'] ) ? $dokanee_settings['content_layout_setting'] : 'separate-containers';
+		$classes[] = ( $dokani_settings['header_layout_setting'] ) ? $dokani_settings['header_layout_setting'] : 'fluid-header';
+		$classes[] = ( $dokani_settings['content_layout_setting'] ) ? $dokani_settings['content_layout_setting'] : 'separate-containers';
 		$classes[] = ( '' !== $widgets ) ? 'active-footer-widgets-' . $widgets : 'active-footer-widgets-3';
-		$classes[] = ( 'enable' == $dokanee_settings['nav_search'] ) ? 'nav-search-enabled' : '';
 
 		// Navigation alignment class
-		if ( $dokanee_settings['nav_alignment_setting'] == 'left' ) {
+		if ( $dokani_settings['nav_alignment_setting'] == 'left' ) {
 			$classes[] = 'nav-aligned-left';
-		} elseif ( $dokanee_settings['nav_alignment_setting'] == 'center' ) {
+		} elseif ( $dokani_settings['nav_alignment_setting'] == 'center' ) {
 			$classes[] = 'nav-aligned-center';
-		} elseif ( $dokanee_settings['nav_alignment_setting'] == 'right' ) {
+		} elseif ( $dokani_settings['nav_alignment_setting'] == 'right' ) {
 			$classes[] = 'nav-aligned-right';
 		} else {
 			$classes[] = 'nav-aligned-left';
 		}
 
 		// Header alignment class
-		if ( $dokanee_settings['header_alignment_setting'] == 'left' ) {
+		if ( $dokani_settings['header_alignment_setting'] == 'left' ) {
 			$classes[] = 'header-aligned-left';
-		} elseif ( $dokanee_settings['header_alignment_setting'] == 'center' ) {
+		} elseif ( $dokani_settings['header_alignment_setting'] == 'center' ) {
 			$classes[] = 'header-aligned-center';
-		} elseif ( $dokanee_settings['header_alignment_setting'] == 'right' ) {
+		} elseif ( $dokani_settings['header_alignment_setting'] == 'right' ) {
 			$classes[] = 'header-aligned-right';
 		} else {
 			$classes[] = 'header-aligned-left';
 		}
 
 		// Navigation dropdown type
-		if ( 'click' == $dokanee_settings[ 'nav_dropdown_type' ] ) {
+		if ( 'click' == $dokani_settings[ 'nav_dropdown_type' ] ) {
 			$classes[] = 'dropdown-click';
 			$classes[] = 'dropdown-click-menu-item';
-		} elseif ( 'click-arrow' == $dokanee_settings[ 'nav_dropdown_type' ] ) {
+		} elseif ( 'click-arrow' == $dokani_settings[ 'nav_dropdown_type' ] ) {
 			$classes[] = 'dropdown-click-arrow';
 			$classes[] = 'dropdown-click';
 		} else {
 			$classes[] = 'dropdown-hover';
 		}
 
+		if ( function_exists( 'dokan_is_store_page' ) && dokan_is_store_page() ) {
+			$classes[] = 'dokani-store-template';
+        }
+
+		if ( function_exists( 'is_product' ) && is_product() ) {
+			$classes[] = 'dokani-product-single-template';
+        }
+
+		if ( get_query_var( 'edit' ) ) {
+			$classes[] = 'dokani-dahsboard-edit-template';
+        }
+
+        if ( is_front_page() && is_page_template( 'page-template/template-home.php' ) ) {
+			$classes[] = 'dokani-template-front-page';
+        }
+
+		if ( is_front_page() && is_home() ) {
+			$classes[] = 'dokani-template-posts';
+		}
+
+		if ( isset( $wp->query_vars['name'] ) && $wp->query_vars['name'] == 'product-category' ) {
+			$page_404 = array_search( 'error404', $classes );
+			unset( $classes[$page_404] );
+			$classes[] = 'dokani-product-category';
+		}
+
 		return $classes;
 	}
 }
 
-if ( ! function_exists( 'dokanee_top_bar_classes' ) ) {
-	add_filter( 'dokanee_top_bar_class', 'dokanee_top_bar_classes' );
+if ( ! function_exists( 'dokani_top_bar_classes' ) ) {
+	add_filter( 'dokani_top_bar_class', 'dokani_top_bar_classes' );
 	/**
 	 * Adds custom classes to the header.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_top_bar_classes( $classes ) {
+	function dokani_top_bar_classes( $classes ) {
 		$classes[] = 'top-bar';
 
-		if ( 'contained' == dokanee_get_setting( 'top_bar_width' ) ) {
+		if ( 'contained' == dokani_get_setting( 'top_bar_width' ) ) {
 			$classes[] = 'grid-container';
 			$classes[] = 'grid-parent';
 		}
 
-		$classes[] = 'top-bar-align-' . dokanee_get_setting( 'top_bar_alignment' );
+		$classes[] = 'top-bar-align-' . dokani_get_setting( 'top_bar_alignment' );
 
 		return $classes;
 	}
 }
 
-if ( ! function_exists( 'dokanee_right_sidebar_classes' ) ) {
-	add_filter( 'dokanee_right_sidebar_class', 'dokanee_right_sidebar_classes' );
+if ( ! function_exists( 'dokani_right_sidebar_classes' ) ) {
+	add_filter( 'dokani_right_sidebar_class', 'dokani_right_sidebar_classes' );
 	/**
 	 * Adds custom classes to the right sidebar.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_right_sidebar_classes( $classes ) {
-		$right_sidebar_width = apply_filters( 'dokanee_right_sidebar_width', '25' );
-		$left_sidebar_width = apply_filters( 'dokanee_left_sidebar_width', '25' );
+	function dokani_right_sidebar_classes( $classes ) {
+		$right_sidebar_width = apply_filters( 'dokani_right_sidebar_width', '25' );
+		$left_sidebar_width = apply_filters( 'dokani_left_sidebar_width', '25' );
 
-		$right_sidebar_tablet_width = apply_filters( 'dokanee_right_sidebar_tablet_width', $right_sidebar_width );
-		$left_sidebar_tablet_width = apply_filters( 'dokanee_left_sidebar_tablet_width', $left_sidebar_width );
+		$right_sidebar_tablet_width = apply_filters( 'dokani_right_sidebar_tablet_width', $right_sidebar_width );
+		$left_sidebar_tablet_width = apply_filters( 'dokani_left_sidebar_tablet_width', $left_sidebar_width );
 
 		$classes[] = 'widget-area';
 		$classes[] = 'grid-' . $right_sidebar_width;
@@ -174,7 +203,7 @@ if ( ! function_exists( 'dokanee_right_sidebar_classes' ) ) {
 		$classes[] = 'sidebar';
 
 		// Get the layout
-		$layout = dokanee_get_layout();
+		$layout = dokani_get_layout();
 
 		if ( '' !== $layout ) {
 			switch ( $layout ) {
@@ -192,20 +221,20 @@ if ( ! function_exists( 'dokanee_right_sidebar_classes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_left_sidebar_classes' ) ) {
-	add_filter( 'dokanee_left_sidebar_class', 'dokanee_left_sidebar_classes' );
+if ( ! function_exists( 'dokani_left_sidebar_classes' ) ) {
+	add_filter( 'dokani_left_sidebar_class', 'dokani_left_sidebar_classes' );
 	/**
 	 * Adds custom classes to the left sidebar.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_left_sidebar_classes( $classes ) {
-		$right_sidebar_width = apply_filters( 'dokanee_right_sidebar_width', '25' );
-		$left_sidebar_width = apply_filters( 'dokanee_left_sidebar_width', '25' );
+	function dokani_left_sidebar_classes( $classes ) {
+		$right_sidebar_width = apply_filters( 'dokani_right_sidebar_width', '25' );
+		$left_sidebar_width = apply_filters( 'dokani_left_sidebar_width', '25' );
 		$total_sidebar_width = $left_sidebar_width + $right_sidebar_width;
 
-		$right_sidebar_tablet_width = apply_filters( 'dokanee_right_sidebar_tablet_width', $right_sidebar_width );
-		$left_sidebar_tablet_width = apply_filters( 'dokanee_left_sidebar_tablet_width', $left_sidebar_width );
+		$right_sidebar_tablet_width = apply_filters( 'dokani_right_sidebar_tablet_width', $right_sidebar_width );
+		$left_sidebar_tablet_width = apply_filters( 'dokani_left_sidebar_tablet_width', $left_sidebar_width );
 		$total_sidebar_tablet_width = $left_sidebar_tablet_width + $right_sidebar_tablet_width;
 
 		$classes[] = 'widget-area';
@@ -216,7 +245,7 @@ if ( ! function_exists( 'dokanee_left_sidebar_classes' ) ) {
 		$classes[] = 'sidebar';
 
 		// Get the layout
-		$layout = dokanee_get_layout();
+		$layout = dokani_get_layout();
 
 		if ( '' !== $layout ) {
 			switch ( $layout ) {
@@ -237,20 +266,20 @@ if ( ! function_exists( 'dokanee_left_sidebar_classes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_content_classes' ) ) {
-	add_filter( 'dokanee_content_class', 'dokanee_content_classes' );
+if ( ! function_exists( 'dokani_content_classes' ) ) {
+	add_filter( 'dokani_content_class', 'dokani_content_classes' );
 	/**
 	 * Adds custom classes to the content container.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_content_classes( $classes ) {
-		$right_sidebar_width = apply_filters( 'dokanee_right_sidebar_width', '25' );
-		$left_sidebar_width = apply_filters( 'dokanee_left_sidebar_width', '25' );
+	function dokani_content_classes( $classes ) {
+		$right_sidebar_width = apply_filters( 'dokani_right_sidebar_width', '25' );
+		$left_sidebar_width = apply_filters( 'dokani_left_sidebar_width', '25' );
 		$total_sidebar_width = $left_sidebar_width + $right_sidebar_width;
 
-		$right_sidebar_tablet_width = apply_filters( 'dokanee_right_sidebar_tablet_width', $right_sidebar_width );
-		$left_sidebar_tablet_width = apply_filters( 'dokanee_left_sidebar_tablet_width', $left_sidebar_width );
+		$right_sidebar_tablet_width = apply_filters( 'dokani_right_sidebar_tablet_width', $right_sidebar_width );
+		$left_sidebar_tablet_width = apply_filters( 'dokani_left_sidebar_tablet_width', $left_sidebar_width );
 		$total_sidebar_tablet_width = $left_sidebar_tablet_width + $right_sidebar_tablet_width;
 
 		$classes[] = 'content-area';
@@ -258,7 +287,17 @@ if ( ! function_exists( 'dokanee_content_classes' ) ) {
 		$classes[] = 'mobile-grid-100';
 
 		// Get the layout
-		$layout = dokanee_get_layout();
+		$layout = dokani_get_layout();
+
+		if ( is_page_template('page-template/template-sidebar-no.php') || is_page_template('page-template/template-full-width.php') ){
+			$layout = 'no-sidebar';
+		} elseif ( is_page_template('page-template/template-sidebar-left.php') ){
+			$layout = 'left-sidebar';
+		} elseif ( is_page_template('page-template/template-sidebar-right.php') ){
+			$layout = 'right-sidebar';
+		} else {
+			$layout;
+		}
 
 		if ( '' !== $layout ) {
 			switch ( $layout ) {
@@ -305,22 +344,22 @@ if ( ! function_exists( 'dokanee_content_classes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_header_classes' ) ) {
-	add_filter( 'dokanee_header_class', 'dokanee_header_classes' );
+if ( ! function_exists( 'dokani_header_classes' ) ) {
+	add_filter( 'dokani_header_class', 'dokani_header_classes' );
 	/**
 	 * Adds custom classes to the header.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_header_classes( $classes ) {
+	function dokani_header_classes( $classes ) {
 		$classes[] = 'site-header';
 
 		// Get theme options
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
-		$header_layout = $dokanee_settings['header_layout_setting'];
+		$header_layout = $dokani_settings['header_layout_setting'];
 
 		if ( $header_layout == 'contained-header' ) {
 			$classes[] = 'grid-container';
@@ -331,16 +370,16 @@ if ( ! function_exists( 'dokanee_header_classes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_inside_header_classes' ) ) {
-	add_filter( 'dokanee_inside_header_class', 'dokanee_inside_header_classes' );
+if ( ! function_exists( 'dokani_inside_header_classes' ) ) {
+	add_filter( 'dokani_inside_header_class', 'dokani_inside_header_classes' );
 	/**
 	 * Adds custom classes to inside the header.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_inside_header_classes( $classes ) {
+	function dokani_inside_header_classes( $classes ) {
 		$classes[] = 'inside-header';
-		$inner_header_width = dokanee_get_setting( 'header_inner_width' );
+		$inner_header_width = dokani_get_setting( 'header_inner_width' );
 
 		if ( $inner_header_width !== 'full-width' ) {
 			$classes[] = 'grid-container';
@@ -351,22 +390,22 @@ if ( ! function_exists( 'dokanee_inside_header_classes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_navigation_classes' ) ) {
-	add_filter( 'dokanee_navigation_class', 'dokanee_navigation_classes' );
+if ( ! function_exists( 'dokani_navigation_classes' ) ) {
+	add_filter( 'dokani_navigation_class', 'dokani_navigation_classes' );
 	/**
 	 * Adds custom classes to the navigation.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_navigation_classes( $classes ) {
+	function dokani_navigation_classes( $classes ) {
 		$classes[] = 'main-navigation';
 
 		// Get theme options
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
-		$nav_layout = $dokanee_settings['nav_layout_setting'];
+		$nav_layout = $dokani_settings['nav_layout_setting'];
 
 		if ( $nav_layout == 'contained-nav' ) {
 			$classes[] = 'grid-container';
@@ -377,16 +416,16 @@ if ( ! function_exists( 'dokanee_navigation_classes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_inside_navigation_classes' ) ) {
-	add_filter( 'dokanee_inside_navigation_class', 'dokanee_inside_navigation_classes' );
+if ( ! function_exists( 'dokani_inside_navigation_classes' ) ) {
+	add_filter( 'dokani_inside_navigation_class', 'dokani_inside_navigation_classes' );
 	/**
 	 * Adds custom classes to the inner navigation.
 	 *
-	 * @since 1.3.41
+	 * @since 1.0.0
 	 */
-	function dokanee_inside_navigation_classes( $classes ) {
+	function dokani_inside_navigation_classes( $classes ) {
 		$classes[] = 'inside-navigation';
-		$inner_nav_width = dokanee_get_setting( 'nav_inner_width' );
+		$inner_nav_width = dokani_get_setting( 'nav_inner_width' );
 
 		if ( $inner_nav_width !== 'full-width' ) {
 			$classes[] = 'grid-container';
@@ -397,36 +436,36 @@ if ( ! function_exists( 'dokanee_inside_navigation_classes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_menu_classes' ) ) {
-	add_filter( 'dokanee_menu_class', 'dokanee_menu_classes' );
+if ( ! function_exists( 'dokani_menu_classes' ) ) {
+	add_filter( 'dokani_menu_class', 'dokani_menu_classes' );
 	/**
 	 * Adds custom classes to the menu.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_menu_classes( $classes ) {
+	function dokani_menu_classes( $classes ) {
 		$classes[] = 'menu';
 		$classes[] = 'sf-menu';
 		return $classes;
 	}
 }
 
-if ( ! function_exists( 'dokanee_footer_classes' ) ) {
-	add_filter( 'dokanee_footer_class', 'dokanee_footer_classes' );
+if ( ! function_exists( 'dokani_footer_classes' ) ) {
+	add_filter( 'dokani_footer_class', 'dokani_footer_classes' );
 	/**
 	 * Adds custom classes to the footer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_footer_classes( $classes ) {
+	function dokani_footer_classes( $classes ) {
 		$classes[] = 'site-footer';
 
 		// Get theme options
-		$dokanee_settings = wp_parse_args(
-			get_option( 'dokanee_settings', array() ),
-			dokanee_get_defaults()
+		$dokani_settings = wp_parse_args(
+			get_option( 'dokani_settings', array() ),
+			dokani_get_defaults()
 		);
-		$footer_layout = $dokanee_settings['footer_layout_setting'];
+		$footer_layout = $dokani_settings['footer_layout_setting'];
 
 		if ( $footer_layout == 'contained-footer' ) {
 			$classes[] = 'grid-container';
@@ -435,22 +474,22 @@ if ( ! function_exists( 'dokanee_footer_classes' ) ) {
 
 		// Footer bar
 		$classes[] = ( is_active_sidebar( 'footer-bar' ) ) ? 'footer-bar-active' : '';
-		$classes[] = ( is_active_sidebar( 'footer-bar' ) ) ? 'footer-bar-align-' . $dokanee_settings[ 'footer_bar_alignment' ] : '';
+		$classes[] = ( is_active_sidebar( 'footer-bar' ) ) ? 'footer-bar-align-' . $dokani_settings[ 'footer_bar_alignment' ] : '';
 
 		return $classes;
 	}
 }
 
-if ( ! function_exists( 'dokanee_inside_footer_classes' ) ) {
-	add_filter( 'dokanee_inside_footer_class', 'dokanee_inside_footer_classes' );
+if ( ! function_exists( 'dokani_inside_footer_classes' ) ) {
+	add_filter( 'dokani_inside_footer_class', 'dokani_inside_footer_classes' );
 	/**
 	 * Adds custom classes to the footer.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_inside_footer_classes( $classes ) {
+	function dokani_inside_footer_classes( $classes ) {
 		$classes[] = 'footer-widgets-container';
-		$inside_footer_width = dokanee_get_setting( 'footer_inner_width' );
+		$inside_footer_width = dokani_get_setting( 'footer_inner_width' );
 
 		if ( $inside_footer_width !== 'full-width' ) {
 			$classes[] = 'grid-container';
@@ -461,27 +500,27 @@ if ( ! function_exists( 'dokanee_inside_footer_classes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'dokanee_main_classes' ) ) {
-	add_filter( 'dokanee_main_class', 'dokanee_main_classes' );
+if ( ! function_exists( 'dokani_main_classes' ) ) {
+	add_filter( 'dokani_main_class', 'dokani_main_classes' );
 	/**
 	 * Adds custom classes to the <main> element
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 */
-	function dokanee_main_classes( $classes ) {
+	function dokani_main_classes( $classes ) {
 		$classes[] = 'site-main';
 		return $classes;
 	}
 }
 
-if ( ! function_exists( 'dokanee_post_classes' ) ) {
-	add_filter( 'post_class', 'dokanee_post_classes' );
+if ( ! function_exists( 'dokani_post_classes' ) ) {
+	add_filter( 'post_class', 'dokani_post_classes' );
 	/**
 	 * Adds custom classes to the <article> element.
 	 * Remove .hentry class from pages to comply with structural data guidelines.
 	 *
-	 * @since 1.3.39
+	 * @since 1.0.0
 	 */
-	function dokanee_post_classes( $classes ) {
+	function dokani_post_classes( $classes ) {
 		if ( 'page' == get_post_type() ) {
 			$classes = array_diff( $classes, array( 'hentry' ) );
 		}

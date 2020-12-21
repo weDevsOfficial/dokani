@@ -2,7 +2,7 @@
 /**
  * The template for displaying Archive pages.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -11,26 +11,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<div id="primary" <?php dokanee_content_class(); ?>>
-		<main id="main" <?php dokanee_main_class(); ?>>
+	<div id="primary" <?php dokani_content_class(); ?>>
+		<main id="main" <?php dokani_main_class(); ?>>
 			<?php
 			/**
-			 * dokanee_before_main_content hook.
+			 * dokani_before_main_content hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_before_main_content' );
+			do_action( 'dokani_before_main_content' );
 
 			if ( have_posts() ) :
 
 				/**
-				 * dokanee_archive_title hook.
+				 * dokani_archive_title hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 *
-				 * @hooked dokanee_archive_title - 10
+				 * @hooked dokani_archive_title - 10
 				 */
-				do_action( 'dokanee_archive_title' );
+				do_action( 'dokani_archive_title' );
 
 				while ( have_posts() ) : the_post();
 
@@ -43,7 +43,7 @@ get_header(); ?>
 
 				endwhile;
 
-				dokanee_content_nav( 'nav-below' );
+				dokani_content_nav( 'nav-below' );
 
 			else :
 
@@ -52,23 +52,23 @@ get_header(); ?>
 			endif;
 
 			/**
-			 * dokanee_after_main_content hook.
+			 * dokani_after_main_content hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_after_main_content' );
+			do_action( 'dokani_after_main_content' );
 			?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 	<?php
 	/**
-	 * dokanee_after_primary_content_area hook.
+	 * dokani_after_primary_content_area hook.
 	 *
-	 * @since 2.0
+	 * @since 1.0.0
 	 */
-	 do_action( 'dokanee_after_primary_content_area' );
+	 do_action( 'dokani_after_primary_content_area' );
 
-	 dokanee_construct_sidebars();
+	 dokani_construct_sidebars();
 
 get_footer();

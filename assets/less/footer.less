@@ -1,0 +1,190 @@
+/* = Footer
+----------------------------------------------- */
+
+.site-footer {
+    .footer-widgets-container .inner-padding {
+        padding: 0px 0px 0px 40px;
+
+        @media (max-width: @screen-sm-min) {
+            padding: 0;
+        }
+    }
+
+    .footer-widgets-container .inside-footer-widgets {
+        margin-left: -40px;
+
+        @media (max-width: @screen-sm-min) {
+            margin: 0;
+        }
+    }
+}
+
+
+/* Footer Widgets */
+.footer-widgets {
+    font-size: 14px;
+    line-height: 1.5em;
+    color: @footer-color;
+    padding: 110px 40px;
+
+    .inside-footer-widgets .inner-padding {
+        padding: 0 40px;
+
+        @media (max-width: @screen-sm-min) {
+            padding: 0;
+        }
+    }
+
+    .widget {
+        font-size: 14px;
+        
+        a {
+            color: @footer-color;
+
+            &:hover {
+                color: @theme-color;
+            }
+        }
+    }
+
+    .widget-title {
+        font-size: 23px;
+        line-height: 1.5em;
+        font-weight: 400;
+        color: #333e48;
+    }
+}
+
+
+/* Site Info */
+.site-info {
+    padding: 20px;
+    font-size: 15px;
+    border-top: 1px solid @border-color;
+
+    @media (max-width: @screen-sm-min) {
+        text-align: center;
+    }
+
+
+    .inside-site-info {
+
+        .footer-bar-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 -15px;
+        }
+
+        .footer-bar-column {
+            padding: 0 15px;
+        }
+
+        @media (max-width: @screen-sm-min) {
+            display: block;
+        }
+
+        > div {
+            flex: 1 1 auto;
+        }
+
+        .payment-options {
+            text-align: right;
+
+            @media (max-width: @screen-sm-min) {
+                text-align: center;
+                margin-top: 20px;
+            }
+        }
+
+        .copyright-bar {
+            font-size: 16px;
+            line-height: 1.3em;
+
+            @media (max-width: @screen-sm-min) {
+                float: none !important;
+                text-align: center !important;
+            }
+        }
+    }
+
+    // layout 2 style
+    &.layout-2 .inside-site-info .footer-bar-row {
+        flex-direction: row;
+    }
+
+    &.layout-1 .inside-site-info .footer-bar-row {
+        flex-direction: column;
+    }
+
+    &.layout-1 .footer-bar-section1 {
+        margin-bottom: 10px;
+    }
+
+
+}
+
+
+// footer menu
+
+.footer-menu {
+
+    ul {
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &:not(.sub-menu) {
+            margin: 0 -8px;
+        }
+
+        li {
+            list-style: none;
+
+            a {
+                display: block;
+                padding: 8px 12px;
+            }
+
+            &.menu-item-has-children {
+                position: relative;
+                margin-right: 10px;
+                > a {
+                    position: relative;
+                    &:after {
+                        content: "\f106";
+                        font-family: FontAwesome;
+                        position: absolute;
+                        color: inherit;
+                        right: -2px;
+                        top: 50%;
+                        transform: translate(0%, -50%);
+                    }
+                }
+
+                ul {
+                    position: absolute;
+                    bottom: 100%;
+                    left: 0;
+                    min-width: 160px;
+                    z-index: 1000;
+                    padding: 5px 0;
+                    .box-shadow(0 10px 50px 0 rgba(0, 0, 0, 0.17));
+                    flex-direction: column;
+                    align-items: flex-start;
+                    background: #fff;
+                    border-radius: 4px;
+                    display: none;
+                }
+
+                &:hover ul {
+                    display: flex;
+                    li a {
+                        padding: 4px 15px;
+                    }
+                }
+            }
+        }
+    }
+}

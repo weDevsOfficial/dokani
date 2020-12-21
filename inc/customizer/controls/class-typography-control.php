@@ -2,7 +2,7 @@
 /**
  * The typography Customizer control.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,32 +13,32 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Typogra
 	/**
 	 * Create the typography elements control.
 	 *
-	 * @since 2.0
+	 * @since 1.0.0
 	 */
 	class Generate_Typography_Customize_Control extends WP_Customize_Control {
 		public $type = 'gp-customizer-typography';
 
 		public function enqueue() {
-			wp_enqueue_script( 'dokanee-typography-selectWoo', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/js/selectWoo.min.js', array( 'customize-controls', 'jquery' ), GENERATE_VERSION, true );
-			wp_enqueue_style( 'dokanee-typography-selectWoo', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/css/selectWoo.min.css', array(), GENERATE_VERSION );
+			wp_enqueue_script( 'dokani-typography-selectWoo', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/js/selectWoo.min.js', array( 'customize-controls', 'jquery' ), GENERATE_VERSION, true );
+			wp_enqueue_style( 'dokani-typography-selectWoo', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/css/selectWoo.min.css', array(), GENERATE_VERSION );
 
-			wp_enqueue_script( 'dokanee-typography-customizer', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/js/typography-customizer.js', array( 'customize-controls', 'dokanee-typography-selectWoo' ), GENERATE_VERSION, true );
-			wp_enqueue_style( 'dokanee-typography-customizer', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/css/typography-customizer.css', array(), GENERATE_VERSION );
+			wp_enqueue_script( 'dokani-typography-customizer', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/js/typography-customizer.js', array( 'customize-controls', 'dokani-typography-selectWoo' ), GENERATE_VERSION, true );
+			wp_enqueue_style( 'dokani-typography-customizer', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/css/typography-customizer.css', array(), GENERATE_VERSION );
 		}
 
 		public function to_json() {
 			parent::to_json();
 
-			$number_of_fonts = apply_filters( 'dokanee_number_of_fonts', 200 );
-			$this->json[ 'default_fonts_title'] = __( 'System fonts', 'dokanee' );
-			$this->json[ 'google_fonts_title'] = __( 'Google fonts', 'dokanee' );
-			$this->json[ 'google_fonts' ] = apply_filters( 'dokanee_typography_customize_list', dokanee_get_all_google_fonts( $number_of_fonts ) );
-			$this->json[ 'default_fonts' ] = dokanee_typography_default_fonts();
-			$this->json[ 'family_title' ] = esc_html__( 'Font family', 'dokanee' );
-			$this->json[ 'weight_title' ] = esc_html__( 'Font weight', 'dokanee' );
-			$this->json[ 'transform_title' ] = esc_html__( 'Text transform', 'dokanee' );
+			$number_of_fonts = apply_filters( 'dokani_number_of_fonts', 200 );
+			$this->json[ 'default_fonts_title'] = __( 'System fonts', 'dokani' );
+			$this->json[ 'google_fonts_title'] = __( 'Google fonts', 'dokani' );
+			$this->json[ 'google_fonts' ] = apply_filters( 'dokani_typography_customize_list', dokani_get_all_google_fonts( $number_of_fonts ) );
+			$this->json[ 'default_fonts' ] = dokani_typography_default_fonts();
+			$this->json[ 'family_title' ] = esc_html__( 'Font family', 'dokani' );
+			$this->json[ 'weight_title' ] = esc_html__( 'Font weight', 'dokani' );
+			$this->json[ 'transform_title' ] = esc_html__( 'Text transform', 'dokani' );
 			$this->json[ 'category_title' ] = '';
-			$this->json[ 'variant_title' ] = esc_html__( 'Variants', 'dokanee' );
+			$this->json[ 'variant_title' ] = esc_html__( 'Variants', 'dokani' );
 
 			foreach ( $this->settings as $setting_key => $setting_id ) {
 				$this->json[ $setting_key ] = array(
@@ -64,7 +64,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Typogra
 				<span class="customize-control-title">{{ data.label }}</span>
 			<# } #>
 			<# if ( 'undefined' !== typeof ( data.family ) ) { #>
-				<div class="dokanee-font-family">
+				<div class="dokani-font-family">
 					<label>
 						<select {{{ data.family.link }}} data-category="{{{ data.category.id }}}" data-variants="{{{ data.variant.id }}}" style="width:100%;">
 							<optgroup label="{{ data.default_fonts_title }}">
@@ -99,7 +99,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Typogra
 					data.variant.value = data.variant.default;
 				}
 				#>
-				<div id={{{ data.variant.id }}}" class="dokanee-font-variant" data-saved-value="{{ data.variant.value }}">
+				<div id={{{ data.variant.id }}}" class="dokani-font-variant" data-saved-value="{{ data.variant.value }}">
 					<label>
 						<select name="{{{ data.variant.id }}}" multiple class="typography-multi-select" style="width:100%;" {{{ data.variant.link }}}>
 							<# _.each( variants, function( label, choice ) { #>
@@ -115,7 +115,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Typogra
 			<# } #>
 
 			<# if ( 'undefined' !== typeof ( data.category ) ) { #>
-				<div class="dokanee-font-category">
+				<div class="dokani-font-category">
 					<label>
 							<input name="{{{ data.category.id }}}" type="hidden" {{{ data.category.link }}} value="{{{ data.category.value }}}" class="gp-hidden-input" />
 						<# if ( '' !== data.category_title ) { #>
@@ -126,7 +126,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Typogra
 			<# } #>
 
 			<# if ( 'undefined' !== typeof ( data.weight ) ) { #>
-				<div class="dokanee-font-weight">
+				<div class="dokani-font-weight">
 					<label>
 						<select {{{ data.weight.link }}}>
 
@@ -145,7 +145,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Typogra
 			<# } #>
 
 			<# if ( 'undefined' !== typeof ( data.transform ) ) { #>
-				<div class="dokanee-font-transform">
+				<div class="dokani-font-transform">
 					<label>
 						<select {{{ data.transform.link }}}>
 

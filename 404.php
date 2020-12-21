@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages (Not Found).
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -11,83 +11,79 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<div id="primary" <?php dokanee_content_class(); ?>>
-		<main id="main" <?php dokanee_main_class(); ?>>
+	<div id="primary" class="content-area grid-parent grid-100">
+		<main id="main" <?php dokani_main_class(); ?>>
 			<?php
 			/**
-			 * dokanee_before_main_content hook.
+			 * dokani_before_main_content hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_before_main_content' );
+			do_action( 'dokani_before_main_content' );
 			?>
 
 			<div class="inside-article">
 
 				<?php
 				/**
-				 * dokanee_before_content hook.
+				 * dokani_before_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 *
-				 * @hooked dokanee_featured_page_header_inside_single - 10
+				 * @hooked dokani_featured_page_header_inside_single - 10
 				 */
-				do_action( 'dokanee_before_content' );
+				do_action( 'dokani_before_content' );
 				?>
-
-				<header class="entry-header">
-					<h1 class="entry-title" itemprop="headline"><?php echo apply_filters( 'dokanee_404_title', __( 'Oops! That page can&rsquo;t be found.', 'dokanee' ) ); // WPCS: XSS OK. ?></h1>
-				</header><!-- .entry-header -->
 
 				<?php
 				/**
-				 * dokanee_after_entry_header hook.
+				 * dokani_after_entry_header hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 *
-				 * @hooked dokanee_post_image - 10
+				 * @hooked dokani_post_image - 10
 				 */
-				do_action( 'dokanee_after_entry_header' );
+				do_action( 'dokani_after_entry_header' );
 				?>
 
-				<div class="entry-content" itemprop="text">
-					<?php
-					echo '<p>' . apply_filters( 'dokanee_404_text', __( 'It looks like nothing was found at this location. Maybe try searching?', 'dokanee' ) ) . '</p>'; // WPCS: XSS OK.
-
-					get_search_form();
-					?>
-				</div><!-- .entry-content -->
+                <div class="entry-content" itemprop="text">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/404_illustration@2x.png' ); ?>" alt="<?php esc_attr_e( 'Not Found', 'dokani' ); ?>" class="not-found-thumb">
+                    <h2><?php esc_html_e( 'Page Not Found', 'dokani' ); ?></h2>
+                    <?php
+                    $text_404 = apply_filters( 'dokani_404_text', __( 'For Some Reason The Page You Requested Could Not Be Found On Our Server', 'dokani' ) );
+                    echo esc_html( $text_404 );
+                    get_search_form();
+                    ?>
+                </div><!-- .entry-content -->
 
 				<?php
 				/**
-				 * dokanee_after_content hook.
+				 * dokani_after_content hook.
 				 *
-				 * @since 0.1
+				 * @since 1.0.0
 				 */
-				do_action( 'dokanee_after_content' );
+				do_action( 'dokani_after_content' );
 				?>
 
 			</div><!-- .inside-article -->
 
 			<?php
 			/**
-			 * dokanee_after_main_content hook.
+			 * dokani_after_main_content hook.
 			 *
-			 * @since 0.1
+			 * @since 1.0.0
 			 */
-			do_action( 'dokanee_after_main_content' );
+			do_action( 'dokani_after_main_content' );
 			?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 	<?php
 	/**
-	 * dokanee_after_primary_content_area hook.
+	 * dokani_after_primary_content_area hook.
 	 *
-	 * @since 2.0
+	 * @since 1.0.0
 	 */
-	 do_action( 'dokanee_after_primary_content_area' );
-
-	 dokanee_construct_sidebars();
+	 do_action( 'dokani_after_primary_content_area' );
 
 get_footer();

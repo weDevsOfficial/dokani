@@ -36,6 +36,9 @@ th {
     right: 100%;
 }
 
+.bypostauthor {
+    display: block;
+}
 .alignleft {
     float: right;
     margin-left: 1.5em;
@@ -75,8 +78,8 @@ nav ul ul .menu-item-has-children .dropdown-menu-toggle {
 .slideout-navigation .menu-item-has-children .dropdown-menu-toggle {
     float: left;
 }
-.dropdown-click #dokanee-slideout-menu .slideout-menu .menu-item-has-children>a:first-child,
-.slideout-desktop.dropdown-hover #dokanee-slideout-menu .slideout-menu .menu-item-has-children>a:first-child {
+.dropdown-click #dokani-slideout-menu .slideout-menu .menu-item-has-children>a:first-child,
+.slideout-desktop.dropdown-hover #dokani-slideout-menu .slideout-menu .menu-item-has-children>a:first-child {
     padding-left: 0;
 }
 .comment .children {
@@ -154,8 +157,7 @@ footer.entry-meta .posted-on:before {
     margin-left: 5px;
 }
 
-.menu-toggle,
-.nav-search-enabled .main-navigation .menu-toggle {
+.menu-toggle {
 	text-align: right;
 }
 
@@ -163,15 +165,6 @@ footer.entry-meta .posted-on:before {
 	float: left;
 	left: 0;
 	right: auto;
-}
-
-.rtl .navigation-search {
-	left: auto;
-	right: -999999px;
-}
-
-.rtl .navigation-search.nav-search-active {
-    right: 0;
 }
 
 .rtl .footer-bar .widget_nav_menu li {

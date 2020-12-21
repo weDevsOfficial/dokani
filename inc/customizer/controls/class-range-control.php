@@ -2,7 +2,7 @@
 /**
  * The range slider Customizer control.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Range_S
 	 * Create a range slider control.
 	 * This control allows you to add responsive settings.
 	 *
-	 * @since 1.3.47
+	 * @since 1.0.0
 	 */
 	class Generate_Range_Slider_Control extends WP_Customize_Control {
 		/**
@@ -23,7 +23,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Range_S
 		 * @access public
 		 * @var string
 		 */
-		public $type = 'dokanee-range-slider';
+		public $type = 'dokani-range-slider';
 
 		public $description = '';
 		/**
@@ -51,10 +51,10 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Range_S
 				);
 			}
 
-			$this->json['desktop_label'] = __( 'Desktop','dokanee' );
-			$this->json['tablet_label'] = __( 'Tablet','dokanee' );
-			$this->json['mobile_label'] = __( 'Mobile','dokanee' );
-			$this->json['reset_label'] = __( 'Reset','dokanee' );
+			$this->json['desktop_label'] = __( 'Desktop','dokani' );
+			$this->json['tablet_label'] = __( 'Tablet','dokani' );
+			$this->json['mobile_label'] = __( 'Mobile','dokani' );
+			$this->json['reset_label'] = __( 'Reset','dokani' );
 
 			$this->json['description'] = $this->description;
 		}
@@ -65,8 +65,8 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Range_S
 		 * @access public
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'dokanee-range-slider', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/slider-control.js', array( 'jquery', 'customize-base', 'jquery-ui-slider' ), false, true );
-			wp_enqueue_style( 'dokanee-range-slider-css', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/css/slider-customizer.css', null );
+			wp_enqueue_script( 'dokani-range-slider', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/slider-control.js', array( 'jquery', 'customize-base', 'jquery-ui-slider' ), false, true );
+			wp_enqueue_style( 'dokani-range-slider-css', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/css/slider-customizer.css', null );
 		}
 
 		/**
@@ -81,7 +81,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Range_S
 		 */
 		protected function content_template() {
 			?>
-			<div class="dokanee-range-slider-control">
+			<div class="dokani-range-slider-control">
 				<div class="gp-range-title-area">
 					<# if ( data.label || data.description ) { #>
 						<div class="gp-range-title-info">
@@ -98,19 +98,19 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Range_S
 					<div class="gp-range-slider-controls">
 						<span class="gp-device-controls">
 							<# if ( 'undefined' !== typeof ( data.desktop ) ) { #>
-								<span class="dokanee-device-desktop dashicons dashicons-desktop" data-option="desktop" title="{{ data.desktop_label }}"></span>
+								<span class="dokani-device-desktop dashicons dashicons-desktop" data-option="desktop" title="{{ data.desktop_label }}"></span>
 							<# } #>
 
 							<# if ( 'undefined' !== typeof (data.tablet) ) { #>
-								<span class="dokanee-device-tablet dashicons dashicons-tablet" data-option="tablet" title="{{ data.tablet_label }}"></span>
+								<span class="dokani-device-tablet dashicons dashicons-tablet" data-option="tablet" title="{{ data.tablet_label }}"></span>
 							<# } #>
 
 							<# if ( 'undefined' !== typeof (data.mobile) ) { #>
-								<span class="dokanee-device-mobile dashicons dashicons-smartphone" data-option="mobile" title="{{ data.mobile_label }}"></span>
+								<span class="dokani-device-mobile dashicons dashicons-smartphone" data-option="mobile" title="{{ data.mobile_label }}"></span>
 							<# } #>
 						</span>
 
-						<span title="{{ data.reset_label }}" class="dokanee-reset dashicons dashicons-image-rotate"></span>
+						<span title="{{ data.reset_label }}" class="dokani-reset dashicons dashicons-image-rotate"></span>
 					</div>
 				</div>
 
@@ -126,7 +126,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Range_S
 										<span class="unit">{{ data.choices['desktop']['unit'] }}</span>
 									<# } #>
 								</div>
-								<div class="dokanee-slider" data-step="{{ data.choices['desktop']['step'] }}" data-min="{{ data.choices['desktop']['min'] }}" data-max="{{ data.choices['desktop']['max'] }}"></div>
+								<div class="dokani-slider" data-step="{{ data.choices['desktop']['step'] }}" data-min="{{ data.choices['desktop']['min'] }}" data-max="{{ data.choices['desktop']['max'] }}"></div>
 							</div>
 						</label>
 					<# } #>
@@ -142,7 +142,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Range_S
 										<span class="unit">{{ data.choices['tablet']['unit'] }}</span>
 									<# } #>
 								</div>
-								<div class="dokanee-slider" data-step="{{ data.choices['tablet']['step'] }}" data-min="{{ data.choices['tablet']['min'] }}" data-max="{{ data.choices['tablet']['max'] }}"></div>
+								<div class="dokani-slider" data-step="{{ data.choices['tablet']['step'] }}" data-min="{{ data.choices['tablet']['min'] }}" data-max="{{ data.choices['tablet']['max'] }}"></div>
 							</div>
 						</label>
 					<# } #>
@@ -158,7 +158,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Range_S
 										<span class="unit">{{ data.choices['mobile']['unit'] }}</span>
 									<# } #>
 								</div>
-								<div class="dokanee-slider" data-step="{{ data.choices['mobile']['step'] }}" data-min="{{ data.choices['mobile']['min'] }}" data-max="{{ data.choices['mobile']['max'] }}"></div>
+								<div class="dokani-slider" data-step="{{ data.choices['mobile']['step'] }}" data-min="{{ data.choices['mobile']['min'] }}" data-max="{{ data.choices['mobile']['max'] }}"></div>
 							</div>
 						</label>
 					<# } #>

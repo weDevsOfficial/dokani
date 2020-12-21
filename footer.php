@@ -2,7 +2,7 @@
 /**
  * The template for displaying the footer.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,48 +15,61 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php
 /**
- * dokanee_before_footer hook.
+ * dokani_before_footer hook.
  *
- * @since 0.1
+ * @since 1.0.0
  */
-do_action( 'dokanee_before_footer' );
+do_action( 'dokani_before_footer' );
+?>
+<?php
+/**
+ * Trust Factors Section.
+ *
+ * @since 1.0.0
+ */
+
+if( ( get_theme_mod( 'show_trusted_factors_section', 'on' ) == 'on' ) && class_exists( 'WooCommerce' ) ) {
+	get_template_part( 'template-parts/page/section-trust' );
+}
+
 ?>
 
-<div <?php dokanee_footer_class(); ?>>
+<div <?php dokani_footer_class(); ?>>
 	<?php
 	/**
-	 * dokanee_before_footer_content hook.
+	 * dokani_before_footer_content hook.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	do_action( 'dokanee_before_footer_content' );
+	do_action( 'dokani_before_footer_content' );
 
 	/**
-	 * dokanee_footer hook.
+	 * dokani_footer hook.
 	 *
-	 * @since 1.3.42
+	 * @since 1.0.0
 	 *
-	 * @hooked dokanee_construct_footer_widgets - 5
-	 * @hooked dokanee_construct_footer - 10
+	 * @hooked dokani_construct_footer_widgets - 5
+	 * @hooked dokani_construct_footer - 10
 	 */
-	do_action( 'dokanee_footer' );
+
+	do_action( 'dokani_footer' );
 
 	/**
-	 * dokanee_after_footer_content hook.
+	 * dokani_after_footer_content hook.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	do_action( 'dokanee_after_footer_content' );
+	do_action( 'dokani_after_footer_content' );
 	?>
 </div><!-- .site-footer -->
 
 <?php
 /**
- * dokanee_after_footer hook.
+ * dokani_after_footer hook.
  *
- * @since 2.1
+ * @since 1.0.0
  */
-do_action( 'dokanee_after_footer' );
+do_action( 'dokani_after_footer' );
 
 wp_footer();
 ?>

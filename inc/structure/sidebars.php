@@ -2,21 +2,32 @@
 /**
  * Build the sidebars.
  *
- * @package Dokanee
+ * @package dokani
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'dokanee_construct_sidebars' ) ) {
+if ( ! function_exists( 'dokani_construct_sidebars' ) ) {
 	/**
 	 * Construct the sidebars.
 	 *
-	 * @since 0.1
+	 * @since 1.0.0
 	 */
-	function dokanee_construct_sidebars() {
-		$layout = dokanee_get_layout();
+	function dokani_construct_sidebars( $sidebar_template = '' ) {
+
+	    if ( $sidebar_template === 'left-sidebar' ) {
+            get_sidebar( 'left' );
+            return;
+        }
+
+        if ( $sidebar_template === 'right-sidebar' ) {
+            get_sidebar();
+            return;
+        }
+
+		$layout = dokani_get_layout();
 
 		// When to show the right sidebar.
 		$rs = array( 'right-sidebar', 'both-sidebars', 'both-right', 'both-left' );
@@ -30,7 +41,7 @@ if ( ! function_exists( 'dokanee_construct_sidebars' ) ) {
 		}
 
 		// If right sidebar, show it.
-		if ( in_array( $layout, $rs ) ) {
+		if ( in_array( $layout, $rs ) || $sidebar_template === 'right-sidebar' ) {
 			get_sidebar();
 		}
 	}
@@ -39,5 +50,5 @@ if ( ! function_exists( 'dokanee_construct_sidebars' ) ) {
 	 * The below hook was removed in 2.0, but we'll keep the call here so child themes
 	 * don't lose their sidebar when they update the theme.
 	 */
-	 add_action( 'dokanee_sidebars', 'dokanee_construct_sidebars' );
+	 add_action( 'dokani_sidebars', 'dokani_construct_sidebars' );
 }
