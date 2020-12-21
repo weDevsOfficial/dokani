@@ -2,9 +2,9 @@
 Contributors: tareq1988, wedevs, nizamuddinbabu, sk.shaikat, mehidi258
 Tags: blog, e-commerce, grid-layout, three-columns, custom-colors, custom-menu, editor-style, featured-images, post-formats, theme-options, translation-ready
 Requires at least: 4.4
-Tested up to: 5.2.3
+Tested up to: 5.6
 WC requires at least: 3.0
-WC tested up to: 3.9.0
+WC tested up to: 4.8
 Requires PHP: 5.6
 Stable tag: 1.0.0
 License: GPL-2.0-or-later
@@ -40,6 +40,6 @@ Privacy Policy for the Google Fonts API: https://developers.google.com/fonts/faq
 
 == Changelog ==
 
-= 1.0.0 - 2020-02-29 =
+= 1.0.0 - 21 December 2020 =
 * Initial release
 
