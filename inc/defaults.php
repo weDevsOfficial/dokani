@@ -155,6 +155,7 @@ if ( ! function_exists( 'dokani_get_color_defaults' ) ) {
 			'store_header_title_color'               => '#000000',
 			'store_header_link_color'                => '#222222',
 			'store_header_link_hover_color'          => '#f2624d',
+            'background_color'                       => '#efefef',
 		);
 
 		return apply_filters( 'dokani_color_option_defaults', $dokani_color_defaults );

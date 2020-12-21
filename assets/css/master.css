@@ -303,7 +303,7 @@
 .top-bar .top-nav ul ul li.menu-item-has-children > a:after {
   content: "\f105";
   right: 15px;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 .top-bar .top-nav ul ul li:hover > ul {
   left: 100%;
@@ -1797,7 +1797,7 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  opacity: .9;
+  opacity: 0.9;
 }
 .button {
   padding: 10px 20px;
@@ -2507,7 +2507,7 @@ input[type="file"] {
   border: 1px solid transparent;
 }
 .entry-content .read-more:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 .entry-summary {
   color: #9c9c9c;
@@ -2525,7 +2525,7 @@ input[type="file"] {
   border: 1px solid transparent;
 }
 .entry-summary .read-more:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 .paging-navigation {
   background-color: transparent !important;
@@ -2621,7 +2621,7 @@ input[type="file"] {
 .single-post.woocommerce #respond input#submit:hover,
 .single-post.woocommerce #respond input#submit:focus,
 .single-post.woocommerce #respond input#submit:active {
-  opacity: .9;
+  opacity: 0.9;
 }
 /* =Comments
 ----------------------------------------------- */
@@ -3023,7 +3023,7 @@ ol.comment-list {
 @media (min-width: 768px) {
   .woocommerce ul.products.list li .item-content .woocommerce-loop-product__title,
   .woocommerce-page ul.products.list li .item-content .woocommerce-loop-product__title {
-    font-size: 1.250rem;
+    font-size: 1.25rem;
   }
 }
 .woocommerce ul.products.list li .item-content .item-vendor,
@@ -3677,7 +3677,7 @@ ol.comment-list {
 .woocommerce input.button.alt.disabled:focus,
 .woocommerce input.button.alt:disabled:focus,
 .woocommerce input.button.alt:disabled[disabled]:focus {
-  opacity: .9;
+  opacity: 0.9;
 }
 .woocommerce-info {
   background-color: #FFFFFF;
@@ -4094,7 +4094,7 @@ ol.comment-list {
 .woocommerce a.button.alt:hover,
 .woocommerce button.button.alt:hover,
 .woocommerce input.button.alt:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 .woocommerce #content div.product div.images,
 .woocommerce div.product div.images,
@@ -4199,7 +4199,7 @@ ol.comment-list {
   -moz-osx-font-smoothing: grayscale;
   content: "\f0f6";
   line-height: 1.618;
-  margin-left: .53em;
+  margin-left: 0.53em;
   width: 1.387em;
   text-align: right;
   float: right;
@@ -4406,7 +4406,7 @@ form.checkout #payment .payment_methods li.wc_payment_method > label:before {
   line-height: inherit;
   vertical-align: baseline;
   content: "\f111";
-  margin-right: 0.5407911001em;
+  margin-right: 0.5407911em;
   -webkit-transition: color, ease, 0.2s;
   transition: color, ease, 0.2s;
 }
@@ -5131,7 +5131,7 @@ body.dokan-dashboard .dokan-table td.diviader {
   top: 0;
   bottom: 0;
   background: #000;
-  opacity: .6;
+  opacity: 0.6;
 }
 @media (min-width: 1120px) {
   .profile-frame.layout1:not(.default) .store-banner .profile-info-box {
@@ -5247,7 +5247,7 @@ body.dokan-dashboard .dokan-table td.diviader {
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li.dokan-right .dokan-btn:hover,
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li.dokan-right .dokan-btn:active,
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li.dokan-right .dokan-btn:focus {
-  opacity: .9;
+  opacity: 0.9;
 }
 .dokan-store-tab-wrapper .dokan-store-tabs .dokan-list-inline li a {
   color: #333e48;
@@ -5800,7 +5800,7 @@ body.dokani-template-front-page .site-footer {
   -ms-flex-order: 1;
   order: 1;
   display: block;
-  padding: .5rem 1.6rem;
+  padding: 0.5rem 1.6rem;
   margin-right: 0.2rem;
   cursor: pointer;
   -webkit-transition: background ease 0.2s;
@@ -5915,4 +5915,4 @@ body.dokani-template-front-page .site-footer {
   font-size: 14px;
   margin-left: 10px;
 }
-/*# sourceMappingURL=master.css.map */
+/*# sourceMappingURL=assets/css/master.css.map */

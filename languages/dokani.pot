@@ -1,39 +1,17 @@
-# Copyright (C) 2020 weDevs, LLC
-# This file is distributed under the GNU General Public License v2 or later.
+# <!=Copyright (C) 2020 weDevs, LLC
+# This file is distributed under the GPL-2.0-or-later.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: dokani 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/dokani\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Report-Msgid-Bugs-To: https://wedevs.com/support/forum/theme-support\n"
+"POT-Creation-Date: 2020-12-21 08:53:13+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-03-16T06:50:39+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: dokani\n"
-
-#. Theme Name of the theme
-#: inc/structure/footer.php:142
-msgid "dokani"
-msgstr ""
-
-#. Theme URI of the theme
-msgid "https://wedevs.com/themes/dokani/"
-msgstr ""
-
-#. Description of the theme
-msgid "An eCommerce theme for Dokan"
-msgstr ""
-
-#. Author of the theme
-msgid "weDevs, LLC"
-msgstr ""
-
-#. Author URI of the theme
-msgid "https://wedevs.com"
-msgstr ""
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: 404.php:50
 msgid "Not Found"
@@ -47,32 +25,15 @@ msgstr ""
 msgid "For Some Reason The Page You Requested Could Not Be Found On Our Server"
 msgstr ""
 
-#. translators: %s: post title
-#: comments.php:50
-msgctxt "comments title"
-msgid "One thought on &ldquo;%s&rdquo;"
-msgstr ""
-
-#. translators: 1: number of comments, 2: post title
-#: comments.php:56
-msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
-
-#: comments.php:80
-#: comments.php:103
+#: comments.php:80 comments.php:103
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:81
-#: comments.php:104
+#: comments.php:81 comments.php:104
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: comments.php:82
-#: comments.php:105
+#: comments.php:82 comments.php:105
 msgid "Newer Comments &rarr;"
 msgstr ""
 
@@ -92,75 +53,56 @@ msgstr ""
 msgid "Post Comment"
 msgstr ""
 
-#: content-link.php:71
-#: content-page.php:52
-#: content-single.php:67
-#: content.php:77
+#: content-link.php:71 content-page.php:52 content-single.php:67 content.php:77
 msgid "Pages:"
 msgstr ""
 
-#: dokan/best-store-lists-loop.php:10
-#: dokan/featured-store-lists-loop.php:9
-#: dokan/new-store-lists-loop.php:9
-#: dokan/store-lists-loop.php:9
-#: woocommerce/single-product/meta.php:33
+#: dokan/best-store-lists-loop.php:10 dokan/featured-store-lists-loop.php:9
+#: dokan/new-store-lists-loop.php:9 woocommerce/single-product/meta.php:33
 msgid "N/A"
 msgstr ""
 
-#: dokan/best-store-lists-loop.php:22
-#: dokan/featured-store-lists-loop.php:21
-#: dokan/new-store-lists-loop.php:23
-#: dokan/store-header.php:64
-#: dokan/store-lists-loop.php:21
+#: dokan/best-store-lists-loop.php:22 dokan/featured-store-lists-loop.php:21
+#: dokan/new-store-lists-loop.php:23 dokan/store-header.php:64
 #: template-parts/page/content-front-page.php:274
 msgid "Featured"
 msgstr ""
 
-#: dokan/best-store-lists-loop.php:63
-#: dokan/featured-store-lists-loop.php:59
+#: dokan/best-store-lists-loop.php:63 dokan/featured-store-lists-loop.php:59
 #: dokan/new-store-lists-loop.php:63
-#: dokan/store-lists-loop.php:115
 msgid "No vendor found!"
 msgstr ""
 
-#: dokan/global/header-menu.php:27
-#: inc/structure/navigation.php:334
+#: dokan/global/header-menu.php:27 inc/structure/navigation.php:334
 msgid "Vendor Dashboard"
 msgstr ""
 
-#: dokan/global/header-menu.php:30
-#: inc/structure/navigation.php:336
+#: dokan/global/header-menu.php:30 inc/structure/navigation.php:336
 msgid "Visit your store"
 msgstr ""
 
-#: dokan/global/header-menu.php:44
-#: inc/structure/header.php:419
+#: dokan/global/header-menu.php:44 inc/structure/header.php:419
 msgid "My Orders"
 msgstr ""
 
-#: dokan/global/header-menu.php:45
-#: inc/structure/cart.php:32
+#: dokan/global/header-menu.php:45 inc/structure/cart.php:32
 #: inc/structure/header.php:420
 msgid "My Account"
 msgstr ""
 
-#: dokan/global/header-menu.php:46
-#: inc/structure/header.php:422
+#: dokan/global/header-menu.php:46 inc/structure/header.php:422
 msgid "Edit Account"
 msgstr ""
 
-#: dokan/global/header-menu.php:48
-#: inc/structure/header.php:424
+#: dokan/global/header-menu.php:48 inc/structure/header.php:424
 msgid "Billing Address"
 msgstr ""
 
-#: dokan/global/header-menu.php:49
-#: inc/structure/header.php:425
+#: dokan/global/header-menu.php:49 inc/structure/header.php:425
 msgid "Shipping Address"
 msgstr ""
 
-#: dokan/global/header-menu.php:55
-#: inc/structure/header.php:431
+#: dokan/global/header-menu.php:55 inc/structure/header.php:431
 msgid "Login / Register"
 msgstr ""
 
@@ -176,28 +118,6 @@ msgstr ""
 msgid "Address:"
 msgstr ""
 
-#: dokan/store-lists-loop.php:17
-msgid "no-banner-img"
-msgstr ""
-
-#: dokan/store-lists-loop.php:50
-msgid "out of 5"
-msgstr ""
-
-#: dokan/store-lists-loop.php:64
-msgid "Visit Store"
-msgstr ""
-
-#: dokan/store-lists-loop.php:88
-#: inc/structure/post-meta.php:66
-msgid "&larr;"
-msgstr ""
-
-#: dokan/store-lists-loop.php:89
-#: inc/structure/post-meta.php:67
-msgid "&rarr;"
-msgstr ""
-
 #: dokan/store-reviews.php:53
 msgid "Vendor Review"
 msgstr ""
@@ -208,6 +128,10 @@ msgstr ""
 
 #: dokan/store.php:58
 msgid "No products were found of this vendor!"
+msgstr ""
+
+#: dokan/vendor-biography.php:41
+msgid "Vendor Biography"
 msgstr ""
 
 #: functions.php:48
@@ -222,18 +146,61 @@ msgstr ""
 msgid "Responsive Menu"
 msgstr ""
 
-#: functions.php:51
-#: inc/customizer.php:1090
-#: inc/customizer.php:1130
+#: functions.php:51 inc/customizer.php:1090 inc/customizer.php:1130
 msgid "Footer Menu"
+msgstr ""
+
+#: inc/customizer/controls/class-deprecated.php:51
+msgid "Default fonts"
+msgstr ""
+
+#: inc/customizer/controls/class-deprecated.php:52
+#: inc/customizer/controls/class-typography-control.php:34
+msgid "Google fonts"
+msgstr ""
+
+#: inc/customizer/controls/class-deprecated.php:53
+#: inc/customizer/controls/class-typography-control.php:37
+msgid "Font family"
+msgstr ""
+
+#: inc/customizer/controls/class-range-control.php:54
+msgid "Desktop"
+msgstr ""
+
+#: inc/customizer/controls/class-range-control.php:55
+msgid "Tablet"
+msgstr ""
+
+#: inc/customizer/controls/class-range-control.php:56
+msgid "Mobile"
+msgstr ""
+
+#: inc/customizer/controls/class-range-control.php:57
+msgid "Reset"
+msgstr ""
+
+#: inc/customizer/controls/class-typography-control.php:33
+msgid "System fonts"
+msgstr ""
+
+#: inc/customizer/controls/class-typography-control.php:38
+msgid "Font weight"
+msgstr ""
+
+#: inc/customizer/controls/class-typography-control.php:39
+msgid "Text transform"
+msgstr ""
+
+#: inc/customizer/controls/class-typography-control.php:41
+msgid "Variants"
 msgstr ""
 
 #: inc/customizer.php:100
 msgid "Global"
 msgstr ""
 
-#: inc/customizer.php:114
-#: inc/general.php:81
+#: inc/customizer.php:114 inc/general.php:81
 msgid "Header"
 msgstr ""
 
@@ -301,29 +268,21 @@ msgstr ""
 msgid "Store Header Template Colors"
 msgstr ""
 
-#: inc/customizer.php:388
-#: inc/customizer.php:2570
+#: inc/customizer.php:388 inc/customizer.php:2570
 msgid "Title Color"
 msgstr ""
 
-#: inc/customizer.php:409
-#: inc/customizer.php:514
-#: inc/customizer.php:1212
+#: inc/customizer.php:409 inc/customizer.php:514 inc/customizer.php:1212
 #: inc/customizer.php:2590
 msgid "Text Color"
 msgstr ""
 
-#: inc/customizer.php:430
-#: inc/customizer.php:554
-#: inc/customizer.php:1233
-#: inc/customizer.php:1968
-#: inc/customizer.php:2610
+#: inc/customizer.php:430 inc/customizer.php:554 inc/customizer.php:1233
+#: inc/customizer.php:1968 inc/customizer.php:2610
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer.php:451
-#: inc/customizer.php:574
-#: inc/customizer.php:1253
+#: inc/customizer.php:451 inc/customizer.php:574 inc/customizer.php:1253
 #: inc/customizer.php:2630
 msgid "Link Hover Color"
 msgstr ""
@@ -332,9 +291,7 @@ msgstr ""
 msgid "Theme Color"
 msgstr ""
 
-#: inc/customizer.php:494
-#: inc/customizer.php:1191
-#: inc/customizer.php:1926
+#: inc/customizer.php:494 inc/customizer.php:1191 inc/customizer.php:1926
 #: inc/customizer.php:2548
 msgid "Background Color"
 msgstr ""
@@ -447,17 +404,12 @@ msgstr ""
 msgid "Icon Background Color"
 msgstr ""
 
-#: inc/customizer.php:1055
-#: inc/customizer.php:1269
-#: inc/customizer.php:1280
-#: inc/customizer.php:1358
-#: inc/customizer.php:2412
+#: inc/customizer.php:1055 inc/customizer.php:1269 inc/customizer.php:1280
+#: inc/customizer.php:1358 inc/customizer.php:2412
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer.php:1059
-#: inc/customizer.php:1362
-#: inc/customizer.php:2416
+#: inc/customizer.php:1059 inc/customizer.php:1362 inc/customizer.php:2416
 msgid "Disabled"
 msgstr ""
 
@@ -473,23 +425,19 @@ msgstr ""
 msgid "Section 1 Content Type"
 msgstr ""
 
-#: inc/customizer.php:1087
-#: inc/customizer.php:1127
+#: inc/customizer.php:1087 inc/customizer.php:1127
 msgid "None"
 msgstr ""
 
-#: inc/customizer.php:1088
-#: inc/customizer.php:1128
+#: inc/customizer.php:1088 inc/customizer.php:1128
 msgid "Text"
 msgstr ""
 
-#: inc/customizer.php:1089
-#: inc/customizer.php:1129
+#: inc/customizer.php:1089 inc/customizer.php:1129
 msgid "Widget"
 msgstr ""
 
-#: inc/customizer.php:1097
-#: inc/customizer.php:1138
+#: inc/customizer.php:1097 inc/customizer.php:1138
 msgid "Copyright 2019 | dokani by weDevs"
 msgstr ""
 
@@ -521,9 +469,7 @@ msgstr ""
 msgid "Top Bar"
 msgstr ""
 
-#: inc/customizer.php:1366
-#: inc/customizer.php:2391
-#: inc/customizer.php:2420
+#: inc/customizer.php:1366 inc/customizer.php:2391 inc/customizer.php:2420
 #: inc/customizer.php:2496
 msgid "Footer Widgets"
 msgstr ""
@@ -532,26 +478,15 @@ msgstr ""
 msgid "Top Bar Width"
 msgstr ""
 
-#: inc/customizer.php:1394
-#: inc/customizer.php:1421
-#: inc/customizer.php:1600
-#: inc/customizer.php:1627
-#: inc/customizer.php:1822
-#: inc/customizer.php:1850
-#: inc/customizer.php:2447
-#: inc/customizer.php:2475
-#: inc/customizer.php:2763
+#: inc/customizer.php:1394 inc/customizer.php:1421 inc/customizer.php:1600
+#: inc/customizer.php:1627 inc/customizer.php:1822 inc/customizer.php:1850
+#: inc/customizer.php:2447 inc/customizer.php:2475 inc/customizer.php:2763
 msgid "Full"
 msgstr ""
 
-#: inc/customizer.php:1395
-#: inc/customizer.php:1422
-#: inc/customizer.php:1601
-#: inc/customizer.php:1626
-#: inc/customizer.php:1823
-#: inc/customizer.php:1849
-#: inc/customizer.php:2448
-#: inc/customizer.php:2474
+#: inc/customizer.php:1395 inc/customizer.php:1422 inc/customizer.php:1601
+#: inc/customizer.php:1626 inc/customizer.php:1823 inc/customizer.php:1849
+#: inc/customizer.php:2448 inc/customizer.php:2474
 msgid "Contained"
 msgstr ""
 
@@ -563,18 +498,15 @@ msgstr ""
 msgid "Top Bar Alignment"
 msgstr ""
 
-#: inc/customizer.php:1448
-#: inc/customizer.php:1876
+#: inc/customizer.php:1448 inc/customizer.php:1876
 msgid "Left"
 msgstr ""
 
-#: inc/customizer.php:1449
-#: inc/customizer.php:1877
+#: inc/customizer.php:1449 inc/customizer.php:1877
 msgid "Center"
 msgstr ""
 
-#: inc/customizer.php:1450
-#: inc/customizer.php:1878
+#: inc/customizer.php:1450 inc/customizer.php:1878
 msgid "Right"
 msgstr ""
 
@@ -714,35 +646,21 @@ msgstr ""
 msgid "Sidebar Layout"
 msgstr ""
 
-#: inc/customizer.php:2043
-#: inc/customizer.php:2081
-#: inc/customizer.php:2119
-#: inc/customizer.php:2158
-#: inc/customizer.php:2198
-#: inc/customizer.php:2238
-#: inc/customizer.php:2276
-#: inc/general.php:80
+#: inc/customizer.php:2043 inc/customizer.php:2081 inc/customizer.php:2119
+#: inc/customizer.php:2158 inc/customizer.php:2198 inc/customizer.php:2238
+#: inc/customizer.php:2276 inc/general.php:80
 msgid "Left Sidebar"
 msgstr ""
 
-#: inc/customizer.php:2047
-#: inc/customizer.php:2085
-#: inc/customizer.php:2123
-#: inc/customizer.php:2162
-#: inc/customizer.php:2202
-#: inc/customizer.php:2242
+#: inc/customizer.php:2047 inc/customizer.php:2085 inc/customizer.php:2123
+#: inc/customizer.php:2162 inc/customizer.php:2202 inc/customizer.php:2242
 #: inc/customizer.php:2280
 msgid "No Sidebar"
 msgstr ""
 
-#: inc/customizer.php:2051
-#: inc/customizer.php:2089
-#: inc/customizer.php:2127
-#: inc/customizer.php:2166
-#: inc/customizer.php:2206
-#: inc/customizer.php:2246
-#: inc/customizer.php:2284
-#: inc/general.php:79
+#: inc/customizer.php:2051 inc/customizer.php:2089 inc/customizer.php:2127
+#: inc/customizer.php:2166 inc/customizer.php:2206 inc/customizer.php:2246
+#: inc/customizer.php:2284 inc/general.php:79
 msgid "Right Sidebar"
 msgstr ""
 
@@ -850,52 +768,6 @@ msgstr ""
 msgid "Cache CSS generated by your options to boost performance."
 msgstr ""
 
-#: inc/customizer/controls/class-deprecated.php:51
-msgid "Default fonts"
-msgstr ""
-
-#: inc/customizer/controls/class-deprecated.php:52
-#: inc/customizer/controls/class-typography-control.php:34
-msgid "Google fonts"
-msgstr ""
-
-#: inc/customizer/controls/class-deprecated.php:53
-#: inc/customizer/controls/class-typography-control.php:37
-msgid "Font family"
-msgstr ""
-
-#: inc/customizer/controls/class-range-control.php:54
-msgid "Desktop"
-msgstr ""
-
-#: inc/customizer/controls/class-range-control.php:55
-msgid "Tablet"
-msgstr ""
-
-#: inc/customizer/controls/class-range-control.php:56
-msgid "Mobile"
-msgstr ""
-
-#: inc/customizer/controls/class-range-control.php:57
-msgid "Reset"
-msgstr ""
-
-#: inc/customizer/controls/class-typography-control.php:33
-msgid "System fonts"
-msgstr ""
-
-#: inc/customizer/controls/class-typography-control.php:38
-msgid "Font weight"
-msgstr ""
-
-#: inc/customizer/controls/class-typography-control.php:39
-msgid "Text transform"
-msgstr ""
-
-#: inc/customizer/controls/class-typography-control.php:41
-msgid "Variants"
-msgstr ""
-
 #: inc/deprecated.php:27
 msgid "&larr; Previous"
 msgstr ""
@@ -932,8 +804,7 @@ msgstr ""
 msgid "Footer Bar Section 2"
 msgstr ""
 
-#: inc/general.php:89
-#: template-parts/page/content-front-page.php:228
+#: inc/general.php:89 template-parts/page/content-front-page.php:228
 msgid "Store List"
 msgstr ""
 
@@ -949,8 +820,8 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#. translators: %s: search term
 #: inc/structure/cart.php:22
+#. translators: %s: search term
 msgid "Cart %s"
 msgstr ""
 
@@ -958,15 +829,8 @@ msgstr ""
 msgid "Pingback:"
 msgstr ""
 
-#: inc/structure/comments.php:25
-#: inc/structure/comments.php:50
+#: inc/structure/comments.php:25 inc/structure/comments.php:50
 msgid "Edit"
-msgstr ""
-
-#. translators: 1: date, 2: time
-#: inc/structure/comments.php:44
-msgctxt "1: date, 2: time"
-msgid "%1$s at %2$s"
 msgstr ""
 
 #: inc/structure/comments.php:64
@@ -985,33 +849,41 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
+#: inc/structure/footer.php:40 inc/structure/footer.php:79
 #. translators: 1: admin URL
-#: inc/structure/footer.php:40
-#: inc/structure/footer.php:79
-msgid "Add widget content by going to <a href=\"%1$s\"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area."
+msgid ""
+"Add widget content by going to <a href=\"%1$s\"><strong>Appearance / "
+"Widgets</strong></a> and dragging widgets into this widget area."
 msgstr ""
 
-#: inc/structure/footer.php:59
-#: inc/structure/footer.php:98
+#: inc/structure/footer.php:59 inc/structure/footer.php:98
 msgid "Add Footer Menu"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "dokani"
 msgstr ""
 
 #: inc/structure/footer.php:165
 msgid "Footer Widget"
 msgstr ""
 
-#. translators: 1: admin URL
 #: inc/structure/footer.php:171
-msgid "Replace this widget content by going to <a href=\"%1$s\"><strong>Appearance / Widgets</strong></a> and dragging widgets into this widget area."
-msgstr ""
-
 #. translators: 1: admin URL
-#: inc/structure/footer.php:180
-msgid "To remove or choose the number of footer widgets, go to <a href=\"%1$s\"><strong>Appearance / Customize / Layout / Footer Widgets</strong></a>."
+msgid ""
+"Replace this widget content by going to <a href=\"%1$s\"><strong>Appearance "
+"/ Widgets</strong></a> and dragging widgets into this widget area."
 msgstr ""
 
-#: inc/structure/footer.php:290
-#: inc/structure/footer.php:294
+#: inc/structure/footer.php:180
+#. translators: 1: admin URL
+msgid ""
+"To remove or choose the number of footer widgets, go to <a "
+"href=\"%1$s\"><strong>Appearance / Customize / Layout / Footer "
+"Widgets</strong></a>."
+msgstr ""
+
+#: inc/structure/footer.php:290 inc/structure/footer.php:294
 msgid "Scroll back to top"
 msgstr ""
 
@@ -1023,8 +895,7 @@ msgstr ""
 msgid "Add Top Menu"
 msgstr ""
 
-#: inc/structure/header.php:349
-#: inc/structure/header.php:350
+#: inc/structure/header.php:349 inc/structure/header.php:350
 msgid "Skip to content"
 msgstr ""
 
@@ -1052,13 +923,11 @@ msgstr ""
 msgid "Post navigation"
 msgstr ""
 
-#: inc/structure/post-meta.php:50
-#: inc/structure/post-meta.php:56
+#: inc/structure/post-meta.php:50 inc/structure/post-meta.php:56
 msgid "Previous"
 msgstr ""
 
-#: inc/structure/post-meta.php:51
-#: inc/structure/post-meta.php:60
+#: inc/structure/post-meta.php:51 inc/structure/post-meta.php:60
 msgid "Next"
 msgstr ""
 
@@ -1070,29 +939,21 @@ msgstr ""
 msgid "Newer posts"
 msgstr ""
 
+#: inc/structure/post-meta.php:66
+msgid "&larr;"
+msgstr ""
+
+#: inc/structure/post-meta.php:67
+msgid "&rarr;"
+msgstr ""
+
 #: inc/structure/post-meta.php:142
 msgid "by"
 msgstr ""
 
-#. translators: 1: Author name
 #: inc/structure/post-meta.php:145
+#. translators: 1: Author name
 msgid "View all posts by %s"
-msgstr ""
-
-#: inc/structure/post-meta.php:164
-#: inc/structure/post-meta.php:172
-msgctxt "Used between list items, there is a space after the comma."
-msgid ", "
-msgstr ""
-
-#: inc/structure/post-meta.php:167
-msgctxt "Used before category names."
-msgid "Categories"
-msgstr ""
-
-#: inc/structure/post-meta.php:175
-msgctxt "Used before tag names."
-msgid "Tags"
 msgstr ""
 
 #: inc/structure/post-meta.php:182
@@ -1107,8 +968,7 @@ msgstr ""
 msgid "% Comments"
 msgstr ""
 
-#: inc/structure/post-meta.php:202
-#: inc/structure/post-meta.php:253
+#: inc/structure/post-meta.php:202 inc/structure/post-meta.php:253
 msgid "Read more"
 msgstr ""
 
@@ -1160,33 +1020,27 @@ msgstr ""
 msgid "Paragraph margin"
 msgstr ""
 
-#: inc/wc-template.php:20
+#: inc/wc-template.php:21
 msgid "Quantity"
 msgstr ""
 
-#: inc/wc-template.php:49
-#: inc/wc-template.php:338
+#: inc/wc-template.php:50 inc/wc-template.php:339
 msgid "Sold by"
 msgstr ""
 
-#: inc/wc-template.php:86
-msgctxt "breadcrumb"
-msgid "Home"
-msgstr ""
-
-#: inc/wc-template.php:181
+#: inc/wc-template.php:182
 msgid "Dokan product category menu"
 msgstr ""
 
-#: inc/wc-template.php:277
+#: inc/wc-template.php:278
 msgid "Product Category"
 msgstr ""
 
-#: inc/wc-template.php:283
+#: inc/wc-template.php:284
 msgid "Title:"
 msgstr ""
 
-#: inc/wc-template.php:319
+#: inc/wc-template.php:320
 msgid "Additional Info"
 msgstr ""
 
@@ -1194,98 +1048,50 @@ msgstr ""
 msgid "Nothing Found"
 msgstr ""
 
-#. translators: 1: Admin URL
 #: no-results.php:49
+#. translators: 1: Admin URL
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: no-results.php:57
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
 
 #: no-results.php:62
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr ""
-
-#. Template Name of the theme
-msgid "Store list Page"
-msgstr ""
-
-#. Template Name of the theme
-msgid "Full Width Page"
-msgstr ""
-
-#. Template Name of the theme
-msgid "Homepage"
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
 
 #: page-template/template-home.php:43
-msgid "Looks like you are using Homepage template without WooCommerce, This template is designed for WooCommerce so for using this page-template please install WooCommerce First!"
+msgid ""
+"Looks like you are using Homepage template without WooCommerce, This "
+"template is designed for WooCommerce so for using this page-template please "
+"install WooCommerce First!"
 msgstr ""
 
-#. Template Name of the theme
-msgid "Left Sidebar Page"
-msgstr ""
-
-#. Template Name of the theme
-msgid "No Sidebar Page"
-msgstr ""
-
-#. Template Name of the theme
-msgid "Right Sidebar Page"
-msgstr ""
-
-#. translators: 1: Search query name
 #: search.php:31
+#. translators: 1: Search query name
 msgid "Search Results for: %s"
 msgstr ""
 
-#: searchform.php:14
-#: searchform.php:15
-msgctxt "label"
-msgid "Search for:"
-msgstr ""
-
-#: searchform.php:15
-msgctxt "placeholder"
-msgid "Search &hellip;"
-msgstr ""
-
-#: searchform.php:17
-msgctxt "submit button"
-msgid "Search"
-msgstr ""
-
-#: sidebar-left.php:49
-#: sidebar-left.php:66
-#: sidebar-left.php:83
-#: sidebar-left.php:165
-#: sidebar.php:49
-#: sidebar.php:66
-#: sidebar.php:83
-#: sidebar.php:165
-#: template-parts/page/content-front-page.php:210
+#: sidebar-left.php:49 sidebar-left.php:66 sidebar-left.php:83
+#: sidebar-left.php:165 sidebar.php:49 sidebar.php:66 sidebar.php:83
+#: sidebar.php:165 template-parts/page/content-front-page.php:210
 msgid "Archives"
 msgstr ""
 
-#: sidebar-left.php:106
-#: sidebar-left.php:135
-#: sidebar.php:107
-#: sidebar.php:136
+#: sidebar-left.php:106 sidebar-left.php:135 sidebar.php:107 sidebar.php:136
 msgid "Store Category"
 msgstr ""
 
-#: sidebar-left.php:109
-#: sidebar-left.php:138
-#: sidebar.php:110
-#: sidebar.php:139
+#: sidebar-left.php:109 sidebar-left.php:138 sidebar.php:110 sidebar.php:139
 msgid "Store Location"
 msgstr ""
 
-#: sidebar-left.php:113
-#: sidebar-left.php:142
-#: sidebar.php:114
-#: sidebar.php:143
+#: sidebar-left.php:113 sidebar-left.php:142 sidebar.php:114 sidebar.php:143
 msgid "Contact Vendor"
 msgstr ""
 
@@ -1415,4 +1221,96 @@ msgstr ""
 
 #: woocommerce/single-product/review-meta.php:37
 msgid "verified owner"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "An eCommerce theme for Dokan"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "weDevs, LLC"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Store list Page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width Page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Homepage"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Left Sidebar Page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "No Sidebar Page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Right Sidebar Page"
+msgstr ""
+
+#: comments.php:50
+#. translators: %s: post title
+msgctxt "comments title"
+msgid "One thought on &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:56
+#. translators: 1: number of comments, 2: post title
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/structure/comments.php:44
+#. translators: 1: date, 2: time
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/structure/post-meta.php:164 inc/structure/post-meta.php:172
+msgctxt "Used between list items, there is a space after the comma."
+msgid ", "
+msgstr ""
+
+#: inc/structure/post-meta.php:167
+msgctxt "Used before category names."
+msgid "Categories"
+msgstr ""
+
+#: inc/structure/post-meta.php:175
+msgctxt "Used before tag names."
+msgid "Tags"
+msgstr ""
+
+#: inc/wc-template.php:87
+msgctxt "breadcrumb"
+msgid "Home"
+msgstr ""
+
+#: searchform.php:14 searchform.php:15
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:15
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:17
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:32
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
 msgstr ""
