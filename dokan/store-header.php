@@ -7,8 +7,6 @@ $phone         = $store_user->get_phone();
 $email         = $store_user->get_email();
 $store_tabs    = dokan_get_store_tabs( $store_user->get_id() );
 $social_fields = dokan_get_social_profile_fields();
-$profile_info  = dokan_get_store_info( dokan_get_current_user_id() );
-$show_email    = isset( $profile_info['show_email'] ) ? $profile_info['show_email'] : 'no';
 
 $dokan_appearance = get_option( 'dokan_appearance' );
 $profile_layout   = empty( $dokan_appearance['store_header_template'] ) ? 'default' : $dokan_appearance['store_header_template'];
@@ -108,7 +106,7 @@ if ( 'layout3' === $profile_layout ) {
 		                        <?php } ?>
 
 
-	                            <?php if ( ! empty( $email ) && 'yes' === $show_email ) { ?>
+	                            <?php if ( ! empty( $email ) && $store_user->show_email() == 'yes' ) { ?>
                                     <li>
                                         <a href="mailto:<?php echo esc_attr( $email ); ?>">
                                             <i class="fa fa-envelope"></i>
