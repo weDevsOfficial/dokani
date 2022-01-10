@@ -47,7 +47,7 @@ jQuery(function ($) {
 
     if (contentArea.height() > dashboardMenu.height()) {
         if ($(window).width() > 767) {
-            dashboardMenu.css({height: contentArea.height()});
+            dashboardMenu.css({ height: contentArea.height() });
         }
     }
 
@@ -104,30 +104,41 @@ jQuery(function ($) {
         $(button).children('i').addClass('fa-spin');
     });
 
-    $( document ).on( 'ready', function(){
-        if( ! $('.profile-frame').hasClass('layout1') && window.innerWidth < 768 ) {
+    $(document).on('ready', function () {
+        if (!$('.profile-frame').hasClass('layout1') && window.innerWidth < 768) {
             $('.profile-frame').removeClass('layout3');
             $('.profile-frame').addClass('layout1');
         }
-    } )
+    })
 
     // quantity product single page
-    $(document).on('click', '.quantity-btn .plus', function(e) {
+    $(document).on('click', '.quantity-btn .plus', function (e) {
         $input = $(this).parents('.quantity_wrap').children('input.qty');
         var val = parseInt($input.val());
         var step = $input.attr('step');
-        step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
-        $input.val( val + step ).change();
+        step = 'undefined' !== typeof (step) ? parseInt(step) : 1;
+        $input.val(val + step).change();
     });
-    $(document).on('click', '.quantity-btn .minus', function(e) {
+    $(document).on('click', '.quantity-btn .minus', function (e) {
         $input = $(this).parents('.quantity_wrap').children('input.qty');
         var val = parseInt($input.val());
         var step = $input.attr('step');
-        step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
+        step = 'undefined' !== typeof (step) ? parseInt(step) : 1;
         if (val > 0) {
-            $input.val( val - step ).change();
-        } 
+            $input.val(val - step).change();
+        }
     });
+
+    /* Product Sidebar */
+    $(document).ready(function () {
+        $('.product-categories .cat-parent .children').before('<span class="toggleIcon"><i class="flaticon-arrow-down-sign-to-navigate"></i></span>');
+        $('.product-categories .cat-parent .children').hide();
+        toggleIcon = $('.product-categories .cat-parent .toggleIcon');
+        toggleIcon.on('click', function () {
+            $(this).next().slideToggle();
+        })
+    })
+
 
 });
 

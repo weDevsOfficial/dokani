@@ -65,7 +65,7 @@ if ( ! function_exists( 'dokani_setup' ) ) {
 
 		// WooCommerce support
 		add_theme_support( 'woocommerce', array(
-			'thumbnail_image_width' => 260,
+			'thumbnail_image_width' => 280,
 		) );
 
 		update_option( 'woocommerce_thumbnail_cropping', 'custom' );
@@ -106,6 +106,8 @@ require get_template_directory() . '/inc/migrate.php';
 require get_template_directory() . '/inc/deprecated.php';
 
 require get_template_directory() . '/inc/wc-template.php';
+require get_template_directory() . '/inc/slider.php';
+Dokan_Slider::init();
 
 /**
  * Load our theme structure
@@ -135,3 +137,8 @@ add_action( 'load_customizer_files', function() {
 
     require_once get_template_directory() . '/inc/customizer/controls/class-radio-control.php';
 } );
+
+/**
+ * Load color filter
+ */
+require get_template_directory() . '/dokan/widgets/color-filter.php';

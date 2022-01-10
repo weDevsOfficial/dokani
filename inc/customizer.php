@@ -65,6 +65,20 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
+
+	function dokani_slider_post_type( $post_type ) {
+		$pages_array = array( '-1' => __( '- select -', 'dokani-theme' ) );
+		$pages = get_posts( array('post_type' => $post_type, 'numberposts' => -1) );
+
+		if ( $pages ) {
+				foreach ($pages as $page) {
+						$pages_array[$page->ID] = $page->post_title;
+				}
+		}
+
+		return $pages_array;
+	}
+
 	function dokani_customize_register( $wp_customize ) {
 		// Get our default values
 		$defaults       = dokani_get_defaults();
@@ -630,6 +644,19 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 				)
 			)
 		);
+
+		// select slider
+		$wp_customize->add_setting( 'dokani_slider_id', array( 
+			'sanitize_callback'=> 'dokani_sanitize_choices',
+			'default' => '-1' 
+			) 
+		);
+		$wp_customize->add_control( 'dokani_slider_id', array(
+				'label'   => __( 'Select Slider', 'dokan-theme' ),
+				'section' => 'dokani_frontpage_section',
+				'type'    => 'select',
+				'choices' => dokani_slider_post_type( 'dokan_slider' )
+		) );
 
 		// Select Plugin slider
 		$wp_customize->add_setting( 'plugin_slider_shortcode', array(

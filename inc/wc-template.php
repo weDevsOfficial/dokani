@@ -390,3 +390,49 @@ add_action( 'template_redirect', function() {
 	}
 }, 10, 1 );
 
+/**
+ * Added color attribute
+ */
+add_action( 'pa_color_add_form_fields', 'dokani_theme_pa_color_add_term_fields' );
+function dokani_theme_pa_color_add_term_fields( $taxonomy ) {
+  ?>
+		<div class="form-field">
+			<label for="dokani_theme_pa_color"><?php esc_html_e( 'Color', 'dokani-theme' ); ?></label>
+			<input type="color" name="dokani_theme_pa_color" id="dokani_theme_pa_color" class="dokani__theme-color-tilter" />
+		</div>
+  <?php 
+}
+
+/**
+ * Added color attribute
+ */
+add_action( 'pa_color_edit_form_fields', 'dokani_theme_pa_color_edit_term_fields', 10, 2 );
+function dokani_theme_pa_color_edit_term_fields( $term, $taxonomy ) {
+ 
+    $value = get_term_meta( $term->term_id, 'dokani_theme_pa_color', true );
+ 
+    echo '<tr class="form-field">
+			<th>
+					<label for="dokani_theme_pa_color">'. esc_html( 'Color', 'dokani-theme' ) .'</label>
+			</th>
+			<td>
+					<input name="dokani_theme_pa_color" id="dokani_theme_pa_color" type="color" class="dokani__theme-color-tilter" value="' . esc_attr( $value ) .'" />
+					<p class="description">Please pick a color.</p>
+			</td>
+    </tr>';
+}
+
+/**
+ * Save color attribute
+ */
+add_action( 'created_pa_color', 'dokani_theme_pa_color_save_term_fields' );
+add_action( 'edited_pa_color', 'dokani_theme_pa_color_save_term_fields' );
+function dokani_theme_pa_color_save_term_fields( $term_id ) {
+ 
+    update_term_meta(
+        $term_id,
+        'dokani_theme_pa_color',
+        sanitize_text_field( $_POST[ 'dokani_theme_pa_color' ] )
+    );
+ 
+}

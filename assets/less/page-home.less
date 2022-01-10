@@ -34,10 +34,10 @@ body.dokani-template-front-page {
 // Product Cat Section
 .product-cat-section {
     background-color: @white;
-    padding: 58px 0 70px;
+    padding: 90px 0 103px;
 
     .product-cat-wrapper {
-        margin: 0 11%;
+        margin: 0 14.5%;
         display: grid;
         grid-gap: 30px;
         grid-template-columns: repeat(3, 1fr);
@@ -71,9 +71,9 @@ body.dokani-template-front-page {
             img {
                 .rounded(5px);
                 .box-shadow(0px 13px 24px 0px rgba(0, 0, 0, 0.06));
-                width: 130px;
-                height: 95px;
-                margin-bottom: 10px;
+                width: 131px;
+                height: 94px;
+                margin-bottom: 9px;
             }
 
             h3 {
@@ -81,7 +81,7 @@ body.dokani-template-front-page {
                 line-height: 1.5em;
                 font-weight: 400;
                 color: @black;
-                margin-bottom: 22px;
+                margin-bottom: 20px;
             }
 
             .btn {
@@ -91,7 +91,8 @@ body.dokani-template-front-page {
                 display: inline-block;
                 border-width: 2px;
                 border-radius: 5px;
-                padding: 6px 18px;
+                padding: 7px 21px;
+                border-color: #edf1f5; 
                 .transition(all .2s);
 
                 //&:hover,
@@ -101,7 +102,7 @@ body.dokani-template-front-page {
                 //}
                 
                 i {
-                    margin-left: 3px;
+                    margin-left: 5px;
 
                     &:before {
                         font-size: 12px;
@@ -114,12 +115,52 @@ body.dokani-template-front-page {
     }
 }
 
+.page-template-template-home {
+    .products-section {
+        .inside-right-sidebar {
+            margin-top: 56px;
+        }
+    }
+
+    .store-wrapper {
+        .dokan-single-seller[class] {
+            .seller-avatar {
+                bottom: -30px !important;
+
+            }
+
+            .store-footer {
+                padding: 13px 20px 15px !important;
+
+            }
+
+            .store-data {
+                h2 {
+                    padding: 0 60px;
+
+                    @media( max-width: 767px ) {
+                        padding: 0;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
 // Products Section
 .products-section {
-    padding: 62px 20px 5px;
+    padding: 100px 20px 39px;
     border-top:1px solid @border-color;
     border-bottom:1px solid @border-color;
     background-color: #fafafa;
+
+    .slider-container {
+        .slider-heading[class] {
+            margin-bottom: 24px;
+
+        }
+    }
 
     .widget-area {
 
@@ -148,7 +189,7 @@ body.dokani-template-front-page {
         }
 
         .slider-container {
-            margin-bottom: 56px;
+            margin-bottom: 69px;
 
             .woocommerce-info {
                 margin-bottom: 65px;
@@ -166,6 +207,7 @@ body.dokani-template-front-page {
                 &:hover {
                     box-shadow: none;
                 }
+
             }
         }
 
@@ -224,10 +266,21 @@ body.dokani-template-front-page {
 
 // Store Section
 .store-section {
-    padding: 60px 20px;
+    padding: 88px 20px 115px;
     background-color: #f0f1fa;
 
+    .section-title {
+        margin-bottom: 45px;
+
+    }
+
     .store-wrapper {
+
+        .dokan-single-seller {
+            margin-bottom: -8px;
+
+        }
+
         .tabs {
             display: -webkit-box;
             display: -webkit-flex;
@@ -256,6 +309,8 @@ body.dokani-template-front-page {
             color: #a7a7c1;
             font-size: 18px;
             line-height: 1.5em;
+            margin-bottom: 7px;
+
         }
 
         .tabs .tab {

@@ -12,7 +12,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( get_theme_mod( 'show_slider', 'on' ) == 'on' ) { ?>
     <section class="slider-section">
-		<?php echo do_shortcode( get_theme_mod( 'plugin_slider_shortcode' ) ); ?>
+		<?php 
+            // echo do_shortcode( get_theme_mod( 'plugin_slider_shortcode' ) ); 
+
+            
+            // Dokan_Slider::init()->get_slider( );
+
+            if ( get_theme_mod( 'show_slider', 'on' ) == 'on' ) {
+                $slider_id = get_theme_mod( 'dokani_slider_id', '-1' );
+
+                if ( $slider_id != '-1' ) {
+                    Dokan_Slider::init()->get_slider( $slider_id );
+                }
+
+            }
+        ?>
     </section> <!-- .slider-section -->
 <?php } ?>
 
