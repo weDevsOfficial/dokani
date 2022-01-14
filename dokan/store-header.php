@@ -106,7 +106,7 @@ if ( 'layout3' === $profile_layout ) {
 		                        <?php } ?>
 
 
-	                            <?php if ( ! empty( $email ) && $store_user->show_email() == 'yes' ) { ?>
+	                            <?php if ( ! empty( $email ) && 'yes' === $store_user->show_email() ) { ?>
                                     <li>
                                         <a href="mailto:<?php echo esc_attr( $email ); ?>">
                                             <i class="fa fa-envelope"></i>
