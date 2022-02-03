@@ -33,6 +33,7 @@ if ( ! function_exists( 'dokani_scripts' ) ) {
 		wp_enqueue_style( 'dokani-style', $dir_uri . "/style{$suffix}.css", array( 'dokani-style-grid' ), GENERATE_VERSION, 'all' );
 		wp_enqueue_style( 'dokani-mobile-style', $dir_uri . "/assets/css/mobile{$suffix}.css", array( 'dokani-style' ), GENERATE_VERSION, 'all' );
 		wp_enqueue_style( 'dokani-flaticon', $dir_uri . "/assets/css/flaticon.css", array(), GENERATE_VERSION, 'all' );
+		wp_enqueue_style( 'dokani-animate-css', $dir_uri . "/assets/css/animate.css", array(), GENERATE_VERSION, 'all' );
 		wp_enqueue_style( 'dokani-master', $dir_uri . "/assets/css/master.css", array(), GENERATE_VERSION, 'all' );
 
 		if ( is_child_theme() ) {

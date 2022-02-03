@@ -42,6 +42,7 @@ if ( ! function_exists( 'dokani_setup' ) ) {
 
 		add_image_size( 'single-vendor-thumb', 270, 160, true );
 		add_image_size( 'dokanee-featured-post-thumbnail', 870, 370, true );
+		add_image_size( 'recent-post-widget', 55, 55, true );
 
 		// Register primary menu.
 		register_nav_menus( array(
@@ -65,7 +66,7 @@ if ( ! function_exists( 'dokani_setup' ) ) {
 
 		// WooCommerce support
 		add_theme_support( 'woocommerce', array(
-			'thumbnail_image_width' => 260,
+			'thumbnail_image_width' => 280,
 		) );
 
 		update_option( 'woocommerce_thumbnail_cropping', 'custom' );
@@ -106,6 +107,8 @@ require get_template_directory() . '/inc/migrate.php';
 require get_template_directory() . '/inc/deprecated.php';
 
 require get_template_directory() . '/inc/wc-template.php';
+require get_template_directory() . '/inc/slider.php';
+Dokan_Slider::init();
 
 /**
  * Load our theme structure
@@ -135,3 +138,28 @@ add_action( 'load_customizer_files', function() {
 
     require_once get_template_directory() . '/inc/customizer/controls/class-radio-control.php';
 } );
+
+/**
+ * Load color filter
+ */
+require get_template_directory() . '/dokan/widgets/color-filter.php';
+
+/**
+ * Load recent post widget
+ */
+require get_template_directory() . '/inc/widgets/class-dokani-widget-recent-posts.php';
+
+/**
+ * Load recent comment widget
+ */
+require get_template_directory() . '/inc/widgets/class-dokani-widget-recent-comments.php';
+
+/**
+ * Include the TGM_Plugin_Activation class.
+ */
+require_once ( get_template_directory() . '/inc/class-tgm-plugin-activation.php' );
+
+/**
+ * load list plugins
+ */
+require_once( get_template_directory() . '/inc/require.plugin.php' );

@@ -244,6 +244,36 @@ if ( ! function_exists( 'is_show_slider' ) ) {
 	}
 }
 
+if ( ! function_exists( 'is_show_dokani_slider' ) ) {
+	/**
+	 * Check Is slider enable for showing dokani custom slider
+	 *
+	 * @since 1.0.0
+	 */
+	function is_show_dokani_slider() {
+		if ( get_theme_mod( 'show_dokani_slider' ) == 'on' ) {
+			return true;
+		}
+
+		return false;
+	}
+}
+
+if ( ! function_exists( 'is_show_externel_slider' ) ) {
+	/**
+	 * Check Is slider enable for showing external slider
+	 *
+	 * @since 1.0.0
+	 */
+	function is_show_externel_slider() {
+		if ( get_theme_mod( 'show_externel_slider' ) == 'on' ) {
+			return true;
+		}
+
+		return false;
+	}
+}
+
 if ( ! function_exists( 'is_show_products_cat_on' ) ) {
 	/**
 	 * Check Is products category on

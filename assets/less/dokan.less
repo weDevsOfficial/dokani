@@ -43,6 +43,11 @@ body {
     }
 }
 
+.woocommerce-products-header__title {
+    margin-bottom: 18px;
+    
+}
+
 //pagination
 .pagination-container {
     .pagination-wrap {
@@ -134,7 +139,7 @@ body {
     float: left;
     padding: 7px 9px;
     margin-right: 20px;
-    margin-bottom: 18px;
+    margin-bottom: 26px;
     display: flex;
 
     button {
@@ -295,7 +300,7 @@ body.dokan-dashboard {
 /* = Store List
 ----------------------------------------------- */
 #dokan-seller-listing-wrap {
-    padding: 0 15px;
+    padding: 0;
 
     &.grid-view {
         .store-footer {
@@ -322,12 +327,6 @@ body.dokan-dashboard {
                 margin-bottom: 0;
             }
             
-        }
-
-        .store-data {
-            h2 {
-                margin-bottom: 5px !important;
-            }
         }
 
         .dokan-seller-list {
@@ -415,6 +414,7 @@ body.dokan-dashboard {
         }
 
         .dokan-seller-wrap {
+
             .dokan-single-seller {
                 .store-wrapper[class]{
                     .store-header {
@@ -581,6 +581,266 @@ body.dokan-dashboard {
         padding: 0;
         box-shadow: none;
     }
+
+    .site-content {
+        padding: 51px 0 60px;
+
+        .entry-title {
+            color: #333E48;
+
+        }
+
+        .dokan-seller-wrap[class] {
+            .dokan-single-seller[class] {
+                .featured-favourite {
+                    position: absolute;
+                    top: 13px;
+                    left: 15px;
+                }
+            }
+        }
+
+        .grid-view {
+            .dokan-seller-wrap[class] {
+                .dokan-single-seller[class] {
+                    margin-bottom: 30px !important;
+    
+                    .store-wrapper {
+                        border-bottom-left-radius: 6px;
+                        border-bottom-right-radius: 6px;
+    
+                        &:hover {
+                            box-shadow: 0px 0px 32px 0px #c9c9c9 !important;
+    
+                            .store-data {
+                                a {
+                                    color: #EE624C;
+        
+                                }
+                            }
+                            
+                        }
+
+                        .dokan-seller-rating {
+                            display: none;
+
+                        }
+    
+                        .store-banner[class] {
+                            min-height: 180px !important;
+
+                            a {
+                                display: block;
+                                margin-bottom: -5px;
+
+                            }
+    
+                            img {
+                                border-top-left-radius: 6px;
+                                border-top-right-radius: 6px;
+                                position: inherit !important;
+                                left: inherit !important;
+                                top: inherit !important;
+                                max-width: inherit !important;
+                                height: 176px !important;
+                           
+    
+                            }
+                        }
+    
+                        .store-address {
+                            display: none;
+    
+                        }
+
+                        .seller-avatar[class] {
+                            position: absolute;
+                            bottom: -17px;
+                            left: 50%;
+                            transform: translateX(-50%);
+    
+                            img {
+                                width: 50px !important;
+                                height: 50px !important;
+                                border-radius: 100% !important;
+    
+                            }
+                        }
+    
+                        .store-footer[class] {
+                            display: none;
+                            background: #ffffff !important;
+    
+                        }
+    
+                        .dokani-store-content  {
+                            background: #ffffff;
+                            padding: 36px 0 16px;
+                            border-bottom-left-radius: 6px;
+                            border-bottom-right-radius: 6px;
+    
+    
+                        }
+    
+                        .store-data {
+                            h2 {
+                                text-align: center;
+                                margin-bottom: 0;
+    
+                            }
+    
+                            a {
+                                font-size: 17px;
+                                text-align: center;
+                                font-weight: 600;
+                                color: #333E48;
+                                
+                            }
+                        }
+                    }
+    
+                }
+
+                .dokani-store-content  {
+                    .store-btn {
+                        display: none;
+                    }
+
+                }
+            }
+
+        }
+
+        .list-view {
+            .dokan-seller-wrap[class]{
+
+                .dokan-single-seller {
+                    &:hover {
+
+                        .store-btn {
+                            a {
+                                background: #EE624C;
+                                border: 1px solid #EE624C;
+                                color: #ffffff !important;
+        
+                            }
+                        }
+                        
+                    }
+
+                }
+
+                .store-wrapper {
+                    gap: 40px;
+                    height: 180px !important;
+
+                }
+
+                .dokani-store-content  {
+                    flex-basis: 60%;
+
+                    .store-btn {
+                        display: block;
+
+                    }
+
+                    .dokan-seller-rating i {
+                        margin-right: 5px;
+                        color: #D8D8D8;
+
+                    }
+
+                    .store-data {
+                        h2 {
+                            margin-bottom: 11px !important;
+
+                            a {
+                                color: #333E48;
+                                font-weight: 600;
+    
+                            }
+                        }
+                    }
+
+                }
+
+                .store-data-container  {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                }
+
+                .store-header {
+                    margin-right: 20px;
+
+                }
+
+                .store-banner {
+                    img {
+                        position: inherit !important;
+                        left: inherit !important;
+                        top: inherit !important;
+                        max-width: inherit !important;
+                        height: 180px !important;
+                        width: 260px !important;
+
+                    }
+                }
+
+                .store-address {
+                    display: block;
+                    color: #a2abb2;
+                    margin-bottom: 0;
+
+                    i {
+                        color: #9B59B6;
+                        font-size: 20px;
+                        float: left;
+                        margin-right: 7px;
+                        margin-top: 2px;
+
+                    }
+    
+                }
+                
+                .seller-avatar {
+                    position: absolute;
+                    right: 0;
+                    bottom: 50%;
+                    left: 80%;
+                    transform: translate(50%, 50%);
+                    z-index: 9999;
+
+                    img {
+                        border-radius: 100% !important;
+
+                    }
+
+                }
+
+                .seller-avatar {
+                    img {
+                        width: 60px !important;
+                        height: 60px !important;
+                    }
+                }
+
+                .store-btn {
+                    a {
+                        border: 1px solid #EAECF4;
+                        padding: 8px 21px;
+                        display: inline-block;
+                        border-radius: 5px;
+                        font-weight: 400;
+                        color: #333E48;
+
+                    }
+                }
+            }
+        }
+
+    }
 }
 
 /* = Store Page
@@ -610,6 +870,46 @@ body.dokan-dashboard {
 .dokani-store-template {
     #page.grid-container {
         max-width: 100%;
+    }
+
+    .profile-frame {
+
+        &.default[class], &.layout1[class], &.layout2[class], &.layout3[class] {
+            .profile-info-img-wrapper[class] {
+                &:before {
+                    opacity: 0.4;
+                    
+                }
+            }
+
+            .profile-info[class] {
+                a[class] {
+                    color: #ffffff;
+
+                }
+
+                color: #ffffff;
+
+                h1[class] {
+                    color: #fff;
+
+                }
+
+                .store-meta-info {
+                    li {
+                        a {
+                            color: #fff;
+
+                            &:hover {
+                                color: #ee624c;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }
 
@@ -1323,7 +1623,7 @@ Product Style
                 text-align: center;
                 border-bottom: 1px solid #ECEDEF;
                 padding: 0px 0;
-                min-height: 191px;
+                min-height: 196px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -1332,7 +1632,7 @@ Product Style
                 img {
                     border-bottom: 0px;
                     display: inline-block;
-                    // width: auto;
+                    width: auto;
 
                     @media (max-width: 767px) {
                        height: auto !important;
@@ -1344,7 +1644,7 @@ Product Style
                 .woocommerce-LoopProduct-link {
                     text-align: left;
                     border-bottom: 0px solid #ECEDEF;
-                    padding: 0px 0;
+                    padding: 0px 0 7px;
                     min-height: auto;
                     display: inherit;
                 
