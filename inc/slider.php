@@ -18,6 +18,7 @@ class Dokan_Slider {
         'slide_title' => '',
         'slide_content' => '',
         'slide_image' => '',
+        'slide_background' => '',
         'slide_video' => '',
         'slide_link' => '',
         'slide_link_open' => '_self'
@@ -44,8 +45,8 @@ class Dokan_Slider {
     }
 
 	function do_metaboxes() {
-        add_meta_box( 'slider-meta-box', __( 'Slides', 'dokan-theme' ), array( $this, 'meta_boxes' ), $this->post_type );
-        add_meta_box( 'slider-options-box', __('Slider Options', 'dokan-theme' ), array( $this, 'meta_boxes_option' ), $this->post_type, 'side' );
+        add_meta_box( 'slider-meta-box', __( 'Slides', 'dokani-theme' ), array( $this, 'meta_boxes' ), $this->post_type );
+        add_meta_box( 'slider-options-box', __('Slider Options', 'dokani-theme' ), array( $this, 'meta_boxes_option' ), $this->post_type, 'side' );
 	}
 
     function enqueue_scripts() {
@@ -56,7 +57,7 @@ class Dokan_Slider {
             wp_enqueue_script( 'thickbox' );
 
             wp_enqueue_style( 'thickbox' );
-            $help_text = sprintf( __( 'Learn More: <a target="_blank" href="%s">How to Create Slider in Dokan</a>', 'dokan-theme' ), 'https://wedevs.com/docs/dokan/tutorials/how-to-create-a-slider-for-homepage-using-dokan/' );
+            $help_text = sprintf( __( 'Learn More: <a target="_blank" href="%s">How to Create Slider in Dokan</a>', 'dokani-theme' ), 'https://wedevs.com/docs/dokan/tutorials/how-to-create-a-slider-for-homepage-using-dokan/' );
             ?>
             <script>
                 jQuery(function($) {
@@ -69,7 +70,7 @@ class Dokan_Slider {
 
     function post_types() {
         register_post_type( $this->post_type, array(
-            'label' => __( 'Slider', 'dokan-theme' ),
+            'label' => __( 'Slider', 'dokani-theme' ),
             'description' => '',
             'public' => false,
             'show_ui' => true,
@@ -80,20 +81,20 @@ class Dokan_Slider {
             'query_var' => false,
             'supports' => array('title'),
             'labels' => array(
-                'name' => __( 'Slider', 'dokan-theme' ),
-                'singular_name' => __( 'Slider', 'dokan-theme' ),
-                'menu_name' => __( 'Dokan Slider', 'dokan-theme' ),
-                'add_new' => __( 'Add Slider', 'dokan-theme' ),
-                'add_new_item' => __( 'Add New Slider', 'dokan-theme' ),
-                'edit' => __( 'Edit', 'dokan-theme' ),
-                'edit_item' => __( 'Edit Slider', 'dokan-theme' ),
-                'new_item' => __( 'New Slider', 'dokan-theme' ),
-                'view' => __( 'View Slider', 'dokan-theme' ),
-                'view_item' => __( 'View Slider', 'dokan-theme' ),
-                'search_items' => __( 'Search Slider', 'dokan-theme' ),
-                'not_found' => __( 'No Slider Found', 'dokan-theme' ),
-                'not_found_in_trash' => __( 'No Slider found in trash', 'dokan-theme' ),
-                'parent' => __( 'Parent Slider', 'dokan-theme' )
+                'name' => __( 'Slider', 'dokani-theme' ),
+                'singular_name' => __( 'Slider', 'dokani-theme' ),
+                'menu_name' => __( 'Dokan Slider', 'dokani-theme' ),
+                'add_new' => __( 'Add Slider', 'dokani-theme' ),
+                'add_new_item' => __( 'Add New Slider', 'dokani-theme' ),
+                'edit' => __( 'Edit', 'dokani-theme' ),
+                'edit_item' => __( 'Edit Slider', 'dokani-theme' ),
+                'new_item' => __( 'New Slider', 'dokani-theme' ),
+                'view' => __( 'View Slider', 'dokani-theme' ),
+                'view_item' => __( 'View Slider', 'dokani-theme' ),
+                'search_items' => __( 'Search Slider', 'dokani-theme' ),
+                'not_found' => __( 'No Slider Found', 'dokani-theme' ),
+                'not_found_in_trash' => __( 'No Slider found in trash', 'dokani-theme' ),
+                'parent' => __( 'Parent Slider', 'dokani-theme' )
             ),
         ) );
     }
@@ -111,7 +112,7 @@ class Dokan_Slider {
         ?>
             <table class="form-table">
                 <tr>
-                    <th><?php _e( 'Effect', 'dokan-theme' ); ?></th>
+                    <th><?php _e( 'Effect', 'dokani-theme' ); ?></th>
                     <td>
                         <select name="slider_effect" id="slider-effect">
                             <option value="fade"<?php selected( $slider_effect, 'fade' ); ?>>fade</option>
@@ -120,69 +121,69 @@ class Dokan_Slider {
                     </td>
                 </tr>
                 <tr>
-                    <th><?php _e( 'Slide Speed', 'dokan-theme' ); ?></th>
+                    <th><?php _e( 'Slide Speed', 'dokani-theme' ); ?></th>
                     <td><input type="text" class="small-text" value="<?php echo esc_attr( $slider_speed ); ?>" name="slider_speed"></td>
                 </tr>
                 <tr>
-                    <th><?php _e( 'Pagination', 'dokan-theme' ); ?></th>
+                    <th><?php _e( 'Pagination', 'dokani-theme' ); ?></th>
                     <td>
                         <select name="slider_pagination">
-                            <option value="true"<?php selected( $slider_pagination, 'true' ); ?>><?php _e( 'Show', 'dokan-theme' ); ?></option>
-                            <option value="false"<?php selected( $slider_pagination, 'false' ); ?>><?php _e( 'Hide', 'dokan-theme' ); ?></option>
+                            <option value="true"<?php selected( $slider_pagination, 'true' ); ?>><?php _e( 'Show', 'dokani-theme' ); ?></option>
+                            <option value="false"<?php selected( $slider_pagination, 'false' ); ?>><?php _e( 'Hide', 'dokani-theme' ); ?></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th><?php _e( 'Direction Navigation', 'dokan-theme' ); ?></th>
+                    <th><?php _e( 'Direction Navigation', 'dokani-theme' ); ?></th>
                     <td>
                         <select name="direction_nav">
-                            <option value="true"<?php selected( $direction_nav, 'true' ); ?>><?php _e( 'Show', 'dokan-theme' ); ?></option>
-                            <option value="false"<?php selected( $direction_nav, 'false' ); ?>><?php _e( 'Hide', 'dokan-theme' ); ?></option>
+                            <option value="true"<?php selected( $direction_nav, 'true' ); ?>><?php _e( 'Show', 'dokani-theme' ); ?></option>
+                            <option value="false"<?php selected( $direction_nav, 'false' ); ?>><?php _e( 'Hide', 'dokani-theme' ); ?></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th><?php _e( 'Sliding Direction', 'dokan-theme' ); ?></th>
+                    <th><?php _e( 'Sliding Direction', 'dokani-theme' ); ?></th>
                     <td>
                         <select name="slide_direction">
-                            <option value="horizontal"<?php selected( $slide_direction, 'horizontal' ); ?>><?php _e( 'horizontal', 'dokan-theme' ); ?></option>
-                            <option value="vertical"<?php selected( $slide_direction, 'vertical' ); ?>><?php _e( 'vertical', 'dokan-theme' ); ?></option>
+                            <option value="horizontal"<?php selected( $slide_direction, 'horizontal' ); ?>><?php _e( 'horizontal', 'dokani-theme' ); ?></option>
+                            <option value="vertical"<?php selected( $slide_direction, 'vertical' ); ?>><?php _e( 'vertical', 'dokani-theme' ); ?></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th><?php _e( 'Touch Swipe', 'dokan-theme' ); ?></th>
+                    <th><?php _e( 'Touch Swipe', 'dokani-theme' ); ?></th>
                     <td>
                         <select name="touch">
-                            <option value="true"<?php selected( $touch, 'true' ); ?>><?php _e( 'Yes', 'dokan-theme' ); ?></option>
-                            <option value="false"<?php selected( $touch, 'false' ); ?>><?php _e( 'No', 'dokan-theme' ); ?></option>
+                            <option value="true"<?php selected( $touch, 'true' ); ?>><?php _e( 'Yes', 'dokani-theme' ); ?></option>
+                            <option value="false"<?php selected( $touch, 'false' ); ?>><?php _e( 'No', 'dokani-theme' ); ?></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th><?php _e( 'Randomize', 'dokan-theme' ); ?></th>
+                    <th><?php _e( 'Randomize', 'dokani-theme' ); ?></th>
                     <td>
                         <select name="randomize">
-                            <option value="false"<?php selected( $randomize, 'false' ); ?>><?php _e( 'No', 'dokan-theme' ); ?></option>
-                            <option value="true"<?php selected( $randomize, 'true' ); ?>><?php _e( 'Yes', 'dokan-theme' ); ?></option>
+                            <option value="false"<?php selected( $randomize, 'false' ); ?>><?php _e( 'No', 'dokani-theme' ); ?></option>
+                            <option value="true"<?php selected( $randomize, 'true' ); ?>><?php _e( 'Yes', 'dokani-theme' ); ?></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th><?php _e( 'Pause on Hover', 'dokan-theme' ); ?></th>
+                    <th><?php _e( 'Pause on Hover', 'dokani-theme' ); ?></th>
                     <td>
                         <select name="pauseOnHover">
-                            <option value="false"<?php selected( $pauseOnHover, 'false' ); ?>><?php _e( 'No', 'dokan-theme' ); ?></option>
-                            <option value="true"<?php selected( $pauseOnHover, 'true' ); ?>><?php _e( 'Yes', 'dokan-theme' ); ?></option>
+                            <option value="false"<?php selected( $pauseOnHover, 'false' ); ?>><?php _e( 'No', 'dokani-theme' ); ?></option>
+                            <option value="true"<?php selected( $pauseOnHover, 'true' ); ?>><?php _e( 'Yes', 'dokani-theme' ); ?></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th><?php _e( 'Pause/Play', 'dokan-theme' ); ?></th>
+                    <th><?php _e( 'Pause/Play', 'dokani-theme' ); ?></th>
                     <td>
                         <select name="pausePlay">
-                            <option value="false"<?php selected( $pausePlay, 'false' ); ?>><?php _e( 'No', 'dokan-theme' ); ?></option>
-                            <option value="true"<?php selected( $pausePlay, 'true' ); ?>><?php _e( 'Yes', 'dokan-theme' ); ?></option>
+                            <option value="false"<?php selected( $pausePlay, 'false' ); ?>><?php _e( 'No', 'dokani-theme' ); ?></option>
+                            <option value="true"<?php selected( $pausePlay, 'true' ); ?>><?php _e( 'Yes', 'dokani-theme' ); ?></option>
                         </select>
                     </td>
                 </tr>
@@ -196,7 +197,7 @@ class Dokan_Slider {
         <input type="hidden" name="wedevs-slider" value="<?php echo wp_create_nonce( basename( __FILE__ ) ); ?>" />
 		<div id="slider-table">
 
-            <p><a href="#" class="button add-slide"><?php _e( 'Add Slide', 'dokan-theme' ); ?></a></p>
+            <p><a href="#" class="button add-slide"><?php _e( 'Add Slide', 'dokani-theme' ); ?></a></p>
 
             <ul class="slide-holder">
                 <?php
@@ -234,22 +235,41 @@ class Dokan_Slider {
                             title = table.find('tr.slide-title'),
                             slide_content = table.find('tr.slide-content'),
                             slide_image = table.find('tr.slide-image'),
-                            video_link = table.find('tr.video-link');
+                            video_link = table.find('tr.video-link'),
+                            slide_link = table.find('tr.slide-link'),
+                            slide_open_link = table.find('tr.slide-open-link')
 
                         //show all
                         title.show();
                         slide_content.show();
                         slide_image.show();
                         video_link.show();
+                        slide_link.show();
+                        slide_open_link.show();
 
                         if( val == 'text-image' || val == 'image-text' ) {
                             video_link.hide();
+                            slide_link.show();
+                            slide_open_link.show();
                         } else if( val == 'text-video' || val == 'video-text' ) {
                             slide_image.hide();
                         } else if( val == 'image' ) {
+                            title.show();
+                            slide_content.show();
+                            video_link.show();
+                            slide_image.hide();
+                            video_link.hide();
+                            slide_link.show();
+                            slide_open_link.show();
+                        } else if( val == 'full-image' ) {
+                            slide_image.show();
                             title.hide();
                             slide_content.hide();
                             video_link.hide();
+                            video_link.hide();
+                            slide_link.hide();
+                            slide_open_link.hide();
+
                         } else if( val == 'video' ) {
                             title.hide();
                             slide_content.hide();
@@ -369,37 +389,39 @@ class Dokan_Slider {
 
         $slide_title_css = in_array( $slide_type, array('image', 'video') ) ? 'none' : 'table-row';
         $slide_content_css = in_array( $slide_type, array('image', 'video') ) ? 'none' : 'table-row';
-        $slide_image_css = in_array( $slide_type, array('video', 'text', 'text-video', 'video-text') ) ? 'none' : 'table-row';
+        $slide_image_css = in_array( $slide_type, array('video', 'image', 'text', 'text-video', 'video-text') ) ? 'none' : 'table-row';
         $slide_video_css = in_array( $slide_type, array('video', 'text-video', 'video-text') ) ? 'table-row' : 'none';
+        $slide_full_image_css = in_array( $slide_type, array('video', 'text', 'text-video') ) ? 'none' : 'table-row';
         ?>
         <li>
             <div class="slide-table">
-                <h3 class="slide-hndle"><span><?php _e( 'Slide', 'dokan-theme' ); ?></span></h3>
+                <h3 class="slide-hndle"><span><?php _e( 'Slide', 'dokani-theme' ); ?></span></h3>
                 <table class="form-table">
                     <tr class="slider_type_select">
-                        <td><?php _e( 'Slide Type', 'dokan-theme' ); ?></td>
+                        <td><?php _e( 'Slide Type', 'dokani-theme' ); ?></td>
                         <td>
                             <select class="slide_type" name="slide_type[]">
-                                <option value="text-image"<?php selected( $slide_type, 'text-image' ); ?>><?php _e( 'Text with Image', 'dokan-theme' ); ?></option>
-                                <option value="image"<?php selected( $slide_type, 'image' ); ?>><?php _e( 'Full Image', 'dokan-theme' ); ?></option>
-                                <option value="video"<?php selected( $slide_type, 'video' ); ?>><?php _e( 'Full Video', 'dokan-theme' ); ?></option>
+                                <option value="text-image"<?php selected( $slide_type, 'text-image' ); ?>><?php _e( 'Text with Image', 'dokani-theme' ); ?></option>
+                                <option value="image"<?php selected( $slide_type, 'image' ); ?>><?php _e( 'Only Text', 'dokani-theme' ); ?></option>
+                                <option value="full-image"<?php selected( $slide_type, 'full-image' ); ?>><?php _e( 'Full Image', 'dokani-theme' ); ?></option>
+                               
                             </select>
                         </td>
                     </tr>
-                    <tr class="slide-title" style="display: <?php echo $slide_title_css; ?>">
-                        <td><?php _e( 'Title Text', 'dokan-theme' ); ?></td>
+                    <tr class="slide-title" style="<?php echo esc_attr( $slide_full_image_css ); ?>">
+                        <td><?php _e( 'Title Text', 'dokani-theme' ); ?></td>
                         <td>
                             <input type="text" class="regular-text" name="slide_title[]" value="<?php echo esc_attr( $slide_title ); ?>">
                         </td>
                     </tr>
-                    <tr class="slide-content" style="display: <?php echo $slide_content_css; ?>">
-                        <td><?php _e( 'Detail Text', 'dokan-theme' ); ?></td>
+                    <tr class="slide-content" style="<?php echo esc_attr( $slide_full_image_css ); ?>">
+                        <td><?php _e( 'Detail Text', 'dokani-theme' ); ?></td>
                         <td>
                             <textarea name="slide_content[]" rows="5" cols="55"><?php echo esc_textarea( $slide_content ); ?></textarea>
                         </td>
                     </tr>
                     <tr class="slide-image" style="display: <?php echo $slide_image_css; ?>">
-                        <td><?php _e( 'Slide Image', 'dokan-theme' ); ?></td>
+                        <td><?php _e( 'Slide Image', 'dokani-theme' ); ?></td>
                         <td>
                             <input type="text" class="regular-text image_url" name="slide_image[]" value="<?php echo esc_url( $slide_image ) ?>" />
                             <a href="#" class="image_upload button">Upload Image</a>
@@ -410,30 +432,24 @@ class Dokan_Slider {
                             </div>
                         </td>
                     </tr>
-                    <tr class="video-link" style="display: <?php echo $slide_video_css; ?>">
-                        <td><?php _e( 'Video Embed Code', 'dokan-theme' ); ?></td>
-                        <td>
-                            <textarea name="slide_video[]" rows="3" cols="55"><?php echo esc_textarea( $slide_video ); ?></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><?php _e( 'Slide Link Url', 'dokan-theme' ); ?></td>
+                    <tr class="slide-link" style="display: <?php echo esc_attr( $slide_full_image_css ); ?>">
+                        <td><?php _e( 'Slide Link Url', 'dokani-theme' ); ?></td>
                         <td>
                             <input type="text" class="regular-text" value="<?php echo esc_url( $slide_link ); ?>" placeholder="http://example.com" name="slide_link[]" />
                         </td>
                     </tr>
-                    <tr>
-                        <td><?php _e( 'Open Link', 'dokan-theme' ); ?></td>
+                    <tr class="slide-open-link" style="display: <?php echo esc_attr( $slide_full_image_css ); ?>">
+                        <td><?php _e( 'Open Link', 'dokani-theme' ); ?></td>
                         <td>
                             <select name="slide_link_open[]">
-                                <option value="_self"<?php selected( $slide_link_open, '_self'); ?>><?php _e( 'Open link in same window', 'dokan-theme' ); ?></option>
-                                <option value="_blank"<?php selected( $slide_link_open, '_blank'); ?>><?php _e( 'Open link in new window', 'dokan-theme' ); ?></option>
+                                <option value="_self"<?php selected( $slide_link_open, '_self'); ?>><?php _e( 'Open link in same window', 'dokani-theme' ); ?></option>
+                                <option value="_blank"<?php selected( $slide_link_open, '_blank'); ?>><?php _e( 'Open link in new window', 'dokani-theme' ); ?></option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="submitbox">
-                            <a href="#" class="submitdelete"><?php _e( 'Remove', 'dokan-theme' ); ?></a>
+                            <a href="#" class="submitdelete"><?php _e( 'Remove', 'dokani-theme' ); ?></a>
                         </td>
                     </tr>
                 </table>
@@ -482,7 +498,6 @@ class Dokan_Slider {
                 'slide_title' => trim( $posted['slide_title'][$key] ),
                 'slide_content' => trim($posted['slide_content'][$key]),
                 'slide_image' => trim( $posted['slide_image'][$key] ),
-                'slide_video' => $posted['slide_video'][$key],
                 'slide_link' => trim( $posted['slide_link'][$key] ),
                 'slide_link_open' => $posted['slide_link_open'][$key],
             );
@@ -512,18 +527,20 @@ class Dokan_Slider {
             foreach ($slides as $slide) {
                 $slide_html = '<li>';
                 $slide_html .= '<div class="slide-container">';
+                
 
                 extract( $slide );
-
+                $class_of_slide = '<div class="single-slide '. $slide_type .'">';
                 $link_content = sprintf('<a href="%s" class="button" target="%s">%s</a>', esc_url( $slide_link ), $slide_link_open, __( 'View Details', 'dokani-theme' ) );
-
+                
+                $class_of_slide_type = '<div class="slide-bg '. $slide_type .'" style="background-image:url('.$slide_image.');">';
                 $text_content = '<div class="slide-textarea">';
                 $text_content .= '<h2>' . $slide_title . '</h2>';
                 $text_content .= '<div class="slide-detail"><p>' . do_shortcode( $slide_content ) . '</p></div>';
                 $text_content .= ( !empty( $slide_link ) ) ? "<div class='more'>$link_content</div>" : '';
                 $text_content .= '</div>';
 
-                $video_content = sprintf( '<div class="slide-video">%s</div>', $slide_video );
+                $grid_container = sprintf('<div class="grid-container">%s</div>', $text_content);
 
                 $image = sprintf( '<img src="%s" alt="%s" />', $slide_image, esc_attr( $slide_title ) );
 
@@ -531,32 +548,24 @@ class Dokan_Slider {
 
                 switch ( $slide_type ) {
                     case 'text-image':
+                        $slide_html .= $class_of_slide_type . "\n";
                         $slide_html .= $text_content . "\n";
-                        $slide_html .= $image_content . "\n";
+                        
                         break;
 
                     case 'image-text':
-                        $slide_html .= $image_content . "\n";
-                        $slide_html .= $text_content . "\n";
-                        break;
-
-                    case 'text-video':
-                        $slide_html .= $text_content . "\n";
-                        $slide_html .= $video_content . "\n";
-                        break;
-
-                    case 'video-text':
-                        $slide_html .= $video_content . "\n";
+                        $slide_html .= $class_of_slide_type . "\n";
                         $slide_html .= $text_content . "\n";
                         break;
 
                     case 'image':
+                        $slide_html .= $class_of_slide_type . "\n";
+                        $slide_html .= $text_content . "\n";
+                        break;
+                    
+                    case 'full-image':
+                        $slide_html .= $class_of_slide . "\n";
                         $slide_html .= $image_content . "\n";
-                        break;
-
-                    case 'video':
-                        $slide_html .= $video_content . "\n";
-                        break;
 
                     case 'text':
                         $slide_html .= $text_content . "\n";

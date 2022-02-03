@@ -645,6 +645,24 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 			)
 		);
 
+		// show dokani slider
+		$wp_customize->add_setting( 'show_dokani_slider', array(
+			'sanitize_callback'=> 'dokani_sanitize_checkbox',
+		)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'show_dokani_slider',
+				array(
+					'label'   => __( 'Dokani Slider', 'dokani' ),
+					'section' => 'dokani_frontpage_section',
+					'type'    => 'checkbox',
+					'active_callback' => 'is_show_slider',
+				)
+			)
+		);
+
 		// select slider
 		$wp_customize->add_setting( 'dokani_slider_id', array( 
 			'sanitize_callback'=> 'dokani_sanitize_choices',
@@ -655,26 +673,48 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 				'label'   => __( 'Select Slider', 'dokan-theme' ),
 				'section' => 'dokani_frontpage_section',
 				'type'    => 'select',
-				'choices' => dokani_slider_post_type( 'dokan_slider' )
+				'choices' => dokani_slider_post_type( 'dokan_slider' ),
+				'active_callback' => 'is_show_dokani_slider',
+
 		) );
 
-		// Select Plugin slider
-		$wp_customize->add_setting( 'plugin_slider_shortcode', array(
+
+		// show external slider
+		$wp_customize->add_setting( 'show_externel_slider', array(
+			'sanitize_callback'=> 'dokani_sanitize_checkbox',
+		)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'show_externel_slider',
+				array(
+					'label'   => __( 'Externel Slider', 'dokani' ),
+					'section' => 'dokani_frontpage_section',
+					'type'    => 'checkbox',
+					'active_callback' => 'is_show_slider',
+				)
+			)
+		);
+
+		// Shortcode slider
+		$wp_customize->add_setting( 'dokani_slider_shortcode', array(
 			'sanitize_callback' => 'wp_kses_post',
 		) );
 
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'plugin_slider_shortcode',
+				'dokani_slider_shortcode',
 				array(
 					'label'   => __( 'Shortcode of the slider', 'dokani' ),
 					'section' => 'dokani_frontpage_section',
 					'type'    => 'textarea',
 					'input_attrs' => array(
-						'placeholder' => __( 'Paste shortcode here.', 'dokani' ),
+						'placeholder' => __( 'Enter shortcode here.', 'dokani' ),
 					),
-					'active_callback' => 'is_show_slider',
+					'active_callback' => 'is_show_externel_slider',
+					
 				)
 			)
 		);

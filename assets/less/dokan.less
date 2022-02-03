@@ -874,7 +874,7 @@ body.dokan-dashboard {
 
     .profile-frame {
 
-        &.layout3[class] {
+        &.default[class], &.layout1[class], &.layout2[class], &.layout3[class] {
             .profile-info-img-wrapper[class] {
                 &:before {
                     opacity: 0.4;
@@ -883,16 +883,29 @@ body.dokan-dashboard {
             }
 
             .profile-info[class] {
-                a {
+                a[class] {
                     color: #ffffff;
 
                 }
 
                 color: #ffffff;
 
-                h1 {
+                h1[class] {
                     color: #fff;
 
+                }
+
+                .store-meta-info {
+                    li {
+                        a {
+                            color: #fff;
+
+                            &:hover {
+                                color: #ee624c;
+
+                            }
+                        }
+                    }
                 }
             }
         }

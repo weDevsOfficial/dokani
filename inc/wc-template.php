@@ -392,6 +392,7 @@ add_action( 'template_redirect', function() {
 
 /**
  * Added color attribute
+ * 
  */
 add_action( 'pa_color_add_form_fields', 'dokani_theme_pa_color_add_term_fields' );
 function dokani_theme_pa_color_add_term_fields( $taxonomy ) {
@@ -405,6 +406,7 @@ function dokani_theme_pa_color_add_term_fields( $taxonomy ) {
 
 /**
  * Added color attribute
+ * 
  */
 add_action( 'pa_color_edit_form_fields', 'dokani_theme_pa_color_edit_term_fields', 10, 2 );
 function dokani_theme_pa_color_edit_term_fields( $term, $taxonomy ) {
@@ -424,6 +426,7 @@ function dokani_theme_pa_color_edit_term_fields( $term, $taxonomy ) {
 
 /**
  * Save color attribute
+ * 
  */
 add_action( 'created_pa_color', 'dokani_theme_pa_color_save_term_fields' );
 add_action( 'edited_pa_color', 'dokani_theme_pa_color_save_term_fields' );
@@ -436,3 +439,62 @@ function dokani_theme_pa_color_save_term_fields( $term_id ) {
     );
  
 }
+
+/**
+ * Variation of single product
+ * 
+ */
+function dokani_dropdown_variation_attribute_options_args($html, $args) {
+    $args = wp_parse_args(apply_filters('woocommerce_dropdown_variation_attribute_options_args', $args), array(
+      'options'          => false,
+      'attribute'        => false,
+      'product'          => false,
+      'selected'         => false,
+      'name'             => '',
+      'id'               => '',
+      'class'            => '',
+      'show_option_none' => __('Choose an option', 'woocommerce'),
+    ));
+  
+    if(false === $args['selected'] && $args['attribute'] && $args['product'] instanceof WC_Product) {
+      $selected_key     = 'attribute_'.sanitize_title($args['attribute']);
+      $args['selected'] = isset($_REQUEST[$selected_key]) ? wc_clean(wp_unslash($_REQUEST[$selected_key])) : $args['product']->get_variation_default_attribute($args['attribute']);
+    }
+  
+    $options               = $args['options'];
+    $product               = $args['product'];
+    $attribute             = $args['attribute'];
+    $name                  = $args['name'] ? $args['name'] : 'attribute_'.sanitize_title($attribute);
+    $id                    = $args['id'] ? $args['id'] : sanitize_title($attribute);
+    $class                 = $args['class'];
+    $show_option_none      = (bool)$args['show_option_none'];
+    $show_option_none_text = $args['show_option_none'] ? $args['show_option_none'] : __('Choose an option', 'woocommerce');
+  
+    if(empty($options) && !empty($product) && !empty($attribute)) {
+      $attributes = $product->get_variation_attributes();
+      $options    = $attributes[$attribute];
+    }
+  
+    $dokani_variation = '<div class="dokani-product-variation '. $attribute .'">';
+  
+    if(!empty($options)) {
+      if($product && taxonomy_exists($attribute)) {
+        $terms = wc_get_product_terms($product->get_id(), $attribute, array(
+          'fields' => 'all',
+        ));
+  
+        foreach($terms as $term) {
+          if(in_array($term->slug, $options, true)) {
+            $id = $name.'-'.$term->slug;
+            $dokani_variation .= '<div class="single-item"><div class="dokani-tooltip-pa">'. esc_html(apply_filters('woocommerce_variation_option_name', $term->name)) .'</div><input type="radio" id="'.esc_attr($id).'" name="'.esc_attr($name).'" value="'.esc_attr($term->slug).'" '.checked(sanitize_title($args['selected']), $term->slug, false).'><label style="background: ' . get_term_meta( $term->term_id, 'dokani_theme_pa_color', true ) . ' " for="'.esc_attr($id).'">'.esc_html(apply_filters('woocommerce_variation_option_name', $term->name)).'</label></div>';
+          }
+        }
+      }
+
+    }
+  
+    $dokani_variation .= '</div>';
+      
+    return $html.$dokani_variation;
+}
+add_filter('woocommerce_dropdown_variation_attribute_options_html', 'dokani_dropdown_variation_attribute_options_args', 20, 2);

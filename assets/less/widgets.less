@@ -235,3 +235,193 @@
 
     }
 }
+
+.variations {
+    select {
+        display: none !important;
+
+    }
+}
+
+.dokani-product-variation {
+    display: flex;
+    flex-flow: row wrap;
+
+    .single-item {
+        width: 50px;
+        height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        margin: 0 10px 10px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+
+        &.active-item {
+            &:after {
+                opacity: 1;
+                visibility: visible;
+
+            }
+
+
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            border-bottom: 2px solid transparent;
+            border-color: #000;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s linear 0s;
+
+        }
+
+        .dokani-tooltip-pa {
+            position: absolute;
+            top: -43px;
+            background: #000;
+            font-size: 12px;
+            font-weight: 300;
+            color: #fff;
+            padding: 1px 20px;
+            display: inline-block;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s linear 0s;
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background-color: #000;
+                border: 1px solid #000;
+                bottom: -4px;
+                transform: rotate(45deg);
+
+            }
+
+        }
+
+        &:hover {
+            &:after {
+                opacity: 1;
+                visibility: visible;
+
+            }
+
+            .dokani-tooltip-pa {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+    }
+
+    label {
+        display: inline-block;
+        margin: 0;
+        padding-right: 0!important;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        text-indent: -9999px;
+        white-space: nowrap;
+        text-align: left;
+        position: relative;
+        line-height: 18px;
+        font-size: 15px;
+        font-weight: 900;
+        color: #000;
+        cursor: pointer;
+    }
+
+    &.pa_size {
+        label {
+            text-indent: inherit;
+            text-align: center;
+
+        }
+    }
+
+    input {
+        appearance: inherit;
+
+    }
+}
+
+.dokani_widget_recent_post, .dokani_widget_recent_comments {
+    li.image-thumb {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 10px;
+        padding-top: 20px !important;
+        padding-bottom: 16px !important;
+
+        &:first-child{
+            border-top: 1px solid #ecedef;
+
+        }
+
+    }
+
+    .image {
+        flex-basis: 56px;
+        max-width: 100%;
+
+        img {
+            max-width: 100%;
+            min-height: 37px;
+
+        }
+    }
+
+    .desc {
+        flex-basis: 170px;
+        max-width: 100%;
+
+    }
+
+}
+
+.dokani_widget_recent_post {
+    li.image-thumb {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 10px;
+        padding-top: 20px !important;
+        padding-bottom: 16px !important;
+
+    }
+    
+    .desc {
+
+        a {
+            margin-top: -5px;
+            display: block;
+            color: #333E48;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: -3px;
+
+            &:hover {
+                color: #f2624d;
+
+            }
+
+        }
+
+        span {
+            color: #9C9C9C;
+            font-size: 13px;
+        
+        }
+    }
+}

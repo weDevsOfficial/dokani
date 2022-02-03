@@ -139,6 +139,32 @@ jQuery(function ($) {
         })
     })
 
+    // Change variation
+    $(document).on('change', '.dokani-product-variation input', function () {
+        $('.dokani-product-variation input:checked').each(function (index, element) {
+            var $el = $(element);
+            var thisName = $el.attr('name');
+            var thisVal = $el.attr('value');
+            $('select[name="' + thisName + '"]').val(thisVal).trigger('change');
+
+        });
+    });
+
+    $(document).on('click', '.dokani-product-variation input[name="attribute_pa_color"]', function () {
+        $('.dokani-product-variation.pa_color .single-item').removeClass("active-item");
+        $(this).parent().addClass('active-item');
+    })
+
+    $(document).on('click', '.dokani-product-variation input[name="attribute_pa_size"]', function () {
+        $('.dokani-product-variation.pa_size .single-item').removeClass("active-item");
+        $(this).parent().toggleClass('active-item');
+    })
+
+    $(document).on('click', '.reset_variations', function () {
+        $('.dokani-product-variation .single-item').removeClass("active-item");
+
+    })
+
 
 });
 
