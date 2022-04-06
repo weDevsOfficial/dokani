@@ -12,7 +12,7 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.5.5
+ * @version 6.1.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -50,6 +50,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+		<?php do_action( 'woocommerce_after_variations_table' ); ?>
 
 		<div class="single_variation_wrap">
 			<?php
