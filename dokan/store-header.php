@@ -102,7 +102,7 @@ if ( 'layout3' === $profile_layout ) {
 									</li>
 								<?php endif; ?>
 
-								<?php if ( ! dokan_is_vendor_info_hidden( 'email' ) && ! empty( $store_user->get_email() ) ) : ?>
+								<?php if ( ! dokan_is_vendor_info_hidden( 'email' ) && true === $store_user->show_email() ) : ?>
 									<li>
 										<a href="mailto:<?php echo esc_attr( antispambot( $store_user->get_email() ) ); ?>">
 											<i class="far fa-envelope"></i>
