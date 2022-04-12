@@ -336,7 +336,7 @@ add_action('woocommerce_single_product_summary', 'dokani_vendor_name', 7);
  * Display woo breadcrumb
  */
 function dokani_woo_breadcrumb() {
-    if ( class_exists('WooCommerce' ) && is_woocommerce() && ! is_product() && ! get_query_var( 'edit' ) ) {
+    if ( class_exists( 'WooCommerce' ) && is_woocommerce() && ! is_product() && ! get_query_var( 'edit' ) ) {
         woocommerce_breadcrumb();
     }
 }
@@ -380,3 +380,46 @@ add_action( 'template_redirect', function() {
 	}
 }, 10, 1 );
 
+/**
+ * Added color attribute field
+ */
+function dokani_theme_pa_color_add_term_fields() {
+  ?>
+    <div class="form-field">
+        <label for="dokani_theme_pa_color"><?php esc_html_e( 'Color', 'dokani' ); ?></label>
+        <input type="color" name="dokani_theme_pa_color" id="dokani_theme_pa_color" class="dokani__theme-color-tilter" />
+    </div>
+  <?php 
+}
+add_action( 'pa_color_add_form_fields', 'dokani_theme_pa_color_add_term_fields' );
+
+/**
+ * Define edit color attribute.
+ */
+function dokani_theme_pa_color_edit_term_fields( $term ) {
+
+    $value = get_term_meta( $term->term_id, 'dokani_theme_pa_color', true );
+
+    ?>
+        <tr class="form-field">
+			<th>
+				<label for="dokani_theme_pa_color"><?php esc_html_e( 'Color', 'dokani' ); ?></label>
+			</th>
+			<td>
+					<input name="dokani_theme_pa_color" id="dokani_theme_pa_color" type="color" class="dokani__theme-color-tilter" value="<?php echo esc_attr( $value ); ?>" />
+					<p class="description"><?php esc_html_e( 'Please pick a color.', 'dokani' ); ?></p>
+			</td>
+        </tr>
+    <?php
+}
+add_action( 'pa_color_edit_form_fields', 'dokani_theme_pa_color_edit_term_fields', 10, 2 );
+
+/**
+ * Save color attribute
+ */
+function dokani_theme_pa_color_save_term_fields( $term_id ) {
+    update_term_meta( $term_id, 'dokani_theme_pa_color', sanitize_text_field( $_POST[ 'dokani_theme_pa_color' ] ) );
+
+}
+add_action( 'created_pa_color', 'dokani_theme_pa_color_save_term_fields' );
+add_action( 'edited_pa_color', 'dokani_theme_pa_color_save_term_fields' );
