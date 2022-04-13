@@ -24,7 +24,7 @@ if ( ! function_exists( 'dokani_scripts' ) ) {
 		$dir_uri = get_template_directory_uri();
 
 		if ( ! function_exists( 'dokan' ) ) {
-			wp_enqueue_style( 'dokani-font-awesome', $dir_uri . "/assets/vendors/font-awesome/font-awesome.min.css", false, 4.7 );
+			wp_enqueue_style( 'dokani-font-awesome', $dir_uri . "/assets/vendors/font-awesome/font-awesome.min.css", false, 5.15 );
 		}
 
 		wp_enqueue_style( 'flexslider', $dir_uri . "/assets/css/flexslider.css", false, null );

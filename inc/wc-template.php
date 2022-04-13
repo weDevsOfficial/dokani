@@ -69,7 +69,7 @@ add_action( 'woocommerce_after_shop_loop_item', 'dokani_product_loop_price' );
  */
 function dokan_woo_breadcrumb( $args ) {
     return array(
-        'delimiter'   => '&nbsp; <i class="fa fa-angle-right"></i> &nbsp;',
+        'delimiter'   => '&nbsp; <i class="fas fa-angle-right"></i> &nbsp;',
         'wrap_before' => '<nav class="breadcrumb" ' . ( is_single() ? 'itemprop="breadcrumb"' : '' ) . '>',
         'wrap_after'  => '</nav>',
         'before'      => '<li>',
@@ -130,11 +130,11 @@ if ( ! class_exists( 'Dokan_Category_Walker' ) ) {
             $indent = str_repeat( "\t\r", $depth );
 
             if ( $depth == 0 ) {
-                $caret      = $args['has_children'] ? ' <span class="caret-icon"><i class="fa fa-angle-right" aria-hidden="true"></i></span>' : '';
+                $caret      = $args['has_children'] ? ' <span class="caret-icon"><i class="fas fa-angle-right" aria-hidden="true"></i></span>' : '';
                 $class_name = $args['has_children'] ? ' class="has-children parent-cat-wrap"' : ' class="parent-cat-wrap"';
                 $output     .= $indent . '<li' . $class_name . '><a href="' . get_term_link( $category ) . '">' . $category->name . $caret . '</a>' . "\n";
             } else {
-                $caret      = $args['has_children'] ? ' <span class="caret-icon"><i class="fa fa-angle-right" aria-hidden="true"></i></span>' : '';
+                $caret      = $args['has_children'] ? ' <span class="caret-icon"><i class="fas fa-angle-right" aria-hidden="true"></i></span>' : '';
                 $class_name = $args['has_children'] ? ' class="has-children"' : '';
                 $output     .= $indent . '<li' . $class_name . '><a href="' . get_term_link( $category ) . '">' . $category->name . $caret . '</a>';
             }
@@ -290,8 +290,8 @@ function dokani_products_view_type() {
 	?>
 
     <div class="dokani-products-view buttons box-shadow">
-        <button class="list"><i class="fa fa-bars"></i></button>
-        <button class="grid active"><i class="fa fa-th-large"></i></button>
+        <button class="list"><i class="fas fa-bars"></i></button>
+        <button class="grid active"><i class="fas fa-th-large"></i></button>
     </div>
 
 	<?php
