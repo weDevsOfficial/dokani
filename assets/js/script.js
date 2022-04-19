@@ -129,6 +129,14 @@ jQuery(function ($) {
         } 
     });
 
+    /* Dropdown toggle product category */
+    $('.product-categories .cat-parent .children').before('<span class="toggleIcon"><i class="flaticon-arrow-down-sign-to-navigate"></i></span>');
+    $('.product-categories .cat-parent .children').hide();
+    toggleIcon = $('.product-categories .cat-parent .toggleIcon');
+    toggleIcon.on('click', function () {
+        $(this).next().slideToggle();
+    })
+    
 });
 
 

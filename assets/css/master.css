@@ -2770,6 +2770,12 @@ ol.comment-list {
 }
 /* = Woocommerce Products
 ----------------------------------------------- */
+.woocommerce,
+.woocommerce-page {
+  /*===============================
+    Product category 
+    ===============================*/
+}
 .woocommerce ul.products,
 .woocommerce-page ul.products {
   display: grid;
@@ -3175,6 +3181,27 @@ ol.comment-list {
     margin-left: 0;
     margin-top: 10px;
   }
+}
+.woocommerce .product-categories li.cat-parent,
+.woocommerce-page .product-categories li.cat-parent {
+  position: relative;
+}
+.woocommerce .product-categories li.cat-parent .toggleIcon,
+.woocommerce-page .product-categories li.cat-parent .toggleIcon {
+  position: absolute;
+  right: 30px;
+  top: 8px;
+  cursor: pointer;
+}
+.woocommerce .product-categories li.cat-parent .toggleIcon i,
+.woocommerce-page .product-categories li.cat-parent .toggleIcon i {
+  font-size: 11px;
+  color: #d9d9d9;
+  padding: 0 7px;
+}
+.woocommerce .product-categories li.cat-parent ul .toggleIcon,
+.woocommerce-page .product-categories li.cat-parent ul .toggleIcon {
+  right: 0;
 }
 @media (min-width: 768px) {
   .woocommerce .woocommerce-ordering,

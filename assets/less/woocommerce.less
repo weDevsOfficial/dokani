@@ -372,6 +372,44 @@
         }
     }
 
+    /*===============================
+    Product category 
+    ===============================*/
+    .product-categories {
+        li {
+            &.cat-parent {
+                position: relative;
+
+                .children[class] {
+                    li {
+                        // border-bottom: 0;
+                    }
+                }
+
+                .toggleIcon {
+                    position: absolute;
+                    right: 30px;
+                    top: 8px;
+                    cursor: pointer;
+
+                    i {
+                        font-size: 11px;
+                        color: #d9d9d9;
+                        padding: 0 7px;
+
+                    }
+                }
+
+                ul {
+                    .toggleIcon {
+                        right: 0;
+
+                    }
+                }
+            }
+        }
+    }
+
     // Ordering
     .woocommerce-ordering {
         @media(min-width: @screen-sm-min) {
