@@ -163,3 +163,106 @@
         padding-top: 20px;
     }
 }
+
+/*===============================
+Color filter widget
+===============================*/
+.dokani-widget-layered-nav {
+    padding-bottom: 10px;
+
+    .dokani__color-filter[class] {
+        margin: 0 27px 20px;
+    
+        li {
+            display: inline-block;
+            border-bottom-width: 0px;
+
+            &.wc-layered-nav-tax--pa_size {
+                &.chosen {
+                    a {
+                        color: #f2624d;
+                    }
+                }
+                a {
+                    margin: 3px 14px 12px 0;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: inherit;
+                    border: 1px solid #ddd;
+                    font-size: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:before {
+                        display: none;
+
+                    }
+
+                    &:hover:before {
+                        display: none;
+
+                    }
+
+                    span {
+                        display: block;
+
+                    }
+                }
+            }
+    
+            &.woocommerce-widget-layered-nav-list__item--chosen.chosen {
+                a {
+                    &:before {
+                        content: "\f00c";
+                        position: absolute;
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        top: 0;
+                        left: 0;
+                        color: #fff;
+                        font-size: 10px;
+                        padding: 5px;
+        
+                    }
+    
+                }
+            }
+    
+            a {
+                display: block;
+                margin: 3px 26px 10px 0;
+                padding-right: 0!important;
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                white-space: nowrap;
+                position: relative;
+                text-align: left;
+                position: relative;
+
+                span {
+                    display: none;
+
+                }
+    
+                &:hover:before {
+                    content: "\f00c";
+                    position: absolute;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    top: -2px;
+                    left: 5px;
+                    color: #fff;
+                    font-size: 10px;
+                    padding: 0;
+                }
+    
+            }
+    
+        }
+    }
+
+}
+
+

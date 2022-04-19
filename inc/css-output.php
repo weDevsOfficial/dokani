@@ -821,11 +821,11 @@ function dokani_set_dynamic_css_cache() {
 	$cached_css = get_option( 'dokani_dynamic_css_output', false );
 	$cached_version = get_option( 'dokani_dynamic_css_cached_version', '' );
 
-	if ( ! $cached_css || $cached_version !== GENERATE_VERSION ) {
+	if ( ! $cached_css || $cached_version !== DOKANI_VERSION ) {
 		$css = dokani_base_css() . dokani_font_css() . dokani_advanced_css() . dokani_spacing_css();
 
 		update_option( 'dokani_dynamic_css_output', $css );
-		update_option( 'dokani_dynamic_css_cached_version', GENERATE_VERSION );
+		update_option( 'dokani_dynamic_css_cached_version', DOKANI_VERSION );
 	}
 }
 

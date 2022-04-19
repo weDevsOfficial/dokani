@@ -48,7 +48,7 @@ if ( ! function_exists( 'dokani_customizer_controls_css' ) ) {
 	 * @since 1.0.0
 	 */
 	function dokani_customizer_controls_css() {
-		wp_enqueue_style( 'dokani-customizer-controls-css', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/css/upsell-customizer.css', array(), GENERATE_VERSION );
+		wp_enqueue_style( 'dokani-customizer-controls-css', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/css/upsell-customizer.css', array(), DOKANI_VERSION );
 		wp_enqueue_script( 'dokani-upsell', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/upsell-control.js', array( 'customize-controls' ), false, true );
 	}
 }
