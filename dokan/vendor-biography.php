@@ -15,7 +15,7 @@ dokan_get_template_part( 'store-header' ); ?>
 
 <div class="grid-container">
 
-    <div id="primary" <?php dokani_content_class( 'dokan-single-store' ); ?>>
+    <div id="primary" <?php dokani_content_class(); ?>>
 
         <main id="main" <?php dokani_main_class(); ?>>
 
