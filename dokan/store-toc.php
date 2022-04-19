@@ -10,12 +10,11 @@ $vendor      = dokan()->vendor->get( get_query_var( 'author' ) );
 $vendor_info = $vendor->get_shop_info();
 
 get_header();
-?>
 
-<?php dokan_get_template_part( 'store-header' ); ?>
+dokan_get_template_part( 'store-header' ); ?>
 
 <div class="grid-container">
-	<div id="primary" <?php dokani_content_class(); ?>>
+	<div id="primary" <?php dokani_content_class( 'dokan-single-store' ); ?>>
 		<main id="dokan-content" <?php dokani_main_class(); ?>>
 			<?php
 
@@ -31,7 +30,7 @@ get_header();
 
 			<div id="store-toc-wrapper">
 				<div id="store-toc">
-					<?php if ( ! empty( $vendor->get_store_tnc() ) ): ?>
+					<?php if ( ! empty( $vendor->get_store_tnc() ) ) : ?>
 						<h2 class="headline"><?php esc_html_e( 'Terms And Conditions', 'dokani' ); ?></h2>
 						<div>
 							<?php echo wp_kses_post( nl2br( $vendor->get_store_tnc() ) ); ?>
