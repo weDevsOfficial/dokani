@@ -2830,6 +2830,6 @@ if ( ! function_exists( 'dokani_customizer_live_preview' ) ) {
 	 * @since 1.0.0
 	 */
 	function dokani_customizer_live_preview() {
-		wp_enqueue_script( 'dokani-themecustomizer', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/customizer-live-preview.js', array( 'customize-preview' ), GENERATE_VERSION, true );
+		wp_enqueue_script( 'dokani-themecustomizer', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/customizer-live-preview.js', array( 'customize-preview' ), DOKANI_VERSION, true );
 	}
 }

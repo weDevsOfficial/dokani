@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Set our theme version.
-define( 'GENERATE_VERSION', '1.0.0' );
+define( 'DOKANI_VERSION', '1.0.0' );
 
 if ( ! function_exists( 'dokani_setup' ) ) {
 	add_action( 'after_setup_theme', 'dokani_setup' );
@@ -20,6 +20,8 @@ if ( ! function_exists( 'dokani_setup' ) ) {
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
 	 * @since 1.0.0
+	 *
+	 * return void
 	 */
 	function dokani_setup() {
 		// Make theme available for translation.
@@ -33,7 +35,15 @@ if ( ! function_exists( 'dokani_setup' ) ) {
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
-		add_theme_support( 'custom-logo', array( 'height' => 70, 'width' => 350, 'flex-height' => true, 'flex-width'  => true ) );
+		add_theme_support(
+			'custom-logo',
+				array(
+				'height' => 70,
+				'width' => 350,
+				'flex-height' => true,
+				'flex-width'  => true,
+				)
+		);
 
 		add_image_size( 'single-vendor-thumb', 270, 160, true );
 		add_image_size( 'dokanee-featured-post-thumbnail', 870, 370, true );
@@ -58,17 +68,17 @@ if ( ! function_exists( 'dokani_setup' ) ) {
 
 		update_option( 'woocommerce_thumbnail_cropping', 'custom' );
 		update_option( 'woocommerce_thumbnail_cropping_custom_width', '4' );
-		update_option( 'woocommerce_thumbnail_cropping_custom_height', '3' );
+		update_option( 'woocommerce_thumbnail_cropping_custom_height', '3'  );
 
 		if ( function_exists( 'dokan' ) ) {
 			$dokan_apearance = get_option( 'dokan_appearance' );
 
-			if ( ! function_exists( 'dokan_pro' ) ) {
-				$dokan_apearance['store_banner_width'] = 1900;
-				$dokan_apearance['store_banner_height'] = 470;
-			}
+		if ( ! function_exists( 'dokan_pro' ) ) {
+			$dokan_apearance['store_banner_width'] = 1900;
+			$dokan_apearance['store_banner_height'] = 470;
+		}
+		update_option( 'dokan_appearance', $dokan_apearance );
 
-			update_option( 'dokan_appearance', $dokan_apearance );
 		}
 	}
 }
@@ -112,19 +122,19 @@ if ( ! function_exists( 'dokani_load_customizer_files' ) ) {
 	 * @since 1.0.0
 	 */
 	function dokani_load_customizer_files() {
-		require_once get_template_directory() . '/inc/customizer/controls/class-range-control.php';
-		require_once get_template_directory() . '/inc/customizer/controls/class-typography-control.php';
-		require_once get_template_directory() . '/inc/customizer/controls/class-upsell-section.php';
-		require_once get_template_directory() . '/inc/customizer/controls/class-upsell-control.php';
-		require_once get_template_directory() . '/inc/customizer/controls/class-deprecated.php';
+		include_once get_template_directory() . '/inc/customizer/controls/class-range-control.php';
+		include_once get_template_directory() . '/inc/customizer/controls/class-typography-control.php';
+		include_once get_template_directory() . '/inc/customizer/controls/class-upsell-section.php';
+		include_once get_template_directory() . '/inc/customizer/controls/class-upsell-control.php';
+		include_once get_template_directory() . '/inc/customizer/controls/class-deprecated.php';
 
 		// Helper functions.
-		require_once get_template_directory() . '/inc/customizer/helpers.php';
+		include_once get_template_directory() . '/inc/customizer/helpers.php';
 
 		// Deprecated.
-		require_once get_template_directory() . '/inc/customizer/deprecated.php';
+		include_once get_template_directory() . '/inc/customizer/deprecated.php';
 
-		require_once get_template_directory() . '/inc/customizer/controls/class-radio-control.php';
+		include_once get_template_directory() . '/inc/customizer/controls/class-radio-control.php';
 	}
 }
 
@@ -132,6 +142,6 @@ if ( ! function_exists( 'dokani_load_customizer_files' ) ) {
  * Load our color filter widget
  */
 if ( class_exists( 'woocommerce' ) ) {
-	require_once get_template_directory() . '/inc/widgets/class-dokani-widget-layered-nav.php';
+	include_once get_template_directory() . '/inc/widgets/class-dokani-widget-layered-nav.php';
 }
 

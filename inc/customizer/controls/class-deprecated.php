@@ -38,7 +38,7 @@ if ( ! class_exists( 'Generate_Google_Font_Dropdown_Custom_Control' ) ) {
 		public $type = 'gp-customizer-fonts';
 
 		public function enqueue() {
-			wp_enqueue_script( 'dokani-customizer-fonts', trailingslashit( get_template_directory_uri() ) . 'inc/js/typography-controls.js', array( 'customize-controls' ), GENERATE_VERSION, true );
+			wp_enqueue_script( 'dokani-customizer-fonts', trailingslashit( get_template_directory_uri() ) . 'inc/js/typography-controls.js', array( 'customize-controls' ), DOKANI_VERSION, true );
 			wp_localize_script( 'dokani-customizer-fonts', 'gp_customize', array( 'nonce' => wp_create_nonce( 'gp_customize_nonce' ) ) );
 		}
 

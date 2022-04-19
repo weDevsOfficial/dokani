@@ -40,8 +40,6 @@ class Dokani_Widget_Layered_Nav extends WC_Widget {
 
 		$title = isset( $instance['title'] ) ? $instance['title'] : '';
 
-		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
-
 		$args['before_widget'] = str_replace( 'placeholder-class', $attribute, $args['before_widget'] );
 
 		echo $args['before_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
@@ -250,7 +248,6 @@ class Dokani_Widget_Layered_Nav extends WC_Widget {
 	 * @return bool   Will nav display?
 	 */
 	protected function layered_nav_list( $terms, $taxonomy ) {
-
 		// List display.
 		echo '<ul class="woocommerce-widget-layered-nav-list dokani__color-filter">';
 
@@ -306,7 +303,11 @@ class Dokani_Widget_Layered_Nav extends WC_Widget {
 
 			if ( $count > 0 || $option_is_set ) {
 				$link      = esc_url( apply_filters( 'woocommerce_layered_nav_link', $link, $term, $taxonomy ) );
-				$term_html = '<a rel="nofollow" style="background: ' . get_term_meta( $term->term_id, 'dokani_theme_pa_color', true ) . ' " href="' . $link . '">' . esc_html( $term->name ) . '</a>';
+				if ( 'pa_color' === $taxonomy ) {
+					$term_html = '<a rel="nofollow" style="background: ' . get_term_meta( $term->term_id, 'dokani_theme_pa_color', true ) . ' " href="' . $link . '"><span>' . esc_html( $term->name ) . '</span></a>';
+				} else {
+					$term_html = '<a rel="nofollow" href="' . $link . '"><span>' . esc_html( $term->name ) . '</span></a>';
+				}
 			} else {
 				$link      = false;
 				$term_html = '<span>' . esc_html( $term->name ) . '</span>';
