@@ -2989,7 +2989,7 @@ ol.comment-list {
 }
 .woocommerce ul.products.list li > .woocommerce-LoopProduct-link,
 .woocommerce-page ul.products.list li > .woocommerce-LoopProduct-link {
-  width: 37%;
+  width: 30%;
   border-right: 2px solid #f5f5f5;
 }
 .woocommerce ul.products.list li > .woocommerce-LoopProduct-link img,
