@@ -129,6 +129,17 @@ jQuery(function ($) {
         } 
     });
 
+    /* WC Block Product Sidebar */
+    var caretIcon = $('.wc-block-product-categories ul li ul');
+    caretIcon.before('<span class="toggleIcon"><i class="flaticon-arrow-down-sign-to-navigate"></i></span>');
+    $('.wc-block-product-categories ul li ul').hide();
+    toggleIcon = $('.wc-block-product-categories ul li .toggleIcon');
+    toggleIcon.on('click', function () {
+        $(this).toggleClass('active');
+        $(this).next().slideToggle();
+    })
+    
+
 });
 
 

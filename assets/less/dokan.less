@@ -134,7 +134,7 @@ body {
     float: left;
     padding: 7px 9px;
     margin-right: 20px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     display: flex;
 
     button {
@@ -256,13 +256,13 @@ body.dokan-dashboard {
                     margin: 0;
 
                     a {
-                        padding: 13px 36px;
+                        padding: 13px 40px;
                     }
                 }
 
                 a {
                     border-bottom: none !important;
-                    padding: 13px 20px;
+                    padding: 13px 26px;
                     margin: 0 !important;
                     font-size: 16px;
                 }
@@ -288,6 +288,11 @@ body.dokan-dashboard {
             li {
                 padding: 7px 30px !important;
             }
+        }
+
+        .widget-title {
+            padding-top: 20px;
+
         }
     }
 }
@@ -1323,16 +1328,20 @@ Product Style
                 text-align: center;
                 border-bottom: 1px solid #ECEDEF;
                 padding: 0px 0;
-                min-height: 191px;
+                min-height: 196px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                @media (max-width: 767px) {
+                    min-height: 121px;
+                }
 
 
                 img {
                     border-bottom: 0px;
                     display: inline-block;
-                    // width: auto;
+                    width: auto;
 
                     @media (max-width: 767px) {
                        height: auto !important;
@@ -1358,6 +1367,9 @@ Product Style
             &:hover {
                 .woocommerce-LoopProduct-link {
                     background: #dee0e2;
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+
                 }
 
                 .item-content {
@@ -1365,7 +1377,7 @@ Product Style
                         background: none;
                         
                         h2 {
-                            color: #c82811;
+                            // color: #c82811;
                         }
 
                     }
