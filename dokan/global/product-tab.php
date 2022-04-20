@@ -42,7 +42,7 @@
             <span class="title"><?php esc_html_e( 'Vendor:', 'dokani' ); ?></span>
 
             <span class="details">
-                <?php printf( '<a href="%s">%s</a>', esc_url( dokan_get_store_url( $author->ID ) ), esc_html( $author->display_name ) ); ?>
+                <?php printf( '<a href="%s">%s</a>', esc_url( dokan_get_store_url( $author->ID ) ), esc_html( $store_info['store_name'] ) ); ?>
             </span>
         </li>
 		<?php if ( ! empty( $store_info['address'] ) ) { ?>
