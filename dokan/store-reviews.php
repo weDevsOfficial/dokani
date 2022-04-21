@@ -11,13 +11,11 @@ $map_location = isset( $store_info['location'] ) ? esc_attr( $store_info['locati
 
 get_header();
 
-?>
-
-<?php dokan_get_template_part( 'store-header' ); ?>
+dokan_get_template_part( 'store-header' ); ?>
 
     <div class="grid-container">
 
-        <div id="primary" <?php dokani_content_class(); ?>>
+        <div id="primary" <?php dokani_content_class( 'dokan-single-store' ); ?>>
 
             <main id="main" <?php dokani_main_class(); ?>>
 
@@ -60,7 +58,7 @@ get_header();
                     </div>
 
 					<?php
-					echo wp_kses_post( $dokan_template_reviews->review_pagination( $store_user_id, $review_post_type, $review_limit, $review_status ) );
+						echo wp_kses_post( $dokan_template_reviews->review_pagination( $store_user_id, $review_post_type, $review_limit, $review_status ) );
 					?>
 
                 </div><!-- #content .site-content -->
@@ -95,4 +93,6 @@ get_header();
 
     </div>
 
-<?php get_footer();
+<?php
+	get_footer();
+

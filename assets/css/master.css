@@ -4110,6 +4110,15 @@ ol.comment-list {
 .woocommerce-Tabs-panel--seller .store-info-wrapper {
   display: flex;
 }
+@media (max-width: 767px) {
+  .woocommerce-Tabs-panel--seller .store-info-wrapper {
+    display: block;
+  }
+}
+.woocommerce-Tabs-panel--seller .store-info-wrapper .store-banner {
+  width: 270px;
+  flex: none;
+}
 .woocommerce-Tabs-panel--seller .store-info-wrapper .store-banner a {
   display: inline-flex;
 }
@@ -4121,8 +4130,14 @@ ol.comment-list {
   margin-top: 8px;
 }
 .woocommerce-Tabs-panel--seller .store-info-wrapper .store-info {
+  flex: 1;
   list-style: none;
   margin: 0 0 0 25px;
+}
+@media (max-width: 767px) {
+  .woocommerce-Tabs-panel--seller .store-info-wrapper .store-info {
+    margin-left: 0;
+  }
 }
 .woocommerce-Tabs-panel--seller .store-info-wrapper .store-info li {
   color: #333e48;
@@ -4139,6 +4154,9 @@ ol.comment-list {
 }
 .woocommerce-Tabs-panel--seller .store-info-wrapper .store-info li.store-rating .text {
   display: none;
+}
+.woocommerce-Tabs-panel--seller .store-info-wrapper .store-info li.store-rating .seller-rating {
+  float: left;
 }
 .woocommerce-Tabs-panel--seller .store-info-wrapper .store-info li.seller-name {
   margin-top: 20px;
