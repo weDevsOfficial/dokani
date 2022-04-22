@@ -321,7 +321,7 @@ body.dokan-dashboard {
             p {
                 margin-bottom: 0;
             }
-            
+
         }
 
         .store-data {
@@ -1052,7 +1052,7 @@ body.dokan-dashboard {
                     }
 
                 }
-                
+
             }
         }
     }
@@ -1347,7 +1347,7 @@ Product Style
                     padding: 0px 0;
                     min-height: auto;
                     display: inherit;
-                
+
                 }
 
                 .item-header {
@@ -1363,7 +1363,7 @@ Product Style
                 .item-content {
                     .woocommerce-LoopProduct-link {
                         background: none;
-                        
+
                         h2 {
                             color: #c82811;
                         }
@@ -1379,7 +1379,7 @@ Product Style
                 }
             }
         }
-        
+
     }
 }
 
@@ -1403,13 +1403,13 @@ Product Style
             margin: 12px 0;
             display: flex;
             padding: 0 0px 0 0;
-        
+
             img {
                 width: 80px;
                 display: inline-block;
             }
         }
-        
+
         .price[class] {
             del {
                 color: #dee0ee;
@@ -1474,5 +1474,47 @@ Product Style
             }
         }
     }
-    
+
+}
+
+/* Store product loop pagination */
+.dokan-pagination-container {
+	ul.dokan-pagination {
+		border: none;
+		margin: 0 -4px;
+
+		li {
+			border: none;
+			overflow: inherit;
+
+			a {
+				color: #d9d9d9;
+				background-color: @white;
+				line-height: 38px;
+				display: inline-block;
+				text-align: center;
+				border-radius: 3px;
+				margin: 4px;
+				.box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
+				float: none;
+				border: none;
+				padding: 0 15px;
+
+				&:hover {
+					color: @theme-color;
+					background-color: @white;
+					.box-shadow(0px 5px 12px 0px rgba(0, 0, 0, 0.08));
+				}
+			}
+
+			&.active {
+
+				a {
+					color: @theme-color;
+					background-color: @white;
+					.box-shadow(0px 5px 12px 0px rgba(0, 0, 0, 0.08));
+				}
+			}
+		}
+	}
 }
