@@ -132,9 +132,8 @@ body {
 // Product display views
 .dokani-products-view {
     float: left;
-    padding: 7px 9px;
+    padding: 7.5px 9px;
     margin-right: 20px;
-    margin-bottom: 16px;
     display: flex;
 
     button {
@@ -1329,30 +1328,7 @@ Product Style
 
         &.columns-2 {
             grid-template-columns: repeat(2, 1fr);
-
-            &.list {
-                li {
-                    .woocommerce-LoopProduct-link  {
-                        min-height: auto;
-    
-                        @media (max-width: 767px) {
-                            min-height: 121px;
-                        }
-    
-                    }
-                }
-            }
-
-            li {
-                .woocommerce-LoopProduct-link  {
-                    min-height: 280px;
-
-                    @media (max-width: 767px) {
-                        min-height: 196px;
-                    }
-
-                }
-            }
+            
         }
 
         &.columns-3 {
@@ -1362,16 +1338,6 @@ Product Style
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            li {
-                .woocommerce-LoopProduct-link  {
-                    min-height: 196px;
-
-                    @media (max-width: 767px) {
-                        min-height: 121px;
-                    }
-
-                }
-            }
         }
 
         li {
@@ -1384,27 +1350,9 @@ Product Style
             .woocommerce-LoopProduct-link  {
                 position: relative;
                 text-align: center;
-                border-bottom: 1px solid #ECEDEF;
+                // border-bottom: 1px solid #ECEDEF;
                 padding: 0px 0;
-                min-height: 139px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
 
-                @media (max-width: 767px) {
-                    min-height: 121px;
-                }
-
-
-                img {
-                    border-bottom: 0px;
-                    display: inline-block;
-                    width: auto;
-
-                    @media (max-width: 767px) {
-                       height: auto !important;
-                    }
-                }
             }
 
             .item-content {
@@ -1424,9 +1372,7 @@ Product Style
 
             &:hover {
                 .woocommerce-LoopProduct-link {
-                    background: #dee0e2;
-                    border-top-left-radius: 4px;
-                    border-top-right-radius: 4px;
+                    // background: #dee0e2;
 
                 }
 

@@ -62,7 +62,7 @@
                 }
 
                 .woocommerce-loop-product__title {
-                    font-weight: 500;
+                    font-weight: 600;
                     line-height: 1.5em;
                     color: @product-title-color;
                     //min-height: 50px;
@@ -208,11 +208,9 @@
                 > .woocommerce-LoopProduct-link {
                     //width: 260px;
                     width: 30%;
-                    border-right: 2px solid #f5f5f5;
+                    // border-right: 2px solid #f5f5f5;
 
                     @media(max-width: @screen-xs-max) {
-                        width: auto;
-                        min-height: 196px;
                         padding: 56px 0px;
 
                     }
@@ -223,9 +221,6 @@
                         border: none;
                         .rounded(5px 0 0 5px);
 
-                        @media(max-width: @screen-xs-max) {
-                            height: 135px;
-                        }
                     }
                 }
 
@@ -496,25 +491,6 @@
         }
     }
 
-    .wp-block-product-top-rated {
-        ul.wc-block-grid__products {
-            display: block;
-            
-            li {
-                flex: inherit;
-                max-width: inherit;
-                border-color: transparent;
-                border: 1px solid #ecedef;
-                margin-bottom: 20px;
-
-                .star-rating {
-                    float: none;
-                }
-            
-            }
-        }
-    }
-
     // Ordering
     .woocommerce-ordering {
         @media(min-width: @screen-sm-min) {
@@ -534,7 +510,6 @@
 
         & + .woocommerce-pagination {
             float: right;
-            margin-bottom: 16px;
 
             @media(max-width: @screen-sm-min) {
                 float: left;
@@ -581,6 +556,12 @@
             border-left: 1px dotted rgba(0,0,0,0.1);
         }
 
+    }
+}
+
+.woocommerce-shop {
+    .site-content {
+        padding: 15px 0 35px;
     }
 }
 
@@ -798,12 +779,14 @@
             }
 
             ins {
-                font-weight: 500;
+                font-weight: 600;
             }
 
             del {
                 color: #9c9c9c;
-                font-weight: 400;
+                font-weight: 300;
+                margin-right: 6px;
+
             }
         }
     }
@@ -1077,9 +1060,14 @@
         .entry-content {
             position: relative;
 
+            .dokani__filter-wrap {
+                margin: 27px 0 12px;
+
+            }
+
             .woocommerce-ordering {
                 margin-right: 85px;
-                margin-bottom: 16px;
+
             }
 
             .dokani-products-view {
@@ -1203,7 +1191,7 @@
         }
 
         ins {
-            font-weight: 500;
+            font-weight: 600;
         }
     }
 
