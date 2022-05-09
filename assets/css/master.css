@@ -3375,7 +3375,7 @@ ol.comment-list {
   border-bottom: none !important;
   margin: 0 !important;
   font-size: 16px;
-  padding: 13px 4px 13px 26px;
+  padding: 13px 4px 13px 29px;
 }
 .woocommerce .wc-block-product-categories[class] ul li ul,
 .woocommerce-page .wc-block-product-categories[class] ul li ul {
@@ -4869,7 +4869,7 @@ body.dokan-dashboard .dokan-table td.diviader {
 }
 .widget-area .dokan-category-menu #cat-drop-stack ul li a {
   border-bottom: none !important;
-  padding: 13px 26px;
+  padding: 13px 30px;
   margin: 0 !important;
   font-size: 16px;
 }
