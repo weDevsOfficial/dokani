@@ -23,7 +23,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Customi
 		public $label = '';
 
 		public function enqueue() {
-			wp_enqueue_style( 'dokani-customizer-controls-css', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/css/upsell-customizer.css', array(), GENERATE_VERSION );
+			wp_enqueue_style( 'dokani-customizer-controls-css', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/css/upsell-customizer.css', array(), DOKANI_VERSION );
 		}
 
 		public function to_json() {

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Set our theme version.
-define( 'GENERATE_VERSION', '1.0.0' );
+define( 'DOKANI_VERSION', '1.0.0' );
 
 if ( ! function_exists( 'dokani_setup' ) ) {
 	add_action( 'after_setup_theme', 'dokani_setup' );

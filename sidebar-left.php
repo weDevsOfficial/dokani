@@ -39,20 +39,31 @@ if ( function_exists( 'dokani_secondary_nav_get_defaults' ) ) {
 		 */
 		do_action( 'dokani_before_left_sidebar_content' );
 
-		if ( is_page_template( 'page-template/store-list.php' ) ) :
+		if ( function_exists( 'dokan_is_store_listing' ) && dokan_is_store_listing() ) :
 
 			if ( ! dynamic_sidebar( 'store-list' ) ) :
 
 				if ( false == $navigation_active ) : ?>
 
-                    <aside id="archives" class="widget">
-                        <h2 class="widget-title"><?php esc_html_e( 'Archives', 'dokani' ); ?></h2>
-                        <ul>
-							<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-                        </ul>
-                    </aside>
+					<aside id="search" class="widget widget_search">
+						<?php get_search_form(); ?>
+					</aside>
 
-				<?php endif;
+					<?php
+						$dokani_product_category_widget_instance = array(
+							'title'	=> esc_html__('Browse Category', 'dokani' ),
+						);
+						$dokani_product_category_widget_args     = array(
+							'before_widget' => '<aside class="widget dokan-category-menu">',
+							'after_widget'  => '</aside>',
+							'before_title'  => '<h2 class="widget-title">',
+							'after_title'   => '</h2>',
+						);
+						the_widget( 'WeDevs\Dokan\Widgets\ProductCategoryMenu', $dokani_product_category_widget_instance, $dokani_product_category_widget_args );
+						?>
+
+					<?php
+				endif;
 
 			endif;
 

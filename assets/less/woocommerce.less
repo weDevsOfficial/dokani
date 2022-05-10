@@ -1537,7 +1537,14 @@
     .store-info-wrapper {
         display: flex;
 
+		@media (max-width: @screen-xs-max) {
+			display: block;
+		}
+
         .store-banner {
+			width: 270px;
+			flex: none;
+
             a {
                 display: inline-flex;
             }
@@ -1549,8 +1556,13 @@
         }
 
         .store-info {
+			flex: 1;
             list-style: none;
             margin: 0 0 0 25px;
+
+			@media (max-width: @screen-xs-max) {
+				margin-left: 0;
+			}
 
             li {
                 color: #333e48;
@@ -1569,6 +1581,10 @@
                     .text {
                         display: none;
                     }
+
+					.seller-rating {
+						float: left;
+					}
                 }
 
                 &.seller-name {

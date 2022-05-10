@@ -19,11 +19,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Generate_Typogra
 		public $type = 'gp-customizer-typography';
 
 		public function enqueue() {
-			wp_enqueue_script( 'dokani-typography-selectWoo', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/js/selectWoo.min.js', array( 'customize-controls', 'jquery' ), GENERATE_VERSION, true );
-			wp_enqueue_style( 'dokani-typography-selectWoo', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/css/selectWoo.min.css', array(), GENERATE_VERSION );
+			wp_enqueue_script( 'dokani-typography-selectWoo', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/js/selectWoo.min.js', array( 'customize-controls', 'jquery' ), DOKANI_VERSION, true );
+			wp_enqueue_style( 'dokani-typography-selectWoo', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/css/selectWoo.min.css', array(), DOKANI_VERSION );
 
-			wp_enqueue_script( 'dokani-typography-customizer', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/js/typography-customizer.js', array( 'customize-controls', 'dokani-typography-selectWoo' ), GENERATE_VERSION, true );
-			wp_enqueue_style( 'dokani-typography-customizer', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/css/typography-customizer.css', array(), GENERATE_VERSION );
+			wp_enqueue_script( 'dokani-typography-customizer', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/js/typography-customizer.js', array( 'customize-controls', 'dokani-typography-selectWoo' ), DOKANI_VERSION, true );
+			wp_enqueue_style( 'dokani-typography-customizer', trailingslashit( get_template_directory_uri() )  . 'inc/customizer/controls/css/typography-customizer.css', array(), DOKANI_VERSION );
 		}
 
 		public function to_json() {
