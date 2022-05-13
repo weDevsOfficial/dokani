@@ -96,7 +96,7 @@
 							</div>
 
 							<div class="store-footer">
-								<a class="dokan-btn-theme dokan-btn" href="<?php echo esc_url( $store_url ); ?>" title="<?php esc_attr_e( 'Visit Store', 'dokani' ); ?>">
+								<a class="dokan-btn visit-store-btn" href="<?php echo esc_url( $store_url ); ?>" title="<?php esc_attr_e( 'Visit Store', 'dokani' ); ?>">
 									<?php esc_html_e( 'Visit Store', 'dokani' ); ?>
 								</a>
 								<?php do_action( 'dokan_seller_listing_footer_content', $seller, $store_info ); ?>
