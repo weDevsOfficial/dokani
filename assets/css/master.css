@@ -4814,6 +4814,9 @@ body.dokan-dashboard .dokan-table td.diviader {
 }
 /* = Dokan Widgets
 ----------------------------------------------- */
+.widget-area .location-container {
+  padding-top: 0 !important;
+}
 .widget-area .location-container .dokan-store-address,
 .widget-area .location-container .dokan-store-phone {
   font-size: 15px;
@@ -4827,7 +4830,7 @@ body.dokan-dashboard .dokan-table td.diviader {
 .widget-area .location-container .dokan-store-phone i {
   margin-right: 14px;
   margin-left: -27px;
-  font-size: 18px;
+  font-size: 14px;
   width: 10px;
   color: #9b59b6;
 }
@@ -4853,23 +4856,30 @@ body.dokan-dashboard .dokan-table td.diviader {
 .widget-area #cat-drop-stack {
   padding: 0 0 2px 0;
 }
+.widget-area #cat-drop-stack ul li {
+  border-top-width: 1px;
+  padding: 0;
+  border-bottom: 0;
+}
 .widget-area #cat-drop-stack ul li a {
   border-bottom: none !important;
-  padding: 0;
   margin: 0 !important;
   font-size: 16px;
   position: relative;
   display: block;
+  padding: 13px 4px 13px 26px;
 }
 .widget-area #cat-drop-stack ul li a .caret-icon {
   position: absolute;
-  right: -2px;
+  right: 30px;
   display: inline-block;
   width: 20px;
   vertical-align: middle;
   text-align: center;
 }
 .widget-area #cat-drop-stack ul li ul {
+  padding: 0;
+  margin: 0;
   background-color: transparent !important;
 }
 .widget-area .dokan-category-menu #cat-drop-stack {
@@ -4899,6 +4909,9 @@ body.dokan-dashboard .dokan-table td.diviader {
 }
 .widget-area .menu-dokan-pages-container {
   padding: 0 !important;
+}
+.widget-area #dokan-form-contact-seller {
+  padding-top: 0;
 }
 .widget-area .widget .dokan-bestselling-product-widget {
   padding: 7px 0 13px !important;
