@@ -27,7 +27,7 @@ if ( ! function_exists( 'dokani_construct_footer' ) ) {
                         <?php
                         $section_1_type = get_theme_mod( 'dokani_footer_bar_section1_type', 'text' );
                         if ( $section_1_type === 'text' ) {
-                            echo wp_kses_post( get_theme_mod( 'dokani_footer_bar_section1_content', 'Add Custom Content' ) );
+                            echo wp_kses_post( get_theme_mod( 'dokani_footer_bar_section1_content', sprintf( __('Copyright %s | dokani by weDevs', 'dokani' ), date('Y') ) ) );
                         } elseif ( $section_1_type === 'widget' ) {
 
                             $section_1_widget = dynamic_sidebar( 'footer-bar-1' );
@@ -64,7 +64,7 @@ if ( ! function_exists( 'dokani_construct_footer' ) ) {
                     </div>
                     <div class="footer-bar-column footer-bar-section2">
 					<?php
-					$section_2_type = get_theme_mod( 'dokani_footer_bar_section2_type', 'text' );
+					$section_2_type = get_theme_mod( 'dokani_footer_bar_section2_type', 'footer_menu' );
 					if ( $section_2_type === 'text' ) {
 						echo wp_kses_post( get_theme_mod( 'dokani_footer_bar_section2_content', 'Add Custom Content' ) );
 					} elseif ( $section_2_type === 'widget' ) {
