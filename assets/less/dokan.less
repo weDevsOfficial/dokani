@@ -168,7 +168,9 @@ body.dokan-dashboard {
 .widget-area {
 
     // Store Location
-    .location-container{
+    .location-container {
+		padding-top: 0 !important;
+
         .dokan-store-address,
         .dokan-store-phone {
             font-size: 15px;
@@ -181,7 +183,7 @@ body.dokan-dashboard {
             i {
                 margin-right: 14px;
                 margin-left: -27px;
-                font-size: 18px;
+                font-size: 14px;
                 width: 10px;
                 color: #9b59b6;
             }
@@ -212,29 +214,38 @@ body.dokan-dashboard {
     #cat-drop-stack {
         padding: 0 0 2px 0;
 
-        ul li {
-            a {
-                border-bottom: none !important;
-                padding: 0;
-                margin: 0 !important;
-                font-size: 16px;
-                position: relative;
-                display: block;
+		ul {
 
-                .caret-icon {
-                    position: absolute;
-                    right: -2px;
-                    display: inline-block;
-                    width: 20px;
-                    vertical-align: middle;
-                    text-align: center;
-                }
-            }
+			li {
+				border-top-width: 1px;
+				padding: 0;
+				border-bottom: 0;
 
-            ul {
-                background-color: transparent !important;
-            }
-        }
+				a {
+					border-bottom: none !important;
+					margin: 0 !important;
+					font-size: 16px;
+					position: relative;
+					display: block;
+					padding: 13px 4px 13px 26px;
+
+					.caret-icon {
+						position: absolute;
+						right: 30px;
+						display: inline-block;
+						width: 20px;
+						vertical-align: middle;
+						text-align: center;
+					}
+				}
+
+				ul {
+					padding: 0;
+					margin: 0;
+					background-color: transparent !important;
+				}
+			}
+		}
     }
 
     // Store Product Cat
@@ -277,6 +288,11 @@ body.dokan-dashboard {
     .menu-dokan-pages-container {
         padding: 0 !important;
     }
+
+	// seller contact form
+	#dokan-form-contact-seller {
+		padding-top: 0;
+	}
 
     .widget {
 
@@ -1635,7 +1651,7 @@ Product Style
 
         &.columns-2 {
             grid-template-columns: repeat(2, 1fr);
-            
+
         }
 
         &.columns-3 {
