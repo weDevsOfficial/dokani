@@ -111,8 +111,8 @@ if ( ! function_exists( 'dokani_get_layout' ) ) {
 			$layout = $dokani_settings['single_product_layout_setting'];
 		}
 
-		// If we're on the store list page
-		if ( is_page_template( 'page-template/store-list.php' ) ) {
+		// If we're on the store list page.
+		if ( function_exists( 'dokan_is_store_listing' ) && dokan_is_store_listing() ) {
 			$layout = null;
 			$layout = $dokani_settings['store_list_layout_setting'];
 		}

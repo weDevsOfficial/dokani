@@ -288,16 +288,23 @@ endif;
  */
 function dokani_products_view_type() {
 	?>
-
-    <div class="dokani-products-view buttons box-shadow">
-        <button class="list"><i class="fas fa-bars"></i></button>
-        <button class="grid active"><i class="fas fa-th-large"></i></button>
-    </div>
+	<div class="dokani__filter-wrap clearfix" >
+		<div class="dokani-products-view buttons box-shadow">
+			<button class="list"><i class="fas fa-bars"></i></button>
+			<button class="grid active"><i class="fas fa-th-large"></i></button>
+		</div>
 
 	<?php
 }
-
 add_action( 'woocommerce_before_shop_loop', 'dokani_products_view_type' );
+
+/**
+ * Added [ div ] tag on filter wrap
+ */
+function dokani_add_div_tag_shop_filter() {
+	echo '</div>';
+}
+add_action( 'woocommerce_before_shop_loop', 'dokani_add_div_tag_shop_filter', 40 );
 
 /**
  * Rename Additional Information tab

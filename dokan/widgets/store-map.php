@@ -6,58 +6,73 @@
  *
  * @package dokani
  */
+
+if ( empty( $map_location ) ) {
+	return;
+}
+
 ?>
 
 <div class="location-container">
 
-	<?php if ( ! empty( $map_location ) ) { ?>
-		<div id="dokan-store-location"></div>
-
-		<script type="text/javascript">
-			jQuery(function($) {
-				<?php
-				$locations = explode( ',', $map_location );
-				$def_lat   = isset( $locations[0] ) ? $locations[0] : 90.40714300000002;
-				$def_long  = isset( $locations[1] ) ? $locations[1] : 23.709921;
-				?>
-
-				var def_longval = <?php echo esc_html( $def_long ); ?>;
-				var def_latval = <?php echo esc_html( $def_lat ); ?>;
-
-				var curpoint = new google.maps.LatLng(def_latval, def_longval),
-					$map_area = $('#dokan-store-location');
-
-				var gmap = new google.maps.Map( $map_area[0], {
-					center: curpoint,
-					zoom: 15,
-					mapTypeId: window.google.maps.MapTypeId.ROADMAP
-				});
-
-				var marker = new window.google.maps.Marker({
-					position: curpoint,
-					map: gmap
-				});
-			})
-
-		</script>
-	<?php } ?>
+	<div id="dokan-store-location"></div>
 
 	<?php
+		$source    = dokan_get_option( 'map_api_source', 'dokan_appearance', 'google_maps' );
+		$location  = explode( ',', $map_location );
+		$longitude = ! empty( $location[1] ) ? $location[1] : 90.40714300000002;
+		$latitude  = ! empty( $location[0] ) ? $location[0] : 23.709921;
+
+	if ( 'mapbox' === $source ) {
+		$access_token = dokan_get_option( 'mapbox_access_token', 'dokan_appearance', null );
+
+		if ( ! $access_token ) {
+			esc_html_e( 'Mapbox Access Token not found', 'dokani' );
+			return;
+		}
+		dokan_get_template_part(
+			'widgets/store-map-mapbox',
+			'',
+			array(
+				'map_location' => $map_location,
+				'access_token' => $access_token,
+				'location'     => array(
+					'longitude' => $longitude,
+					'latitude'  => $latitude,
+					'zoom'      => 10,
+				),
+			)
+		);
+	} else {
+		dokan_get_template_part(
+			'widgets/store-map-google-maps',
+			'',
+			array(
+				'map_location' => $map_location,
+				'location'     => array(
+					'longitude' => $longitude,
+					'latitude'  => $latitude,
+					'zoom'      => 15,
+				),
+			)
+		);
+	}
+
 	$store_user    = dokan()->vendor->get( get_query_var( 'author' ) );
 	$store_address = dokan_get_seller_short_address( $store_user->get_id(), false );
 
-	if ( isset( $store_address ) && ! empty( $store_address ) ) {
+	if ( isset( $store_address ) && ! empty( $store_address ) ) :
 		?>
-		<div class="dokan-store-address"><i class="fas fa-map-marker-alt"></i>
+		<div class="dokan-store-address"><i class="fas fa-map-marker"></i>
 			<?php echo wp_kses_post( $store_address ); ?>
 		</div>
-	<?php } ?>
+	<?php endif; ?>
 
-	<?php if ( ! empty( $store_user->get_phone() ) ) { ?>
+	<?php if ( ! empty( $store_user->get_phone() ) ) : ?>
 		<div class="dokan-store-phone">
 			<i class="fas fa-phone-alt"></i>
 			<a href="tel:<?php echo esc_attr( $store_user->get_phone() ); ?>"><?php echo esc_html( $store_user->get_phone() ); ?></a>
 		</div>
-	<?php } ?>
+	<?php endif; ?>
 
 </div>
