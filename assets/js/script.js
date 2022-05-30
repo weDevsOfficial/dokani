@@ -77,7 +77,7 @@ jQuery(function ($) {
         var viewCartText = $('a.added_to_cart.wc-forward').attr('title');
 
         $('i.fa-shopping-cart').removeClass('fa-spin');
-        $('a.added_to_cart.wc-forward').html('<i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="' + viewCartText + '" aria-hidden="true"></i><span>View Cart</span>');
+        $('a.added_to_cart.wc-forward').html('<i class="fas fa-eye" data-toggle="tooltip" data-placement="top" title="' + viewCartText + '" aria-hidden="true"></i><span>View Cart</span>');
         $('[data-toggle="tooltip"]').tooltip();
 
         $('.dokan-cart-amount-top > .amount').fadeOut('fast', function () {
@@ -98,16 +98,16 @@ jQuery(function ($) {
 
     // quantity product single page
     $(document).on('click', '.quantity-btn .plus', function(e) {
-        $input = $(this).parents('.quantity_wrap').children('input.qty');
-        var val = parseInt($input.val());
-        var step = $input.attr('step');
+        let $input = $(this).parents('.quantity_wrap').children('input.qty');
+        let val = parseInt($input.val()) || 0;
+        let step = $input.attr('step');
         step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
         $input.val( val + step ).change();
     });
     $(document).on('click', '.quantity-btn .minus', function(e) {
         $input = $(this).parents('.quantity_wrap').children('input.qty');
-        var val = parseInt($input.val());
-        var step = $input.attr('step');
+        let val = parseInt($input.val()) || 0;
+        let step = $input.attr('step');
         step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
         if (val > 0) {
             $input.val( val - step ).change();

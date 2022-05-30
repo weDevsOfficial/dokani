@@ -278,7 +278,8 @@
 }
 .top-bar .top-nav ul li.menu-item-has-children > a:after {
   content: "\f107";
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   font-size: 1.3em;
   position: absolute;
   right: 0;
@@ -1253,7 +1254,8 @@ ul.responsive-user-menu li .dropdown-menu li a i.pull-right {
 }
 .footer-menu ul li.menu-item-has-children > a:after {
   content: "\f106";
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   position: absolute;
   color: inherit;
   right: -2px;
@@ -1698,8 +1700,9 @@ nav ul ul .menu-item-has-children .dropdown-menu-toggle {
   float: right;
 }
 .dropdown-menu-toggle:before {
-  content: "\f105";
-  font-family: FontAwesome;
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
 }
 .dropdown-hover.both-right .inside-left-sidebar .dropdown-menu-toggle:before {
   content: "\f104";
@@ -4146,6 +4149,7 @@ ol.comment-list {
 }
 .woocommerce div.product table.variations .label {
   width: 30%;
+  vertical-align: middle;
 }
 .woocommerce div.product table.variations .label label {
   font-size: 1rem;
@@ -4154,7 +4158,7 @@ ol.comment-list {
   color: #333e48;
 }
 .woocommerce div.product table.variations .value select {
-  height: 35px;
+  height: 45px;
   font-size: 1rem;
   -webkit-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
@@ -4450,19 +4454,31 @@ ol.comment-list {
   position: relative;
 }
 .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard a:before {
-  content: "\f0e4";
+  content: "\f3fd";
 }
 .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders a:before {
-  content: "\f07a";
+  content: "\f291";
+}
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--downloads a:before {
+  content: "\f1c6";
 }
 .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address a:before {
-  content: "\f015";
+  content: "\f2bb";
 }
 .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account a:before {
   content: "\f007";
 }
 .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:before {
-  content: "\f08b";
+  content: "\f2f5";
+}
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--support-tickets a:before {
+  content: "\f3ff";
+}
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--bookings a:before {
+  content: "\f073";
+}
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--following a:before {
+  content: "\f500";
 }
 .woocommerce-MyAccount-navigation ul li a {
   padding: 12px 0;
@@ -4470,12 +4486,13 @@ ol.comment-list {
 }
 .woocommerce-MyAccount-navigation ul li a:before {
   display: inline-block;
-  font: normal normal normal 1em/1 FontAwesome;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "\f0f6";
+  content: "\f15c";
   line-height: 1.618;
   margin-left: 0.53em;
   width: 1.387em;
@@ -4677,9 +4694,8 @@ form.checkout #payment .payment_methods li.wc_payment_method > label:before {
   display: inline-block;
   font-style: normal;
   font-variant: normal;
-  font-weight: normal;
   line-height: 1;
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   line-height: inherit;
   vertical-align: baseline;
@@ -5012,8 +5028,8 @@ body.dokan-dashboard .dokan-table td.diviader {
   padding-left: 20px;
 }
 #dokan-seller-listing-wrap.list-view .dokan-seller-list li .store-footer .store-data .store-address:before {
-  font-family: FontAwesome;
-  content: '\f041';
+  font-family: "Font Awesome 5 Free";
+  content: '\f3c5';
   position: absolute;
   top: 2px;
   left: -1px;

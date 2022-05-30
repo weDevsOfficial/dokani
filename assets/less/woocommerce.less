@@ -1262,6 +1262,7 @@
     table.variations {
         .label {
             width: 30%;
+            vertical-align: middle;
 
             label {
                 font-size: 1rem;
@@ -1274,7 +1275,7 @@
 
         .value {
             select {
-                height: 35px;
+                height: 45px;
                 font-size: 1rem;
                 .box-shadow(0px 2px 8px 0px rgba(0, 0, 0, 0.06));
             }
@@ -1634,19 +1635,31 @@
         position: relative;
 
         &.woocommerce-MyAccount-navigation-link--dashboard a:before {
-            content: "\f0e4";
+            content: "\f3fd";
         }
         &.woocommerce-MyAccount-navigation-link--orders a:before {
-            content: "\f07a";
+            content: "\f291";
+        }
+        &.woocommerce-MyAccount-navigation-link--downloads a:before {
+            content: "\f1c6";
         }
         &.woocommerce-MyAccount-navigation-link--edit-address a:before {
-            content: "\f015";
+            content: "\f2bb";
         }
         &.woocommerce-MyAccount-navigation-link--edit-account a:before {
             content: "\f007";
         }
         &.woocommerce-MyAccount-navigation-link--customer-logout a:before {
-            content: "\f08b";
+            content: "\f2f5";
+        }
+        &.woocommerce-MyAccount-navigation-link--support-tickets a:before {
+            content: "\f3ff";
+        }
+        &.woocommerce-MyAccount-navigation-link--bookings a:before {
+            content: "\f073";
+        }
+        &.woocommerce-MyAccount-navigation-link--following a:before {
+            content: "\f500";
         }
 
         //&.is-active a {
@@ -1660,12 +1673,13 @@
 
             &:before {
                 display: inline-block;
-                font: normal normal normal 1em/1 FontAwesome;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
                 font-size: inherit;
                 text-rendering: auto;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
-                content: "\f0f6";
+                content: "\f15c";
                 line-height: 1.618;
                 margin-left: .53em;
                 width: 1.387em;
@@ -1908,9 +1922,8 @@ form.checkout {
                     display: inline-block;
                     font-style: normal;
                     font-variant: normal;
-                    font-weight: normal;
                     line-height: 1;
-                    font-family: 'FontAwesome';
+                    font-family: 'Font Awesome 5 Free';
                     font-weight: 900;
                     line-height: inherit;
                     vertical-align: baseline;

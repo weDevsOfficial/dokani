@@ -27,7 +27,7 @@ if ( empty( $map_location ) ) {
 		$access_token = dokan_get_option( 'mapbox_access_token', 'dokan_appearance', null );
 
 		if ( ! $access_token ) {
-			esc_html_e( 'Mapbox Access Token not found', 'dokan-lite' );
+			esc_html_e( 'Mapbox Access Token not found', 'dokani' );
 			return;
 		}
 		dokan_get_template_part(
@@ -63,14 +63,14 @@ if ( empty( $map_location ) ) {
 
 	if ( isset( $store_address ) && ! empty( $store_address ) ) :
 		?>
-		<div class="dokan-store-address"><i class="fa fa-map-marker"></i>
+		<div class="dokan-store-address"><i class="fas fa-map-marker"></i>
 			<?php echo wp_kses_post( $store_address ); ?>
 		</div>
 	<?php endif; ?>
 
 	<?php if ( ! empty( $store_user->get_phone() ) ) : ?>
 		<div class="dokan-store-phone">
-			<i class="fa fa-phone"></i>
+			<i class="fas fa-phone-alt"></i>
 			<a href="tel:<?php echo esc_attr( $store_user->get_phone() ); ?>"><?php echo esc_html( $store_user->get_phone() ); ?></a>
 		</div>
 	<?php endif; ?>
