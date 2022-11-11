@@ -39,18 +39,28 @@ if ( function_exists( 'dokani_secondary_nav_get_defaults' ) ) {
 		 */
 		do_action( 'dokani_before_right_sidebar_content' );
 
-		if ( is_page_template( 'page-template/store-list.php' ) ) :
+		if ( function_exists( 'dokan_is_store_listing' ) && dokan_is_store_listing() ) :
 
 			if ( ! dynamic_sidebar( 'store-list' ) ) :
 
 				if ( false == $navigation_active ) : ?>
 
-                    <aside id="archives" class="widget">
-                        <h2 class="widget-title"><?php esc_html_e( 'Archives', 'dokani' ); ?></h2>
-                        <ul>
-							<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-                        </ul>
-                    </aside>
+					<aside id="search" class="widget widget_search">
+						<?php get_search_form(); ?>
+					</aside>
+
+					<?php
+						$dokani_product_category_widget_instance = array(
+							'title'	=> esc_html__( 'Browse Category', 'dokani' ),
+						);
+						$dokani_product_category_widget_args     = array(
+							'before_widget' => '<aside class="widget dokan-category-menu">',
+							'after_widget'  => '</aside>',
+							'before_title'  => '<h2 class="widget-title">',
+							'after_title'   => '</h2>',
+						);
+						the_widget( 'WeDevs\Dokan\Widgets\ProductCategoryMenu', $dokani_product_category_widget_instance, $dokani_product_category_widget_args );
+						?>
 
 				<?php endif;
 
@@ -102,16 +112,16 @@ if ( function_exists( 'dokani_secondary_nav_get_defaults' ) ) {
                         'after_title'   => '</h3>',
                     );
 
-                    if ( class_exists( 'store_location' ) ) :
+                    if ( class_exists( 'Dokan_Store_Location' ) ) :
 
-                        the_widget( 'store_category_menu', array( 'title' => __( 'Store Category', 'dokani' ) ), $args );
+                        the_widget( 'WeDevs\Dokan\Widgets\StoreCategoryMenu', array( 'title' => __( 'Store Category', 'dokani' ) ), $args );
 
-                        if ( dokan_get_option( 'store_map', 'dokan_general', 'on' ) == 'on' && ! empty( $map_location ) ) {
-                            the_widget( 'store_location', array( 'title' => __( 'Store Location', 'dokani' ) ), $args );
+                        if ( dokan_get_option( 'store_map', 'dokan_general', 'on' ) == 'on' ) {
+                            the_widget( 'WeDevs\Dokan\Widgets\StoreLocation', array( 'title' => __( 'Store Location', 'dokani' ) ), $args );
                         }
 
                         if ( dokan_get_option( 'contact_seller', 'dokan_general', 'on' ) == 'on' ) {
-                            the_widget( 'store_contact_form', array( 'title' => __( 'Contact Vendor', 'dokani' ) ), $args );
+                            the_widget( 'WeDevs\Dokan\Widgets\StoreContactForm', array( 'title' => __( 'Contact Vendor', 'dokani' ) ), $args );
                         }
                     endif;
 
@@ -133,14 +143,14 @@ if ( function_exists( 'dokani_secondary_nav_get_defaults' ) ) {
                     <?php
 
                     if ( class_exists( 'Dokan_Store_Location' ) ) {
-                        the_widget( 'Dokan_Store_Category_Menu', array( 'title' => __( 'Store Category', 'dokani' ) ), $args );
+                        the_widget( 'WeDevs\Dokan\Widgets\StoreCategoryMenu', array( 'title' => __( 'Store Category', 'dokani' ) ), $args );
 
-                        if ( dokan_get_option( 'store_map', 'dokan_general', 'on' ) == 'on' && ! empty( $map_location ) ) {
-                            the_widget( 'Dokan_Store_Location', array( 'title' => __( 'Store Location', 'dokani' ) ), $args );
+                        if ( dokan_get_option( 'store_map', 'dokan_general', 'on' ) == 'on' ) {
+                            the_widget( 'WeDevs\Dokan\Widgets\StoreLocation', array( 'title' => __( 'Store Location', 'dokani' ) ), $args );
                         }
 
                         if ( dokan_get_option( 'contact_seller', 'dokan_general', 'on' ) == 'on' ) {
-                            the_widget( 'Dokan_Store_Contact_Form', array( 'title' => __( 'Contact Vendor', 'dokani' ) ), $args );
+                            the_widget( 'WeDevs\Dokan\Widgets\StoreContactForm', array( 'title' => __( 'Contact Vendor', 'dokani' ) ), $args );
                         }
                     }
 

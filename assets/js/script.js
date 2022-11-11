@@ -1,19 +1,4 @@
 jQuery(function ($) {
-    // $('button.single_add_to_cart_button').removeClass('button').addClass('btn btn-danger');
-    // $('a.button').removeClass('button').addClass('btn btn-danger');
-
-    // store list/grid view
-    // $('.dokan-seller-view.buttons > button').on('click', function (e) {
-    //     $(this).siblings().removeClass('active');
-    //     $(this).addClass('active');
-    //
-    //     if ($(this).hasClass('grid')) {
-    //         $('.seller-listing-content ul.dokan-seller-list').removeClass('list').addClass('grid');
-    //     } else if ($(this).hasClass('list')) {
-    //         $('.seller-listing-content ul.dokan-seller-list').removeClass('grid active').addClass('list active');
-    //     }
-    // });
-
     // Products list/grid view
     $('.dokani-products-view.buttons > button').on('click', function (e) {
         $(this).siblings().removeClass('active');
@@ -92,7 +77,7 @@ jQuery(function ($) {
         var viewCartText = $('a.added_to_cart.wc-forward').attr('title');
 
         $('i.fa-shopping-cart').removeClass('fa-spin');
-        $('a.added_to_cart.wc-forward').html('<i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="' + viewCartText + '" aria-hidden="true"></i><span>View Cart</span>');
+        $('a.added_to_cart.wc-forward').html('<i class="fas fa-eye" data-toggle="tooltip" data-placement="top" title="' + viewCartText + '" aria-hidden="true"></i><span>View Cart</span>');
         $('[data-toggle="tooltip"]').tooltip();
 
         $('.dokan-cart-amount-top > .amount').fadeOut('fast', function () {
@@ -113,21 +98,32 @@ jQuery(function ($) {
 
     // quantity product single page
     $(document).on('click', '.quantity-btn .plus', function(e) {
-        $input = $(this).parents('.quantity_wrap').children('input.qty');
-        var val = parseInt($input.val());
-        var step = $input.attr('step');
+        let $input = $(this).parents('.quantity_wrap').children('input.qty');
+        let val = parseInt($input.val()) || 0;
+        let step = $input.attr('step');
         step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
         $input.val( val + step ).change();
     });
     $(document).on('click', '.quantity-btn .minus', function(e) {
         $input = $(this).parents('.quantity_wrap').children('input.qty');
-        var val = parseInt($input.val());
-        var step = $input.attr('step');
+        let val = parseInt($input.val()) || 0;
+        let step = $input.attr('step');
         step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
         if (val > 0) {
             $input.val( val - step ).change();
         } 
     });
+
+    /* Toggle on product category */
+    var caretIcon = $('.wc-block-product-categories ul li ul');
+    caretIcon.before('<span class="toggleIcon"><i class="flaticon-arrow-down-sign-to-navigate"></i></span>');
+    $('.wc-block-product-categories ul li ul').hide();
+    var toggleIcon = $('.wc-block-product-categories ul li .toggleIcon');
+    toggleIcon.on('click', function () {
+        $(this).toggleClass('active');
+        $(this).next().slideToggle();
+    })
+    
 
 });
 

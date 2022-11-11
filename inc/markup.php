@@ -131,6 +131,10 @@ if ( ! function_exists( 'dokani_body_classes' ) ) {
 			$classes[] = 'dropdown-hover';
 		}
 
+		if ( function_exists( 'dokan_is_store_listing' ) && dokan_is_store_listing() ) {
+			$classes[] = 'dokani-store-listing-template';
+		}
+
 		if ( function_exists( 'dokan_is_store_page' ) && dokan_is_store_page() ) {
 			$classes[] = 'dokani-store-template';
         }
