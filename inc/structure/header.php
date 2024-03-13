@@ -391,7 +391,7 @@ if ( ! function_exists( 'dokan_responsive_user_menu' ) ) :
 	function dokan_responsive_user_menu() {
 		?>
 		<li id="dokane-menu-cart-wrapper">
-            <a href="#" class="dropdown-toggle dokani-menu-cart" data-toggle="dropdown">
+            <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="dropdown-toggle dokani-menu-cart" data-toggle="dropdown">
                 <i class="flaticon flaticon-commerce-1"></i>
                 <span class="screen-reader-text"><?php esc_html_e( 'Cart', 'dokani' )?></span>
                 <span class="dokan-cart-amount-top"><?php echo wp_kses_post( WC()->cart->get_cart_contents_count() ); ?></span>
