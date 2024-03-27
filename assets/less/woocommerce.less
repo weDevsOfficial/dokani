@@ -243,11 +243,11 @@
 
                         .item-header {
                             min-height: auto;
-                            
+
                             .star-rating {
                                 display: none !important;
                             }
-                            
+
                         }
                     }
 
@@ -475,7 +475,7 @@
 
                 ul {
                     padding: 0;
-                    
+
                     li {
                         padding-left: 0;
                         padding-right: 0;
@@ -598,7 +598,7 @@
         &:before {
             content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
             color: #D9D9D9;
-            
+
         }
 
         span {
@@ -607,7 +607,7 @@
             }
         }
     }
-    
+
     .rating-blank {
        width: 6.4em;
        font-size: 14px;
@@ -617,7 +617,7 @@
        overflow: hidden;
        line-height: 1;
        display: inline-block;
-    
+
        &:before {
            content: '\53\00a0\53\00a0\53\00a0\53\00a0\53';
            color: #D9D9D9;
@@ -1718,6 +1718,33 @@
             height: inherit;
         }
     }
+
+	ul.dokan-account-migration-lists {
+		li {
+			display: block !important;
+
+			.left-content {
+				margin-bottom: 1.25rem;
+			}
+
+			.right-content {
+				margin-bottom: .75rem;
+			}
+
+			.left-content,
+			.right-content {
+				width: 100%;
+				text-align: left !important;
+
+				@media (max-width: 430px) {
+					a.btn {
+						font-size: 1rem;
+						padding: 10px 14px;
+					}
+				}
+			}
+		}
+	}
 }
 .edit-account {
     em {
