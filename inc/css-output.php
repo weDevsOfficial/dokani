@@ -274,6 +274,10 @@ if ( ! function_exists( 'dokani_advanced_css' ) ) {
 		$css->add_property( 'color', esc_attr( $dokani_settings[ 'form_button_text_color' ] ) );
 		$css->add_property( 'background-color', esc_attr( $dokani_settings[ 'form_button_background_color' ] ) );
 
+		// Media button style.
+		$css->set_selector( '.supports-drag-drop .media-modal-content .media-menu-item' );
+		$css->add_property( 'color', '#000' );
+
 		// Form button on hover
 		$css->set_selector( 'button:hover,html input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover,a.button:hover,button:focus,html input[type="button"]:focus,input[type="reset"]:focus,input[type="submit"]:focus,a.button:focus' );
 		$css->add_property( 'background-color', esc_attr( $dokani_settings[ 'theme_color' ] ) );
