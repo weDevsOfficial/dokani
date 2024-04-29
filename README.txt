@@ -2,11 +2,11 @@
 Contributors: tareq1988, wedevs, nizamuddinbabu, sk.shaikat, mehidi258
 Tags: blog, e-commerce, grid-layout, three-columns, custom-colors, custom-menu, editor-style, featured-images, post-formats, theme-options, translation-ready
 Requires at least: 4.4
-Tested up to: 5.6
+Tested up to: 6.5.2
 WC requires at least: 3.0
-WC tested up to: 4.8
+WC tested up to: 8.8.2
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/license-list.html#GPLv2
 
@@ -39,6 +39,12 @@ To the best of our knowledge, Google doesn’t track nor share end user data.
 Privacy Policy for the Google Fonts API: https://developers.google.com/fonts/faq#what_does_using_the_google_fonts_api_mean_for_the_privacy_of_my_users
 
 == Changelog ==
+
+= 1.0.1 - 29 April 2024 =
+* fix: Mini cart loading issue after WooCommerce updated to v7.8.0.
+* fix: WP media upload buttons css conflict issue with Dokani theme.
+* fix: Responsive issue on become 'a wholesale customer button'.
+* fix: Dashboard buttons synchronization issue with dokan color customizer module.
 
 = 1.0.0 - 21 December 2020 =
 * Initial release
