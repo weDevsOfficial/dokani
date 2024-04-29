@@ -5947,6 +5947,7 @@ body.dokan-dashboard .dokan-table td.diviader {
   padding: 6.2px 10px !important;
 }
 .dokan-product-search-form .dokan-form-control {
+  min-height: 35px;
   padding: 4px 15px;
 }
 div.dokan-orders-content .dokan-orders-area .dokan-order-filter-serach {

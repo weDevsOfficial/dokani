@@ -379,13 +379,13 @@ if ( ! function_exists( 'dokani_advanced_css' ) ) {
 		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) );
 
 		$css->set_selector( '.dokan-theme-dokani input[type="submit"].dokan-btn-theme, .dokan-theme-dokani a.dokan-btn-theme, .dokan-theme-dokani .dokan-btn-theme' );
-		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) . '!important' );
-		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) . '!important' );
+		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) );
+		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) );
 
 		$css->set_selector( '.dokan-theme-dokani input[type="submit"].dokan-btn-theme:hover, .dokan-theme-dokani .dokan-btn-theme:hover, .dokan-theme-dokani .dokan-btn-theme:focus' );
-		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) . '!important' );
+		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) );
 		$css->add_property( 'opacity', '.9' );
-		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) . '!important' );
+		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) );
 
 
 		// Bottom bar
