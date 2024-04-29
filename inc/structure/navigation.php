@@ -32,46 +32,45 @@ if ( ! function_exists( 'dokani_navigation_position' ) ) {
 				do_action( 'dokani_inside_navigation' );
 				?>
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<?php  do_action( 'dokani_inside_mobile_menu' ); ?>
+					<?php do_action( 'dokani_inside_mobile_menu' ); ?>
 					<span class="mobile-menu screen-reader-text"><?php echo esc_html( apply_filters( 'dokani_mobile_menu_label', __( 'Menu', 'dokani' ) ) ); ?></span>
 				</button>
 
-                <?php
-                if ( has_nav_menu( 'primary' ) ) {
-                    wp_nav_menu(
-                        array(
-                            'theme_location' => 'primary',
-                            'container' => 'div',
-                            'container_class' => 'main-nav',
-                            'container_id' => 'primary-menu',
-                            'menu_class' => '',
-                            'fallback_cb' => 'dokani_menu_fallback',
-                            'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
-                        )
-                    );
+				<?php
+				if ( has_nav_menu( 'primary' ) ) {
+					wp_nav_menu(
+						array(
+							'theme_location'  => 'primary',
+							'container'       => 'div',
+							'container_class' => 'main-nav',
+							'container_id'    => 'primary-menu',
+							'menu_class'      => '',
+							'fallback_cb'     => 'dokani_menu_fallback',
+							'items_wrap'      => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>',
+						)
+					);
 
-	                if ( has_nav_menu( 'responsive_menu' ) ) {
-		                wp_nav_menu(
-			                array(
-				                'theme_location'  => 'responsive',
-				                'container'       => 'div',
-				                'container_class' => 'main-nav',
-				                'container_id'    => 'responsive-menu',
-				                'menu_class'      => '',
-				                'fallback_cb'     => 'dokani_menu_fallback',
-				                'items_wrap'      => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>'
-			                )
-		                );
-                    } else {
-	                    echo '<div id="responsive-menu" class="main-nav"><ul class=" menu sf-menu"><li class="menu-item">';
-		                echo '<li><a class="add_responsive_menu_label" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add Responsive Menu', 'dokani' ) . '</a></li>';
-                        echo '</ul></div>';
-                    }
-
-                } else {
-                    echo '<a class="add_primary_menu_label" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add Primary Menu', 'dokani' ) . '</a>';
-                }
-                ?>
+					if ( has_nav_menu( 'responsive_menu' ) ) {
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'responsive_menu',
+								'container'       => 'div',
+								'container_class' => 'main-nav',
+								'container_id'    => 'responsive-menu',
+								'menu_class'      => '',
+								'fallback_cb'     => 'dokani_menu_fallback',
+								'items_wrap'      => '<ul id="%1$s" class="%2$s ' . join( ' ', dokani_get_menu_class() ) . '">%3$s</ul>',
+							)
+						);
+					} else {
+						echo '<div id="responsive-menu" class="main-nav"><ul class=" menu sf-menu"><li class="menu-item">';
+						echo '<li><a class="add_responsive_menu_label" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add Responsive Menu', 'dokani' ) . '</a></li>';
+						echo '</ul></div>';
+					}
+				} else {
+					echo '<a class="add_primary_menu_label" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add Primary Menu', 'dokani' ) . '</a>';
+				}
+				?>
 
 			</div><!-- .inside-navigation -->
 		</nav><!-- #site-navigation -->
@@ -99,13 +98,13 @@ if ( ! function_exists( 'dokani_menu_fallback' ) ) {
 				<?php
 				$args = array(
 					'sort_column' => 'menu_order',
-					'title_li' => '',
-					'walker' => new dokani_Page_Walker()
+					'title_li'    => '',
+					'walker'      => new dokani_Page_Walker(),
 				);
 
 				wp_list_pages( $args );
 
-				if ( 'cart-nav' == $dokani_settings['cart_position_setting'] ){
+				if ( 'cart-nav' == $dokani_settings['cart_position_setting'] ) {
 					echo wp_kses_post( dokani_cart_position() );
 				}
 
@@ -154,11 +153,11 @@ if ( ! class_exists( 'dokani_Page_Walker' ) && class_exists( 'Walker_Page' ) ) {
 	class dokani_Page_Walker extends Walker_Page {
 		function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
 			$css_class = array( 'page_item', 'page-item-' . $page->ID );
-			$button = '';
+			$button    = '';
 
 			if ( isset( $args['pages_with_children'][ $page->ID ] ) ) {
 				$css_class[] = 'menu-item-has-children';
-				$button = '<span role="button" class="dropdown-menu-toggle" aria-expanded="false"></span>';
+				$button      = '<span role="button" class="dropdown-menu-toggle" aria-expanded="false"></span>';
 			}
 
 			if ( ! empty( $current_page ) ) {
@@ -171,14 +170,14 @@ if ( ! class_exists( 'dokani_Page_Walker' ) && class_exists( 'Walker_Page' ) ) {
 				} elseif ( $_current_page && $page->ID == $_current_page->post_parent ) {
 					$css_class[] = 'current-menu-parent';
 				}
-			} elseif ( $page->ID == get_option('page_for_posts') ) {
+			} elseif ( $page->ID == get_option( 'page_for_posts' ) ) {
 				$css_class[] = 'current-menu-parent';
 			}
 
 			$css_classes = implode( ' ', apply_filters( 'page_css_class', $css_class, $page, $depth, $args, $current_page ) );
 
 			$args['link_before'] = empty( $args['link_before'] ) ? '' : $args['link_before'];
-			$args['link_after'] = empty( $args['link_after'] ) ? '' : $args['link_after'];
+			$args['link_after']  = empty( $args['link_after'] ) ? '' : $args['link_after'];
 
 			$output .= sprintf(
 				'<li class="%s"><a href="%s">%s%s%s%s</a>',
@@ -200,27 +199,27 @@ if ( ! function_exists( 'dokani_dropdown_icon_to_menu_link' ) ) {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $title The menu item title.
-	 * @param WP_Post $item All of our menu item data.
+	 * @param string   $title The menu item title.
+	 * @param WP_Post  $item All of our menu item data.
 	 * @param stdClass $args All of our menu item args.
-	 * @param int $dept Depth of menu item.
+	 * @param int      $dept Depth of menu item.
 	 * @return string The menu item.
 	 */
 	function dokani_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 
-		$role = 'presentation';
+		$role     = 'presentation';
 		$tabindex = '';
 
 		if ( 'click-arrow' === dokani_get_setting( 'nav_dropdown_type' ) ) {
-			$role = 'button';
+			$role     = 'button';
 			$tabindex = ' tabindex="0"';
 		}
 
 		// Loop through our menu items and add our dropdown icons.
 		if ( 'main-nav' === $args->container_class ) {
 			foreach ( $item->classes as $value ) {
-				if ( 'menu-item-has-children' === $value  ) {
-					$title = $title . '<span role="' . $role . '" class="dropdown-menu-toggle"' . $tabindex .'></span>';
+				if ( 'menu-item-has-children' === $value ) {
+					$title = $title . '<span role="' . $role . '" class="dropdown-menu-toggle"' . $tabindex . '></span>';
 				}
 			}
 		}
@@ -237,7 +236,7 @@ if ( ! function_exists( 'dokani_menu_cart' ) ) {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $nav The HTML list content for the menu items.
+	 * @param string   $nav The HTML list content for the menu items.
 	 * @param stdClass $args An object containing wp_nav_menu() arguments.
 	 * @return string The cart menu item.
 	 */
@@ -297,9 +296,9 @@ function dokani_clone_sidebar_navigation() {
 }
 
 if ( ! function_exists( 'dokani_menu_responsive_search' ) ) {
-    if ( function_exists( 'dokan_pro' ) ) {
-	    add_filter( 'wp_nav_menu_items', 'dokani_menu_responsive_search', 10, 2 );
-    }
+	if ( function_exists( 'dokan_pro' ) ) {
+		add_filter( 'wp_nav_menu_items', 'dokani_menu_responsive_search', 10, 2 );
+	}
 	/**
 	 * Build responsive search
 	 *
@@ -324,23 +323,24 @@ if ( ! function_exists( 'dokani_responsive_vendor_menu' ) ) {
 	 */
 	function dokani_responsive_vendor_menu( $nav, $args ) {
 		global $current_user;
-		$user_id = $current_user->ID;
+		$user_id  = $current_user->ID;
 		$nav_urls = function_exists( 'dokan_get_dashboard_nav' ) ? dokan_get_dashboard_nav() : false;
 
 		if ( $args->theme_location == 'responsive_menu' ) {
 
-            if ( function_exists( 'dokan_is_user_seller' ) && dokan_is_user_seller( $user_id ) ) {
-                $vendor = '';
-                $vendor .= '<li class="menu-item menu-item-has-children"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'. __( 'Vendor Dashboard', 'dokani' ) .'<span role="presentation" class="dropdown-menu-toggle" aria-expanded="false"></span></a>';
+			if ( function_exists( 'dokan_is_user_seller' ) && dokan_is_user_seller( $user_id ) ) {
+				$vendor  = '';
+				$vendor .= '<li class="menu-item menu-item-has-children"><a href="#" class="dropdown-toggle" data-toggle="dropdown">' . __( 'Vendor Dashboard', 'dokani' ) . '<span role="presentation" class="dropdown-menu-toggle" aria-expanded="false"></span></a>';
 
-                $vendor .= '<ul class="sub-menu"><li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank">'. __( 'Visit your store', 'dokani' ) .'<i class="fa fa-external-link"></i></a></li>
+				$vendor .= '<ul class="sub-menu"><li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank">' . __( 'Visit your store', 'dokani' ) . '<i class="fas fa-external-link"></i></a></li>
                             <li class="divider"></li>';
-                           foreach ( $nav_urls as $key => $item ) {;
-                                $vendor .= '<li><a href="'.$item['url'].'">'.$item['icon'].' &nbsp;'.$item['title'].'</a></li>';
-                            }
-	            $vendor .='</ul></li>';
+				foreach ( $nav_urls as $key => $item ) {
+					;
+					 $vendor .= '<li><a href="' . $item['url'] . '">' . $item['icon'] . ' &nbsp;' . $item['title'] . '</a></li>';
+				}
+				$vendor .= '</ul></li>';
 
-			    return $nav . $vendor;
+				return $nav . $vendor;
 			}
 		}
 

@@ -274,6 +274,10 @@ if ( ! function_exists( 'dokani_advanced_css' ) ) {
 		$css->add_property( 'color', esc_attr( $dokani_settings[ 'form_button_text_color' ] ) );
 		$css->add_property( 'background-color', esc_attr( $dokani_settings[ 'form_button_background_color' ] ) );
 
+		// Media button style.
+		$css->set_selector( '.supports-drag-drop .media-modal-content .media-menu-item' );
+		$css->add_property( 'color', '#000' );
+
 		// Form button on hover
 		$css->set_selector( 'button:hover,html input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover,a.button:hover,button:focus,html input[type="button"]:focus,input[type="reset"]:focus,input[type="submit"]:focus,a.button:focus' );
 		$css->add_property( 'background-color', esc_attr( $dokani_settings[ 'theme_color' ] ) );
@@ -379,13 +383,13 @@ if ( ! function_exists( 'dokani_advanced_css' ) ) {
 		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) );
 
 		$css->set_selector( '.dokan-theme-dokani input[type="submit"].dokan-btn-theme, .dokan-theme-dokani a.dokan-btn-theme, .dokan-theme-dokani .dokan-btn-theme' );
-		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) . '!important' );
-		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) . '!important' );
+		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) );
+		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) );
 
 		$css->set_selector( '.dokan-theme-dokani input[type="submit"].dokan-btn-theme:hover, .dokan-theme-dokani .dokan-btn-theme:hover, .dokan-theme-dokani .dokan-btn-theme:focus' );
-		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) . '!important' );
+		$css->add_property( 'background-color', esc_attr( $dokani_settings['theme_color'] ) );
 		$css->add_property( 'opacity', '.9' );
-		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) . '!important' );
+		$css->add_property( 'border-color', esc_attr( $dokani_settings['theme_color'] ) );
 
 
 		// Bottom bar
@@ -821,11 +825,11 @@ function dokani_set_dynamic_css_cache() {
 	$cached_css = get_option( 'dokani_dynamic_css_output', false );
 	$cached_version = get_option( 'dokani_dynamic_css_cached_version', '' );
 
-	if ( ! $cached_css || $cached_version !== GENERATE_VERSION ) {
+	if ( ! $cached_css || $cached_version !== DOKANI_VERSION ) {
 		$css = dokani_base_css() . dokani_font_css() . dokani_advanced_css() . dokani_spacing_css();
 
 		update_option( 'dokani_dynamic_css_output', $css );
-		update_option( 'dokani_dynamic_css_cached_version', GENERATE_VERSION );
+		update_option( 'dokani_dynamic_css_cached_version', DOKANI_VERSION );
 	}
 }
 

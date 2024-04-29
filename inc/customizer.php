@@ -1094,9 +1094,10 @@ if ( ! function_exists( 'dokani_customize_register' ) ) {
 		);
 
 		$wp_customize->add_setting( 'dokani_footer_bar_section1_content', array(
-			'default'           => __( 'Copyright 2019 | dokani by weDevs', 'dokani' ),
-			'sanitize_callback' => 'wp_kses_post',
-		) );
+				'default'           => sprintf( __( 'Copyright %s | dokani by weDevs', 'dokani' ), date( 'Y' ) ),
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
 
 		$wp_customize->add_control(
 			new WP_Customize_Control(
@@ -2830,6 +2831,6 @@ if ( ! function_exists( 'dokani_customizer_live_preview' ) ) {
 	 * @since 1.0.0
 	 */
 	function dokani_customizer_live_preview() {
-		wp_enqueue_script( 'dokani-themecustomizer', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/customizer-live-preview.js', array( 'customize-preview' ), GENERATE_VERSION, true );
+		wp_enqueue_script( 'dokani-themecustomizer', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/controls/js/customizer-live-preview.js', array( 'customize-preview' ), DOKANI_VERSION, true );
 	}
 }

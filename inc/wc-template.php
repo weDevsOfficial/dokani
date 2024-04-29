@@ -11,16 +11,6 @@ remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pr
 remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 20 );
 remove_action( 'dokan_seller_listing_footer_content', array( Dokan_Geolocation_Vendor_View::class, 'seller_listing_footer_content' ) );
 
-add_action( 'woocommerce_before_quantity_input_field', 'dokani_quantity_label' );
-
-/*
- *
- *
- */
-function dokani_quantity_label() {
-    echo "<label class='quantity_label'>" . esc_html__( 'Quantity', 'dokani' ) . " :</label>";
-}
-
 /**
  * Pagination before shop loops.
  *
@@ -79,7 +69,7 @@ add_action( 'woocommerce_after_shop_loop_item', 'dokani_product_loop_price' );
  */
 function dokan_woo_breadcrumb( $args ) {
     return array(
-        'delimiter'   => '&nbsp; <i class="fa fa-angle-right"></i> &nbsp;',
+        'delimiter'   => '&nbsp; <i class="fas fa-angle-right"></i> &nbsp;',
         'wrap_before' => '<nav class="breadcrumb" ' . ( is_single() ? 'itemprop="breadcrumb"' : '' ) . '>',
         'wrap_after'  => '</nav>',
         'before'      => '<li>',
@@ -140,11 +130,11 @@ if ( ! class_exists( 'Dokan_Category_Walker' ) ) {
             $indent = str_repeat( "\t\r", $depth );
 
             if ( $depth == 0 ) {
-                $caret      = $args['has_children'] ? ' <span class="caret-icon"><i class="fa fa-angle-right" aria-hidden="true"></i></span>' : '';
+                $caret      = $args['has_children'] ? ' <span class="caret-icon"><i class="fas fa-angle-right" aria-hidden="true"></i></span>' : '';
                 $class_name = $args['has_children'] ? ' class="has-children parent-cat-wrap"' : ' class="parent-cat-wrap"';
                 $output     .= $indent . '<li' . $class_name . '><a href="' . get_term_link( $category ) . '">' . $category->name . $caret . '</a>' . "\n";
             } else {
-                $caret      = $args['has_children'] ? ' <span class="caret-icon"><i class="fa fa-angle-right" aria-hidden="true"></i></span>' : '';
+                $caret      = $args['has_children'] ? ' <span class="caret-icon"><i class="fas fa-angle-right" aria-hidden="true"></i></span>' : '';
                 $class_name = $args['has_children'] ? ' class="has-children"' : '';
                 $output     .= $indent . '<li' . $class_name . '><a href="' . get_term_link( $category ) . '">' . $category->name . $caret . '</a>';
             }
@@ -298,16 +288,23 @@ endif;
  */
 function dokani_products_view_type() {
 	?>
-
-    <div class="dokani-products-view buttons box-shadow">
-        <button class="list"><i class="fa fa-bars"></i></button>
-        <button class="grid active"><i class="fa fa-th-large"></i></button>
-    </div>
+	<div class="dokani__filter-wrap clearfix" >
+		<div class="dokani-products-view buttons box-shadow">
+			<button class="list"><i class="fas fa-bars"></i></button>
+			<button class="grid active"><i class="fas fa-th-large"></i></button>
+		</div>
 
 	<?php
 }
-
 add_action( 'woocommerce_before_shop_loop', 'dokani_products_view_type' );
+
+/**
+ * Added [ div ] tag on filter wrap
+ */
+function dokani_add_div_tag_shop_filter() {
+	echo '</div>';
+}
+add_action( 'woocommerce_before_shop_loop', 'dokani_add_div_tag_shop_filter', 40 );
 
 /**
  * Rename Additional Information tab

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Set our theme version.
-define( 'GENERATE_VERSION', '1.0.0' );
+define( 'DOKANI_VERSION', '1.0.0' );
 
 if ( ! function_exists( 'dokani_setup' ) ) {
 	add_action( 'after_setup_theme', 'dokani_setup' );
@@ -47,7 +47,7 @@ if ( ! function_exists( 'dokani_setup' ) ) {
 		register_nav_menus( array(
 			'primary'         => __( 'Primary Menu', 'dokani' ),
 			'top'             => __( 'Top Menu', 'dokani' ),
-			'responsive'      => __( 'Responsive Menu', 'dokani' ),
+			'responsive_menu' => __( 'Responsive Menu', 'dokani' ),
 			'footer_menu'     => __( 'Footer Menu', 'dokani' ),
 		) );
 

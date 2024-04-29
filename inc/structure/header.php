@@ -412,7 +412,7 @@ if ( ! function_exists( 'dokan_responsive_user_menu' ) ) :
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle dokani-menu-user" data-toggle="dropdown">
                     <i class="flaticon flaticon-people"></i>
-                    <span class="screen-reader-text"><?php echo esc_html( $current_user->display_name ); ?> <i class="fa fa-angle-down"></i></span>
+                    <span class="screen-reader-text"><?php echo esc_html( $current_user->display_name ); ?> <i class="fas fa-angle-down"></i></span>
                 </a>
                 <ul class="dropdown-menu">
                     <?php if ( function_exists( 'dokan_get_page_url' ) ) { ?>
