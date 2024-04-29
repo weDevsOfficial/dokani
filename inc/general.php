@@ -55,6 +55,8 @@ if ( ! function_exists( 'dokani_scripts' ) ) {
 		wp_enqueue_script( 'dokani-tooltip', $dir_uri . "/assets/js/tooltips.min.js", array( 'jquery' ) );
 		wp_enqueue_script( 'dokani-script', $dir_uri . "/assets/js/script.js", array( 'jquery' ), DOKANI_VERSION, true );
 
+		wp_enqueue_script( 'wc-cart-fragments' ); // Enqueue cart fragment script for loaded mini cart preview on `dokani` theme.
+
 		if ( 'click' == $dokani_settings[ 'nav_dropdown_type' ] || 'click-arrow' == $dokani_settings[ 'nav_dropdown_type' ] ) {
 			wp_enqueue_script( 'dokani-dropdown-click', $dir_uri . "/assets/js/dropdown-click{$suffix}.js", array( 'dokani-menu' ), DOKANI_VERSION, true );
 		}
