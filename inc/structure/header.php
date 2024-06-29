@@ -417,7 +417,7 @@ if ( ! function_exists( 'dokan_responsive_user_menu' ) ) :
                 <ul class="dropdown-menu">
                     <?php if ( function_exists( 'dokan_get_page_url' ) ) { ?>
                     <li><a href="<?php echo esc_url( dokan_get_page_url( 'my_orders' ) ); ?>"><?php esc_html_e( 'My Orders', 'dokani' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( 'myaccount', 'woocommerce' ); ?>"><?php esc_html_e( 'My Account', 'dokani' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( wc_get_account_endpoint_url( '' ) ); ?>"><?php esc_html_e( 'My Account', 'dokani' ); ?></a></li>
                     <?php } ?>
                     <li><a href="<?php echo esc_url( wc_customer_edit_account_url() ); ?>"><?php esc_html_e( 'Edit Account', 'dokani' ); ?></a></li>
                     <li class="divider"></li>
